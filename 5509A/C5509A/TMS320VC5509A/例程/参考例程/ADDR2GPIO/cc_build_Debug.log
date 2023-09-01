@@ -1,0 +1,11 @@
+-----------------------------  timer.pjt - Debug  -----------------------------
+[timer.c] "C:\CCStudio_v3.1\C5500\cgtools\bin\cl55" -g -q -fr"./Debug" -d"_DEBUG" -d"CHIP_5509" -@"Debug.lkf" "timer.c"
+"timer.c", line 170: warning: statement is unreachable
+
+[vectors.s55] "C:\CCStudio_v3.1\C5500\cgtools\bin\cl55" -g -q -fr"./Debug" -d"_DEBUG" -d"CHIP_5509" -@"Debug.lkf" "vectors.s55"
+
+[Linking...] "C:\CCStudio_v3.1\C5500\cgtools\bin\cl55" -@"Debug.lkf"
+<Linking>
+
+Build Complete,
+  0 Errors, 1 Warnings, 0 Remarks.

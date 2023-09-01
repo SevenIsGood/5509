@@ -1,0 +1,7 @@
+-----------------------------  FIRLMS.pjt - Debug  -----------------------------
+[FIRLMS.c] "c:\ti5000\c5500\cgtools\bin\cl55" -g -q -fr"c:/icetek-vc5509-edulab/lab0505-firlms/Debug" -d"_DEBUG" -ml -@"Debug.lkf" "FIRLMS.c"
+
+[Linking...] "c:\ti5000\c5500\cgtools\bin\cl55" -@"Debug.lkf"
+
+Build Complete,
+  0 Errors, 0 Warnings, 0 Remarks.

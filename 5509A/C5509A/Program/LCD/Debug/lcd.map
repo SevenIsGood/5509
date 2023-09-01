@@ -1,0 +1,236 @@
+******************************************************************************
+         TMS320C55x COFF Linker PC v3.3.2                      
+******************************************************************************
+>> Linked Tue Oct 23 15:13:57 2012
+
+OUTPUT FILE NAME:   <./Debug/lcd.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 00004000
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+                        (bytes)   (bytes)    (bytes)   (bytes)
+----------------------  --------  ---------  --------  --------  ----  --------
+PAGE 0:
+  PROG0                 00004000   00008000  00000758  000078a8  RW X
+  P_VECT                0000ff80   00000080  00000000  00000080  R IX
+
+PAGE 1:
+  DATA0                 0000c000   00004000  000010c8  00002f38  RW  
+
+
+SECTION ALLOCATION MAP
+(Addresses surrounded by []'s are displayed for convenience only!)
+
+output                                                          attributes/
+section   page  orgn(bytes) orgn(words) len(bytes) len(words)   input sections
+--------  ----  ----------- ----------- ---------- ----------   --------------
+.data        0   [ 00000000 ]  00000000          *   00000000   UNINITIALIZED
+
+.text        0     00004000  [ 00002000 ] 00000594          *   
+                   00004000  [ 00002000 ] 0000003b          *   rts55x.lib : boot.obj (.text)
+                   0000403b  [ 0000201d+] 000000b6          *              : exit.obj (.text)
+                   000040f1  [ 00002078+] 00000007          *              : exit.obj (.text:CIO_breakpoint)
+                   000040f8  [ 0000207c ] 00000002          *              : vectors.obj (.text)
+                   000040fa  [ 0000207d ] 00000012          *              : _lock.obj (.text)
+                   0000410c  [ 00002086 ] 0000003c          *              : args_main.obj (.text)
+                   00004148  [ 000020a4 ] 00000062          *              : autoinit.obj (.text)
+                   000041aa  [ 000020d5 ] 00000271          *   lcd.obj (.text)
+                   0000441b  [ 0000220d+] 0000000d          *   csl5509x.lib : _csl_init.obj (.text:_CSL_init)
+                   00004428  [ 00002214 ] 00000002          *                : csl.obj (.text)
+                   0000442a  [ 00002215 ] 0000000c          *                : csl.obj (.text:CSL_init)
+                   00004436  [ 0000221b ] 000000de          *                : emifA_cfg.obj (.text:EMIF_config)
+                   00004514  [ 0000228a ] 0000000f          *                : irq_gdisab.obj (.text:IRQ_globalDisable)
+                   00004523  [ 00002291+] 0000000c          *                : irq_grest.obj (.text:IRQ_globalRestore)
+                   0000452f  [ 00002297+] 00000064          *                : pll_cfg.obj (.text:PLL_config)
+                   00004593  [ 000022c9+] 00000001          *   --HOLE-- [fill = 20]
+
+.cinit       0   [ 00004594 ]  000022ca          *   00000062   
+                 [ 00004594 ]  000022ca          *   00000025   csl5509x.lib : csl_csldat.obj (.cinit)
+                 [ 000045de ]  000022ef          *   00000024   lcd.obj (.cinit)
+                 [ 00004626 ]  00002313          *   0000000e   rts55x.lib : exit.obj (.cinit)
+                 [ 00004642 ]  00002321          *   0000000a              : _lock.obj (.cinit)
+                 [ 00004656 ]  0000232b          *   00000001   --HOLE-- [fill = 0]
+
+vectors      0     00004658  [ 0000232c ] 00000100          *   
+                   00004658  [ 0000232c ] 00000100          *   rts55x.lib : vectors.obj (vectors)
+
+.vectors     0   [ 0000ff80 ]  00007fc0          *   00000000   UNINITIALIZED
+
+.cio         1   [ 0000c000 ]  00006000          *   00000000   UNINITIALIZED
+
+.const       1   [ 0000c000 ]  00006000          *   00000000   UNINITIALIZED
+
+.sysmem      1   [ 0000c000 ]  00006000          *   00000000   UNINITIALIZED
+
+.bss         1   [ 0000c000 ]  00006000          *   0000045a   UNINITIALIZED
+                 [ 0000c000 ]  00006000          *   00000410   lcd.obj (.bss)
+                 [ 0000c820 ]  00006410          *   00000046   rts55x.lib : exit.obj (.bss)
+                 [ 0000c8ac ]  00006456          *   00000004              : _lock.obj (.bss)
+
+.stack       1   [ 0000c8b4 ]  0000645a          *   000001f4   UNINITIALIZED
+
+.sysstack 
+*            1   [ 0000cc9c ]  0000664e          *   000001f4   UNINITIALIZED
+
+.csldata     1   [ 0000d084 ]  00006842          *   00000022   UNINITIALIZED
+                 [ 0000d084 ]  00006842          *   00000022   csl5509x.lib : csl_csldat.obj (.csldata:SYS_data)
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+00000002                $TI_capability$C5500$MemoryModel
+00000001                $TI_capability_requires_rev2
+            00006000    .bss
+            00000000    .data
+00004000                .text
+000040f2                C$$EXIT
+00004428                _CSL5509_LIB_
+            00006842    _CSL_SysData
+0000442a                _CSL_init
+00004436                _EMIF_config
+00004514                _IRQ_globalDisable
+00004523                _IRQ_globalRestore
+            000063f0    _LCDCOM
+            000063f2    _LCDIN
+            000063ee    _LCDOUT
+0000452f                _PLL_config
+00004658                _Reset
+0000435e                _Smenu
+0000441b                __CSL_init
+000003e8                __STACK_SIZE
+000003e8                __SYSSTACK_SIZE
+ffffffff                ___binit__
+            00006000    ___bss__
+ffffffff                ___c_args__
+            000022ca    ___cinit__
+            00000000    ___data__
+            00000000    ___edata__
+            0000645a    ___end__
+00004594                ___etext__
+ffffffff                ___pinit__
+00004000                ___text__
+0000410c                __args_main
+            00006452    __cleanup_ptr
+            00006454    __dtors_ptr
+            00006456    __lock
+0000410a                __nop
+00004102                __register_lock
+000040fa                __register_unlock
+            0000645a    __stack
+            0000664e    __sysstack
+            00006458    __unlock
+000040f1                _abort
+            000063f4    _addr
+0000409b                _atexit
+00004148                _auto_init
+            00006001    _b
+            000063ed    _button
+00004000                _c_int00
+000041d7                _chk_busy
+000042fc                _clrram
+            00006005    _databuffer
+            00006004    _datacount
+000041ba                _delay
+            000063fe    _emiffig
+0000403b                _exit
+            000063f6    _k1_down
+            000063f7    _k2_down
+            000063f8    _k3_down
+            000063f9    _k4_down
+00004312                _lcd_init
+000043be                _main
+            000063fa    _myConfig
+0000423f                _wr_lcd
+            00006000    _x
+            00006002    _y
+ffffffff                binit
+            000022ca    cinit
+            00000000    edata
+            0000645a    end
+00004594                etext
+ffffffff                pinit
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+            00000000    .data
+            00000000    ___edata__
+            00000000    ___data__
+            00000000    edata
+00000001                $TI_capability_requires_rev2
+00000002                $TI_capability$C5500$MemoryModel
+000003e8                __SYSSTACK_SIZE
+000003e8                __STACK_SIZE
+00004000                .text
+00004000                ___text__
+00004000                _c_int00
+0000403b                _exit
+0000409b                _atexit
+000040f1                _abort
+000040f2                C$$EXIT
+000040fa                __register_unlock
+00004102                __register_lock
+0000410a                __nop
+0000410c                __args_main
+00004148                _auto_init
+000041ba                _delay
+000041d7                _chk_busy
+0000423f                _wr_lcd
+000042fc                _clrram
+00004312                _lcd_init
+0000435e                _Smenu
+000043be                _main
+0000441b                __CSL_init
+00004428                _CSL5509_LIB_
+0000442a                _CSL_init
+00004436                _EMIF_config
+00004514                _IRQ_globalDisable
+00004523                _IRQ_globalRestore
+0000452f                _PLL_config
+00004594                etext
+            000022ca    ___cinit__
+00004594                ___etext__
+            000022ca    cinit
+00004658                _Reset
+            00006000    .bss
+            00006000    _x
+            00006000    ___bss__
+            00006001    _b
+            00006002    _y
+            00006004    _datacount
+            00006005    _databuffer
+            000063ed    _button
+            000063ee    _LCDOUT
+            000063f0    _LCDCOM
+            000063f2    _LCDIN
+            000063f4    _addr
+            000063f6    _k1_down
+            000063f7    _k2_down
+            000063f8    _k3_down
+            000063f9    _k4_down
+            000063fa    _myConfig
+            000063fe    _emiffig
+            00006452    __cleanup_ptr
+            00006454    __dtors_ptr
+            00006456    __lock
+            00006458    __unlock
+            0000645a    ___end__
+            0000645a    end
+            0000645a    __stack
+            0000664e    __sysstack
+            00006842    _CSL_SysData
+ffffffff                ___binit__
+ffffffff                pinit
+ffffffff                ___pinit__
+ffffffff                binit
+ffffffff                ___c_args__
+
+[71 symbols]

@@ -1,0 +1,278 @@
+******************************************************************************
+              TMS320C55x Linker PC v4.4.1                      
+******************************************************************************
+>> Linked Tue Jun 20 23:45:10 2023
+
+OUTPUT FILE NAME:   <Pro0201_XF.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 000141f8
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+                        (bytes)   (bytes)    (bytes)   (bytes)
+----------------------  --------  ---------  --------  --------  ----  --------
+  MMR                   00000000   000000c0  00000000  000000c0  RWIX
+  SPRAM                 000000c0   00000040  00000000  00000040  RWIX
+  VECS                  00000100   00000100  00000100  00000000  RWIX
+  DARAM0                00000200   00003e00  00000544  000038bc  RWIX
+  DARAM1                00004000   00004000  00000018  00003fe8  RWIX
+  DARAM2                00008000   00004000  00000000  00004000  RWIX
+  DARAM3                0000c000   00004000  00000000  00004000  RWIX
+  SARAM0                00010000   00004000  00000082  00003f7e  RWIX
+  SARAM1                00014000   00008000  00000268  00007d98  RWIX
+  SARAM3                0001c000   00004000  00000000  00004000  RWIX
+  SARAM4                00020000   00004000  00000000  00004000  RWIX
+  SARAM5                00024000   00004000  00000000  00004000  RWIX
+  SARAM6                00028000   00004000  00000000  00004000  RWIX
+  SARAM7                0002c000   00004000  00000000  00004000  RWIX
+  SARAM8                00030000   00004000  00000000  00004000  RWIX
+  SARAM9                00034000   00004000  00000000  00004000  RWIX
+  SARAM10               00038000   00004000  00000000  00004000  RWIX
+  SARAM11               0003c000   00004000  00000000  00004000  RWIX
+  SARAM12               00040000   00004000  00000000  00004000  RWIX
+  SARAM13               00044000   00004000  00000000  00004000  RWIX
+  SARAM14               00048000   00004000  00000000  00004000  RWIX
+  SARAM15               0004c000   00004000  00000000  00004000  RWIX
+  CE0                   00050000   003b0000  00000000  003b0000  RWIX
+  CE1                   00400000   00400000  00000000  00400000  RWIX
+  CE2                   00800000   00400000  00000000  00400000  RWIX
+  CE3                   00c00000   003f8000  00000000  003f8000  RWIX
+  PDROM                 00ff8000   00007f00  00000000  00007f00  RWIX
+
+
+SECTION ALLOCATION MAP
+(Addresses surrounded by []'s are displayed for convenience only!)
+
+output                                                          attributes/
+section   page  orgn(bytes) orgn(words) len(bytes) len(words)   input sections
+--------  ----  ----------- ----------- ---------- ----------   --------------
+.vectors     0     00000100  [ 00000080 ] 00000100          *   
+                   00000100  [ 00000080 ] 00000100          *   vectors.obj (.vectors)
+
+.stack       0   [ 00000200 ]  00000100          *   00000100   UNINITIALIZED
+                 [ 00000200 ]  00000100          *   00000100   --HOLE--
+
+.sysstack 
+*            0   [ 00000400 ]  00000200          *   00000100   UNINITIALIZED
+                 [ 00000400 ]  00000200          *   00000100   --HOLE--
+
+.csldata     0   [ 00000600 ]  00000300          *   00000022   UNINITIALIZED
+                 [ 00000600 ]  00000300          *   00000022   csl5509ax.lib : csl_csldat.obj (.csldata:SYS_data)
+
+vectors      0     00000648  [ 00000324 ] 00000100          *   
+                   00000648  [ 00000324 ] 00000100          *   rts55x.lib : vectors.obj (vectors)
+
+.data        0   [ 00004000 ]  00002000          *   00000000   UNINITIALIZED
+
+.bss         0   [ 00004000 ]  00002000          *   0000000c   UNINITIALIZED
+                 [ 00004000 ]  00002000          *   00000004   rts55x.lib : _lock.obj (.bss)
+                 [ 00004008 ]  00002004          *   00000004              : exit.obj (.bss)
+                 [ 00004010 ]  00002008          *   00000004   xf.obj (.bss)
+
+.cinit       0   [ 00010000 ]  00008000          *   00000041   
+                 [ 00010000 ]  00008000          *   00000025   csl5509ax.lib : csl_csldat.obj (.cinit)
+                 [ 0001004a ]  00008025          *   0000000a   rts55x.lib : _lock.obj (.cinit)
+                 [ 0001005e ]  0000802f          *   0000000a              : exit.obj (.cinit)
+                 [ 00010072 ]  00008039          *   00000007   xf.obj (.cinit)
+                 [ 00010080 ]  00008040          *   00000001   --HOLE-- [fill = 0]
+
+.text        0     00014000  [ 0000a000 ] 00000268          *   
+                   00014000  [ 0000a000 ] 000000b4          *   xf.obj (.text)
+                   000140b4  [ 0000a05a ] 0000006e          *   csl5509ax.lib : pll_cfg.obj (.text:PLL_config)
+                   00014122  [ 0000a091 ] 0000004d          *   rts55x.lib : autoinit.obj (.text)
+                   0001416f  [ 0000a0b7+] 0000004b          *              : args_main.obj (.text)
+                   000141ba  [ 0000a0dd ] 0000003e          *              : exit.obj (.text)
+                   000141f8  [ 0000a0fc ] 00000034          *              : boot.obj (.text)
+                   0001422c  [ 0000a116 ] 00000012          *              : _lock.obj (.text)
+                   0001423e  [ 0000a11f ] 00000002          *              : vectors.obj (.text)
+                   00014240  [ 0000a120 ] 0000000d          *   csl5509ax.lib : _csl_init.obj (.text:_CSL_init)
+                   0001424d  [ 0000a126+] 00000002          *   vectors.obj (.text)
+                   0001424f  [ 0000a127 ] 00000001          *   --HOLE-- [fill = 20]
+                   00014250  [ 0000a128 ] 0000000c          *   csl5509ax.lib : csl.obj (.text:CSL_init)
+                   0001425c  [ 0000a12e ] 00000007          *   rts55x.lib : exit.obj (.text:CIO_breakpoint)
+                   00014263  [ 0000a131 ] 00000001          *   --HOLE-- [fill = 20]
+                   00014264  [ 0000a132 ] 00000002          *   csl5509ax.lib : csl.obj (.text)
+                   00014266  [ 0000a133 ] 00000002          *   --HOLE-- [fill = 20]
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+00000002                $TI_capability$C5500$CallingConvention
+00000002                $TI_capability$C5500$MemoryModel
+00000001                $TI_capability_requires_rev2
+            00002000    .bss
+            00002000    .data
+00014000                .text
+0001425d                C$$EXIT
+00014264                _CSL5509A_LIB_
+            00000300    _CSL_SysData
+00014250                _CSL_init
+00014052                _Delay
+000140b4                _PLL_config
+00000648                _Reset
+00000100                _VECSTART
+00014240                __CSL_init
+            00000200    __STACK_END
+00000200                __STACK_SIZE
+00000200                __SYSSTACK_SIZE
+00000001                __TI_args_main
+ffffffff                ___binit__
+            00002000    ___bss__
+ffffffff                ___c_args__
+            00008000    ___cinit__
+            00002000    ___data__
+            00002000    ___edata__
+            0000200c    ___end__
+00014268                ___etext__
+ffffffff                ___pinit__
+00014000                ___text__
+0001416f                __args_main
+            00002004    __cleanup_ptr
+            00002006    __dtors_ptr
+            00002000    __lock
+0001423c                __nop
+00014234                __register_lock
+0001422c                __register_unlock
+            00000100    __stack
+            00000200    __sysstack
+            00002002    __unlock
+0001425c                _abort
+00014122                _auto_init
+000141f8                _c_int00
+000141ba                _exit
+00014010                _main
+            00002008    _myConfig
+ffffffff                binit
+            00008000    cinit
+            00002000    edata
+            0000200c    end
+00014268                etext
+00000110                int0
+00000118                int1
+00000160                int10
+00000168                int11
+00000170                int12
+00000178                int13
+00000180                int14
+00000188                int15
+00000190                int16
+00000198                int17
+000001a0                int18
+000001a8                int19
+00000120                int2
+000001b0                int20
+000001b8                int21
+000001c0                int22
+000001c8                int23
+000001d0                int24
+000001d8                int25
+000001e0                int26
+000001e8                int27
+000001f0                int28
+000001f8                int29
+00000128                int3
+00000130                int4
+00000138                int5
+00000140                int6
+00000148                int7
+00000150                int8
+00000158                int9
+00000108                nmi
+0001424d                no_isr
+ffffffff                pinit
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+00000001                $TI_capability_requires_rev2
+00000001                __TI_args_main
+00000002                $TI_capability$C5500$CallingConvention
+00000002                $TI_capability$C5500$MemoryModel
+00000100                _VECSTART
+00000108                nmi
+00000110                int0
+00000118                int1
+00000120                int2
+00000128                int3
+00000130                int4
+00000138                int5
+00000140                int6
+00000148                int7
+00000150                int8
+00000158                int9
+00000160                int10
+00000168                int11
+00000170                int12
+00000178                int13
+00000180                int14
+00000188                int15
+00000190                int16
+00000198                int17
+000001a0                int18
+000001a8                int19
+000001b0                int20
+000001b8                int21
+000001c0                int22
+000001c8                int23
+000001d0                int24
+000001d8                int25
+000001e0                int26
+000001e8                int27
+000001f0                int28
+000001f8                int29
+00000200                __STACK_SIZE
+00000200                __SYSSTACK_SIZE
+            00000100    __stack
+            00000200    __STACK_END
+            00000200    __sysstack
+            00000300    _CSL_SysData
+00000648                _Reset
+            00002000    .bss
+            00002000    .data
+            00002000    ___bss__
+            00002000    ___data__
+            00002000    ___edata__
+            00002000    __lock
+            00002000    edata
+            00002002    __unlock
+            00002004    __cleanup_ptr
+            00002006    __dtors_ptr
+            00002008    _myConfig
+            0000200c    ___end__
+            0000200c    end
+            00008000    ___cinit__
+            00008000    cinit
+00014000                .text
+00014000                ___text__
+00014010                _main
+00014052                _Delay
+000140b4                _PLL_config
+00014122                _auto_init
+0001416f                __args_main
+000141ba                _exit
+000141f8                _c_int00
+0001422c                __register_unlock
+00014234                __register_lock
+0001423c                __nop
+00014240                __CSL_init
+0001424d                no_isr
+00014250                _CSL_init
+0001425c                _abort
+0001425d                C$$EXIT
+00014264                _CSL5509A_LIB_
+00014268                ___etext__
+00014268                etext
+ffffffff                ___binit__
+ffffffff                ___c_args__
+ffffffff                ___pinit__
+ffffffff                binit
+ffffffff                pinit
+
+[83 symbols]

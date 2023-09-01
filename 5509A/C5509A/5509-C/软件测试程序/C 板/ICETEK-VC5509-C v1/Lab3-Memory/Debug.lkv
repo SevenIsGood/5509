@@ -1,0 +1,3 @@
+-z -q -estart -m"./Debug/memory.map" -o"./Debug/memory.out" -w -x -i"c:/ti/c5500/bios/lib" -i"c:/ti/c5500/rtdx/lib" -i"c:/ti/c5500/xdais/lib" -i"c:/ti/c5500/cgtools/lib"
+"C:\ti\myprojects\ICETEK-VC5509-C\Lab3-Memory\Debug\Memory.obj"
+"C:\ti\myprojects\ICETEK-VC5509-C\Lab3-Memory\Memory.cmd"

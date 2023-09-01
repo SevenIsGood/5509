@@ -1,0 +1,5 @@
+-z -q -c -m"./Debug/flash.map" -o"./Debug/flash.out" -x -i"C:/CCStudio_v3.3/C5500/csl/lib" -i"C:/CCStudio_v3.3/C5500/xdais/lib" -i"C:/CCStudio_v3.3/bios_5_31_02/packages/ti/bios/lib" -i"C:/CCStudio_v3.3/bios_5_31_02/packages/ti/rtdx/lib/c5500" -i"C:/CCStudio_v3.3/C5500/cgtools/lib" -l"csl5509x.lib" -l"rts55x.lib"
+"E:\wn\5509A_pro2\Flash\Debug\flash.obj"
+"E:\wn\5509A_pro2\Flash\csl5509x.lib"
+"E:\wn\5509A_pro2\Flash\rts55x.lib"
+"E:\wn\5509A_pro2\Flash\emif.cmd"

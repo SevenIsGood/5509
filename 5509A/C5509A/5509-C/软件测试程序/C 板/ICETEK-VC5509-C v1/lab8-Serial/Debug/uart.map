@@ -1,0 +1,231 @@
+******************************************************************************
+         TMS320C55x COFF Linker PC v3.3.2                      
+******************************************************************************
+>> Linked Thu Jul 30 16:42:34 2009
+
+OUTPUT FILE NAME:   <./Debug/uart.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 0000073a
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+                        (bytes)   (bytes)    (bytes)   (bytes)
+----------------------  --------  ---------  --------  --------  ----  --------
+  PROG                  00000200   00002000  00000795  0000186b  RWIX
+  DATA                  00002200   00001000  000004f4  00000b0c  RWI 
+  VECT                  0000d000   00000100  00000100  00000000  RWIX
+
+
+SECTION ALLOCATION MAP
+(Addresses surrounded by []'s are displayed for convenience only!)
+
+output                                                          attributes/
+section   page  orgn(bytes) orgn(words) len(bytes) len(words)   input sections
+--------  ----  ----------- ----------- ---------- ----------   --------------
+.data        0   [ 00000000 ]  00000000          *   00000000   UNINITIALIZED
+
+.trcinit     0   [ 00000200 ]  00000100          *   00000000   UNINITIALIZED
+
+.gblinit     0   [ 00000200 ]  00000100          *   00000000   UNINITIALIZED
+
+frt          0   [ 00000200 ]  00000100          *   00000000   UNINITIALIZED
+
+.pinit       0   [ 00000200 ]  00000100          *   00000000   UNINITIALIZED
+
+.sysinit     0   [ 00000200 ]  00000100          *   00000000   UNINITIALIZED
+
+.text        0     00000200  [ 00000100 ] 00000721          *   
+                   00000200  [ 00000100 ] 000002af          *   uart.obj (.text)
+                   000004af  [ 00000257+] 0000028b          *   util.obj (.text)
+                   0000073a  [ 0000039d ] 0000003b          *   rts55x.lib : boot.obj (.text)
+                   00000775  [ 000003ba+] 000000b6          *              : exit.obj (.text)
+                   0000082b  [ 00000415+] 00000007          *              : exit.obj (.text:CIO_breakpoint)
+                   00000832  [ 00000419 ] 0000003c          *              : idiv.obj (.text)
+                   0000086e  [ 00000437 ] 00000002          *              : vectors.obj (.text)
+                   00000870  [ 00000438 ] 00000012          *              : _lock.obj (.text)
+                   00000882  [ 00000441 ] 0000003c          *              : args_main.obj (.text)
+                   000008be  [ 0000045f ] 00000062          *              : autoinit.obj (.text)
+                   00000920  [ 00000490 ] 00000001          *   --HOLE-- [fill = 20]
+
+.cinit       0   [ 00000922 ]  00000491          *   0000003a   
+                 [ 00000922 ]  00000491          *   00000021   uart.obj (.cinit)
+                 [ 00000964 ]  000004b2          *   0000000e   rts55x.lib : exit.obj (.cinit)
+                 [ 00000980 ]  000004c0          *   0000000a              : _lock.obj (.cinit)
+                 [ 00000994 ]  000004ca          *   00000001   --HOLE-- [fill = 0]
+
+.far         0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.const       0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.switch      0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.sysmem      0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.cio         0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.MEM$obj     0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.sysheap     0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.sysstack 
+*            0   [ 00002200 ]  00001100          *   000000fa   UNINITIALIZED
+
+.stack       0   [ 000023f4 ]  000011fa          *   000000fa   UNINITIALIZED
+
+.bss         0   [ 000025e8 ]  000012f4          *   00000086   UNINITIALIZED
+                 [ 000025e8 ]  000012f4          *   00000046   rts55x.lib : exit.obj (.bss)
+                 [ 00002674 ]  0000133a          *   00000035   uart.obj (.bss)
+                 [ 000026de ]  0000136f          *   00000006   util.obj (.bss)
+                 [ 000026ec ]  00001376          *   00000004   rts55x.lib : _lock.obj (.bss)
+
+.vectors     0   [ 0000d000 ]  00006800          *   00000000   UNINITIALIZED
+
+vectors      0     0000d000  [ 00006800 ] 00000100          *   
+                   0000d000  [ 00006800 ] 00000100          *   rts55x.lib : vectors.obj (vectors)
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+00000002                $TI_capability$C5500$MemoryModel
+00000001                $TI_capability_requires_rev2
+            000012f4    .bss
+            00000000    .data
+00000200                .text
+0000082c                C$$EXIT
+00000832                I$$DIV
+00000851                I$$MOD
+0000043a                _EMIF_init
+000005c4                _INT_Disable
+000005dd                _INT_DisableGlobal
+000005b1                _INT_Enable
+000005d9                _INT_EnableGlobal
+00000601                _INT_InstallHandler
+000005e1                _INT_SetVec
+000004af                _PLL_Init
+0000d000                _Reset
+000006d6                _SWDelayMsec
+00000685                _SWDelayUsec
+0000044b                _TMCR_reset
+000001f4                __STACK_SIZE
+000001f4                __SYSSTACK_SIZE
+ffffffff                ___binit__
+            000012f4    ___bss__
+ffffffff                ___c_args__
+            00000491    ___cinit__
+            00000000    ___data__
+            00000000    ___edata__
+            0000137a    ___end__
+00000921                ___etext__
+ffffffff                ___pinit__
+00000200                ___text__
+00000882                __args_main
+            00001336    __cleanup_ptr
+00000832                __divi
+            00001338    __dtors_ptr
+            00001376    __lock
+00000880                __nop
+00000878                __register_lock
+00000870                __register_unlock
+00000851                __remi
+            000011fa    __stack
+            00001100    __sysstack
+            00001378    __unlock
+0000082b                _abort
+000007d5                _atexit
+000008be                _auto_init
+            0000136d    _bReceive
+            0000135d    _cAnswer
+            0000134c    _cBuffer
+            0000134b    _cReceive
+            0000133a    _cString
+0000073a                _c_int00
+            0000136f    _dspclk
+00000775                _exit
+00000702                _firstbit
+00000200                _main
+            0000136e    _nLen
+00000466                _wait
+ffffffff                binit
+            00000491    cinit
+            00000000    edata
+            0000137a    end
+00000921                etext
+ffffffff                pinit
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+            00000000    .data
+            00000000    ___edata__
+            00000000    ___data__
+            00000000    edata
+00000001                $TI_capability_requires_rev2
+00000002                $TI_capability$C5500$MemoryModel
+000001f4                __SYSSTACK_SIZE
+000001f4                __STACK_SIZE
+00000200                _main
+00000200                .text
+00000200                ___text__
+0000043a                _EMIF_init
+0000044b                _TMCR_reset
+00000466                _wait
+000004af                _PLL_Init
+000005b1                _INT_Enable
+000005c4                _INT_Disable
+000005d9                _INT_EnableGlobal
+000005dd                _INT_DisableGlobal
+000005e1                _INT_SetVec
+00000601                _INT_InstallHandler
+00000685                _SWDelayUsec
+000006d6                _SWDelayMsec
+00000702                _firstbit
+0000073a                _c_int00
+00000775                _exit
+000007d5                _atexit
+0000082b                _abort
+0000082c                C$$EXIT
+00000832                I$$DIV
+00000832                __divi
+00000851                I$$MOD
+00000851                __remi
+00000870                __register_unlock
+00000878                __register_lock
+00000880                __nop
+00000882                __args_main
+000008be                _auto_init
+00000921                ___etext__
+00000921                etext
+            00000491    cinit
+            00000491    ___cinit__
+            00001100    __sysstack
+            000011fa    __stack
+            000012f4    ___bss__
+            000012f4    .bss
+            00001336    __cleanup_ptr
+            00001338    __dtors_ptr
+            0000133a    _cString
+            0000134b    _cReceive
+            0000134c    _cBuffer
+            0000135d    _cAnswer
+            0000136d    _bReceive
+            0000136e    _nLen
+            0000136f    _dspclk
+            00001376    __lock
+            00001378    __unlock
+            0000137a    end
+            0000137a    ___end__
+0000d000                _Reset
+ffffffff                pinit
+ffffffff                ___pinit__
+ffffffff                ___c_args__
+ffffffff                ___binit__
+ffffffff                binit
+
+[65 symbols]

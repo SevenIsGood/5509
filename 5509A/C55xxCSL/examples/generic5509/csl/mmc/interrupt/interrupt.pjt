@@ -1,0 +1,35 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectDir="interrupt"
+ProjectType=Executable
+CPUFamily=TMS320C55XX
+Tool="Compiler"
+Tool="DspBiosBuilder"
+Tool="Linker"
+Config="Debug"
+Config="Release"
+
+[Source Files]
+Source=".\interrupt.c"
+Source="vectors.s55"
+Source="mmc.cmd"
+
+["Compiler" Settings: "Debug"]
+Options=-g -mg -q -fr".\Debug" -d"_DEBUG" -d"CHIP_5509" -d"ALGEBRAIC" -ml
+
+["Compiler" Settings: "Release"]
+Options=-q -o2 -fr".\Release"
+
+["DspBiosBuilder" Settings: "Debug"]
+Options=-v55
+
+["DspBiosBuilder" Settings: "Release"]
+Options=-v55
+
+["Linker" Settings: "Debug"]
+Options=-q -c -m".\Debug\interrupt.map" -o".\Debug\interrupt.out" -stack0x1000 -sysstack0x1000 -w -x -l"rts55x.lib" -l"csl5509x.lib"
+
+["Linker" Settings: "Release"]
+Options=-q -c -m".\Release\interrupt.map" -o".\Release\interrupt.out" -w -x
+

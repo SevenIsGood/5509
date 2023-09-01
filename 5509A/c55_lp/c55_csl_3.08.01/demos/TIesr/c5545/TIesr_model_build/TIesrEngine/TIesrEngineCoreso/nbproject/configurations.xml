@@ -1,0 +1,800 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="88">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+      <itemPath>../src/confidence.h</itemPath>
+      <itemPath>../src/confidence_struct_user.h</itemPath>
+      <itemPath>../src/confidence_user.h</itemPath>
+      <itemPath>../src/dist_user.h</itemPath>
+      <itemPath>../src/filename.h</itemPath>
+      <itemPath>../src/gmhmm.h</itemPath>
+      <itemPath>../src/gmhmm_type.h</itemPath>
+      <itemPath>../src/gmhmm_type_common_user.h</itemPath>
+      <itemPath>../src/hlr_status.h</itemPath>
+      <itemPath>../src/load_user.h</itemPath>
+      <itemPath>../src/mfcc_f.h</itemPath>
+      <itemPath>../src/mfcc_f_def_struct_user.h</itemPath>
+      <itemPath>../src/mfcc_f_user.h</itemPath>
+      <itemPath>../src/my_fileio.h</itemPath>
+      <itemPath>../src/noise_sub.h</itemPath>
+      <itemPath>../src/noise_sub_user.h</itemPath>
+      <itemPath>../src/obsprob_user.h</itemPath>
+      <itemPath>../src/pack_user.h</itemPath>
+      <itemPath>../src/pmc_f.h</itemPath>
+      <itemPath>../src/pmc_f_user.h</itemPath>
+      <itemPath>../src/rapidsearch.h</itemPath>
+      <itemPath>/data/speech/release/OpenSource/TIesrExternalOS/branches/C55/TIesrEngine/src/rapidsearch_struct_user.h</itemPath>
+      <itemPath>../src/rapidsearch_user.h</itemPath>
+      <itemPath>../src/sbc.h</itemPath>
+      <itemPath>../src/sbc_struct_user.h</itemPath>
+      <itemPath>../src/sbc_user.h</itemPath>
+      <itemPath>../src/search_user.h</itemPath>
+      <itemPath>../src/status.h</itemPath>
+      <itemPath>../src/tiesr_config.h</itemPath>
+      <itemPath>../src/tiesrcommonmacros.h</itemPath>
+      <itemPath>../src/uttdet.h</itemPath>
+      <itemPath>../src/uttdet_user.h</itemPath>
+      <itemPath>../src/volume_user.h</itemPath>
+      <itemPath>../src/winlen.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+      <itemPath>../resource/TIesrEngineCore.ver</itemPath>
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <itemPath>../src/dist.c</itemPath>
+      <itemPath>../src/gmhmm_type_common.c</itemPath>
+      <itemPath>../src/load.c</itemPath>
+      <itemPath>../src/mfcc_f.c</itemPath>
+      <itemPath>../src/my_fileio.c</itemPath>
+      <itemPath>../src/noise_sub.c</itemPath>
+      <itemPath>../src/obsprob.c</itemPath>
+      <itemPath>../src/pack.c</itemPath>
+      <itemPath>../src/pmc_f.c</itemPath>
+      <itemPath>../src/rapidsearch.c</itemPath>
+      <itemPath>../src/sbc.c</itemPath>
+      <itemPath>../src/search.c</itemPath>
+      <itemPath>../src/uttdet.c</itemPath>
+      <itemPath>../src/volume.c</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="WindowsDebugMinGW" type="2">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>Cygwin|Cygwin</compilerSet>
+      </toolsSet>
+      <compileType>
+        <ccTool>
+          <commandLine>-v -mno-cygwin</commandLine>
+          <preprocessorList>
+            <Elem>TIESRENGINECOREAPI_EXPORTS</Elem>
+            <Elem>WIN32</Elem>
+          </preprocessorList>
+          <warningLevel>2</warningLevel>
+        </ccTool>
+        <linkerTool>
+          <output>../../Dist/${CND_CONF}/libTIesrEngineCore.dll</output>
+          <commandLine>-v</commandLine>
+        </linkerTool>
+      </compileType>
+      <item path="../resource/TIesrEngineCore.ver" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/confidence.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/confidence_struct_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/confidence_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/dist.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/dist_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/filename.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/gmhmm.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/gmhmm_type.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/gmhmm_type_common.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/gmhmm_type_common_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/hlr_status.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/load.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/load_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/mfcc_f.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/mfcc_f.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/mfcc_f_def_struct_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/mfcc_f_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/my_fileio.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/my_fileio.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/noise_sub.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/noise_sub.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/noise_sub_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/obsprob.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/obsprob_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/pack.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/pack_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/pmc_f.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/pmc_f.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/pmc_f_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/rapidsearch.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/rapidsearch.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/rapidsearch_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/sbc.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/sbc.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/sbc_struct_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/sbc_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/search.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/search_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/status.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/tiesr_config.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/tiesrcommonmacros.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/uttdet.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/uttdet.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/uttdet_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/volume.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/volume_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/winlen.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="/data/speech/release/OpenSource/TIesrExternalOS/branches/C55/TIesrEngine/src/rapidsearch_struct_user.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+    </conf>
+    <conf name="WindowsReleaseMinGW" type="2">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>Cygwin|Cygwin</compilerSet>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+          <commandLine>-v -mno-cygwin</commandLine>
+          <preprocessorList>
+            <Elem>TIESRENGINECOREAPI_EXPORTS</Elem>
+            <Elem>WIN32</Elem>
+          </preprocessorList>
+          <warningLevel>2</warningLevel>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <linkerTool>
+          <output>../../Dist/${CND_CONF}/libTIesrEngineCore.dll</output>
+          <commandLine>-v</commandLine>
+        </linkerTool>
+      </compileType>
+      <item path="../resource/TIesrEngineCore.ver" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/confidence.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/confidence_struct_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/confidence_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/dist.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/dist_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/filename.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/gmhmm.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/gmhmm_type.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/gmhmm_type_common.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/gmhmm_type_common_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/hlr_status.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/load.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/load_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/mfcc_f.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/mfcc_f.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/mfcc_f_def_struct_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/mfcc_f_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/my_fileio.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/my_fileio.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/noise_sub.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/noise_sub.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/noise_sub_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/obsprob.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/obsprob_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/pack.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/pack_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/pmc_f.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/pmc_f.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/pmc_f_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/rapidsearch.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/rapidsearch.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/rapidsearch_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/sbc.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/sbc.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/sbc_struct_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/sbc_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/search.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/search_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/status.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/tiesr_config.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/tiesrcommonmacros.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/uttdet.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/uttdet.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/uttdet_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/volume.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/volume_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/winlen.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="/data/speech/release/OpenSource/TIesrExternalOS/branches/C55/TIesrEngine/src/rapidsearch_struct_user.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+    </conf>
+    <conf name="LinuxDebugGnu" type="2">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>GNU|GNU</compilerSet>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <commandLine>-O0</commandLine>
+          <preprocessorList>
+            <Elem>DEBUG_STATES</Elem>
+          </preprocessorList>
+          <warningLevel>2</warningLevel>
+        </cTool>
+        <ccTool>
+          <commandLine>-v</commandLine>
+          <warningLevel>2</warningLevel>
+        </ccTool>
+        <linkerTool>
+          <output>../../Dist/${CND_CONF}/lib/libTIesrEngineCore.so.1</output>
+          <commandLine>-Wl,-znow,-zdefs -Wl,-h,libTIesrEngineCore.so.1 -Wl,--version-script=../resource/TIesrEngineCore.ver</commandLine>
+        </linkerTool>
+      </compileType>
+      <item path="../resource/TIesrEngineCore.ver" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/confidence.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/confidence_struct_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/confidence_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/dist.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/dist_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/filename.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/gmhmm.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/gmhmm_type.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/gmhmm_type_common.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/gmhmm_type_common_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/hlr_status.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/load.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/load_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/mfcc_f.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/mfcc_f.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/mfcc_f_def_struct_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/mfcc_f_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/my_fileio.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/my_fileio.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/noise_sub.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/noise_sub.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/noise_sub_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/obsprob.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/obsprob_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/pack.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/pack_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/pmc_f.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/pmc_f.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/pmc_f_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/rapidsearch.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/rapidsearch.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/rapidsearch_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/sbc.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/sbc.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/sbc_struct_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/sbc_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/search.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/search_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/status.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/tiesr_config.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/tiesrcommonmacros.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/uttdet.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/uttdet.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/uttdet_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/volume.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/volume_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/winlen.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="/data/speech/release/OpenSource/TIesrExternalOS/branches/C55/TIesrEngine/src/rapidsearch_struct_user.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+    </conf>
+    <conf name="LinuxReleaseGnu" type="2">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>GNU_current|GNU</compilerSet>
+      </toolsSet>
+      <compileType>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+          <commandLine>-v</commandLine>
+          <warningLevel>2</warningLevel>
+        </ccTool>
+        <linkerTool>
+          <output>../../Dist/${CND_CONF}/lib/libTIesrEngineCore.so.1</output>
+          <commandLine>-Wl,-znow,-zdefs -Wl,-h,libTIesrEngineCore.so.1 -Wl,--version-script=../resource/TIesrEngineCore.ver</commandLine>
+        </linkerTool>
+      </compileType>
+      <item path="../resource/TIesrEngineCore.ver" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/confidence.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/confidence_struct_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/confidence_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/dist.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/dist_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/filename.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/gmhmm.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/gmhmm_type.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/gmhmm_type_common.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/gmhmm_type_common_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/hlr_status.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/load.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/load_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/mfcc_f.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/mfcc_f.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/mfcc_f_def_struct_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/mfcc_f_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/my_fileio.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/my_fileio.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/noise_sub.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/noise_sub.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/noise_sub_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/obsprob.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/obsprob_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/pack.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/pack_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/pmc_f.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/pmc_f.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/pmc_f_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/rapidsearch.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/rapidsearch.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/rapidsearch_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/sbc.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/sbc.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/sbc_struct_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/sbc_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/search.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/search_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/status.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/tiesr_config.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/tiesrcommonmacros.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/uttdet.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/uttdet.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/uttdet_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/volume.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/volume_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/winlen.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="/data/speech/release/OpenSource/TIesrExternalOS/branches/C55/TIesrEngine/src/rapidsearch_struct_user.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+    </conf>
+    <conf name="ArmLinuxDebugGnueabi" type="2">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>arm-none-linux-gnueabi|Unknown</compilerSet>
+      </toolsSet>
+      <compileType>
+        <ccTool>
+          <commandLine>-v</commandLine>
+          <warningLevel>2</warningLevel>
+        </ccTool>
+        <linkerTool>
+          <output>../../Dist/${CND_CONF}/lib/libTIesrEngineCore.so.1</output>
+          <commandLine>-Wl,-znow,-zdefs -Wl,-h,libTIesrEngineCore.so.1 -Wl,--version-script=../resource/TIesrEngineCore.ver</commandLine>
+        </linkerTool>
+      </compileType>
+      <item path="../resource/TIesrEngineCore.ver" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/confidence.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/confidence_struct_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/confidence_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/dist.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/dist_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/filename.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/gmhmm.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/gmhmm_type.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/gmhmm_type_common.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/gmhmm_type_common_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/hlr_status.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/load.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/load_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/mfcc_f.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/mfcc_f.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/mfcc_f_def_struct_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/mfcc_f_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/my_fileio.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/my_fileio.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/noise_sub.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/noise_sub.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/noise_sub_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/obsprob.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/obsprob_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/pack.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/pack_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/pmc_f.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/pmc_f.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/pmc_f_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/rapidsearch.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/rapidsearch.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/rapidsearch_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/sbc.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/sbc.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/sbc_struct_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/sbc_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/search.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/search_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/status.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/tiesr_config.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/tiesrcommonmacros.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/uttdet.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/uttdet.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/uttdet_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/volume.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/volume_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/winlen.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="/data/speech/release/OpenSource/TIesrExternalOS/branches/C55/TIesrEngine/src/rapidsearch_struct_user.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+    </conf>
+    <conf name="ArmLinuxReleaseGnueabi" type="2">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>arm-none-linux-gnueabi|Unknown</compilerSet>
+      </toolsSet>
+      <compileType>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+          <commandLine>-v</commandLine>
+          <warningLevel>2</warningLevel>
+        </ccTool>
+        <linkerTool>
+          <output>../../Dist/${CND_CONF}/lib/libTIesrEngineCore.so.1</output>
+          <commandLine>-Wl,-znow,-zdefs -Wl,-h,libTIesrEngineCore.so.1 -Wl,--version-script=../resource/TIesrEngineCore.ver</commandLine>
+        </linkerTool>
+      </compileType>
+      <item path="../resource/TIesrEngineCore.ver" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/confidence.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/confidence_struct_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/confidence_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/dist.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/dist_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/filename.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/gmhmm.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/gmhmm_type.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/gmhmm_type_common.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/gmhmm_type_common_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/hlr_status.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/load.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/load_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/mfcc_f.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/mfcc_f.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/mfcc_f_def_struct_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/mfcc_f_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/my_fileio.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/my_fileio.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/noise_sub.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/noise_sub.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/noise_sub_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/obsprob.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/obsprob_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/pack.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/pack_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/pmc_f.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/pmc_f.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/pmc_f_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/rapidsearch.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/rapidsearch.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/rapidsearch_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/sbc.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/sbc.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/sbc_struct_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/sbc_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/search.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/search_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/status.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/tiesr_config.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/tiesrcommonmacros.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/uttdet.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/uttdet.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/uttdet_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/volume.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/volume_user.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/winlen.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="/data/speech/release/OpenSource/TIesrExternalOS/branches/C55/TIesrEngine/src/rapidsearch_struct_user.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>

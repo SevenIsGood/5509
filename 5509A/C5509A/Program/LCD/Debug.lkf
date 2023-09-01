@@ -1,0 +1,5 @@
+-z -q -c -m"./Debug/lcd.map" -o"./Debug/lcd.out" -x -i"D:/CCStudio_v3.3/C5500/csl/lib" -i"D:/CCStudio_v3.3/C5500/xdais/lib" -i"D:/CCStudio_v3.3/bios_5_31_02/packages/ti/bios/lib" -i"D:/CCStudio_v3.3/bios_5_31_02/packages/ti/rtdx/lib/c5500" -i"D:/CCStudio_v3.3/C5500/cgtools/lib" -l"csl5509x.lib" -l"rts55x.lib"
+"E:\Dsp_Program\Boardtest\5509\5509_flash\LCD\Debug\lcd.obj"
+"E:\Dsp_Program\Boardtest\5509\develop\Programme\Z_lib\csl5509x.lib"
+"E:\Dsp_Program\Boardtest\5509\develop\Programme\Z_lib\rts55x.lib"
+"E:\Dsp_Program\Boardtest\5509\5509_flash\LCD\emif.cmd"

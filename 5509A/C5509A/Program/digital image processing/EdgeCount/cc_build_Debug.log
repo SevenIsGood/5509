@@ -1,0 +1,12 @@
+-----------------------------  Image.pjt - Debug  -----------------------------
+[Image.c] "D:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -g -q -fr"D:/CCStudio_v3.3/MyProjects/5509more/EdgeCount/Debug" -d"_DEBUG" -@"Debug.lkf" "Image.c"
+
+[InitImage.c] "D:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -g -q -fr"D:/CCStudio_v3.3/MyProjects/5509more/EdgeCount/Debug" -d"_DEBUG" -@"Debug.lkf" "InitImage.c"
+
+[sobel.c] "D:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -g -q -fr"D:/CCStudio_v3.3/MyProjects/5509more/EdgeCount/Debug" -d"_DEBUG" -@"Debug.lkf" "sobel.c"
+
+[Linking...] "D:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -@"Debug.lkf"
+<Linking>
+
+Build Complete,
+  0 Errors, 0 Warnings, 0 Remarks.

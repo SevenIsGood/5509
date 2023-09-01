@@ -1,0 +1,1 @@
+"./src/main.obj" "./src/dct.obj" "../src/dct.cmd" -l"csl5509ax.lib" -l"rts55x.lib" 

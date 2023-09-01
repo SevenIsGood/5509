@@ -1,0 +1,40 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectName="eqc55x"
+ProjectDir="C:\Documents and Settings\a0322553\Desktop\Follow up\Sony\Demo_Vers2\Mistral\To Mistral\eqc55x_xdais\application\build\"
+ProjectType=Executable
+CPUFamily=TMS320C55XX
+Tool="Compiler"
+Tool="CustomBuilder"
+Tool="DspBiosBuilder"
+Tool="Linker"
+Config="Debug"
+Config="Release"
+
+[Source Files]
+Source="..\..\Interface\Src\eq.c"
+Source="..\..\Interface\Src\ieq.c"
+Source="..\Src\alg_alloc.c"
+Source="..\Src\alg_create.c"
+Source="..\Src\eqmain_fast.c"
+Source="testproj.cmd"
+
+["Compiler" Settings: "Debug"]
+Options=-g -q -o3 -fr"..\..\application\build\Debug" -i"..\..\application\include" -i"..\..\interface\include" -d"_DEBUG" -ml -vcpu:3.3
+
+["Compiler" Settings: "Release"]
+Options=-q -o3 -fr"..\..\application\build\Release" -i"..\..\application\include" -i"..\..\interface\include" -ml -vcpu:3.3
+
+["DspBiosBuilder" Settings: "Debug"]
+Options=-v55
+
+["DspBiosBuilder" Settings: "Release"]
+Options=-v55
+
+["Linker" Settings: "Debug"]
+Options=-q -c -heap0x1000 -m".\Debug\eqc55x_application.map" -o".\Debug\eqc55x_application.out" -stack0x250 -sysstack0x250 -x -i"..\..\interface\lib" -l"eq_ti_release.l55" -l"rts55x.lib"
+
+["Linker" Settings: "Release"]
+Options=-q -c -heap0x1000 -m".\Release\eqc55x_application.map" -o".\Release\eqc55x_application.out" -stack0x250 -sysstack0x250 -x -i"..\..\interface\lib" -l"eq_ti_release.l55" -l"rts55x.lib"
+

@@ -1,0 +1,17 @@
+Example to enable power measurement when all ldo's are enabled.
+
+POWER - ALL LDOs ENABLED
+
+TEST DESCRIPTION:
+	This test runs a dummy while loop while power can be measured
+with all LDO's enabled.
+
+TEST PROCEDURE: 
+ 1. Ensure CLK_SEL C7 pin is low
+ 2. Ensure nDSP_LDO_EN pin D12 is low
+ 3. ANA_LDO is always enabled on Power ON
+ 4. Open the CCS and connect the target (C5517 EVM-Master board)
+ 5. Open the project "CSL_PowerManagement_AllLDOEn_Example.pjt" and build it
+ 6. Load the program on to the target
+
+ 

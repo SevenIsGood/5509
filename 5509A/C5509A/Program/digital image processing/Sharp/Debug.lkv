@@ -1,0 +1,5 @@
+-z -q -c -m"./Debug/Histogram.map" -o"./Debug/Histogram.out" -x -i"c:/ti5000/c5500/bios/lib" -i"c:/ti5000/c5500/rtdx/lib" -i"c:/ti5000/c5500/xdais/lib" -i"c:/ti5000/c5500/cgtools/lib"
+"C:\ICETEK-VC5509-EDULab\Lab0803-Sharp\Debug\Image.obj"
+"C:\ICETEK-VC5509-EDULab\Lab0803-Sharp\Debug\InitImage.obj"
+"C:\ICETEK-VC5509-EDULab\Lab0803-Sharp\Debug\Laplace.obj"
+"C:\ICETEK-VC5509-EDULab\Lab0803-Sharp\VC5509.CMD"

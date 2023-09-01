@@ -1,0 +1,25 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectName="dma1"
+ProjectDir="X:\CSL\examples\c5500\evm5510\csl\dma\dma1\"
+ProjectType=Executable
+CPUFamily=TMS320C55XX
+Tool="Compiler"
+Tool="DspBiosBuilder"
+Tool="Linker"
+Config="Debug"
+
+[Source Files]
+Source="main_dma1.c"
+Source="dma1.cmd"
+
+["Compiler" Settings: "Debug"]
+Options=-g -q -fr".\Debug" -d"CHIP_5510PG2_0" -v5510:2
+
+["DspBiosBuilder" Settings: "Debug"]
+Options=-v55
+
+["Linker" Settings: "Debug"]
+Options=-q -c -m".\Debug\dma1.map" -o".\Debug\dma1.out" -x -l"csl5510PG2_2.lib" -l"rts55.lib"
+

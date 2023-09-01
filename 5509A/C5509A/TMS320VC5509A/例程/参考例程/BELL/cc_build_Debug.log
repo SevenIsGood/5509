@@ -1,0 +1,9 @@
+----------------------------  5509gpio.pjt - Debug  ----------------------------
+[gpio.c] "C:\CCStudio_v3.1\C5500\cgtools\bin\cl55" -g -q -fr"L:/EUE/EUE5509/user/programme/BELL/Debug" -d"_DEBUG" -d"CHIP_5509" -ml -@"Debug.lkf" "gpio.c"
+"gpio.c", line 43: warning: variable "j" was declared but never referenced
+
+[Linking...] "C:\CCStudio_v3.1\C5500\cgtools\bin\cl55" -@"Debug.lkf"
+<Linking>
+
+Build Complete,
+  0 Errors, 1 Warnings, 0 Remarks.

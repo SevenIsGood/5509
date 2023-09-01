@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectSpec>
+    <applicability>
+        <when>
+            <context
+                deviceFamily="ARM"
+                deviceId="Cortex M.CC3220SF"
+            />
+        </when>
+    </applicability>
+	
+	<import spec="${COM_TI_SIMPLELINK_CC32XX_SDK_INSTALL_DIR}/kernel/tirtos/builds/CC3220SF_LAUNCHXL/release/ccs/tirtos_builds_CC3220SF_LAUNCHXL_release_ccs.projectspec"/>
+
+    <project 
+	title="IBM Watson CC3220 Voice Recognition Demo"
+        name="IBM_Voice_UI_Demo_CC3220SF_LAUNCHXL"
+        toolChain="TI"
+        connection="TIXDS110_Connection.xml"
+        device="Cortex M.CC3220SF"
+        ignoreDefaultDeviceSettings="true"
+		references="tirtos_builds_CC3220SF_LAUNCHXL_release_ccs"
+        compilerBuildOptions=" -mv7M4 --code_state=16 --float_support=vfplib -me --include_path=${INHERITED_INCLUDE_PATH} --include_path=${PROJECT_ROOT}/lib --include_path=${PROJECT_ROOT}/src --include_path=${PROJECT_ROOT}/src/grlib --include_path=${PROJECT_ROOT}/src/LcdDriver --include_path=${PROJECT_ROOT} --include_path=${COM_TI_SIMPLELINK_CC32XX_SDK_INSTALL_DIR}/kernel/tirtos/packages/ti/sysbios/posix --include_path=${CG_TOOL_ROOT}/include --define=${INHERITED_SYMBOLS} --define=ti_net_http_HTTPCli__deprecated --define=CC32XX --define=__SL__ --define=NET_SL --define=HTTPCli_LIBTYPE_MIN -g --printf_support=full --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on"
+        linkerBuildOptions=" -m${ProjName}.map -i${INHERITED_LIBRARY_PATH} -i${CG_TOOL_ROOT}/lib -i${CG_TOOL_ROOT}/include --library=${INHERITED_LIBRARIES} --library=${PROJECT_ROOT}/lib/ti/net/lib/network_sl.aem4 --library=${PROJECT_ROOT}/lib/ti/net/http/lib/http_sl.aem4 --library=${COM_TI_SIMPLELINK_CC32XX_SDK_INSTALL_DIR}/source/ti/display/lib/display.aem4 --library=${COM_TI_SIMPLELINK_CC32XX_SDK_INSTALL_DIR}/source/ti/drivers/lib/drivers_cc32xx.aem4 --library=${COM_TI_SIMPLELINK_CC32XX_SDK_INSTALL_DIR}/source/third_party/fatfs/lib/fatfs.aem4 --library=${COM_TI_SIMPLELINK_CC32XX_SDK_INSTALL_DIR}/source/ti/drivers/net/wifi/ccs/rtos/simplelink.a --library=${COM_TI_SIMPLELINK_CC32XX_SDK_INSTALL_DIR}/kernel/tirtos/packages/ti/dpl/lib/dpl_cc32xx.aem4 --library=${COM_TI_SIMPLELINK_CC32XX_SDK_INSTALL_DIR}/source/ti/devices/cc32xx/driverlib/ccs/Release/driverlib.a --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info=${ProjName}_linkInfo.xml --rom_model"
+        postBuildStep="${CCS_INSTALL_ROOT}/utils/tiobj2bin/tiobj2bin ${BuildArtifactFileName} ${BuildArtifactFileBaseName}.bin ${CG_TOOL_ROOT}/bin/armofd ${CG_TOOL_ROOT}/bin/armhex ${CCS_INSTALL_ROOT}/utils/tiobj2bin/mkhex4bin"
+        description="CC3220 Voice Recognition Demo Application">
+
+        <property name="buildProfile" value="release"/>
+        <property name="isHybrid" value="true"/>
+        <group id="IBMVoiceUIDemo.SIMPLELINK_CC32XX_SDK.CC3220SF_LAUNCHXL.demos.TI"/>
+        <file path="src/audio_collect_private.h" targetDirectory="src/" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+		<file path="src/audio_collect.c" targetDirectory="src/" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+		<file path="src/audio_collect.h" targetDirectory="src/" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+		<file path="src/buttons_private.h" targetDirectory="src/" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+		<file path="src/buttons.c" targetDirectory="src/" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+		<file path="src/buttons.h" targetDirectory="src/" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+		<file path="src/c5517ListeningMenu.c" targetDirectory="src/" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+		<file path="src/lcd.c" targetDirectory="src/" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+		<file path="src/lcd.h" targetDirectory="src/" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+		<file path="src/leds.c" targetDirectory="src/" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+		<file path="src/leds.h" targetDirectory="src/" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+		<file path="src/mainTask.c" targetDirectory="src/" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+		<file path="src/menus.c" targetDirectory="src/" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+		<file path="src/menus.h" targetDirectory="src/" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+		<file path="appConfig.h" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+		<file path="main_tirtos.c" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+		<file path="platform.h" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+		<file path="platform.c" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+		<file path="uart_term.h" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+		<file path="uart_term.c" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="Board.h" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="CC3220SF_LAUNCHXL.c" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="CC3220SF_LAUNCHXL.h" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+        <file path="CC3220SF_LAUNCHXL_TIRTOS.cmd" openOnCreation="false" excludeFromBuild="false" action="copy">
+        </file>
+		
+		<file action="copy" path="src/httphandler.c" targetDirectory="src/" />
+		<file action="copy" path="src/httphandler.h" targetDirectory="src/" />
+		<file action="copy" path="src/httpvars.h" targetDirectory="src" />
+		<file action="copy" path="src/network_task.c" targetDirectory="src/" />
+		<file action="copy" path="src/network_task.h" targetDirectory="src/" />
+		<file action="copy" path="src/sl_event_handlers.c" targetDirectory="src/" />
+		<file action="copy" path="src/sl_event_handlers.h" targetDirectory="src/" />
+		<file action="copy" path="src/sl_helper_functions.c" targetDirectory="src/" />
+		<file action="copy" path="src/sl_helper_functions.h" targetDirectory="src/" />
+		<file action="copy" path="src/testingMenu.c" targetDirectory="src/" />
+		<file action="copy" path="src/ti_codec.c" targetDirectory="src/" />
+		<file action="copy" path="src/ti_codec.h" targetDirectory="src/" />
+		<file action="copy" path="src/provisioning_task.c" targetDirectory="src/" />
+		<file action="copy" path="src/provisioning_task.h" targetDirectory="src/" />
+		
+		<file action="copy" path="src/grlib/grlib.h" targetDirectory="src/grlib/" />
+		<file action="copy" path="src/grlib/context.c" targetDirectory="src/grlib/" />
+		<file action="copy" path="src/grlib/display.c" targetDirectory="src/grlib/" />
+		<file action="copy" path="src/grlib/line.c" targetDirectory="src/grlib/" />
+		<file action="copy" path="src/grlib/rectangle.c" targetDirectory="src/grlib/" />
+		<file action="copy" path="src/grlib/string.c" targetDirectory="src/grlib/" />
+		<file action="copy" path="src/grlib/fonts/fontfixed6x8.c" targetDirectory="src/grlib/fonts/" />
+
+		<file action="copy" path="src/LcdDriver/Sharp96x96.h" targetDirectory="src/LcdDriver/" />
+		<file action="copy" path="src/LcdDriver/Sharp96x96utils.h" targetDirectory="src/LcdDriver/" />
+		<file action="copy" path="src/LcdDriver/Sharp96x96.c" targetDirectory="src/LcdDriver/" />
+		<file action="copy" path="src/LcdDriver/Sharp96x96utils.c" targetDirectory="src/LcdDriver/" />
+		
+		<file action="copy" path="lib/ti/net/common.h" targetDirectory="lib/ti/net/" />
+	    <file action="copy" path="lib/ti/net/certconv.h" targetDirectory="lib/ti/net/" />
+		<file action="copy" path="lib/ti/net/socket.h" targetDirectory="lib/ti/net/" />
+		<file action="copy" path="lib/ti/net/ssock.h" targetDirectory="lib/ti/net/" />
+		<file action="copy" path="lib/ti/net/ssock_sl.h" targetDirectory="lib/ti/net/" />
+		<file action="copy" path="lib/ti/net/ssock_wolfssl.h" targetDirectory="lib/ti/net/" />
+		<file action="copy" path="lib/ti/net/tls.h" targetDirectory="lib/ti/net/" />
+		<file action="copy" path="lib/ti/net/tls_sl.h" targetDirectory="lib/ti/net/" />
+		<file action="copy" path="lib/ti/net/sntp/sntp.h" targetDirectory="lib/ti/net/sntp/" />
+		<file action="copy" path="lib/ti/net/sntp/lib/sntp_sl.aem4" targetDirectory="lib/ti/net/sntp/lib/" />
+		<file action="copy" path="lib/ti/net/lib/network_sl.aem4" targetDirectory="lib/ti/net/lib/" />
+		<file action="copy" path="lib/ti/net/http/httpcli.h" targetDirectory="lib/ti/net/http/" />
+		<file action="copy" path="lib/ti/net/http/httpstd.h" targetDirectory="lib/ti/net/http/" />
+		<file action="copy" path="lib/ti/net/http/hpack.h" targetDirectory="lib/ti/net/http/" />
+		<file action="copy" path="lib/ti/net/http/http2std.h" targetDirectory="lib/ti/net/http/" />
+		<file action="copy" path="lib/ti/net/http/http2cli.h" targetDirectory="lib/ti/net/http/" />
+		<file action="copy" path="lib/ti/net/http/http2hdr.h" targetDirectory="lib/ti/net/http/" />
+		<file action="copy" path="lib/ti/net/http/http2utils.h" targetDirectory="lib/ti/net/http/" />
+		<file action="copy" path="lib/ti/net/http/huffman.h" targetDirectory="lib/ti/net/http/" />
+		<file action="copy" path="lib/ti/net/http/lib/http_sl.aem4" targetDirectory="lib/ti/net/http/lib/" />
+		
+    </project>
+</projectSpec>
+

@@ -1,0 +1,14 @@
+Example to exhibit RTC alarm interrupt
+
+RTC ALARM
+
+TEST DESCRIPTION:
+	This test configures RTC for generating an alarm 5s after it's 
+started. 
+
+TEST PROCEDURE AND EXPECTED RESULT: 
+
+ 1. Run the test. 
+ 2. The RTC alarm (expected after approx. 5s) would be set and RTC started.
+ 3. The test will display Current time and wait for the alarm.
+ 4. Observe if the alarm interrupt got generated.

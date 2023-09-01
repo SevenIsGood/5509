@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="88">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+      <itemPath>TestTIesrEngine.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <itemPath>TestTIesrEngine.c</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="LinuxDebugGnu" type="1">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>GNU|GNU</compilerSet>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <incDir>
+            <pElem>../src</pElem>
+            <pElem>../../TIesrFA/src</pElem>
+          </incDir>
+          <commandLine>-v</commandLine>
+          <preprocessorList>
+            <Elem>LINUX</Elem>
+          </preprocessorList>
+          <warningLevel>2</warningLevel>
+        </cTool>
+        <linkerTool>
+          <output>../../Dist/${CND_CONF}/bin/testtiesrengine</output>
+          <linkerAddLib>
+            <pElem>../../Dist/${CND_CONF}/lib</pElem>
+          </linkerAddLib>
+          <linkerDynSerch>
+            <pElem>${CND_BASEDIR}/../../Dist/${CND_CONF}/lib</pElem>
+          </linkerDynSerch>
+          <linkerLibItems>
+            <linkerLibLibItem>TIesrEngineCore</linkerLibLibItem>
+            <linkerLibLibItem>TIesrEngineSI</linkerLibLibItem>
+            <linkerLibLibItem>TIesrFA_ALSA</linkerLibLibItem>
+          </linkerLibItems>
+        </linkerTool>
+      </compileType>
+      <item path="TestTIesrEngine.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="TestTIesrEngine.h" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+    <conf name="LinuxReleaseGnu" type="1">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>GNU|GNU</compilerSet>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+      </compileType>
+      <item path="TestTIesrEngine.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="TestTIesrEngine.h" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>

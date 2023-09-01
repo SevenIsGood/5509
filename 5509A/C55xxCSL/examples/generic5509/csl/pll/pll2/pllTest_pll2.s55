@@ -1,0 +1,92 @@
+*
+* Copyright (C) 2003 Texas Instruments Incorporated
+* All Rights Reserved
+*
+*
+*---------pllTest_pll2.s55---------
+*
+* Assembly file to output a periodic clock on XF pin
+*
+
+; Far-mode adjustment
+
+
+        .asg    (2), ret_addr           ; stack description
+                                        ; x in A
+        .asg    (3 + offset), arg_n
+                                        ; register usage
+        .asg    ar0, ar_x
+
+;****************************************************************
+        .def    _asmtest
+        .text
+
+_asmtest
+
+
+; Get arguments and set modes
+; ---------------------------
+        
+extloop:
+
+        NOP
+        NOP
+        mov     #99,brc0		;1 cycle
+        NOP
+        NOP
+        bset  	xf				;1 cycle
+    
+    	NOP
+        NOP
+        NOP
+        NOP
+        NOP
+
+
+;       rptblocal	eloop1-1	;(2)
+    	RPTB	eloop1 - 1 
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP						;(500)
+; 
+eloop1
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        bclr	xf				;1 cycle
+        mov     #99,brc0		;2 cycles
+
+      	NOP						;1 cycle
+        NOP
+        NOP
+        NOP
+
+;       rptblocal	eloop2-1	;4 cycles
+        RPTB	eloop2 - 1
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+; 
+eloop2							;(500)
+
+        NOP
+        NOP
+        NOP
+        NOP
+        NOP
+        nop
+        b extloop				;4 cycles
+
+_end:
+      ret						;(6)
+        
+;end of file. 
+;please do not remove. 
+;it is left here to ensure that no lines of code are removed by any editor
+*------------------------------------------------------------------------------

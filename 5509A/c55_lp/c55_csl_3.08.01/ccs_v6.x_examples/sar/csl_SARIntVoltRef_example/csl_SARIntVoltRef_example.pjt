@@ -1,0 +1,37 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectDir="D:\Data\Projects\Phoenix\AVV\Phoenix_QT\SPI\SPI_RegAccess\"
+ProjectType=Executable
+CPUFamily=TMS320C55XX
+Tool="Compiler"
+Tool="CustomBuilder"
+Tool="DspBiosBuilder"
+Tool="Linker"
+Config="Debug"
+Config="Release"
+
+[Source Files]
+Source="..\..\TMS320C5517CSL-LOWPWR\c55xx_csl\build\Debug\cslC5517_Lib.lib"
+Source="csl_spi_regaccess.c"
+Source="Readme.txt"
+Source="VC5505_SAR.cmd"
+
+["Compiler" Settings: "Debug"]
+Options=-g -fr"$(Proj_dir)\Debug" -i"..\..\TMS320C5517CSL-LOWPWR\c55xx_csl\inc" -d"_DEBUG" -ml -vcore:3.3
+
+["Compiler" Settings: "Release"]
+Options=-o3 -fr"$(Proj_dir)\Release" -i"$(Proj_dir)\..\inc" -i"$(Proj_dir)\..\..\inc" -ml -vcore:3.3
+
+["Linker" Settings: "Debug"]
+Options=-c -m".\Debug\SPI_RegAccess.map" -o".\Debug\SPI_RegAccess.out" -w -x -l"rts55x.lib"
+
+["Linker" Settings: "Release"]
+Options=-c -m".\Release\CSL_SPI_Example_Out.map" -o".\Release\SPI_Example_Out.out" -w -x -l"rts55x.lib"
+
+["Readme.txt" Settings: "Debug"]
+ExcludeFromBuild=true
+
+["Readme.txt" Settings: "Release"]
+ExcludeFromBuild=true
+

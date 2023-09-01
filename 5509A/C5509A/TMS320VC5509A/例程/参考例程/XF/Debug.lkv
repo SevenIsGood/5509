@@ -1,0 +1,6 @@
+-z -q -c -m"./Debug/timer.map" -o"./Debug/timer.out" -x -i"c:/ti5000/c5500/bios/lib" -i"c:/ti5000/c5500/rtdx/lib" -i"c:/ti5000/c5500/xdais/lib" -i"c:/ti5000/c5500/cgtools/lib" -l"csl5509.lib" -l"rts55.lib"
+"E:\EUE\EUE5509\Programme\Timer_BIOS\Debug\timer.obj"
+"E:\EUE\EUE5509\Programme\Timer_BIOS\Debug\vectors.obj"
+"E:\EUE\EUE5509\Programme\Timer_BIOS\csl5509.lib"
+"E:\EUE\EUE5509\Programme\Timer_BIOS\rts55.lib"
+"E:\EUE\EUE5509\Programme\Timer_BIOS\timer.cmd"

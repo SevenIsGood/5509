@@ -1,0 +1,14 @@
+
+**** Build of configuration Debug for project Pro0215_CONVOLVE ****
+
+"D:\\ti\\ccs5.5\\ccsv5\\utils\\bin\\gmake" -k all 
+'Building target: Pro0215_CONVOLVE.out'
+'Invoking: C5500 Linker'
+"D:/ti/ccs5.5/ccsv5/tools/compiler/c5500_4.4.1/bin/cl55" -v5509A --memory_model=large -g --define=c5509a --define=CHIP_5509A --display_error_number --diag_warning=225 --ptrdiff_size=32 -z -m"Pro0215_CONVOLVE.map" --stack_size=0x200 --heap_size=0x400 -i"D:/ti/ccs5.5/ccsv5/tools/compiler/c5500_4.4.1/lib" -i"D:/ti/ccs5.5/ccsv5/tools/compiler/c5500_4.4.1/include" -i"../../lib" --reread_libs --display_error_number --warn_sections --xml_link_info="Pro0215_CONVOLVE_linkInfo.xml" --rom_model --sys_stacksize=0x200 -o "Pro0215_CONVOLVE.out"  "./src/exp4.obj" "./src/Convolveok.obj" "../src/Convolveok.cmd" -l"libc.a" -l"csl5509ax.lib" 
+<Linking>
+warning #10247-D: creating output section "vectors" without a SECTIONS
+   specification
+'Finished building target: Pro0215_CONVOLVE.out'
+' '
+
+**** Build Finished ****

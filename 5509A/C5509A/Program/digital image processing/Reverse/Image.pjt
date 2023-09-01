@@ -1,0 +1,37 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectDir="D:\CCStudio_v3.3\MyProjects\5509 digital image processing\Reverse\"
+ProjectType=Executable
+CPUFamily=TMS320C55XX
+Tool="Compiler"
+Tool="CustomBuilder"
+Tool="DspBiosBuilder"
+Tool="Linker"
+Config="Debug"
+Config="Release"
+
+[Source Files]
+Source="Image.c"
+Source="InitImage.c"
+Source="Reverse.c"
+Source="VC5509.CMD"
+
+["Compiler" Settings: "Debug"]
+Options=-g -q -fr"D:\CCStudio_v3.3\MyProjects\5509 digital image processing\Reverse\Debug" -d"_DEBUG"
+
+["Compiler" Settings: "Release"]
+Options=-q -o2 -fr"D:\CCStudio_v3.3\MyProjects\5509 digital image processing\Reverse\Release"
+
+["DspBiosBuilder" Settings: "Debug"]
+Options=-v55
+
+["DspBiosBuilder" Settings: "Release"]
+Options=-v55
+
+["Linker" Settings: "Debug"]
+Options=-q -c -m".\Debug\Histogram.map" -o".\Debug\Histogram.out" -x
+
+["Linker" Settings: "Release"]
+Options=-q -c -m".\Release\Histogram.map" -o".\Release\Histogram.out" -x
+

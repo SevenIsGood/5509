@@ -1,0 +1,39 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectName="test-irq"
+ProjectDir="L:\EUE\EUE5509\user\programme\EXINT\"
+ProjectType=Executable
+CPUFamily=TMS320C55XX
+Tool="Compiler"
+Tool="CustomBuilder"
+Tool="DspBiosBuilder"
+Tool="Linker"
+Config="Debug"
+Config="Release"
+
+[Source Files]
+Source="C:\CCStudio_v3.1\C5500\cgtools\lib\rts55x.lib"
+Source="C:\CCStudio_v3.1\C5500\csl\lib\csl5509x.lib"
+Source="exint.c"
+Source="vectors_exint.s55"
+Source="emif.cmd"
+
+["Compiler" Settings: "Debug"]
+Options=-g -q -fr".\Debug" -d"_DEBUG" -d"CHIP_5509" -ml
+
+["Compiler" Settings: "Release"]
+Options=-q -o2 -fr"L:\EUE\EUE5509\user\programme\EXINT\Release"
+
+["DspBiosBuilder" Settings: "Debug"]
+Options=-v55
+
+["DspBiosBuilder" Settings: "Release"]
+Options=-v55
+
+["Linker" Settings: "Debug"]
+Options=-q -c -m".\Debug\exint.map" -o".\Debug\exint.out" -x -l"csl5509x.lib" -l"rts55x.lib"
+
+["Linker" Settings: "Release"]
+Options=-q -c -o".\Release\test-irq.out" -x
+

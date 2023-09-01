@@ -1,0 +1,5 @@
+-z -q -c -h -m"./Debug/codec.map" -o"./Debug/codec.out" -x -i"D:/ti5000/c5500/bios/lib" -i"D:/ti5000/c5500/rtdx/lib" -i"D:/ti5000/c5500/xdais/lib" -i"D:/ti5000/c5500/cgtools/lib" -l"csl5509x.lib" -l"rts55x.lib"
+"D:\ti5000\myprojects\5509codec\Debug\codec.obj"
+"D:\ti5000\c5500\bios\lib\csl5509x.lib"
+"D:\ti5000\c5500\cgtools\lib\rts55x.lib"
+"D:\ti5000\myprojects\5509codec\codec.cmd"

@@ -1,0 +1,260 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="100dp"
+        android:layout_height="500dp"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:id="@+id/relativeLayout"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="60dp">
+
+        <TextView
+            android:id="@+id/tvLabel1"
+            android:padding="1dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-15dB"
+            android:layout_marginBottom="30dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:id="@+id/tvLabel3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="1dp"
+            android:text="+15dB"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="30dp"
+            android:textColor="@android:color/black"
+            android:layout_alignParentTop="true"
+
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:id="@+id/tvLabel2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0dB"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:padding="1dp"
+            android:textColor="@android:color/black"
+            android:layout_centerVertical="true"
+            android:layout_alignEnd="@+id/tvLabel1" />
+
+    </RelativeLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/linear1"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/relativeLayout">
+        <android.projects.com.c5545bpdemo.VerticalSeekBar
+            android:id="@+id/seekBar1"
+            android:layout_width="wrap_content"
+            android:layout_height="500dp"
+            android:progress="0"
+            android:progressDrawable="@drawable/progressbar"
+            android:layout_marginStart="15dp"
+            android:thumb="@drawable/thumbd_b"
+            android:layout_marginTop="@dimen/fifty_dp"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/linear1"
+            android:max="30" />
+
+        <TextView
+            android:id="@+id/slider_label_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="60Hz"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:layout_toRightOf="@+id/linear1" />
+        <TextView
+            android:id="@+id/slider_label_22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:layout_toRightOf="@+id/linear1" />
+    </LinearLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/linear2"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/linear1"
+        android:layout_marginLeft="30dp">
+        <android.projects.com.c5545bpdemo.VerticalSeekBar
+            android:id="@+id/seekBar2"
+            android:layout_width="wrap_content"
+            android:layout_height="500dp"
+            android:progressDrawable="@drawable/progressbar"
+            android:layout_marginStart="15dp"
+            android:thumb="@drawable/thumbd_b"
+            android:layout_marginTop="@dimen/fifty_dp"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/linear2"
+            android:max="30" />
+
+        <TextView
+            android:id="@+id/slider_label_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="250Hz  "
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:layout_toRightOf="@+id/linear2" />
+    </LinearLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/linear3"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/linear2"
+        android:layout_marginLeft="30dp">
+        <android.projects.com.c5545bpdemo.VerticalSeekBar
+            android:id="@+id/seekBar3"
+            android:layout_width="wrap_content"
+            android:layout_height="500dp"
+            android:progressDrawable="@drawable/progressbar"
+            android:layout_marginStart="15dp"
+            android:thumb="@drawable/thumbd_b"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/fifty_dp"
+            android:layout_toEndOf="@+id/linear2"
+            android:max="30" />
+
+        <TextView
+            android:id="@+id/slider_label_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1KHz"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:layout_below="@+id/seekBar3"
+            android:layout_toRightOf="@+id/linear2" />
+    </LinearLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/linear4"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/linear3"
+        android:layout_marginLeft="30dp">
+        <android.projects.com.c5545bpdemo.VerticalSeekBar
+            android:id="@+id/seekBar4"
+            android:layout_width="wrap_content"
+            android:layout_height="500dp"
+            android:progressDrawable="@drawable/progressbar"
+            android:layout_marginStart="15dp"
+            android:thumb="@drawable/thumbd_b"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/fifty_dp"
+            android:layout_toEndOf="@+id/linear3"
+            android:max="30" />
+
+        <TextView
+            android:id="@+id/slider_label_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4KHz"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:layout_below="@+id/seekBar4"
+            android:layout_toRightOf="@+id/linear3" />
+    </LinearLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/linear5"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:layout_marginLeft="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/linear4">
+        <android.projects.com.c5545bpdemo.VerticalSeekBar
+            android:id="@+id/seekBar5"
+            android:layout_width="wrap_content"
+            android:layout_height="500dp"
+            android:layout_marginStart="15dp"
+            android:progressDrawable="@drawable/progressbar"
+            android:thumb="@drawable/thumbd_b"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/fifty_dp"
+            android:layout_toEndOf="@+id/linear4"
+            android:max="30" />
+
+        <TextView
+            android:id="@+id/slider_label_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12KHz"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:layout_below="@+id/seekBar5"
+            android:layout_toRightOf="@+id/linear4" />
+    </LinearLayout>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:orientation="horizontal"
+        android:id="@+id/relativeLayoutBtm"
+        android:layout_below="@+id/relativeLayout"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true">
+        <ImageView
+            android:id="@+id/img_logo_text"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/play"
+            android:visibility="visible"
+            android:padding="10dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginStart="75dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true" />
+        <TextView
+            android:id="@+id/musicStatusLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="1dp"
+            android:text="Playing Music"
+            android:textSize="40sp"
+            android:textStyle="normal"
+            android:textColor="@android:color/darker_gray"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/img_logo_text" />
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

@@ -1,0 +1,178 @@
+******************************************************************************
+         TMS320C55x COFF Linker PC Version 2.56                
+******************************************************************************
+>> Linked Mon Jun 28 01:19:30 2004
+
+OUTPUT FILE NAME:   <./Debug/led.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 00000478
+
+
+MEMORY CONFIGURATION
+
+                  name            origin    length      used    attr    fill
+                                 (bytes)   (bytes)    (bytes)
+         ----------------------  --------  ---------  --------  ----  --------
+         PROG                    00000200   00002000  0000030c  RWIX
+         DATA                    00002200   00001000  0000047e  RWI 
+         VECT                    0000d000   00000100  000000a1  RWIX
+
+
+SECTION ALLOCATION MAP
+(Addresses surrounded by []'s are displayed for convenience only!)
+
+output                                                          attributes/
+section   page  orgn(bytes) orgn(words) len(bytes) len(words)   input sections
+--------  ----  ----------- ----------- ---------- ----------   --------------
+.data        0   [ 00000000 ]  00000000          *   00000000   UNINITIALIZED
+
+.trcinit     0   [ 00000200 ]  00000100          *   00000000   UNINITIALIZED
+
+.gblinit     0   [ 00000200 ]  00000100          *   00000000   UNINITIALIZED
+
+frt          0   [ 00000200 ]  00000100          *   00000000   UNINITIALIZED
+
+.sysinit     0   [ 00000200 ]  00000100          *   00000000   UNINITIALIZED
+
+.pinit       0   [ 00000200 ]  00000100          *   00000000   
+
+.text        0     00000200  [ 00000100 ] 000002da          *   
+                   00000200  [ 00000100 ] 0000011b          *   main.obj (.text)
+                   0000031b  [ 0000018d+] 00000001          *   --HOLE-- [fill = 20]
+                   0000031c  [ 0000018e ] 00000043          *   clk_init.obj (.text)
+                   0000035f  [ 000001af+] 000000ae          *   rts55x.lib : exit.obj (.text)
+                   0000040d  [ 00000206+] 0000006b          *              : autoinit.obj (.text)
+                   00000478  [ 0000023c ] 00000048          *              : boot.obj (.text)
+                   000004c0  [ 00000260 ] 00000012          *              : _lock.obj (.text)
+                   000004d2  [ 00000269 ] 00000007          *              : exit.obj (.text:CIO_breakpoint)
+                   000004d9  [ 0000026c+] 00000001          *   --HOLE-- [fill = 20]
+
+.cinit       0   [ 000004da ]  0000026d          *   00000019   
+                 [ 000004da ]  0000026d          *   0000000e   rts55x.lib : exit.obj (.cinit)
+                 [ 000004f6 ]  0000027b          *   0000000a              : _lock.obj (.cinit)
+                 [ 0000050a ]  00000285          *   00000001   --HOLE-- [fill = 0]
+
+.far         0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.MEM$obj     0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.const       0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.switch      0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.sysmem      0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.cio         0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.sysheap     0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.bss         0   [ 00002200 ]  00001100          *   0000004b   UNINITIALIZED
+                 [ 00002200 ]  00001100          *   00000046   rts55x.lib : exit.obj (.bss)
+                 [ 0000228c ]  00001146          *   00000004              : _lock.obj (.bss)
+                 [ 00002294 ]  0000114a          *   00000001   main.obj (.bss)
+
+.sysstack 
+*            0   [ 00002298 ]  0000114c          *   000000fa   UNINITIALIZED
+
+.stack       0   [ 0000248c ]  00001246          *   000000fa   UNINITIALIZED
+
+.vectors     0     0000d000  [ 00006800 ] 000000a1          *   
+                   0000d000  [ 00006800 ] 000000a0          *   vectors.obj (.vectors)
+                   0000d0a0  [ 00006850 ] 00000001          *   --HOLE-- [fill = 20]
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+            00001100    .bss
+            00000000    .data
+00000200                .text
+000004d3                C$$EXIT
+0000031c                _CLK_init
+00000330                _EMIF_init
+000002b4                _INTR_init
+000002e4                _TIME_init
+00000344                _TMCR_reset
+000001f4                __STACK_SIZE
+000001f4                __SYSSTACK_SIZE
+            00001100    ___bss__
+            0000026d    ___cinit__
+            00000000    ___data__
+            00000000    ___edata__
+            0000114b    ___end__
+000004da                ___etext__
+ffffffff                ___pinit__
+00000200                ___text__
+            00001142    __cleanup_ptr
+            00001144    __dtors_ptr
+            00001146    __lock
+000004c0                __nop
+000004c2                __register_lock
+000004ca                __register_unlock
+            00001246    __stack
+            0000114c    __sysstack
+            00001148    __unlock
+000004d2                _abort
+000003bb                _atexit
+0000040d                _auto_init
+00000478                _c_int00
+0000035f                _exit
+            0000114a    _i
+00000200                _main
+00000218                _tint
+            0000026d    cinit
+            00000000    edata
+            0000114b    end
+000004da                etext
+ffffffff                pinit
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+            00000000    ___edata__
+            00000000    ___data__
+            00000000    edata
+            00000000    .data
+000001f4                __SYSSTACK_SIZE
+000001f4                __STACK_SIZE
+00000200                ___text__
+00000200                _main
+00000200                .text
+00000218                _tint
+000002b4                _INTR_init
+000002e4                _TIME_init
+0000031c                _CLK_init
+00000330                _EMIF_init
+00000344                _TMCR_reset
+0000035f                _exit
+000003bb                _atexit
+0000040d                _auto_init
+00000478                _c_int00
+000004c0                __nop
+000004c2                __register_lock
+000004ca                __register_unlock
+000004d2                _abort
+000004d3                C$$EXIT
+000004da                etext
+            0000026d    ___cinit__
+000004da                ___etext__
+            0000026d    cinit
+            00001100    .bss
+            00001100    ___bss__
+            00001142    __cleanup_ptr
+            00001144    __dtors_ptr
+            00001146    __lock
+            00001148    __unlock
+            0000114a    _i
+            0000114b    ___end__
+            0000114b    end
+            0000114c    __sysstack
+            00001246    __stack
+ffffffff                pinit
+ffffffff                ___pinit__
+
+[41 symbols]

@@ -1,0 +1,1 @@
+将"C5500include"拷入覆盖D:\Program Files\Texas Instruments\ccsv4\tools\compiler\c5500 目录.  "D:\Program Files\Texas Instruments\"为CCS安装目录

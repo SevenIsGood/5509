@@ -1,0 +1,5 @@
+- Training models
+- Early commit of phrase portions recognized and reset
+- Confidence measure now depends on post-recognition adaptation
+- Cum score check for limiting, or perhaps per-frame cum score average
+- Check sensitivity to amplitude levels

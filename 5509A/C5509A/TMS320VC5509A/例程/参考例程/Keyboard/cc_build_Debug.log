@@ -1,0 +1,12 @@
+------------------------------  LED.pjt - Debug  ------------------------------
+[clk_init.c] "C:\CCStudio_v3.1\C5500\cgtools\bin\cl55" -g -q -fr"C:/CCStudio_v3.1/MyProjects/Keyboard/Debug" -d"_DEBUG" -ml -@"Debug.lkf" "clk_init.c"
+
+[LED.c] "C:\CCStudio_v3.1\C5500\cgtools\bin\cl55" -g -q -fr"C:/CCStudio_v3.1/MyProjects/Keyboard/Debug" -d"_DEBUG" -ml -@"Debug.lkf" "LED.c"
+
+[sdram_init.c] "C:\CCStudio_v3.1\C5500\cgtools\bin\cl55" -g -q -fr"C:/CCStudio_v3.1/MyProjects/Keyboard/Debug" -d"_DEBUG" -ml -@"Debug.lkf" "sdram_init.c"
+
+[Linking...] "C:\CCStudio_v3.1\C5500\cgtools\bin\cl55" -@"Debug.lkf"
+<Linking>
+
+Build Complete,
+  0 Errors, 0 Warnings, 0 Remarks.

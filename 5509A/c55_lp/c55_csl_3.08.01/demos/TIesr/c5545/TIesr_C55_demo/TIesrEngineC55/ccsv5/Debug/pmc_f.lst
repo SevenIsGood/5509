@@ -1,0 +1,2376 @@
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE    1
+
+    1878              ; Temporary Registers Used: None
+       1              ;*******************************************************************************
+       2              ;* TMS320C55x C/C++ Codegen                                          PC v4.4.1 *
+       3              ;* Date/Time created: Wed Sep 13 16:33:44 2017                                 *
+       4              ;*******************************************************************************
+       5                      .compiler_opts --hll_source=on --mem_model:code=flat --mem_model:data=huge --object_format=coff --sil
+       6                      .mmregs
+       7                      .cpl_on
+       8                      .arms_on
+       9                      .c54cm_off
+      10                      .asg AR6, FP
+      11                      .asg XAR6, XFP
+      12                      .asg DPH, MDP
+      13                      .model call=c55_std
+      14                      .model mem=huge
+      15                      .noremark 5002  ; code respects overwrite rules
+      16              ;*******************************************************************************
+      17              ;* GLOBAL FILE PARAMETERS                                                      *
+      18              ;*                                                                             *
+      19              ;*   Architecture       : TMS320C55x                                           *
+      20              ;*   Optimizing for     : Speed                                                *
+      21              ;*   Memory             : Huge Model (23-Bit Data Pointers)                    *
+      22              ;*   Calls              : Normal Library ASM calls                             *
+      23              ;*   Debug Info         : Standard TI Debug Information                        *
+      24              ;*******************************************************************************
+      25              
+      26              $C$DW$CU        .dwtag  DW_TAG_compile_unit
+      27                      .dwattr $C$DW$CU, DW_AT_name("C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbuc
+      28                      .dwattr $C$DW$CU, DW_AT_producer("TMS320C55x C/C++ Codegen PC v4.4.1 Copyright (c) 1996-2012 Texas In
+      29                      .dwattr $C$DW$CU, DW_AT_TI_version(0x01)
+      30                      .dwattr $C$DW$CU, DW_AT_comp_dir("C:\Users\a0221074\Desktop\C5000\IBM_Watson_TIdesign_workarea\CSL_bi
+      31              
+      32              $C$DW$1 .dwtag  DW_TAG_subprogram, DW_AT_name("cos_transform")
+      33                      .dwattr $C$DW$1, DW_AT_TI_symbol_name("_cos_transform")
+      34                      .dwattr $C$DW$1, DW_AT_declaration
+      35                      .dwattr $C$DW$1, DW_AT_external
+      36              $C$DW$2 .dwtag  DW_TAG_formal_parameter
+      37                      .dwattr $C$DW$2, DW_AT_type(*$C$DW$T$19)
+      38              $C$DW$3 .dwtag  DW_TAG_formal_parameter
+      39                      .dwattr $C$DW$3, DW_AT_type(*$C$DW$T$19)
+      40              $C$DW$4 .dwtag  DW_TAG_formal_parameter
+      41                      .dwattr $C$DW$4, DW_AT_type(*$C$DW$T$21)
+      42              $C$DW$5 .dwtag  DW_TAG_formal_parameter
+      43                      .dwattr $C$DW$5, DW_AT_type(*$C$DW$T$20)
+      44              $C$DW$6 .dwtag  DW_TAG_formal_parameter
+      45                      .dwattr $C$DW$6, DW_AT_type(*$C$DW$T$20)
+      46              $C$DW$7 .dwtag  DW_TAG_formal_parameter
+      47                      .dwattr $C$DW$7, DW_AT_type(*$C$DW$T$22)
+      48                      .dwendtag $C$DW$1
+      49              
+      50              
+      51              $C$DW$8 .dwtag  DW_TAG_subprogram, DW_AT_name("inverse_cos_transform")
+      52                      .dwattr $C$DW$8, DW_AT_TI_symbol_name("_inverse_cos_transform")
+      53                      .dwattr $C$DW$8, DW_AT_declaration
+      54                      .dwattr $C$DW$8, DW_AT_external
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE    2
+
+      55              $C$DW$9 .dwtag  DW_TAG_formal_parameter
+      56                      .dwattr $C$DW$9, DW_AT_type(*$C$DW$T$19)
+      57              $C$DW$10        .dwtag  DW_TAG_formal_parameter
+      58                      .dwattr $C$DW$10, DW_AT_type(*$C$DW$T$19)
+      59              $C$DW$11        .dwtag  DW_TAG_formal_parameter
+      60                      .dwattr $C$DW$11, DW_AT_type(*$C$DW$T$21)
+      61              $C$DW$12        .dwtag  DW_TAG_formal_parameter
+      62                      .dwattr $C$DW$12, DW_AT_type(*$C$DW$T$20)
+      63              $C$DW$13        .dwtag  DW_TAG_formal_parameter
+      64                      .dwattr $C$DW$13, DW_AT_type(*$C$DW$T$20)
+      65              $C$DW$14        .dwtag  DW_TAG_formal_parameter
+      66                      .dwattr $C$DW$14, DW_AT_type(*$C$DW$T$22)
+      67                      .dwendtag $C$DW$8
+      68              
+      69              
+      70              $C$DW$15        .dwtag  DW_TAG_subprogram, DW_AT_name("vector_packing")
+      71                      .dwattr $C$DW$15, DW_AT_TI_symbol_name("_vector_packing")
+      72                      .dwattr $C$DW$15, DW_AT_declaration
+      73                      .dwattr $C$DW$15, DW_AT_external
+      74              $C$DW$16        .dwtag  DW_TAG_formal_parameter
+      75                      .dwattr $C$DW$16, DW_AT_type(*$C$DW$T$21)
+      76              $C$DW$17        .dwtag  DW_TAG_formal_parameter
+      77                      .dwattr $C$DW$17, DW_AT_type(*$C$DW$T$25)
+      78              $C$DW$18        .dwtag  DW_TAG_formal_parameter
+      79                      .dwattr $C$DW$18, DW_AT_type(*$C$DW$T$21)
+      80              $C$DW$19        .dwtag  DW_TAG_formal_parameter
+      81                      .dwattr $C$DW$19, DW_AT_type(*$C$DW$T$8)
+      82                      .dwendtag $C$DW$15
+      83              
+      84              
+      85              $C$DW$20        .dwtag  DW_TAG_subprogram, DW_AT_name("vector_unpacking")
+      86                      .dwattr $C$DW$20, DW_AT_TI_symbol_name("_vector_unpacking")
+      87                      .dwattr $C$DW$20, DW_AT_declaration
+      88                      .dwattr $C$DW$20, DW_AT_external
+      89              $C$DW$21        .dwtag  DW_TAG_formal_parameter
+      90                      .dwattr $C$DW$21, DW_AT_type(*$C$DW$T$29)
+      91              $C$DW$22        .dwtag  DW_TAG_formal_parameter
+      92                      .dwattr $C$DW$22, DW_AT_type(*$C$DW$T$19)
+      93              $C$DW$23        .dwtag  DW_TAG_formal_parameter
+      94                      .dwattr $C$DW$23, DW_AT_type(*$C$DW$T$21)
+      95              $C$DW$24        .dwtag  DW_TAG_formal_parameter
+      96                      .dwattr $C$DW$24, DW_AT_type(*$C$DW$T$8)
+      97                      .dwendtag $C$DW$20
+      98              
+      99 000000               .sect   ".const:_coef_log"
+     100                      .clink
+     101                      .align  1
+     102 000000       _coef_log:
+     103 000000 0109          .field  265,16                  ; _coef_log[0][0] @ 0
+     104 000001 04C7          .field  1223,16                 ; _coef_log[0][1] @ 16
+     105 000002 0B0A          .field  2826,16                 ; _coef_log[0][2] @ 32
+     106 000003 0FAE          .field  4014,16                 ; _coef_log[0][3] @ 48
+     107 000004 00D3          .field  211,16                  ; _coef_log[1][0] @ 64
+     108 000005 05DF          .field  1503,16                 ; _coef_log[1][1] @ 80
+     109 000006 135B          .field  4955,16                 ; _coef_log[1][2] @ 96
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE    3
+
+     110 000007 1DF1          .field  7665,16                 ; _coef_log[1][3] @ 112
+     111              
+     112              $C$DW$25        .dwtag  DW_TAG_variable, DW_AT_name("coef_log")
+     113                      .dwattr $C$DW$25, DW_AT_TI_symbol_name("_coef_log")
+     114                      .dwattr $C$DW$25, DW_AT_type(*$C$DW$T$36)
+     115                      .dwattr $C$DW$25, DW_AT_location[DW_OP_addr _coef_log]
+     116 000000               .sect   ".const:_coef_twomx"
+     117                      .clink
+     118                      .align  1
+     119 000000       _coef_twomx:
+     120 000000 15EF          .field  5615,16                 ; _coef_twomx[0] @ 0
+     121 000001 AA8F          .field  -21873,16                       ; _coef_twomx[1] @ 16
+     122 000002 7FBE          .field  32702,16                        ; _coef_twomx[2] @ 32
+     123              
+     124              $C$DW$26        .dwtag  DW_TAG_variable, DW_AT_name("coef_twomx")
+     125                      .dwattr $C$DW$26, DW_AT_TI_symbol_name("_coef_twomx")
+     126                      .dwattr $C$DW$26, DW_AT_type(*$C$DW$T$38)
+     127                      .dwattr $C$DW$26, DW_AT_location[DW_OP_addr _coef_twomx]
+     128              ;       C:\ti\ccsv7\tools\compiler\c5500_4.4.1\bin\acp55.exe -@C:\\Users\\a0221074\\AppData\\Local\\Temp\\146
+     129 000000               .sect   ".text:_pmc_log_add"
+     130                      .clink
+     131              
+     132              $C$DW$27        .dwtag  DW_TAG_subprogram, DW_AT_name("pmc_log_add")
+     133                      .dwattr $C$DW$27, DW_AT_low_pc(_pmc_log_add)
+     134                      .dwattr $C$DW$27, DW_AT_high_pc(0x00)
+     135                      .dwattr $C$DW$27, DW_AT_TI_symbol_name("_pmc_log_add")
+     136                      .dwattr $C$DW$27, DW_AT_type(*$C$DW$T$8)
+     137                      .dwattr $C$DW$27, DW_AT_TI_begin_file("C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/C
+     138                      .dwattr $C$DW$27, DW_AT_TI_begin_line(0x69)
+     139                      .dwattr $C$DW$27, DW_AT_TI_begin_column(0x0e)
+     140                      .dwattr $C$DW$27, DW_AT_TI_max_frame_size(0x16)
+     141                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     142              
+     143                      .dwfde $C$DW$CIE, _pmc_log_add
+     144              $C$DW$28        .dwtag  DW_TAG_formal_parameter, DW_AT_name("splog")
+     145                      .dwattr $C$DW$28, DW_AT_TI_symbol_name("_splog")
+     146                      .dwattr $C$DW$28, DW_AT_type(*$C$DW$T$12)
+     147                      .dwattr $C$DW$28, DW_AT_location[DW_OP_reg0]
+     148              $C$DW$29        .dwtag  DW_TAG_formal_parameter, DW_AT_name("nslog")
+     149                      .dwattr $C$DW$29, DW_AT_TI_symbol_name("_nslog")
+     150                      .dwattr $C$DW$29, DW_AT_type(*$C$DW$T$12)
+     151                      .dwattr $C$DW$29, DW_AT_location[DW_OP_reg3]
+     152              $C$DW$30        .dwtag  DW_TAG_formal_parameter, DW_AT_name("beta")
+     153                      .dwattr $C$DW$30, DW_AT_TI_symbol_name("_beta")
+     154                      .dwattr $C$DW$30, DW_AT_type(*$C$DW$T$19)
+     155                      .dwattr $C$DW$30, DW_AT_location[DW_OP_reg17]
+     156              ;*******************************************************************************
+     157              ;* FUNCTION NAME: pmc_log_add                                                  *
+     158              ;*                                                                             *
+     159              ;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,T1,AR0,XAR0,AR1,AR2,XAR2,AR3,XAR3,*
+     160              ;*                        SP,CARRY,TC1,M40,SATA,SATD,RDM,FRCT,SMUL             *
+     161              ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
+     162              ;*   Total Frame Size   : 22 words                                             *
+     163              ;*                        (2 return address/alignment)                         *
+     164              ;*                        (20 local values)                                    *
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE    4
+
+     165              ;*   Min System Stack   : 1 word                                               *
+     166              ;*******************************************************************************
+     167 000000       _pmc_log_add:
+     168                      .dwcfi  cfa_offset, 1
+     169                      .dwcfi  save_reg_to_mem, 91, -1
+     170 000000 4EEB          AADD #-21, SP
+     171                      .dwcfi  cfa_offset, 22
+     172              $C$DW$31        .dwtag  DW_TAG_variable, DW_AT_name("splog")
+     173                      .dwattr $C$DW$31, DW_AT_TI_symbol_name("_splog")
+     174                      .dwattr $C$DW$31, DW_AT_type(*$C$DW$T$12)
+     175                      .dwattr $C$DW$31, DW_AT_location[DW_OP_bregx 0x24 0]
+     176              $C$DW$32        .dwtag  DW_TAG_variable, DW_AT_name("nslog")
+     177                      .dwattr $C$DW$32, DW_AT_TI_symbol_name("_nslog")
+     178                      .dwattr $C$DW$32, DW_AT_type(*$C$DW$T$12)
+     179                      .dwattr $C$DW$32, DW_AT_location[DW_OP_bregx 0x24 2]
+     180              $C$DW$33        .dwtag  DW_TAG_variable, DW_AT_name("beta")
+     181                      .dwattr $C$DW$33, DW_AT_TI_symbol_name("_beta")
+     182                      .dwattr $C$DW$33, DW_AT_type(*$C$DW$T$19)
+     183                      .dwattr $C$DW$33, DW_AT_location[DW_OP_bregx 0x24 4]
+     184              $C$DW$34        .dwtag  DW_TAG_variable, DW_AT_name("diff")
+     185                      .dwattr $C$DW$34, DW_AT_TI_symbol_name("_diff")
+     186                      .dwattr $C$DW$34, DW_AT_type(*$C$DW$T$12)
+     187                      .dwattr $C$DW$34, DW_AT_location[DW_OP_bregx 0x24 6]
+     188              $C$DW$35        .dwtag  DW_TAG_variable, DW_AT_name("tmp")
+     189                      .dwattr $C$DW$35, DW_AT_TI_symbol_name("_tmp")
+     190                      .dwattr $C$DW$35, DW_AT_type(*$C$DW$T$12)
+     191                      .dwattr $C$DW$35, DW_AT_location[DW_OP_bregx 0x24 8]
+     192              $C$DW$36        .dwtag  DW_TAG_variable, DW_AT_name("alog")
+     193                      .dwattr $C$DW$36, DW_AT_TI_symbol_name("_alog")
+     194                      .dwattr $C$DW$36, DW_AT_type(*$C$DW$T$8)
+     195                      .dwattr $C$DW$36, DW_AT_location[DW_OP_bregx 0x24 10]
+     196              $C$DW$37        .dwtag  DW_TAG_variable, DW_AT_name("blog")
+     197                      .dwattr $C$DW$37, DW_AT_TI_symbol_name("_blog")
+     198                      .dwattr $C$DW$37, DW_AT_type(*$C$DW$T$8)
+     199                      .dwattr $C$DW$37, DW_AT_location[DW_OP_bregx 0x24 11]
+     200              $C$DW$38        .dwtag  DW_TAG_variable, DW_AT_name("slog")
+     201                      .dwattr $C$DW$38, DW_AT_TI_symbol_name("_slog")
+     202                      .dwattr $C$DW$38, DW_AT_type(*$C$DW$T$8)
+     203                      .dwattr $C$DW$38, DW_AT_location[DW_OP_bregx 0x24 12]
+     204              $C$DW$39        .dwtag  DW_TAG_variable, DW_AT_name("stmp")
+     205                      .dwattr $C$DW$39, DW_AT_TI_symbol_name("_stmp")
+     206                      .dwattr $C$DW$39, DW_AT_type(*$C$DW$T$8)
+     207                      .dwattr $C$DW$39, DW_AT_location[DW_OP_bregx 0x24 13]
+     208              $C$DW$40        .dwtag  DW_TAG_variable, DW_AT_name("correction")
+     209                      .dwattr $C$DW$40, DW_AT_TI_symbol_name("_correction")
+     210                      .dwattr $C$DW$40, DW_AT_type(*$C$DW$T$8)
+     211                      .dwattr $C$DW$40, DW_AT_location[DW_OP_bregx 0x24 14]
+     212              $C$DW$41        .dwtag  DW_TAG_variable, DW_AT_name("lsum")
+     213                      .dwattr $C$DW$41, DW_AT_TI_symbol_name("_lsum")
+     214                      .dwattr $C$DW$41, DW_AT_type(*$C$DW$T$8)
+     215                      .dwattr $C$DW$41, DW_AT_location[DW_OP_bregx 0x24 15]
+     216              $C$DW$42        .dwtag  DW_TAG_variable, DW_AT_name("poly")
+     217                      .dwattr $C$DW$42, DW_AT_TI_symbol_name("_poly")
+     218                      .dwattr $C$DW$42, DW_AT_type(*$C$DW$T$8)
+     219                      .dwattr $C$DW$42, DW_AT_location[DW_OP_bregx 0x24 16]
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE    5
+
+     220              $C$DW$43        .dwtag  DW_TAG_variable, DW_AT_name("idx")
+     221                      .dwattr $C$DW$43, DW_AT_TI_symbol_name("_idx")
+     222                      .dwattr $C$DW$43, DW_AT_type(*$C$DW$T$8)
+     223                      .dwattr $C$DW$43, DW_AT_location[DW_OP_bregx 0x24 17]
+     224              $C$DW$44        .dwtag  DW_TAG_variable, DW_AT_name("sdiff")
+     225                      .dwattr $C$DW$44, DW_AT_TI_symbol_name("_sdiff")
+     226                      .dwattr $C$DW$44, DW_AT_type(*$C$DW$T$8)
+     227                      .dwattr $C$DW$44, DW_AT_location[DW_OP_bregx 0x24 18]
+     228              $C$DW$45        .dwtag  DW_TAG_variable, DW_AT_name("result")
+     229                      .dwattr $C$DW$45, DW_AT_TI_symbol_name("_result")
+     230                      .dwattr $C$DW$45, DW_AT_type(*$C$DW$T$8)
+     231                      .dwattr $C$DW$45, DW_AT_location[DW_OP_bregx 0x24 19]
+     232 000002 EB08          MOV XAR0, dbl(*SP(#4))
+         000004 85   
+     233 000005 EB04          MOV AC1, dbl(*SP(#2)) ; |106| 
+         000007 18   
+     234 000008 EB00          MOV AC0, dbl(*SP(#0)) ; |106| 
+         00000a 08   
+     235                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     236 00000b 767F          MOV #32767, AC0 ; |114| 
+         00000d FF08 
+     237 00000f ED00          MOV dbl(*SP(#0)), AC1 ; |114| 
+         000011 18   
+     238 000012 1208          CMP AC1 <= AC0, TC1 ; |114| 
+         000014 10   
+     239 000015 6364          BCC $C$L1,TC1 ; |114| 
+     240                                                      ; branchcc occurs ; |114| 
+     241                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     242 000017 FB14          MOV #32767, *SP(#10) ; |115| 
+         000019 7FFF 
+     243 00001b 4A16          B $C$L3   ; |115| 
+     244                                                      ; branch occurs ; |115| 
+     245 00001d       $C$L1:    
+     246                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     247 00001d 7680          MOV #-32768, AC0 ; |116| 
+         00001f 0008 
+     248 000021 ED00          MOV dbl(*SP(#0)), AC1 ; |116| 
+         000023 18   
+     249 000024 1218          CMP AC1 >= AC0, TC1 ; |116| 
+         000026 00   
+     250 000027 6364          BCC $C$L2,TC1 ; |116| 
+     251                                                      ; branchcc occurs ; |116| 
+     252                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     253 000029 FB14          MOV #-32768, *SP(#10) ; |117| 
+         00002b 8000 
+     254 00002d 4A04          B $C$L3   ; |117| 
+     255                                                      ; branch occurs ; |117| 
+     256 00002f       $C$L2:    
+     257                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     258 00002f A902          MOV *SP(#1), AR1 ; |119| 
+     259 000031 C914          MOV AR1, *SP(#10) ; |119| 
+     260 000033       $C$L3:    
+     261                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     262 000033 A914          MOV *SP(#10), AR1 ; |121| 
+     263 000035 C918          MOV AR1, *SP(#12) ; |121| 
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE    6
+
+     264                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     265 000037 767F          MOV #32767, AC0 ; |123| 
+         000039 FF08 
+     266 00003b ED04          MOV dbl(*SP(#2)), AC1 ; |123| 
+         00003d 18   
+     267 00003e 1208          CMP AC1 <= AC0, TC1 ; |123| 
+         000040 10   
+     268 000041 6364          BCC $C$L4,TC1 ; |123| 
+     269                                                      ; branchcc occurs ; |123| 
+     270                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     271 000043 FB16          MOV #32767, *SP(#11) ; |124| 
+         000045 7FFF 
+     272 000047 4A16          B $C$L6   ; |124| 
+     273                                                      ; branch occurs ; |124| 
+     274 000049       $C$L4:    
+     275                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     276 000049 7680          MOV #-32768, AC0 ; |125| 
+         00004b 0008 
+     277 00004d ED04          MOV dbl(*SP(#2)), AC1 ; |125| 
+         00004f 18   
+     278 000050 1218          CMP AC1 >= AC0, TC1 ; |125| 
+         000052 00   
+     279 000053 6364          BCC $C$L5,TC1 ; |125| 
+     280                                                      ; branchcc occurs ; |125| 
+     281                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     282 000055 FB16          MOV #-32768, *SP(#11) ; |126| 
+         000057 8000 
+     283 000059 4A04          B $C$L6   ; |126| 
+     284                                                      ; branch occurs ; |126| 
+     285 00005b       $C$L5:    
+     286                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     287 00005b A906          MOV *SP(#3), AR1 ; |128| 
+     288 00005d C916          MOV AR1, *SP(#11) ; |128| 
+     289 00005f       $C$L6:    
+     290                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     291 00005f A916          MOV *SP(#11), AR1 ; |132| 
+     292 000061 AA14          MOV *SP(#10), AR2 ; |132| 
+     293 000063 12A4          CMP AR2 < AR1, TC1 ; |132| 
+         000065 90   
+     294 000066 0464          BCC $C$L7,TC1 ; |132| 
+         000068 21   
+     295                                                      ; branchcc occurs ; |132| 
+     296                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     297 000069 A014          MOV *SP(#10), AC0 ; |135| 
+     298 00006b D816          SUB AC0, *SP(#11), AC0 ; |135| 
+         00006d 00   
+     299 00006e EB0C          MOV AC0, dbl(*SP(#6)) ; |135| 
+         000070 08   
+     300                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     301 000071 ED0C          MOV dbl(*SP(#6)), AC1 ; |138| 
+         000073 18   
+     302 000074 76EC          MOV #-5120, AC0 ; |138| 
+         000076 0008 
+     303 000078 1218          CMP AC1 >= AC0, TC1 ; |138| 
+         00007a 00   
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE    7
+
+     304 00007b 0464          BCC $C$L9,TC1 ; |138| 
+         00007d 37   
+     305                                                      ; branchcc occurs ; |138| 
+     306                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     307 00007e ED08          MOV dbl(*SP(#4)), XAR3
+         000080 BF   
+     308 000081 FB61          MOV #32767, *AR3 ; |140| 
+         000083 7FFF 
+     309                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     310 000085 A414          MOV *SP(#10), T0 ; |141| 
+     311 000087 0601          B $C$L23  ; |141| 
+         000089 88   
+     312                                                      ; branch occurs ; |141| 
+     313 00008a       $C$L7:    
+     314                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     315 00008a A016          MOV *SP(#11), AC0 ; |147| 
+     316 00008c D814          SUB AC0, *SP(#10), AC0 ; |147| 
+         00008e 00   
+     317 00008f EB0C          MOV AC0, dbl(*SP(#6)) ; |147| 
+         000091 08   
+     318                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     319 000092 ED0C          MOV dbl(*SP(#6)), AC1 ; |150| 
+         000094 18   
+     320 000095 76EC          MOV #-5120, AC0 ; |150| 
+         000097 0008 
+     321 000099 1218          CMP AC1 >= AC0, TC1 ; |150| 
+         00009b 00   
+     322 00009c 65E4          BCC $C$L8,TC1 ; |150| 
+     323                                                      ; branchcc occurs ; |150| 
+     324                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     325 00009e ED08          MOV dbl(*SP(#4)), XAR3
+         0000a0 BF   
+     326 0000a1 E661          MOV #0, *AR3 ; |152| 
+         0000a3 00   
+     327                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     328 0000a4 A416          MOV *SP(#11), T0 ; |153| 
+     329 0000a6 0601          B $C$L23  ; |153| 
+         0000a8 69   
+     330                                                      ; branch occurs ; |153| 
+     331 0000a9       $C$L8:    
+     332                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     333 0000a9 A916          MOV *SP(#11), AR1 ; |157| 
+     334 0000ab C91A          MOV AR1, *SP(#13) ; |157| 
+     335                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     336 0000ad A914          MOV *SP(#10), AR1 ; |158| 
+     337 0000af C916          MOV AR1, *SP(#11) ; |158| 
+     338                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     339 0000b1 A91A          MOV *SP(#13), AR1 ; |159| 
+     340 0000b3 C914          MOV AR1, *SP(#10) ; |159| 
+     341 0000b5       $C$L9:    
+     342                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     343 0000b5 76F6          MOV #-2560, AC0 ; |165| 
+         0000b7 0008 
+     344 0000b9 ED0C          MOV dbl(*SP(#6)), AC1 ; |165| 
+         0000bb 18   
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE    8
+
+     345 0000bc 1218          CMP AC1 >= AC0, TC1 ; |165| 
+         0000be 00   
+     346 0000bf 6764          BCC $C$L10,TC1 ; |165| 
+     347                                                      ; branchcc occurs ; |165| 
+     348                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     349 0000c1 E620          MOV #0, *SP(#16) ; |167| 
+         0000c3 00   
+     350                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     351 0000c4 760F          MOV #3840, AC0 ; |168| 
+         0000c6 0008 
+     352 0000c8 ED0C          ADD dbl(*SP(#6)), AC0, AC0 ; |168| 
+         0000ca 00   
+     353 0000cb C01A          MOV AC0, *SP(#13) ; |168| 
+     354                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     355 0000cd 4A0C          B $C$L11  ; |169| 
+     356                                                      ; branch occurs ; |169| 
+     357 0000cf       $C$L10:    
+     358                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     359 0000cf E620          MOV #1, *SP(#16) ; |172| 
+         0000d1 01   
+     360                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     361 0000d2 7605          MOV #1280, AC0 ; |173| 
+         0000d4 0008 
+     362 0000d6 ED0C          ADD dbl(*SP(#6)), AC0, AC0 ; |173| 
+         0000d8 00   
+     363 0000d9 C01A          MOV AC0, *SP(#13) ; |173| 
+     364 0000db       $C$L11:    
+     365                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     366 0000db A020          MOV *SP(#16), AC0 ; |178| 
+     367 0000dd 1005          SFTS AC0, #2, AC0 ; |178| 
+         0000df 02   
+     368 0000e0 900A          MOV AC0, XAR2
+     369 0000e2 EC31          AMOV #_coef_log, XAR3 ; |178| 
+         0000e4 BE00 
+         0000e6 0000+
+     370 0000e8 14A1          AADD XAR2, XAR3 ; |178| 
+         0000ea B0   
+     371 0000eb A961          MOV *AR3, AR1 ; |178| 
+     372 0000ed C91C          MOV AR1, *SP(#14) ; |178| 
+     373                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     374 0000ef E622          MOV #1, *SP(#17) ; |179| 
+         0000f1 01   
+     375                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     376              
+     377 0000f2 A922          MOV *SP(#17), AR1 ; |179| 
+     378 0000f4 3D3A  ||      MOV #3, AR2
+     379              
+     380 0000f6 12A4          CMP AR1 > AR2, TC1 ; |179| 
+         0000f8 90   
+     381 0000f9 0464          BCC $C$L13,TC1 ; |179| 
+         0000fb 3F   
+     382                                                      ; branchcc occurs ; |179| 
+     383 0000fc       $C$L12:    
+     384 0000fc       $C$DW$L$_pmc_log_add$22$B:
+     385                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE    9
+
+     386 0000fc A51A          MOV *SP(#13), T1 ; |182| 
+     387 0000fe D31C          MPYM *SP(#14), T1, AC0 ; |182| 
+         000100 05   
+     388 000101 EB10          MOV AC0, dbl(*SP(#8)) ; |182| 
+         000103 08   
+     389                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     390 000104 A020          MOV *SP(#16), AC0 ; |185| 
+     391 000106 1005          SFTS AC0, #2, AC0 ; |185| 
+         000108 02   
+     392 000109 900A          MOV AC0, XAR2
+     393 00010b A422          MOV *SP(#17), T0 ; |185| 
+     394 00010d EC31          AMOV #_coef_log, XAR3 ; |185| 
+         00010f BE00 
+         000111 0000+
+     395              
+     396                      AADD XAR2, XAR3 ; |185| 
+     397 000113 8E10  ||      MOV dbl(*SP(#8)), AC0 ; |185| 
+         000115 BD18 
+         000117 08A1 
+     398              
+     399 000119 A16B          MOV *AR3(T0), AC1 ; |185| 
+     400 00011b 1013          ADD AC1 << #9, AC0 ; |185| 
+         00011d 09   
+     401 00011e EB10          MOV AC0, dbl(*SP(#8)) ; |185| 
+         000120 08   
+     402                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     403 000121 7601          MOV #256, AC0 ; |193| 
+         000123 0008 
+     404 000125 ED10          ADD dbl(*SP(#8)), AC0, AC0 ; |193| 
+         000127 00   
+     405 000128 1005          SFTS AC0, #-9, AC0 ; |193| 
+         00012a 37   
+     406 00012b C01C          MOV AC0, *SP(#14) ; |193| 
+     407                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     408 00012d F722          ADD #1, *SP(#17) ; |179| 
+         00012f 0001 
+     409                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     410              
+     411 000131 A922          MOV *SP(#17), AR1 ; |179| 
+     412 000133 3D3A  ||      MOV #3, AR2
+     413              
+     414 000135 12A8          CMP AR1 <= AR2, TC1 ; |179| 
+         000137 90   
+     415 000138 0464          BCC $C$L12,TC1 ; |179| 
+         00013a C1   
+     416                                                      ; branchcc occurs ; |179| 
+     417 00013b       $C$DW$L$_pmc_log_add$22$E:
+     418 00013b       $C$L13:    
+     419                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     420 00013b A920          MOV *SP(#16), AR1 ; |197| 
+     421 00013d 6719          BCC $C$L14,AR1 != #0 ; |197| 
+     422                                                      ; branchcc occurs ; |197| 
+     423                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     424 00013f F71C          ADD #512, *SP(#14) ; |200| 
+         000141 0200 
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE   10
+
+     425                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     426 000143 DF1C          MOV uns(*SP(#14)), AC0 ; |201| 
+         000145 05   
+     427 000146 1005          SFTS AC0, #-10, AC0 ; |201| 
+         000148 36   
+     428 000149 C01C          MOV AC0, *SP(#14) ; |201| 
+     429                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     430 00014b 4A0C          B $C$L15  ; |202| 
+     431                                                      ; branch occurs ; |202| 
+     432 00014d       $C$L14:    
+     433                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     434 00014d F71C          ADD #32, *SP(#14) ; |206| 
+         00014f 0020 
+     435                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     436 000151 DF1C          MOV uns(*SP(#14)), AC0 ; |207| 
+         000153 05   
+     437 000154 1005          SFTS AC0, #-6, AC0 ; |207| 
+         000156 3A   
+     438 000157 C01C          MOV AC0, *SP(#14) ; |207| 
+     439 000159       $C$L15:    
+     440                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     441 000159 A014          MOV *SP(#10), AC0 ; |212| 
+     442 00015b D61C          ADD *SP(#14), AC0, AC0 ; |212| 
+         00015d 00   
+     443 00015e EB10          MOV AC0, dbl(*SP(#8)) ; |212| 
+         000160 08   
+     444                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     445 000161 ED10          MOV dbl(*SP(#8)), AC1 ; |214| 
+         000163 18   
+     446 000164 767F          MOV #32767, AC0 ; |214| 
+         000166 FF08 
+     447 000168 1208          CMP AC1 <= AC0, TC1 ; |214| 
+         00016a 10   
+     448 00016b 6364          BCC $C$L16,TC1 ; |214| 
+     449                                                      ; branchcc occurs ; |214| 
+     450                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     451 00016d FB1E          MOV #32767, *SP(#15) ; |215| 
+         00016f 7FFF 
+     452 000171 4A04          B $C$L17  ; |215| 
+     453                                                      ; branch occurs ; |215| 
+     454 000173       $C$L16:    
+     455                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     456 000173 A912          MOV *SP(#9), AR1 ; |217| 
+     457 000175 C91E          MOV AR1, *SP(#15) ; |217| 
+     458 000177       $C$L17:    
+     459                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     460 000177 A91E          MOV *SP(#15), AR1 ; |224| 
+     461 000179 D818          SUB AR1, *SP(#12), AR1 ; |224| 
+         00017b 99   
+     462 00017c C924          MOV AR1, *SP(#18) ; |224| 
+     463                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     464 00017e 6529          BCC $C$L18,AR1 < #0 ; |225| 
+     465                                                      ; branchcc occurs ; |225| 
+     466                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     467 000180 ED08          MOV dbl(*SP(#4)), XAR3
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE   11
+
+         000182 BF   
+     468 000183 FB61          MOV #32767, *AR3 ; |227| 
+         000185 7FFF 
+     469                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     470 000187 0600          B $C$L22  ; |228| 
+         000189 86   
+     471                                                      ; branch occurs ; |228| 
+     472 00018a       $C$L18:    
+     473                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     474 00018a 3499          NEG AR1, AR1 ; |234| 
+     475 00018c C924          MOV AR1, *SP(#18) ; |234| 
+     476                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     477 00018e 7D01          AND #0x01ff, AR1, AC0 ; |237| 
+         000190 FF09 
+     478 000192 C01A          MOV AC0, *SP(#13) ; |237| 
+     479                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     480 000194 F91A          MOV *SP(#13) << #6, AC0 ; |238| 
+         000196 0608 
+     481 000198 C01A          MOV AC0, *SP(#13) ; |238| 
+     482                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     483 00019a A931          MOV *(#_coef_twomx), AR1 ; |240| 
+         00019c 0000 
+         00019e 00+  
+     484 00019f C926          MOV AR1, *SP(#19) ; |240| 
+     485                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     486 0001a1 E622          MOV #1, *SP(#17) ; |241| 
+         0001a3 01   
+     487                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     488              
+     489 0001a4 A922          MOV *SP(#17), AR1 ; |241| 
+     490 0001a6 3D2A  ||      MOV #2, AR2
+     491              
+     492 0001a8 12A4          CMP AR1 > AR2, TC1 ; |241| 
+         0001aa 90   
+     493 0001ab 0464          BCC $C$L20,TC1 ; |241| 
+         0001ad 33   
+     494                                                      ; branchcc occurs ; |241| 
+     495 0001ae       $C$L19:    
+     496 0001ae       $C$DW$L$_pmc_log_add$32$B:
+     497                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     498 0001ae A51A          MOV *SP(#13), T1 ; |244| 
+     499 0001b0 D326          MPYM *SP(#19), T1, AC0 ; |244| 
+         0001b2 05   
+     500 0001b3 EB10          MOV AC0, dbl(*SP(#8)) ; |244| 
+         0001b5 08   
+     501                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     502 0001b6 A422          MOV *SP(#17), T0 ; |247| 
+     503 0001b8 EC31          AMOV #_coef_twomx, XAR3 ; |247| 
+         0001ba BE00 
+         0001bc 0000+
+     504 0001be ED10          MOV dbl(*SP(#8)), AC0 ; |247| 
+         0001c0 08   
+     505 0001c1 A16B          MOV *AR3(T0), AC1 ; |247| 
+     506 0001c3 1013          ADD AC1 << #15, AC0 ; |247| 
+         0001c5 0F   
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE   12
+
+     507 0001c6 EB10          MOV AC0, dbl(*SP(#8)) ; |247| 
+         0001c8 08   
+     508                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     509 0001c9 7640          MOV #16384, AC0 ; |250| 
+         0001cb 0008 
+     510 0001cd ED10          ADD dbl(*SP(#8)), AC0, AC0 ; |250| 
+         0001cf 00   
+     511 0001d0 1005          SFTS AC0, #-15, AC0 ; |250| 
+         0001d2 31   
+     512 0001d3 C026          MOV AC0, *SP(#19) ; |250| 
+     513                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     514 0001d5 F722          ADD #1, *SP(#17) ; |241| 
+         0001d7 0001 
+     515                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     516 0001d9 A922          MOV *SP(#17), AR1 ; |241| 
+     517 0001db 12A8          CMP AR1 <= AR2, TC1 ; |241| 
+         0001dd 90   
+     518 0001de 0464          BCC $C$L19,TC1 ; |241| 
+         0001e0 CD   
+     519                                                      ; branchcc occurs ; |241| 
+     520 0001e1       $C$DW$L$_pmc_log_add$32$E:
+     521 0001e1       $C$L20:    
+     522                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     523 0001e1 A024          MOV *SP(#18), AC0 ; |254| 
+     524 0001e3 1005          SFTS AC0, #-9, AC0 ; |254| 
+         0001e5 37   
+     525 0001e6 C01A          MOV AC0, *SP(#13) ; |254| 
+     526                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     527 0001e8 2209          MOV AC0, AR1
+     528 0001ea 6499          BCC $C$L21,AR1 != #0 ; |255| 
+     529                                                      ; branchcc occurs ; |255| 
+     530                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     531 0001ec ED08          MOV dbl(*SP(#4)), XAR3
+         0001ee BF   
+     532 0001ef A926          MOV *SP(#19), AR1 ; |257| 
+     533 0001f1 C961          MOV AR1, *AR3 ; |257| 
+     534                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     535 0001f3 4A1B          B $C$L22  ; |258| 
+     536                                                      ; branch occurs ; |258| 
+     537 0001f5       $C$L21:    
+     538                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     539 0001f5 2295          MOV AR1, T1
+     540              
+     541 0001f7 4215          SUB #1, T1 ; |261| 
+     542 0001f9 3D10  ||      MOV #1, AC0
+     543              
+     544 0001fb 5C05          SFTS AC0, T1, AC0 ; |261| 
+     545 0001fd D626          ADD *SP(#19), AC0, AR1 ; |261| 
+         0001ff 90   
+     546 000200 C926          MOV AR1, *SP(#19) ; |261| 
+     547                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     548 000202 ED08          MOV dbl(*SP(#4)), XAR3
+         000204 BF   
+     549 000205 A91A          MOV *SP(#13), AR1 ; |262| 
+     550              
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE   13
+
+     551 00020a 3595          NEG AR1, T1 ; |262| 
+     552 000207 DF26  ||      MOV uns(*SP(#19)), AC0 ; |262| 
+         000209 05   
+     553              
+     554 00020c 5C05          SFTS AC0, T1, AC0 ; |262| 
+     555 00020e C061          MOV AC0, *AR3 ; |262| 
+     556 000210       $C$L22:    
+     557                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     558 000210 A41E          MOV *SP(#15), T0 ; |266| 
+     559 000212       $C$L23:    
+     560                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     561 000212 4E15          AADD #21, SP
+     562                      .dwcfi  cfa_offset, 1
+     563              $C$DW$46        .dwtag  DW_TAG_TI_branch
+     564                      .dwattr $C$DW$46, DW_AT_low_pc(0x00)
+     565                      .dwattr $C$DW$46, DW_AT_TI_return
+     566 000214 4804          RET
+     567                                                      ; return occurs
+     568              
+     569              $C$DW$47        .dwtag  DW_TAG_TI_loop
+     570                      .dwattr $C$DW$47, DW_AT_name("C:\\Users\\a0221074\\AppData\\Local\\Temp\\1467610:$C$L19:1:1505334824"
+     571                      .dwattr $C$DW$47, DW_AT_TI_begin_file("C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/C
+     572                      .dwattr $C$DW$47, DW_AT_TI_begin_line(0xf1)
+     573                      .dwattr $C$DW$47, DW_AT_TI_end_line(0xfb)
+     574              $C$DW$48        .dwtag  DW_TAG_TI_loop_range
+     575                      .dwattr $C$DW$48, DW_AT_low_pc($C$DW$L$_pmc_log_add$32$B)
+     576                      .dwattr $C$DW$48, DW_AT_high_pc($C$DW$L$_pmc_log_add$32$E)
+     577                      .dwendtag $C$DW$47
+     578              
+     579              
+     580              $C$DW$49        .dwtag  DW_TAG_TI_loop
+     581                      .dwattr $C$DW$49, DW_AT_name("C:\\Users\\a0221074\\AppData\\Local\\Temp\\1467610:$C$L12:1:1505334824"
+     582                      .dwattr $C$DW$49, DW_AT_TI_begin_file("C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/C
+     583                      .dwattr $C$DW$49, DW_AT_TI_begin_line(0xb3)
+     584                      .dwattr $C$DW$49, DW_AT_TI_end_line(0xc2)
+     585              $C$DW$50        .dwtag  DW_TAG_TI_loop_range
+     586                      .dwattr $C$DW$50, DW_AT_low_pc($C$DW$L$_pmc_log_add$22$B)
+     587                      .dwattr $C$DW$50, DW_AT_high_pc($C$DW$L$_pmc_log_add$22$E)
+     588                      .dwendtag $C$DW$49
+     589              
+     590                      .dwattr $C$DW$27, DW_AT_TI_end_file("C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL
+     591                      .dwattr $C$DW$27, DW_AT_TI_end_line(0x10b)
+     592                      .dwattr $C$DW$27, DW_AT_TI_end_column(0x01)
+     593                      .dwendentry
+     594                      .dwendtag $C$DW$27
+     595              
+     596 000000               .sect   ".text:_log_spectral_compensation"
+     597                      .clink
+     598                      .global _log_spectral_compensation
+     599              
+     600              $C$DW$51        .dwtag  DW_TAG_subprogram, DW_AT_name("log_spectral_compensation")
+     601                      .dwattr $C$DW$51, DW_AT_low_pc(_log_spectral_compensation)
+     602                      .dwattr $C$DW$51, DW_AT_high_pc(0x00)
+     603                      .dwattr $C$DW$51, DW_AT_TI_symbol_name("_log_spectral_compensation")
+     604                      .dwattr $C$DW$51, DW_AT_external
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE   14
+
+     605                      .dwattr $C$DW$51, DW_AT_TI_begin_file("C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/C
+     606                      .dwattr $C$DW$51, DW_AT_TI_begin_line(0x11d)
+     607                      .dwattr $C$DW$51, DW_AT_TI_begin_column(0x1d)
+     608                      .dwattr $C$DW$51, DW_AT_TI_max_frame_size(0x18)
+     609                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     610              
+     611                      .dwfde $C$DW$CIE, _log_spectral_compensation
+     612              $C$DW$52        .dwtag  DW_TAG_formal_parameter, DW_AT_name("sp_log_ps")
+     613                      .dwattr $C$DW$52, DW_AT_TI_symbol_name("_sp_log_ps")
+     614                      .dwattr $C$DW$52, DW_AT_type(*$C$DW$T$19)
+     615                      .dwattr $C$DW$52, DW_AT_location[DW_OP_reg17]
+     616              $C$DW$53        .dwtag  DW_TAG_formal_parameter, DW_AT_name("reg_sp_log_ps")
+     617                      .dwattr $C$DW$53, DW_AT_TI_symbol_name("_reg_sp_log_ps")
+     618                      .dwattr $C$DW$53, DW_AT_type(*$C$DW$T$19)
+     619                      .dwattr $C$DW$53, DW_AT_location[DW_OP_reg19]
+     620              $C$DW$54        .dwtag  DW_TAG_formal_parameter, DW_AT_name("pmc_log_ps")
+     621                      .dwattr $C$DW$54, DW_AT_TI_symbol_name("_pmc_log_ps")
+     622                      .dwattr $C$DW$54, DW_AT_type(*$C$DW$T$19)
+     623                      .dwattr $C$DW$54, DW_AT_location[DW_OP_reg21]
+     624              $C$DW$55        .dwtag  DW_TAG_formal_parameter, DW_AT_name("reg_pmc_log_ps")
+     625                      .dwattr $C$DW$55, DW_AT_TI_symbol_name("_reg_pmc_log_ps")
+     626                      .dwattr $C$DW$55, DW_AT_type(*$C$DW$T$19)
+     627                      .dwattr $C$DW$55, DW_AT_location[DW_OP_reg23]
+     628              $C$DW$56        .dwtag  DW_TAG_formal_parameter, DW_AT_name("noise_log_ps")
+     629                      .dwattr $C$DW$56, DW_AT_TI_symbol_name("_noise_log_ps")
+     630                      .dwattr $C$DW$56, DW_AT_type(*$C$DW$T$21)
+     631                      .dwattr $C$DW$56, DW_AT_location[DW_OP_reg25]
+     632              $C$DW$57        .dwtag  DW_TAG_formal_parameter, DW_AT_name("chn")
+     633                      .dwattr $C$DW$57, DW_AT_TI_symbol_name("_chn")
+     634                      .dwattr $C$DW$57, DW_AT_type(*$C$DW$T$21)
+     635                      .dwattr $C$DW$57, DW_AT_location[DW_OP_bregx 0x24 24]
+     636              $C$DW$58        .dwtag  DW_TAG_formal_parameter, DW_AT_name("jac")
+     637                      .dwattr $C$DW$58, DW_AT_TI_symbol_name("_jac")
+     638                      .dwattr $C$DW$58, DW_AT_type(*$C$DW$T$8)
+     639                      .dwattr $C$DW$58, DW_AT_location[DW_OP_reg12]
+     640              $C$DW$59        .dwtag  DW_TAG_formal_parameter, DW_AT_name("log_df")
+     641                      .dwattr $C$DW$59, DW_AT_TI_symbol_name("_log_df")
+     642                      .dwattr $C$DW$59, DW_AT_type(*$C$DW$T$19)
+     643                      .dwattr $C$DW$59, DW_AT_location[DW_OP_bregx 0x24 26]
+     644              $C$DW$60        .dwtag  DW_TAG_formal_parameter, DW_AT_name("n_filter")
+     645                      .dwattr $C$DW$60, DW_AT_TI_symbol_name("_n_filter")
+     646                      .dwattr $C$DW$60, DW_AT_type(*$C$DW$T$8)
+     647                      .dwattr $C$DW$60, DW_AT_location[DW_OP_reg13]
+     648              ;*******************************************************************************
+     649              ;* FUNCTION NAME: log_spectral_compensation                                    *
+     650              ;*                                                                             *
+     651              ;*   Function Uses Regs : AC0,AC0,AC1,AC1,T0,T1,AR0,XAR0,AR1,XAR1,AR2,XAR2,AR3,*
+     652              ;*                        XAR3,AR4,XAR4,SP,CARRY,TC1,M40,SATA,SATD,RDM,FRCT,   *
+     653              ;*                        SMUL                                                 *
+     654              ;*   Stack Frame        : Compact (No Frame Pointer, w/ debug)                 *
+     655              ;*   Total Frame Size   : 24 words                                             *
+     656              ;*                        (2 return address/alignment)                         *
+     657              ;*                        (22 local values)                                    *
+     658              ;*   Min System Stack   : 1 word                                               *
+     659              ;*******************************************************************************
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE   15
+
+     660 000000       _log_spectral_compensation:
+     661                      .dwcfi  cfa_offset, 1
+     662                      .dwcfi  save_reg_to_mem, 91, -1
+     663 000000 4EE9          AADD #-23, SP
+     664                      .dwcfi  cfa_offset, 24
+     665              $C$DW$61        .dwtag  DW_TAG_variable, DW_AT_name("sp_log_ps")
+     666                      .dwattr $C$DW$61, DW_AT_TI_symbol_name("_sp_log_ps")
+     667                      .dwattr $C$DW$61, DW_AT_type(*$C$DW$T$19)
+     668                      .dwattr $C$DW$61, DW_AT_location[DW_OP_bregx 0x24 0]
+     669              $C$DW$62        .dwtag  DW_TAG_variable, DW_AT_name("reg_sp_log_ps")
+     670                      .dwattr $C$DW$62, DW_AT_TI_symbol_name("_reg_sp_log_ps")
+     671                      .dwattr $C$DW$62, DW_AT_type(*$C$DW$T$19)
+     672                      .dwattr $C$DW$62, DW_AT_location[DW_OP_bregx 0x24 2]
+     673              $C$DW$63        .dwtag  DW_TAG_variable, DW_AT_name("pmc_log_ps")
+     674                      .dwattr $C$DW$63, DW_AT_TI_symbol_name("_pmc_log_ps")
+     675                      .dwattr $C$DW$63, DW_AT_type(*$C$DW$T$19)
+     676                      .dwattr $C$DW$63, DW_AT_location[DW_OP_bregx 0x24 4]
+     677              $C$DW$64        .dwtag  DW_TAG_variable, DW_AT_name("reg_pmc_log_ps")
+     678                      .dwattr $C$DW$64, DW_AT_TI_symbol_name("_reg_pmc_log_ps")
+     679                      .dwattr $C$DW$64, DW_AT_type(*$C$DW$T$19)
+     680                      .dwattr $C$DW$64, DW_AT_location[DW_OP_bregx 0x24 6]
+     681              $C$DW$65        .dwtag  DW_TAG_variable, DW_AT_name("noise_log_ps")
+     682                      .dwattr $C$DW$65, DW_AT_TI_symbol_name("_noise_log_ps")
+     683                      .dwattr $C$DW$65, DW_AT_type(*$C$DW$T$21)
+     684                      .dwattr $C$DW$65, DW_AT_location[DW_OP_bregx 0x24 8]
+     685              $C$DW$66        .dwtag  DW_TAG_variable, DW_AT_name("jac")
+     686                      .dwattr $C$DW$66, DW_AT_TI_symbol_name("_jac")
+     687                      .dwattr $C$DW$66, DW_AT_type(*$C$DW$T$8)
+     688                      .dwattr $C$DW$66, DW_AT_location[DW_OP_bregx 0x24 10]
+     689              $C$DW$67        .dwtag  DW_TAG_variable, DW_AT_name("n_filter")
+     690                      .dwattr $C$DW$67, DW_AT_TI_symbol_name("_n_filter")
+     691                      .dwattr $C$DW$67, DW_AT_type(*$C$DW$T$8)
+     692                      .dwattr $C$DW$67, DW_AT_location[DW_OP_bregx 0x24 11]
+     693              $C$DW$68        .dwtag  DW_TAG_variable, DW_AT_name("i")
+     694                      .dwattr $C$DW$68, DW_AT_TI_symbol_name("_i")
+     695                      .dwattr $C$DW$68, DW_AT_type(*$C$DW$T$8)
+     696                      .dwattr $C$DW$68, DW_AT_location[DW_OP_bregx 0x24 12]
+     697              $C$DW$69        .dwtag  DW_TAG_variable, DW_AT_name("scale")
+     698                      .dwattr $C$DW$69, DW_AT_TI_symbol_name("_scale")
+     699                      .dwattr $C$DW$69, DW_AT_type(*$C$DW$T$8)
+     700                      .dwattr $C$DW$69, DW_AT_location[DW_OP_bregx 0x24 13]
+     701              $C$DW$70        .dwtag  DW_TAG_variable, DW_AT_name("tmp")
+     702                      .dwattr $C$DW$70, DW_AT_TI_symbol_name("_tmp")
+     703                      .dwattr $C$DW$70, DW_AT_type(*$C$DW$T$12)
+     704                      .dwattr $C$DW$70, DW_AT_location[DW_OP_bregx 0x24 14]
+     705              $C$DW$71        .dwtag  DW_TAG_variable, DW_AT_name("tmp2")
+     706                      .dwattr $C$DW$71, DW_AT_TI_symbol_name("_tmp2")
+     707                      .dwattr $C$DW$71, DW_AT_type(*$C$DW$T$12)
+     708                      .dwattr $C$DW$71, DW_AT_location[DW_OP_bregx 0x24 16]
+     709              $C$DW$72        .dwtag  DW_TAG_variable, DW_AT_name("beta")
+     710                      .dwattr $C$DW$72, DW_AT_TI_symbol_name("_beta")
+     711                      .dwattr $C$DW$72, DW_AT_type(*$C$DW$T$8)
+     712                      .dwattr $C$DW$72, DW_AT_location[DW_OP_bregx 0x24 18]
+     713              $C$DW$73        .dwtag  DW_TAG_variable, DW_AT_name("norm")
+     714                      .dwattr $C$DW$73, DW_AT_TI_symbol_name("_norm")
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE   16
+
+     715                      .dwattr $C$DW$73, DW_AT_type(*$C$DW$T$8)
+     716                      .dwattr $C$DW$73, DW_AT_location[DW_OP_bregx 0x24 19]
+     717              $C$DW$74        .dwtag  DW_TAG_variable, DW_AT_name("tmp_s")
+     718                      .dwattr $C$DW$74, DW_AT_TI_symbol_name("_tmp_s")
+     719                      .dwattr $C$DW$74, DW_AT_type(*$C$DW$T$8)
+     720                      .dwattr $C$DW$74, DW_AT_location[DW_OP_bregx 0x24 20]
+     721 000002 C516          MOV T1, *SP(#11) ; |289| 
+     722 000004 C414          MOV T0, *SP(#10) ; |289| 
+     723 000006 EB10          MOV XAR4, dbl(*SP(#8))
+         000008 C5   
+     724 000009 EB0C          MOV XAR3, dbl(*SP(#6))
+         00000b B5   
+     725 00000c EB08          MOV XAR2, dbl(*SP(#4))
+         00000e A5   
+     726 00000f EB04          MOV XAR1, dbl(*SP(#2))
+         000011 95   
+     727 000012 EB00          MOV XAR0, dbl(*SP(#0))
+         000014 85   
+     728                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     729 000015 A914          MOV *SP(#10), AR1 ; |294| 
+     730 000017 6309          BCC $C$L24,AR1 == #0 ; |294| 
+     731                                                      ; branchcc occurs ; |294| 
+     732                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     733 000019 FB1A          MOV #11818, *SP(#13) ; |294| 
+         00001b 2E2A 
+     734 00001d 4A04          B $C$L25  ; |294| 
+     735                                                      ; branch occurs ; |294| 
+     736 00001f       $C$L24:    
+     737                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     738 00001f FB1A          MOV #27213, *SP(#13) ; |295| 
+         000021 6A4D 
+     739 000023       $C$L25:    
+     740                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     741 000023 E618          MOV #0, *SP(#12) ; |298| 
+         000025 00   
+     742                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     743 000026 A916          MOV *SP(#11), AR1 ; |298| 
+     744 000028 AA18          MOV *SP(#12), AR2 ; |298| 
+     745 00002a 12A8          CMP AR2 >= AR1, TC1 ; |298| 
+         00002c 90   
+     746 00002d 6D64          BCC $C$L37,TC1 ; |298| 
+         00002f 013F 
+     747                                                      ; branchcc occurs ; |298| 
+     748 000031       $C$L26:    
+     749 000031       $C$DW$L$_log_spectral_compensation$5$B:
+     750              
+     751              $C$DW$75        .dwtag  DW_TAG_lexical_block, DW_AT_low_pc(0x00), DW_AT_high_pc(0x00)
+     752              $C$DW$76        .dwtag  DW_TAG_variable, DW_AT_name("sum_sh")
+     753                      .dwattr $C$DW$76, DW_AT_TI_symbol_name("_sum_sh")
+     754                      .dwattr $C$DW$76, DW_AT_type(*$C$DW$T$8)
+     755                      .dwattr $C$DW$76, DW_AT_location[DW_OP_bregx 0x24 21]
+     756                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     757 000031 ED30          MOV dbl(*SP(#24)), XAR3
+         000033 BF   
+     758 000034 A418          MOV *SP(#12), T0 ; |301| 
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE   17
+
+     759 000036 2249          MOV T0, AR1
+     760 000038 ED00          MOV dbl(*SP(#0)), XAR2
+         00003a AF   
+     761 00003b 1490          AADD AR1, AR3 ; |301| 
+         00003d B0   
+     762 00003e 815D          ADD *AR2(T0), *AR3, AC0 ; |301| 
+         000040 80   
+     763 000041 BC2A          MOV HI(AC0), *SP(#21)
+     764                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     765 000043 A51A          MOV *SP(#13), T1 ; |303| 
+     766 000045 D32A          MPYM *SP(#21), T1, AC0 ; |303| 
+         000047 05   
+     767 000048 EB1C          MOV AC0, dbl(*SP(#14)) ; |303| 
+         00004a 08   
+     768                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     769 00004b 7610          MOV #4096, AC0 ; |304| 
+         00004d 0008 
+     770 00004f ED1C          ADD dbl(*SP(#14)), AC0, AC0 ; |304| 
+         000051 00   
+     771 000052 1005          SFTS AC0, #-13, AC0 ; |304| 
+         000054 33   
+     772 000055 EB1C          MOV AC0, dbl(*SP(#14)) ; |304| 
+         000057 08   
+     773                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     774 000058 A418          MOV *SP(#12), T0 ; |306| 
+     775 00005a ED10          MOV dbl(*SP(#8)), XAR3
+         00005c BF   
+     776 00005d A51A          MOV *SP(#13), T1 ; |306| 
+     777 00005f D36B          MPYM *AR3(T0), T1, AC0 ; |306| 
+         000061 05   
+     778 000062 EB20          MOV AC0, dbl(*SP(#16)) ; |306| 
+         000064 08   
+     779                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     780 000065 7610          MOV #4096, AC0 ; |307| 
+         000067 0008 
+     781 000069 ED20          ADD dbl(*SP(#16)), AC0, AC0 ; |307| 
+         00006b 00   
+     782 00006c 1005          SFTS AC0, #-13, AC0 ; |307| 
+         00006e 33   
+     783 00006f EB20          MOV AC0, dbl(*SP(#16)) ; |307| 
+         000071 08   
+     784                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     785 000072 EC24          AMAR *SP(#18), XAR0
+         000074 8E   
+     786 000075 ED20          MOV dbl(*SP(#16)), AC1 ; |321| 
+         000077 18   
+     787 000078 ED1C          MOV dbl(*SP(#14)), AC0 ; |321| 
+         00007a 08   
+     788              $C$DW$77        .dwtag  DW_TAG_TI_branch
+     789                      .dwattr $C$DW$77, DW_AT_low_pc(0x00)
+     790                      .dwattr $C$DW$77, DW_AT_name("_pmc_log_add")
+     791                      .dwattr $C$DW$77, DW_AT_TI_call
+     792 00007b 6C00          CALL #_pmc_log_add ; |321| 
+         00007d 0000+
+     793                                                      ; call occurs [#_pmc_log_add] ; |321| 
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE   18
+
+     794 00007f ED08          MOV dbl(*SP(#4)), XAR3
+         000081 BF   
+     795              
+     796 000082 A418          MOV *SP(#12), T0 ; |321| 
+     797 000084 2349  ||      MOV T0, AR1 ; |321| 
+     798              
+     799 000086 C96B          MOV AR1, *AR3(T0) ; |321| 
+     800                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     801 000088 A418          MOV *SP(#12), T0 ; |355| 
+     802 00008a ED08          MOV dbl(*SP(#4)), XAR3
+         00008c BF   
+     803 00008d B06B          MOV *AR3(T0) << #16, AC0 ; |355| 
+     804 00008f 7926          MPYK #9864, AC0, AC0 ; |355| 
+         000091 8800 
+     805 000093 EB1C          MOV AC0, dbl(*SP(#14)) ; |355| 
+         000095 08   
+     806                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     807 000096 7640          MOV #16384, AC0 ; |356| 
+         000098 0008 
+     808 00009a ED1C          ADD dbl(*SP(#14)), AC0, AC0 ; |356| 
+         00009c 00   
+     809 00009d 1005          SFTS AC0, #-15, AC0 ; |356| 
+         00009f 31   
+     810 0000a0 EB1C          MOV AC0, dbl(*SP(#14)) ; |356| 
+         0000a2 08   
+     811                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     812 0000a3 A914          MOV *SP(#10), AR1 ; |358| 
+     813 0000a5 0409          BCC $C$L27,AR1 == #0 ; |358| 
+         0000a7 1B   
+     814                                                      ; branchcc occurs ; |358| 
+     815 0000a8       $C$DW$L$_log_spectral_compensation$5$E:
+     816 0000a8       $C$DW$L$_log_spectral_compensation$6$B:
+     817                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     818 0000a8 ED1C          MOV dbl(*SP(#14)), AC0 ; |359| 
+         0000aa 08   
+     819 0000ab 7649          MOV #18863, AC1 ; |359| 
+         0000ad AF18 
+     820              $C$DW$78        .dwtag  DW_TAG_TI_branch
+     821                      .dwattr $C$DW$78, DW_AT_low_pc(0x00)
+     822                      .dwattr $C$DW$78, DW_AT_name("__mpyli")
+     823                      .dwattr $C$DW$78, DW_AT_TI_call
+     824 0000af 6C00          CALL #__mpyli ; |359| 
+         0000b1 0000!
+     825                                                      ; call occurs [#__mpyli] ; |359| 
+     826 0000b3 EB1C          MOV AC0, dbl(*SP(#14)) ; |359| 
+         0000b5 08   
+     827                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     828 0000b6 7610          MOV #4096, AC0 ; |360| 
+         0000b8 0008 
+     829 0000ba ED1C          ADD dbl(*SP(#14)), AC0, AC0 ; |360| 
+         0000bc 00   
+     830 0000bd 1005          SFTS AC0, #-13, AC0 ; |360| 
+         0000bf 33   
+     831 0000c0 EB1C          MOV AC0, dbl(*SP(#14)) ; |360| 
+         0000c2 08   
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE   19
+
+     832 0000c3       $C$DW$L$_log_spectral_compensation$6$E:
+     833 0000c3       $C$L27:    
+     834 0000c3       $C$DW$L$_log_spectral_compensation$7$B:
+     835                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     836 0000c3 ED08          MOV dbl(*SP(#4)), XAR3
+         0000c5 BF   
+     837 0000c6 A418          MOV *SP(#12), T0 ; |362| 
+     838 0000c8 A91E          MOV *SP(#15), AR1 ; |362| 
+     839 0000ca C96B          MOV AR1, *AR3(T0) ; |362| 
+     840                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     841 0000cc ED34          MOV dbl(*SP(#26)), XAR3
+         0000ce BF   
+     842 0000cf 90B0          MOV XAR3, AC0
+     843 0000d1 6480          BCC $C$L28,AC0 == #0 ; |382| 
+     844                                                      ; branchcc occurs ; |382| 
+     845 0000d3       $C$DW$L$_log_spectral_compensation$7$E:
+     846 0000d3       $C$DW$L$_log_spectral_compensation$8$B:
+     847                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     848 0000d3 A418          MOV *SP(#12), T0 ; |382| 
+     849 0000d5 A924          MOV *SP(#18), AR1 ; |382| 
+     850 0000d7 C96B          MOV AR1, *AR3(T0) ; |382| 
+     851 0000d9 0600          B $C$L36  ; |382| 
+         0000db 85   
+     852                                                      ; branch occurs ; |382| 
+     853 0000dc       $C$DW$L$_log_spectral_compensation$8$E:
+     854 0000dc       $C$L28:    
+     855 0000dc       $C$DW$L$_log_spectral_compensation$9$B:
+     856                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     857 0000dc A418          MOV *SP(#12), T0 ; |384| 
+     858 0000de ED04          MOV dbl(*SP(#2)), XAR3
+         0000e0 BF   
+     859 0000e1 A96B          MOV *AR3(T0), AR1 ; |384| 
+     860 0000e3 0409          BCC $C$L35,AR1 == #0 ; |384| 
+         0000e5 75   
+     861                                                      ; branchcc occurs ; |384| 
+     862 0000e6       $C$DW$L$_log_spectral_compensation$9$E:
+     863 0000e6       $C$DW$L$_log_spectral_compensation$10$B:
+     864                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     865 0000e6 A96B          MOV *AR3(T0), AR1 ; |385| 
+     866 0000e8 6239          BCC $C$L29,AR1 <= #0 ; |385| 
+     867                                                      ; branchcc occurs ; |385| 
+     868 0000ea       $C$DW$L$_log_spectral_compensation$10$E:
+     869 0000ea       $C$DW$L$_log_spectral_compensation$11$B:
+     870 0000ea A96B          MOV *AR3(T0), AR1 ; |385| 
+     871 0000ec 4A04          B $C$L30  ; |385| 
+     872                                                      ; branch occurs ; |385| 
+     873 0000ee       $C$DW$L$_log_spectral_compensation$11$E:
+     874 0000ee       $C$L29:    
+     875 0000ee       $C$DW$L$_log_spectral_compensation$12$B:
+     876 0000ee A96B          MOV *AR3(T0), AR1 ; |385| 
+     877 0000f0 3499          NEG AR1, AR1 ; |385| 
+     878 0000f2       $C$DW$L$_log_spectral_compensation$12$E:
+     879 0000f2       $C$L30:    
+     880 0000f2       $C$DW$L$_log_spectral_compensation$13$B:
+     881 0000f2 2290          MOV AR1, AC0
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE   20
+
+     882 0000f4 EB1C          MOV AC0, dbl(*SP(#14)) ; |385| 
+         0000f6 08   
+     883                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     884 0000f7 E626          MOV #0, *SP(#19) ; |386| 
+         0000f9 00   
+     885                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     886 0000fa ED1C          MOV dbl(*SP(#14)), AC1 ; |386| 
+         0000fc 18   
+     887 0000fd 7A40          MOV #16384 << #16, AC0 ; |386| 
+         0000ff 000A 
+     888 000101 1218          CMP AC1 >= AC0, TC1 ; |386| 
+         000103 00   
+     889 000104 0464          BCC $C$L32,TC1 ; |386| 
+         000106 19   
+     890                                                      ; branchcc occurs ; |386| 
+     891 000107       $C$DW$L$_log_spectral_compensation$13$E:
+     892 000107       $C$L31:    
+     893 000107       $C$DW$L$_log_spectral_compensation$14$B:
+     894                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     895 000107 ED1C          MOV dbl(*SP(#14)), AC0 ; |387| 
+         000109 08   
+     896 00010a 5000          SFTL AC0, #1 ; |387| 
+     897 00010c EB1C          MOV AC0, dbl(*SP(#14)) ; |387| 
+         00010e 08   
+     898                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     899 00010f F726          ADD #1, *SP(#19) ; |386| 
+         000111 0001 
+     900                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     901 000113 ED1C          MOV dbl(*SP(#14)), AC1 ; |386| 
+         000115 18   
+     902 000116 7A40          MOV #16384 << #16, AC0 ; |386| 
+         000118 000A 
+     903 00011a 1214          CMP AC1 < AC0, TC1 ; |386| 
+         00011c 00   
+     904 00011d 0464          BCC $C$L31,TC1 ; |386| 
+         00011f E7   
+     905                                                      ; branchcc occurs ; |386| 
+     906 000120       $C$DW$L$_log_spectral_compensation$14$E:
+     907 000120       $C$L32:    
+     908 000120       $C$DW$L$_log_spectral_compensation$15$B:
+     909                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     910 000120 ED1C          MOV dbl(*SP(#14)), AC0 ; |388| 
+         000122 08   
+     911 000123 BC28          MOV HI(AC0), *SP(#20) ; |388| 
+     912                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     913 000125 A528          MOV *SP(#20), T1 ; |389| 
+     914 000127 D324          MPYM *SP(#18), T1, AC0 ; |389| 
+         000129 05   
+     915 00012a EB1C          MOV AC0, dbl(*SP(#14)) ; |389| 
+         00012c 08   
+     916                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     917 00012d ED1C          MOV dbl(*SP(#14)), AC0 ; |390| 
+         00012f 08   
+     918 000130 5000          SFTL AC0, #1 ; |390| 
+     919 000132 EB1C          MOV AC0, dbl(*SP(#14)) ; |390| 
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE   21
+
+         000134 08   
+     920                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     921 000135 A926          MOV *SP(#19), AR1 ; |391| 
+     922              
+     923 00013a 3595          NEG AR1, T1 ; |391| 
+     924 000137 ED1C  ||      MOV dbl(*SP(#14)), AC0 ; |391| 
+         000139 08   
+     925              
+     926 00013c 5C05          SFTS AC0, T1, AC0 ; |391| 
+     927 00013e EB1C          MOV AC0, dbl(*SP(#14)) ; |391| 
+         000140 08   
+     928                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     929 000141 A418          MOV *SP(#12), T0 ; |392| 
+     930 000143 ED04          MOV dbl(*SP(#2)), XAR3
+         000145 BF   
+     931 000146 A96B          MOV *AR3(T0), AR1 ; |392| 
+     932 000148 62B9          BCC $C$L33,AR1 <= #0 ; |392| 
+     933                                                      ; branchcc occurs ; |392| 
+     934 00014a       $C$DW$L$_log_spectral_compensation$15$E:
+     935 00014a       $C$DW$L$_log_spectral_compensation$16$B:
+     936 00014a ED1C          MOV dbl(*SP(#14)), AC0 ; |392| 
+         00014c 08   
+     937 00014d 4A05          B $C$L34  ; |392| 
+     938                                                      ; branch occurs ; |392| 
+     939 00014f       $C$DW$L$_log_spectral_compensation$16$E:
+     940 00014f       $C$L33:    
+     941 00014f       $C$DW$L$_log_spectral_compensation$17$B:
+     942 00014f ED1C          MOV dbl(*SP(#14)), AC0 ; |392| 
+         000151 08   
+     943 000152 3400          NEG AC0, AC0 ; |392| 
+     944 000154       $C$DW$L$_log_spectral_compensation$17$E:
+     945 000154       $C$L34:    
+     946 000154       $C$DW$L$_log_spectral_compensation$18$B:
+     947 000154 ED0C          MOV dbl(*SP(#6)), XAR3
+         000156 BF   
+     948 000157 C06B          MOV AC0, *AR3(T0) ; |392| 
+     949                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     950 000159 4A06          B $C$L36  ; |394| 
+     951                                                      ; branch occurs ; |394| 
+     952 00015b       $C$DW$L$_log_spectral_compensation$18$E:
+     953 00015b       $C$L35:    
+     954 00015b       $C$DW$L$_log_spectral_compensation$19$B:
+     955                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     956 00015b ED0C          MOV dbl(*SP(#6)), XAR3
+         00015d BF   
+     957 00015e E66B          MOV #0, *AR3(T0) ; |394| 
+         000160 00   
+     958              $C$DW$L$_log_spectral_compensation$19$E:
+     959              $C$L36:    
+     960              $C$DW$L$_log_spectral_compensation$20$B:
+     961                      .dwendtag $C$DW$75
+     962              
+     963                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     964 000161 F718          ADD #1, *SP(#12) ; |298| 
+         000163 0001 
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE   22
+
+     965                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     966 000165 A916          MOV *SP(#11), AR1 ; |298| 
+     967 000167 AA18          MOV *SP(#12), AR2 ; |298| 
+     968 000169 12A4          CMP AR2 < AR1, TC1 ; |298| 
+         00016b 90   
+     969 00016c 6D64          BCC $C$L26,TC1 ; |298| 
+         00016e FEC1 
+     970                                                      ; branchcc occurs ; |298| 
+     971 000170       $C$DW$L$_log_spectral_compensation$20$E:
+     972                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+     973 000170       $C$L37:    
+     974 000170 4E17          AADD #23, SP
+     975                      .dwcfi  cfa_offset, 1
+     976              $C$DW$79        .dwtag  DW_TAG_TI_branch
+     977                      .dwattr $C$DW$79, DW_AT_low_pc(0x00)
+     978                      .dwattr $C$DW$79, DW_AT_TI_return
+     979 000172 4804          RET
+     980                                                      ; return occurs
+     981              
+     982              $C$DW$80        .dwtag  DW_TAG_TI_loop
+     983                      .dwattr $C$DW$80, DW_AT_name("C:\\Users\\a0221074\\AppData\\Local\\Temp\\1467610:$C$L26:1:1505334824"
+     984                      .dwattr $C$DW$80, DW_AT_TI_begin_file("C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/C
+     985                      .dwattr $C$DW$80, DW_AT_TI_begin_line(0x12a)
+     986                      .dwattr $C$DW$80, DW_AT_TI_end_line(0x18b)
+     987              $C$DW$81        .dwtag  DW_TAG_TI_loop_range
+     988                      .dwattr $C$DW$81, DW_AT_low_pc($C$DW$L$_log_spectral_compensation$5$B)
+     989                      .dwattr $C$DW$81, DW_AT_high_pc($C$DW$L$_log_spectral_compensation$5$E)
+     990              $C$DW$82        .dwtag  DW_TAG_TI_loop_range
+     991                      .dwattr $C$DW$82, DW_AT_low_pc($C$DW$L$_log_spectral_compensation$9$B)
+     992                      .dwattr $C$DW$82, DW_AT_high_pc($C$DW$L$_log_spectral_compensation$9$E)
+     993              $C$DW$83        .dwtag  DW_TAG_TI_loop_range
+     994                      .dwattr $C$DW$83, DW_AT_low_pc($C$DW$L$_log_spectral_compensation$10$B)
+     995                      .dwattr $C$DW$83, DW_AT_high_pc($C$DW$L$_log_spectral_compensation$10$E)
+     996              $C$DW$84        .dwtag  DW_TAG_TI_loop_range
+     997                      .dwattr $C$DW$84, DW_AT_low_pc($C$DW$L$_log_spectral_compensation$11$B)
+     998                      .dwattr $C$DW$84, DW_AT_high_pc($C$DW$L$_log_spectral_compensation$11$E)
+     999              $C$DW$85        .dwtag  DW_TAG_TI_loop_range
+    1000                      .dwattr $C$DW$85, DW_AT_low_pc($C$DW$L$_log_spectral_compensation$12$B)
+    1001                      .dwattr $C$DW$85, DW_AT_high_pc($C$DW$L$_log_spectral_compensation$12$E)
+    1002              $C$DW$86        .dwtag  DW_TAG_TI_loop_range
+    1003                      .dwattr $C$DW$86, DW_AT_low_pc($C$DW$L$_log_spectral_compensation$13$B)
+    1004                      .dwattr $C$DW$86, DW_AT_high_pc($C$DW$L$_log_spectral_compensation$13$E)
+    1005              $C$DW$87        .dwtag  DW_TAG_TI_loop_range
+    1006                      .dwattr $C$DW$87, DW_AT_low_pc($C$DW$L$_log_spectral_compensation$15$B)
+    1007                      .dwattr $C$DW$87, DW_AT_high_pc($C$DW$L$_log_spectral_compensation$15$E)
+    1008              $C$DW$88        .dwtag  DW_TAG_TI_loop_range
+    1009                      .dwattr $C$DW$88, DW_AT_low_pc($C$DW$L$_log_spectral_compensation$16$B)
+    1010                      .dwattr $C$DW$88, DW_AT_high_pc($C$DW$L$_log_spectral_compensation$16$E)
+    1011              $C$DW$89        .dwtag  DW_TAG_TI_loop_range
+    1012                      .dwattr $C$DW$89, DW_AT_low_pc($C$DW$L$_log_spectral_compensation$17$B)
+    1013                      .dwattr $C$DW$89, DW_AT_high_pc($C$DW$L$_log_spectral_compensation$17$E)
+    1014              $C$DW$90        .dwtag  DW_TAG_TI_loop_range
+    1015                      .dwattr $C$DW$90, DW_AT_low_pc($C$DW$L$_log_spectral_compensation$6$B)
+    1016                      .dwattr $C$DW$90, DW_AT_high_pc($C$DW$L$_log_spectral_compensation$6$E)
+    1017              $C$DW$91        .dwtag  DW_TAG_TI_loop_range
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE   23
+
+    1018                      .dwattr $C$DW$91, DW_AT_low_pc($C$DW$L$_log_spectral_compensation$7$B)
+    1019                      .dwattr $C$DW$91, DW_AT_high_pc($C$DW$L$_log_spectral_compensation$7$E)
+    1020              $C$DW$92        .dwtag  DW_TAG_TI_loop_range
+    1021                      .dwattr $C$DW$92, DW_AT_low_pc($C$DW$L$_log_spectral_compensation$8$B)
+    1022                      .dwattr $C$DW$92, DW_AT_high_pc($C$DW$L$_log_spectral_compensation$8$E)
+    1023              $C$DW$93        .dwtag  DW_TAG_TI_loop_range
+    1024                      .dwattr $C$DW$93, DW_AT_low_pc($C$DW$L$_log_spectral_compensation$18$B)
+    1025                      .dwattr $C$DW$93, DW_AT_high_pc($C$DW$L$_log_spectral_compensation$18$E)
+    1026              $C$DW$94        .dwtag  DW_TAG_TI_loop_range
+    1027                      .dwattr $C$DW$94, DW_AT_low_pc($C$DW$L$_log_spectral_compensation$19$B)
+    1028                      .dwattr $C$DW$94, DW_AT_high_pc($C$DW$L$_log_spectral_compensation$19$E)
+    1029              $C$DW$95        .dwtag  DW_TAG_TI_loop_range
+    1030                      .dwattr $C$DW$95, DW_AT_low_pc($C$DW$L$_log_spectral_compensation$20$B)
+    1031                      .dwattr $C$DW$95, DW_AT_high_pc($C$DW$L$_log_spectral_compensation$20$E)
+    1032              
+    1033              $C$DW$96        .dwtag  DW_TAG_TI_loop
+    1034                      .dwattr $C$DW$96, DW_AT_name("C:\\Users\\a0221074\\AppData\\Local\\Temp\\1467610:$C$L31:2:1505334824"
+    1035                      .dwattr $C$DW$96, DW_AT_TI_begin_file("C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/C
+    1036                      .dwattr $C$DW$96, DW_AT_TI_begin_line(0x182)
+    1037                      .dwattr $C$DW$96, DW_AT_TI_end_line(0x183)
+    1038              $C$DW$97        .dwtag  DW_TAG_TI_loop_range
+    1039                      .dwattr $C$DW$97, DW_AT_low_pc($C$DW$L$_log_spectral_compensation$14$B)
+    1040                      .dwattr $C$DW$97, DW_AT_high_pc($C$DW$L$_log_spectral_compensation$14$E)
+    1041                      .dwendtag $C$DW$96
+    1042              
+    1043                      .dwendtag $C$DW$80
+    1044              
+    1045                      .dwattr $C$DW$51, DW_AT_TI_end_file("C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL
+    1046                      .dwattr $C$DW$51, DW_AT_TI_end_line(0x18c)
+    1047                      .dwattr $C$DW$51, DW_AT_TI_end_column(0x01)
+    1048                      .dwendentry
+    1049                      .dwendtag $C$DW$51
+    1050              
+    1051 000000               .sect   ".text:_pmc"
+    1052                      .clink
+    1053                      .global _pmc
+    1054              
+    1055              $C$DW$98        .dwtag  DW_TAG_subprogram, DW_AT_name("pmc")
+    1056                      .dwattr $C$DW$98, DW_AT_low_pc(_pmc)
+    1057                      .dwattr $C$DW$98, DW_AT_high_pc(0x00)
+    1058                      .dwattr $C$DW$98, DW_AT_TI_symbol_name("_pmc")
+    1059                      .dwattr $C$DW$98, DW_AT_external
+    1060                      .dwattr $C$DW$98, DW_AT_TI_begin_file("C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/C
+    1061                      .dwattr $C$DW$98, DW_AT_TI_begin_line(0x19f)
+    1062                      .dwattr $C$DW$98, DW_AT_TI_begin_column(0x01)
+    1063                      .dwattr $C$DW$98, DW_AT_TI_max_frame_size(0xc0)
+    1064                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+    1065              
+    1066                      .dwfde $C$DW$CIE, _pmc
+    1067              $C$DW$99        .dwtag  DW_TAG_formal_parameter, DW_AT_name("sp_mfcc_o")
+    1068                      .dwattr $C$DW$99, DW_AT_TI_symbol_name("_sp_mfcc_o")
+    1069                      .dwattr $C$DW$99, DW_AT_type(*$C$DW$T$19)
+    1070                      .dwattr $C$DW$99, DW_AT_location[DW_OP_reg17]
+    1071              $C$DW$100       .dwtag  DW_TAG_formal_parameter, DW_AT_name("noise_log_ps")
+    1072                      .dwattr $C$DW$100, DW_AT_TI_symbol_name("_noise_log_ps")
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE   24
+
+    1073                      .dwattr $C$DW$100, DW_AT_type(*$C$DW$T$19)
+    1074                      .dwattr $C$DW$100, DW_AT_location[DW_OP_reg19]
+    1075              $C$DW$101       .dwtag  DW_TAG_formal_parameter, DW_AT_name("pmc_mfcc")
+    1076                      .dwattr $C$DW$101, DW_AT_TI_symbol_name("_pmc_mfcc")
+    1077                      .dwattr $C$DW$101, DW_AT_type(*$C$DW$T$19)
+    1078                      .dwattr $C$DW$101, DW_AT_location[DW_OP_reg21]
+    1079              $C$DW$102       .dwtag  DW_TAG_formal_parameter, DW_AT_name("chn")
+    1080                      .dwattr $C$DW$102, DW_AT_TI_symbol_name("_chn")
+    1081                      .dwattr $C$DW$102, DW_AT_type(*$C$DW$T$19)
+    1082                      .dwattr $C$DW$102, DW_AT_location[DW_OP_reg23]
+    1083              $C$DW$103       .dwtag  DW_TAG_formal_parameter, DW_AT_name("jac")
+    1084                      .dwattr $C$DW$103, DW_AT_TI_symbol_name("_jac")
+    1085                      .dwattr $C$DW$103, DW_AT_type(*$C$DW$T$8)
+    1086                      .dwattr $C$DW$103, DW_AT_location[DW_OP_reg12]
+    1087              $C$DW$104       .dwtag  DW_TAG_formal_parameter, DW_AT_name("n_mfcc")
+    1088                      .dwattr $C$DW$104, DW_AT_TI_symbol_name("_n_mfcc")
+    1089                      .dwattr $C$DW$104, DW_AT_type(*$C$DW$T$8)
+    1090                      .dwattr $C$DW$104, DW_AT_location[DW_OP_reg13]
+    1091              $C$DW$105       .dwtag  DW_TAG_formal_parameter, DW_AT_name("n_filter")
+    1092                      .dwattr $C$DW$105, DW_AT_TI_symbol_name("_n_filter")
+    1093                      .dwattr $C$DW$105, DW_AT_type(*$C$DW$T$8)
+    1094                      .dwattr $C$DW$105, DW_AT_location[DW_OP_reg24]
+    1095              $C$DW$106       .dwtag  DW_TAG_formal_parameter, DW_AT_name("mu_scale_p2")
+    1096                      .dwattr $C$DW$106, DW_AT_TI_symbol_name("_mu_scale_p2")
+    1097                      .dwattr $C$DW$106, DW_AT_type(*$C$DW$T$21)
+    1098                      .dwattr $C$DW$106, DW_AT_location[DW_OP_bregx 0x24 192]
+    1099              $C$DW$107       .dwtag  DW_TAG_formal_parameter, DW_AT_name("scale_mu")
+    1100                      .dwattr $C$DW$107, DW_AT_TI_symbol_name("_scale_mu")
+    1101                      .dwattr $C$DW$107, DW_AT_type(*$C$DW$T$19)
+    1102                      .dwattr $C$DW$107, DW_AT_location[DW_OP_bregx 0x24 194]
+    1103              $C$DW$108       .dwtag  DW_TAG_formal_parameter, DW_AT_name("cosxfm")
+    1104                      .dwattr $C$DW$108, DW_AT_TI_symbol_name("_cosxfm")
+    1105                      .dwattr $C$DW$108, DW_AT_type(*$C$DW$T$22)
+    1106                      .dwattr $C$DW$108, DW_AT_location[DW_OP_bregx 0x24 196]
+    1107              $C$DW$109       .dwtag  DW_TAG_formal_parameter, DW_AT_name("sp_bias")
+    1108                      .dwattr $C$DW$109, DW_AT_TI_symbol_name("_sp_bias")
+    1109                      .dwattr $C$DW$109, DW_AT_type(*$C$DW$T$19)
+    1110                      .dwattr $C$DW$109, DW_AT_location[DW_OP_bregx 0x24 198]
+    1111              $C$DW$110       .dwtag  DW_TAG_formal_parameter, DW_AT_name("b8bitMean")
+    1112                      .dwattr $C$DW$110, DW_AT_TI_symbol_name("_b8bitMean")
+    1113                      .dwattr $C$DW$110, DW_AT_type(*$C$DW$T$8)
+    1114                      .dwattr $C$DW$110, DW_AT_location[DW_OP_bregx 0x24 200]
+    1115              ;*******************************************************************************
+    1116              ;* FUNCTION NAME: pmc                                                          *
+    1117              ;*                                                                             *
+    1118              ;*   Function Uses Regs : AC0,AC0,T0,T1,AR0,XAR0,AR1,XAR1,AR2,XAR2,AR3,XAR3,   *
+    1119              ;*                        AR4,XAR4,FP,XFP,SP,CARRY,M40,SATA,SATD,RDM,FRCT,SMUL *
+    1120              ;*   Save On Entry Regs : FP                                                   *
+    1121              ;*   Stack Frame        : Full (Frame Pointer in AR6, w/ debug)                *
+    1122              ;*   Total Frame Size   : 192 words                                            *
+    1123              ;*                        (2 return address/alignment)                         *
+    1124              ;*                        (4 function parameters)                              *
+    1125              ;*                        (185 local values)                                   *
+    1126              ;*                        (1 register save area)                               *
+    1127              ;*   Min System Stack   : 2 words                                              *
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE   25
+
+    1128              ;*******************************************************************************
+    1129 000000       _pmc:
+    1130                      .dwcfi  cfa_offset, 1
+    1131                      .dwcfi  save_reg_to_mem, 91, -1
+    1132 000000 50E5          PSHBOTH XFP
+    1133                      .dwcfi  cfa_offset, 2
+    1134                      .dwcfi  save_reg_to_mem, 32, -2
+    1135 000002 F79A          ADD #-190, mmap(SP)
+         000004 FF42 
+         000006 98   
+    1136 000007 EC00          AMAR *SP(#0), XFP
+         000009 EE   
+    1137                      .dwcfi  cfa_offset, 192
+    1138              $C$DW$111       .dwtag  DW_TAG_variable, DW_AT_name("sp_mfcc_o")
+    1139                      .dwattr $C$DW$111, DW_AT_TI_symbol_name("_sp_mfcc_o")
+    1140                      .dwattr $C$DW$111, DW_AT_type(*$C$DW$T$19)
+    1141                      .dwattr $C$DW$111, DW_AT_location[DW_OP_bregx 0x24 4]
+    1142              $C$DW$112       .dwtag  DW_TAG_variable, DW_AT_name("noise_log_ps")
+    1143                      .dwattr $C$DW$112, DW_AT_TI_symbol_name("_noise_log_ps")
+    1144                      .dwattr $C$DW$112, DW_AT_type(*$C$DW$T$19)
+    1145                      .dwattr $C$DW$112, DW_AT_location[DW_OP_bregx 0x24 6]
+    1146              $C$DW$113       .dwtag  DW_TAG_variable, DW_AT_name("pmc_mfcc")
+    1147                      .dwattr $C$DW$113, DW_AT_TI_symbol_name("_pmc_mfcc")
+    1148                      .dwattr $C$DW$113, DW_AT_type(*$C$DW$T$19)
+    1149                      .dwattr $C$DW$113, DW_AT_location[DW_OP_bregx 0x24 8]
+    1150              $C$DW$114       .dwtag  DW_TAG_variable, DW_AT_name("chn")
+    1151                      .dwattr $C$DW$114, DW_AT_TI_symbol_name("_chn")
+    1152                      .dwattr $C$DW$114, DW_AT_type(*$C$DW$T$19)
+    1153                      .dwattr $C$DW$114, DW_AT_location[DW_OP_bregx 0x24 10]
+    1154              $C$DW$115       .dwtag  DW_TAG_variable, DW_AT_name("jac")
+    1155                      .dwattr $C$DW$115, DW_AT_TI_symbol_name("_jac")
+    1156                      .dwattr $C$DW$115, DW_AT_type(*$C$DW$T$8)
+    1157                      .dwattr $C$DW$115, DW_AT_location[DW_OP_bregx 0x24 12]
+    1158              $C$DW$116       .dwtag  DW_TAG_variable, DW_AT_name("n_mfcc")
+    1159                      .dwattr $C$DW$116, DW_AT_TI_symbol_name("_n_mfcc")
+    1160                      .dwattr $C$DW$116, DW_AT_type(*$C$DW$T$8)
+    1161                      .dwattr $C$DW$116, DW_AT_location[DW_OP_bregx 0x24 13]
+    1162              $C$DW$117       .dwtag  DW_TAG_variable, DW_AT_name("n_filter")
+    1163                      .dwattr $C$DW$117, DW_AT_TI_symbol_name("_n_filter")
+    1164                      .dwattr $C$DW$117, DW_AT_type(*$C$DW$T$8)
+    1165                      .dwattr $C$DW$117, DW_AT_location[DW_OP_bregx 0x24 14]
+    1166              $C$DW$118       .dwtag  DW_TAG_variable, DW_AT_name("sp_log_ps")
+    1167                      .dwattr $C$DW$118, DW_AT_TI_symbol_name("_sp_log_ps")
+    1168                      .dwattr $C$DW$118, DW_AT_type(*$C$DW$T$41)
+    1169                      .dwattr $C$DW$118, DW_AT_location[DW_OP_bregx 0x24 15]
+    1170              $C$DW$119       .dwtag  DW_TAG_variable, DW_AT_name("reg_sp_log_ps")
+    1171                      .dwattr $C$DW$119, DW_AT_TI_symbol_name("_reg_sp_log_ps")
+    1172                      .dwattr $C$DW$119, DW_AT_type(*$C$DW$T$41)
+    1173                      .dwattr $C$DW$119, DW_AT_location[DW_OP_bregx 0x24 41]
+    1174              $C$DW$120       .dwtag  DW_TAG_variable, DW_AT_name("pmc_log_ps")
+    1175                      .dwattr $C$DW$120, DW_AT_TI_symbol_name("_pmc_log_ps")
+    1176                      .dwattr $C$DW$120, DW_AT_type(*$C$DW$T$41)
+    1177                      .dwattr $C$DW$120, DW_AT_location[DW_OP_bregx 0x24 67]
+    1178              $C$DW$121       .dwtag  DW_TAG_variable, DW_AT_name("reg_pmc_log_ps")
+    1179                      .dwattr $C$DW$121, DW_AT_TI_symbol_name("_reg_pmc_log_ps")
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE   26
+
+    1180                      .dwattr $C$DW$121, DW_AT_type(*$C$DW$T$41)
+    1181                      .dwattr $C$DW$121, DW_AT_location[DW_OP_bregx 0x24 93]
+    1182              $C$DW$122       .dwtag  DW_TAG_variable, DW_AT_name("po")
+    1183                      .dwattr $C$DW$122, DW_AT_TI_symbol_name("_po")
+    1184                      .dwattr $C$DW$122, DW_AT_type(*$C$DW$T$19)
+    1185                      .dwattr $C$DW$122, DW_AT_location[DW_OP_bregx 0x24 120]
+    1186              $C$DW$123       .dwtag  DW_TAG_variable, DW_AT_name("sp_mfcc")
+    1187                      .dwattr $C$DW$123, DW_AT_TI_symbol_name("_sp_mfcc")
+    1188                      .dwattr $C$DW$123, DW_AT_type(*$C$DW$T$19)
+    1189                      .dwattr $C$DW$123, DW_AT_location[DW_OP_bregx 0x24 122]
+    1190              $C$DW$124       .dwtag  DW_TAG_variable, DW_AT_name("sp_clean")
+    1191                      .dwattr $C$DW$124, DW_AT_TI_symbol_name("_sp_clean")
+    1192                      .dwattr $C$DW$124, DW_AT_type(*$C$DW$T$43)
+    1193                      .dwattr $C$DW$124, DW_AT_location[DW_OP_bregx 0x24 124]
+    1194              $C$DW$125       .dwtag  DW_TAG_variable, DW_AT_name("i")
+    1195                      .dwattr $C$DW$125, DW_AT_TI_symbol_name("_i")
+    1196                      .dwattr $C$DW$125, DW_AT_type(*$C$DW$T$8)
+    1197                      .dwattr $C$DW$125, DW_AT_location[DW_OP_bregx 0x24 156]
+    1198              $C$DW$126       .dwtag  DW_TAG_variable, DW_AT_name("pmc_mfcc16")
+    1199                      .dwattr $C$DW$126, DW_AT_TI_symbol_name("_pmc_mfcc16")
+    1200                      .dwattr $C$DW$126, DW_AT_type(*$C$DW$T$43)
+    1201                      .dwattr $C$DW$126, DW_AT_location[DW_OP_bregx 0x24 157]
+    1202 00000a CC1C          MOV AR4, *SP(#14) ; |425| 
+    1203 00000c C51A          MOV T1, *SP(#13) ; |425| 
+    1204 00000e C418          MOV T0, *SP(#12) ; |425| 
+    1205 000010 EB14          MOV XAR3, dbl(*SP(#10))
+         000012 B5   
+    1206 000013 EB10          MOV XAR2, dbl(*SP(#8))
+         000015 A5   
+    1207 000016 EB0C          MOV XAR1, dbl(*SP(#6))
+         000018 95   
+    1208 000019 EB08          MOV XAR0, dbl(*SP(#4))
+         00001b 85   
+    1209                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+    1210 00001c ED10          MOV dbl(*SP(#8)), XAR3
+         00001e BF   
+    1211 00001f EBF0          MOV XAR3, dbl(*SP(#120))
+         000021 B5   
+    1212                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+    1213 000022 ED08          MOV dbl(*SP(#4)), XAR3
+         000024 BF   
+    1214 000025 EBF4          MOV XAR3, dbl(*SP(#122))
+         000027 B5   
+    1215                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+    1216 000028 A9CD          MOV *FP(#200), AR1 ; |434| 
+         00002a 00C8 
+    1217 00002c 0409          BCC $C$L38,AR1 == #0 ; |434| 
+         00002e 26   
+    1218                                                      ; branchcc occurs ; |434| 
+    1219                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+    1220 00002f EC00          AMAR *SP(#0), XAR3
+         000031 BE   
+    1221 000032 B46F          AMAR *+AR3(#157)
+         000034 009D 
+    1222 000036 EBF0          MOV XAR3, dbl(*SP(#120))
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE   27
+
+         000038 B5   
+    1223                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+    1224 000039 EC00          AMAR *SP(#0), XAR1
+         00003b 9E   
+    1225 00003c A41A          MOV *SP(#13), T0 ; |436| 
+    1226 00003e EDCD          MOV dbl(*FP(#194)), XAR2
+         000040 AF00 
+         000042 C2   
+    1227 000043 B42F          AMAR *+AR1(#157)
+         000045 009D 
+    1228              $C$DW$127       .dwtag  DW_TAG_TI_branch
+    1229                      .dwattr $C$DW$127, DW_AT_low_pc(0x00)
+    1230                      .dwattr $C$DW$127, DW_AT_name("_vector_unpacking")
+    1231                      .dwattr $C$DW$127, DW_AT_TI_call
+    1232 000047 6C00          CALL #_vector_unpacking ; |436| 
+         000049 0000!
+    1233                                                      ; call occurs [#_vector_unpacking] ; |436| 
+    1234                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+    1235 00004b EC00          AMAR *SP(#0), XAR3
+         00004d BE   
+    1236 00004e B46F          AMAR *+AR3(#157)
+         000050 009D 
+    1237 000052 EBF4          MOV XAR3, dbl(*SP(#122))
+         000054 B5   
+    1238 000055       $C$L38:    
+    1239                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+    1240 000055 EDCD          MOV dbl(*FP(#198)), XAR3
+         000057 BF00 
+         000059 C6   
+    1241 00005a 90B0          MOV XAR3, AC0
+    1242 00005c 0400          BCC $C$L40,AC0 == #0 ; |440| 
+         00005e 28   
+    1243                                                      ; branchcc occurs ; |440| 
+    1244                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+    1245 00005f A91A          MOV *SP(#13), AR1 ; |442| 
+    1246 000061 5090          SFTL AR1, #1 ; |442| 
+    1247 000063 4219          SUB #1, AR1 ; |442| 
+    1248 000065 C9CD          MOV AR1, *FP(#156) ; |442| 
+         000067 009C 
+    1249                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+    1250 000069 0429          BCC $C$L40,AR1 < #0 ; |442| 
+         00006b 1B   
+    1251                                                      ; branchcc occurs ; |442| 
+    1252 00006c       $C$L39:    
+    1253 00006c       $C$DW$L$_pmc$5$B:
+    1254                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+    1255 00006c EDF4          MOV dbl(*SP(#122)), XAR2
+         00006e AF   
+    1256 00006f 2294          MOV AR1, T0
+    1257 000071 ECF8          AMAR *SP(#124), XAR3
+         000073 BE   
+    1258 000074 1490          AADD AR1, AR3 ; |443| 
+         000076 B0   
+    1259 000077 805D          MOV *AR2(T0), *AR3 ; |443| 
+         000079 84   
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE   28
+
+    1260                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+    1261 00007a F7CD          SUB #1, *FP(#156) ; |442| 
+         00007c FFFF 
+         00007e 009C 
+    1262                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+    1263 000080 A9CD          MOV *FP(#156), AR1 ; |442| 
+         000082 009C 
+    1264 000084 0459          BCC $C$L39,AR1 >= #0 ; |442| 
+         000086 E5   
+    1265                                                      ; branchcc occurs ; |442| 
+    1266 000087       $C$DW$L$_pmc$5$E:
+    1267 000087       $C$L40:    
+    1268                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+    1269 000087 EDF4          MOV dbl(*SP(#122)), XAR0
+         000089 8F   
+    1270 00008a EC1E          AMAR *SP(#15), XAR1
+         00008c 9E   
+    1271 00008d EDCD          MOV dbl(*FP(#192)), XAR2
+         00008f AF00 
+         000091 C0   
+    1272 000092 A41A          MOV *SP(#13), T0 ; |448| 
+    1273 000094 A51C          MOV *SP(#14), T1 ; |448| 
+    1274 000096 EDCD          MOV dbl(*FP(#196)), XAR3
+         000098 BF00 
+         00009a C4   
+    1275              $C$DW$128       .dwtag  DW_TAG_TI_branch
+    1276                      .dwattr $C$DW$128, DW_AT_low_pc(0x00)
+    1277                      .dwattr $C$DW$128, DW_AT_name("_cos_transform")
+    1278                      .dwattr $C$DW$128, DW_AT_TI_call
+    1279 00009b 6C00          CALL #_cos_transform ; |448| 
+         00009d 0000!
+    1280                                                      ; call occurs [#_cos_transform] ; |448| 
+    1281                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+    1282 00009f A91A          MOV *SP(#13), AR1 ; |450| 
+    1283 0000a1 EDF4          MOV dbl(*SP(#122)), XAR0
+         0000a3 8F   
+    1284 0000a4 EDCD          MOV dbl(*FP(#192)), XAR2
+         0000a6 AF00 
+         0000a8 C0   
+    1285 0000a9 A41A          MOV *SP(#13), T0 ; |450| 
+    1286 0000ab A51C          MOV *SP(#14), T1 ; |450| 
+    1287 0000ad EDCD          MOV dbl(*FP(#196)), XAR3
+         0000af BF00 
+         0000b1 C4   
+    1288              
+    1289 0000b2 1490          AADD AR1, AR2 ; |450| 
+         0000b4 A0   
+    1290 0000b5 1590  ||      AADD AR1, AR0 ; |450| 
+         0000b7 88   
+    1291              
+    1292 0000b8 EC52          AMAR *SP(#41), XAR1
+         0000ba 9E   
+    1293              $C$DW$129       .dwtag  DW_TAG_TI_branch
+    1294                      .dwattr $C$DW$129, DW_AT_low_pc(0x00)
+    1295                      .dwattr $C$DW$129, DW_AT_name("_cos_transform")
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE   29
+
+    1296                      .dwattr $C$DW$129, DW_AT_TI_call
+    1297 0000bb 6C00          CALL #_cos_transform ; |450| 
+         0000bd 0000!
+    1298                                                      ; call occurs [#_cos_transform] ; |450| 
+    1299                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+    1300 0000bf ED14          MOV dbl(*SP(#10)), XAR3
+         0000c1 BF   
+    1301 0000c2 EC1E          AMAR *SP(#15), XAR0
+         0000c4 8E   
+    1302 0000c5 EC86          AMAR *SP(#67), XAR2
+         0000c7 AE   
+    1303 0000c8 EB00          MOV XAR3, dbl(*SP(#0))
+         0000ca B5   
+    1304              
+    1305 0000cb EC52          AMAR *SP(#41), XAR1
+         0000cd 9E   
+    1306 0000ce 3D00  ||      MOV #0, AC0 ; |452| 
+    1307              
+    1308 0000d0 EB04          MOV AC0, dbl(*SP(#2))
+         0000d2 08   
+    1309 0000d3 A418          MOV *SP(#12), T0 ; |452| 
+    1310 0000d5 A51C          MOV *SP(#14), T1 ; |452| 
+    1311 0000d7 ECBA          AMAR *SP(#93), XAR3
+         0000d9 BE   
+    1312 0000da ED0C          MOV dbl(*SP(#6)), XAR4
+         0000dc CF   
+    1313              $C$DW$130       .dwtag  DW_TAG_TI_branch
+    1314                      .dwattr $C$DW$130, DW_AT_low_pc(0x00)
+    1315                      .dwattr $C$DW$130, DW_AT_name("_log_spectral_compensation")
+    1316                      .dwattr $C$DW$130, DW_AT_TI_call
+    1317 0000dd 6C00          CALL #_log_spectral_compensation ; |452| 
+         0000df 0000+
+    1318                                                      ; call occurs [#_log_spectral_compensation] ; |452| 
+    1319                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+    1320 0000e1 A41A          MOV *SP(#13), T0 ; |456| 
+    1321 0000e3 A51C          MOV *SP(#14), T1 ; |456| 
+    1322 0000e5 EC86          AMAR *SP(#67), XAR0
+         0000e7 8E   
+    1323 0000e8 EDF0          MOV dbl(*SP(#120)), XAR1
+         0000ea 9F   
+    1324 0000eb EDCD          MOV dbl(*FP(#192)), XAR2
+         0000ed AF00 
+         0000ef C0   
+    1325 0000f0 EDCD          MOV dbl(*FP(#196)), XAR3
+         0000f2 BF00 
+         0000f4 C4   
+    1326              $C$DW$131       .dwtag  DW_TAG_TI_branch
+    1327                      .dwattr $C$DW$131, DW_AT_low_pc(0x00)
+    1328                      .dwattr $C$DW$131, DW_AT_name("_inverse_cos_transform")
+    1329                      .dwattr $C$DW$131, DW_AT_TI_call
+    1330 0000f5 6C00          CALL #_inverse_cos_transform ; |456| 
+         0000f7 0000!
+    1331                                                      ; call occurs [#_inverse_cos_transform] ; |456| 
+    1332                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+    1333 0000f9 AA1A          MOV *SP(#13), AR2 ; |457| 
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE   30
+
+    1334 0000fb EDF0          MOV dbl(*SP(#120)), XAR1
+         0000fd 9F   
+    1335 0000fe AB1A          MOV *SP(#13), AR3 ; |457| 
+    1336 000100 14A0          AADD AR2, AR1 ; |457| 
+         000102 90   
+    1337 000103 EDCD          MOV dbl(*FP(#192)), XAR2
+         000105 AF00 
+         000107 C0   
+    1338 000108 A51C          MOV *SP(#14), T1 ; |457| 
+    1339 00010a ECBA          AMAR *SP(#93), XAR0
+         00010c 8E   
+    1340              
+    1341 00010d 14B0          AADD AR3, AR2 ; |457| 
+         00010f A0   
+    1342 000110 23B4  ||      MOV AR3, T0
+    1343              
+    1344 000112 EDCD          MOV dbl(*FP(#196)), XAR3
+         000114 BF00 
+         000116 C4   
+    1345              $C$DW$132       .dwtag  DW_TAG_TI_branch
+    1346                      .dwattr $C$DW$132, DW_AT_low_pc(0x00)
+    1347                      .dwattr $C$DW$132, DW_AT_name("_inverse_cos_transform")
+    1348                      .dwattr $C$DW$132, DW_AT_TI_call
+    1349 000117 6C00          CALL #_inverse_cos_transform ; |457| 
+         000119 0000!
+    1350                                                      ; call occurs [#_inverse_cos_transform] ; |457| 
+    1351                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+    1352 00011b EDCD          MOV dbl(*FP(#198)), XAR3
+         00011d BF00 
+         00011f C6   
+    1353 000120 90B0          MOV XAR3, AC0
+    1354 000122 0400          BCC $C$L42,AC0 == #0 ; |459| 
+         000124 2E   
+    1355                                                      ; branchcc occurs ; |459| 
+    1356                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+    1357 000125 A91A          MOV *SP(#13), AR1 ; |461| 
+    1358 000127 5090          SFTL AR1, #1 ; |461| 
+    1359 000129 4219          SUB #1, AR1 ; |461| 
+    1360 00012b C9CD          MOV AR1, *FP(#156) ; |461| 
+         00012d 009C 
+    1361                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+    1362 00012f 0429          BCC $C$L42,AR1 < #0 ; |461| 
+         000131 21   
+    1363                                                      ; branchcc occurs ; |461| 
+    1364 000132       $C$L41:    
+    1365 000132       $C$DW$L$_pmc$8$B:
+    1366                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+    1367 000132 2294          MOV AR1, T0
+    1368 000134 ECF8          AMAR *SP(#124), XAR3
+         000136 BE   
+    1369 000137 A96B          MOV *AR3(T0), AR1 ; |462| 
+    1370 000139 EDF0          MOV dbl(*SP(#120)), XAR3
+         00013b BF   
+    1371 00013c D86B          SUB AR1, *AR3(T0), AR1 ; |462| 
+         00013e 99   
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE   31
+
+    1372 00013f EDCD          MOV dbl(*FP(#198)), XAR3
+         000141 BF00 
+         000143 C6   
+    1373 000144 C96B          MOV AR1, *AR3(T0) ; |462| 
+    1374                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+    1375 000146 F7CD          SUB #1, *FP(#156) ; |461| 
+         000148 FFFF 
+         00014a 009C 
+    1376                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+    1377 00014c A9CD          MOV *FP(#156), AR1 ; |461| 
+         00014e 009C 
+    1378 000150 0459          BCC $C$L41,AR1 >= #0 ; |461| 
+         000152 DF   
+    1379                                                      ; branchcc occurs ; |461| 
+    1380 000153       $C$DW$L$_pmc$8$E:
+    1381 000153       $C$L42:    
+    1382                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+    1383 000153 A9CD          MOV *FP(#200), AR1 ; |465| 
+         000155 00C8 
+    1384 000157 0409          BCC $C$L43,AR1 == #0 ; |465| 
+         000159 11   
+    1385                                                      ; branchcc occurs ; |465| 
+    1386                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+    1387 00015a EDF0          MOV dbl(*SP(#120)), XAR0
+         00015c 8F   
+    1388 00015d ED10          MOV dbl(*SP(#8)), XAR1
+         00015f 9F   
+    1389 000160 EDCD          MOV dbl(*FP(#194)), XAR2
+         000162 AF00 
+         000164 C2   
+    1390 000165 A41A          MOV *SP(#13), T0 ; |466| 
+    1391              $C$DW$133       .dwtag  DW_TAG_TI_branch
+    1392                      .dwattr $C$DW$133, DW_AT_low_pc(0x00)
+    1393                      .dwattr $C$DW$133, DW_AT_name("_vector_packing")
+    1394                      .dwattr $C$DW$133, DW_AT_TI_call
+    1395 000167 6C00          CALL #_vector_packing ; |466| 
+         000169 0000!
+    1396                                                      ; call occurs [#_vector_packing] ; |466| 
+    1397                      .dwpsn  file "C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL_bitbucket/c55_csl/c55x
+    1398 00016b       $C$L43:    
+    1399 00016b F79A          ADD #190, mmap(SP)
+         00016d 00BE 
+         00016f 98   
+    1400                      .dwcfi  cfa_offset, 2
+    1401 000170 50E4          POPBOTH XFP
+    1402                      .dwcfi  restore_reg, 32
+    1403                      .dwcfi  cfa_offset, 1
+    1404              $C$DW$134       .dwtag  DW_TAG_TI_branch
+    1405                      .dwattr $C$DW$134, DW_AT_low_pc(0x00)
+    1406                      .dwattr $C$DW$134, DW_AT_TI_return
+    1407 000172 4804          RET
+    1408                                                      ; return occurs
+    1409              
+    1410              $C$DW$135       .dwtag  DW_TAG_TI_loop
+    1411                      .dwattr $C$DW$135, DW_AT_name("C:\\Users\\a0221074\\AppData\\Local\\Temp\\1467610:$C$L41:1:1505334824
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE   32
+
+    1412                      .dwattr $C$DW$135, DW_AT_TI_begin_file("C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/
+    1413                      .dwattr $C$DW$135, DW_AT_TI_begin_line(0x1cd)
+    1414                      .dwattr $C$DW$135, DW_AT_TI_end_line(0x1ce)
+    1415              $C$DW$136       .dwtag  DW_TAG_TI_loop_range
+    1416                      .dwattr $C$DW$136, DW_AT_low_pc($C$DW$L$_pmc$8$B)
+    1417                      .dwattr $C$DW$136, DW_AT_high_pc($C$DW$L$_pmc$8$E)
+    1418                      .dwendtag $C$DW$135
+    1419              
+    1420              
+    1421              $C$DW$137       .dwtag  DW_TAG_TI_loop
+    1422                      .dwattr $C$DW$137, DW_AT_name("C:\\Users\\a0221074\\AppData\\Local\\Temp\\1467610:$C$L39:1:1505334824
+    1423                      .dwattr $C$DW$137, DW_AT_TI_begin_file("C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/
+    1424                      .dwattr $C$DW$137, DW_AT_TI_begin_line(0x1ba)
+    1425                      .dwattr $C$DW$137, DW_AT_TI_end_line(0x1bb)
+    1426              $C$DW$138       .dwtag  DW_TAG_TI_loop_range
+    1427                      .dwattr $C$DW$138, DW_AT_low_pc($C$DW$L$_pmc$5$B)
+    1428                      .dwattr $C$DW$138, DW_AT_high_pc($C$DW$L$_pmc$5$E)
+    1429                      .dwendtag $C$DW$137
+    1430              
+    1431                      .dwattr $C$DW$98, DW_AT_TI_end_file("C:/Users/a0221074/Desktop/C5000/IBM_Watson_TIdesign_workarea/CSL
+    1432                      .dwattr $C$DW$98, DW_AT_TI_end_line(0x1d4)
+    1433                      .dwattr $C$DW$98, DW_AT_TI_end_column(0x01)
+    1434                      .dwendentry
+    1435                      .dwendtag $C$DW$98
+    1436              
+    1437              ;******************************************************************************
+    1438              ;* UNDEFINED EXTERNAL REFERENCES                                              *
+    1439              ;******************************************************************************
+    1440                      .global _cos_transform
+    1441                      .global _inverse_cos_transform
+    1442                      .global _vector_packing
+    1443                      .global _vector_unpacking
+    1444                      .global __mpyli
+    1445              
+    1446              ;*******************************************************************************
+    1447              ;* TYPE INFORMATION                                                            *
+    1448              ;*******************************************************************************
+    1449              $C$DW$T$4       .dwtag  DW_TAG_base_type
+    1450                      .dwattr $C$DW$T$4, DW_AT_encoding(DW_ATE_boolean)
+    1451                      .dwattr $C$DW$T$4, DW_AT_name("bool")
+    1452                      .dwattr $C$DW$T$4, DW_AT_byte_size(0x01)
+    1453              $C$DW$T$5       .dwtag  DW_TAG_base_type
+    1454                      .dwattr $C$DW$T$5, DW_AT_encoding(DW_ATE_signed_char)
+    1455                      .dwattr $C$DW$T$5, DW_AT_name("signed char")
+    1456                      .dwattr $C$DW$T$5, DW_AT_byte_size(0x01)
+    1457              $C$DW$T$6       .dwtag  DW_TAG_base_type
+    1458                      .dwattr $C$DW$T$6, DW_AT_encoding(DW_ATE_unsigned_char)
+    1459                      .dwattr $C$DW$T$6, DW_AT_name("unsigned char")
+    1460                      .dwattr $C$DW$T$6, DW_AT_byte_size(0x01)
+    1461              $C$DW$T$7       .dwtag  DW_TAG_base_type
+    1462                      .dwattr $C$DW$T$7, DW_AT_encoding(DW_ATE_signed_char)
+    1463                      .dwattr $C$DW$T$7, DW_AT_name("wchar_t")
+    1464                      .dwattr $C$DW$T$7, DW_AT_byte_size(0x01)
+    1465              $C$DW$T$8       .dwtag  DW_TAG_base_type
+    1466                      .dwattr $C$DW$T$8, DW_AT_encoding(DW_ATE_signed)
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE   33
+
+    1467                      .dwattr $C$DW$T$8, DW_AT_name("short")
+    1468                      .dwattr $C$DW$T$8, DW_AT_byte_size(0x01)
+    1469              $C$DW$T$19      .dwtag  DW_TAG_pointer_type
+    1470                      .dwattr $C$DW$T$19, DW_AT_type(*$C$DW$T$8)
+    1471                      .dwattr $C$DW$T$19, DW_AT_address_class(0x17)
+    1472              $C$DW$139       .dwtag  DW_TAG_TI_far_type
+    1473                      .dwattr $C$DW$139, DW_AT_type(*$C$DW$T$8)
+    1474              $C$DW$T$20      .dwtag  DW_TAG_const_type
+    1475                      .dwattr $C$DW$T$20, DW_AT_type(*$C$DW$139)
+    1476              $C$DW$T$21      .dwtag  DW_TAG_pointer_type
+    1477                      .dwattr $C$DW$T$21, DW_AT_type(*$C$DW$T$20)
+    1478                      .dwattr $C$DW$T$21, DW_AT_address_class(0x17)
+    1479              $C$DW$T$22      .dwtag  DW_TAG_pointer_type
+    1480                      .dwattr $C$DW$T$22, DW_AT_type(*$C$DW$T$21)
+    1481                      .dwattr $C$DW$T$22, DW_AT_address_class(0x17)
+    1482              
+    1483              $C$DW$T$35      .dwtag  DW_TAG_array_type
+    1484                      .dwattr $C$DW$T$35, DW_AT_type(*$C$DW$T$20)
+    1485                      .dwattr $C$DW$T$35, DW_AT_language(DW_LANG_C)
+    1486                      .dwattr $C$DW$T$35, DW_AT_byte_size(0x04)
+    1487              $C$DW$140       .dwtag  DW_TAG_subrange_type
+    1488                      .dwattr $C$DW$140, DW_AT_upper_bound(0x03)
+    1489                      .dwendtag $C$DW$T$35
+    1490              
+    1491              
+    1492              $C$DW$T$36      .dwtag  DW_TAG_array_type
+    1493                      .dwattr $C$DW$T$36, DW_AT_type(*$C$DW$T$20)
+    1494                      .dwattr $C$DW$T$36, DW_AT_language(DW_LANG_C)
+    1495                      .dwattr $C$DW$T$36, DW_AT_byte_size(0x08)
+    1496              $C$DW$141       .dwtag  DW_TAG_subrange_type
+    1497                      .dwattr $C$DW$141, DW_AT_upper_bound(0x01)
+    1498              $C$DW$142       .dwtag  DW_TAG_subrange_type
+    1499                      .dwattr $C$DW$142, DW_AT_upper_bound(0x03)
+    1500                      .dwendtag $C$DW$T$36
+    1501              
+    1502              
+    1503              $C$DW$T$38      .dwtag  DW_TAG_array_type
+    1504                      .dwattr $C$DW$T$38, DW_AT_type(*$C$DW$T$20)
+    1505                      .dwattr $C$DW$T$38, DW_AT_language(DW_LANG_C)
+    1506                      .dwattr $C$DW$T$38, DW_AT_byte_size(0x03)
+    1507              $C$DW$143       .dwtag  DW_TAG_subrange_type
+    1508                      .dwattr $C$DW$143, DW_AT_upper_bound(0x02)
+    1509                      .dwendtag $C$DW$T$38
+    1510              
+    1511              
+    1512              $C$DW$T$41      .dwtag  DW_TAG_array_type
+    1513                      .dwattr $C$DW$T$41, DW_AT_type(*$C$DW$T$8)
+    1514                      .dwattr $C$DW$T$41, DW_AT_language(DW_LANG_C)
+    1515                      .dwattr $C$DW$T$41, DW_AT_byte_size(0x1a)
+    1516              $C$DW$144       .dwtag  DW_TAG_subrange_type
+    1517                      .dwattr $C$DW$144, DW_AT_upper_bound(0x19)
+    1518                      .dwendtag $C$DW$T$41
+    1519              
+    1520              
+    1521              $C$DW$T$43      .dwtag  DW_TAG_array_type
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE   34
+
+    1522                      .dwattr $C$DW$T$43, DW_AT_type(*$C$DW$T$8)
+    1523                      .dwattr $C$DW$T$43, DW_AT_language(DW_LANG_C)
+    1524                      .dwattr $C$DW$T$43, DW_AT_byte_size(0x20)
+    1525              $C$DW$145       .dwtag  DW_TAG_subrange_type
+    1526                      .dwattr $C$DW$145, DW_AT_upper_bound(0x1f)
+    1527                      .dwendtag $C$DW$T$43
+    1528              
+    1529              $C$DW$T$9       .dwtag  DW_TAG_base_type
+    1530                      .dwattr $C$DW$T$9, DW_AT_encoding(DW_ATE_unsigned)
+    1531                      .dwattr $C$DW$T$9, DW_AT_name("unsigned short")
+    1532                      .dwattr $C$DW$T$9, DW_AT_byte_size(0x01)
+    1533              $C$DW$T$25      .dwtag  DW_TAG_pointer_type
+    1534                      .dwattr $C$DW$T$25, DW_AT_type(*$C$DW$T$9)
+    1535                      .dwattr $C$DW$T$25, DW_AT_address_class(0x17)
+    1536              $C$DW$146       .dwtag  DW_TAG_TI_far_type
+    1537                      .dwattr $C$DW$146, DW_AT_type(*$C$DW$T$9)
+    1538              $C$DW$T$28      .dwtag  DW_TAG_const_type
+    1539                      .dwattr $C$DW$T$28, DW_AT_type(*$C$DW$146)
+    1540              $C$DW$T$29      .dwtag  DW_TAG_pointer_type
+    1541                      .dwattr $C$DW$T$29, DW_AT_type(*$C$DW$T$28)
+    1542                      .dwattr $C$DW$T$29, DW_AT_address_class(0x17)
+    1543              $C$DW$T$45      .dwtag  DW_TAG_typedef, DW_AT_name("ushort")
+    1544                      .dwattr $C$DW$T$45, DW_AT_type(*$C$DW$T$9)
+    1545                      .dwattr $C$DW$T$45, DW_AT_language(DW_LANG_C)
+    1546              $C$DW$T$10      .dwtag  DW_TAG_base_type
+    1547                      .dwattr $C$DW$T$10, DW_AT_encoding(DW_ATE_signed)
+    1548                      .dwattr $C$DW$T$10, DW_AT_name("int")
+    1549                      .dwattr $C$DW$T$10, DW_AT_byte_size(0x01)
+    1550              $C$DW$T$11      .dwtag  DW_TAG_base_type
+    1551                      .dwattr $C$DW$T$11, DW_AT_encoding(DW_ATE_unsigned)
+    1552                      .dwattr $C$DW$T$11, DW_AT_name("unsigned int")
+    1553                      .dwattr $C$DW$T$11, DW_AT_byte_size(0x01)
+    1554              $C$DW$T$12      .dwtag  DW_TAG_base_type
+    1555                      .dwattr $C$DW$T$12, DW_AT_encoding(DW_ATE_signed)
+    1556                      .dwattr $C$DW$T$12, DW_AT_name("long")
+    1557                      .dwattr $C$DW$T$12, DW_AT_byte_size(0x02)
+    1558              $C$DW$T$13      .dwtag  DW_TAG_base_type
+    1559                      .dwattr $C$DW$T$13, DW_AT_encoding(DW_ATE_unsigned)
+    1560                      .dwattr $C$DW$T$13, DW_AT_name("unsigned long")
+    1561                      .dwattr $C$DW$T$13, DW_AT_byte_size(0x02)
+    1562              $C$DW$T$14      .dwtag  DW_TAG_base_type
+    1563                      .dwattr $C$DW$T$14, DW_AT_encoding(DW_ATE_signed)
+    1564                      .dwattr $C$DW$T$14, DW_AT_name("long long")
+    1565                      .dwattr $C$DW$T$14, DW_AT_byte_size(0x04)
+    1566                      .dwattr $C$DW$T$14, DW_AT_bit_size(0x28)
+    1567                      .dwattr $C$DW$T$14, DW_AT_bit_offset(0x18)
+    1568              $C$DW$T$15      .dwtag  DW_TAG_base_type
+    1569                      .dwattr $C$DW$T$15, DW_AT_encoding(DW_ATE_unsigned)
+    1570                      .dwattr $C$DW$T$15, DW_AT_name("unsigned long long")
+    1571                      .dwattr $C$DW$T$15, DW_AT_byte_size(0x04)
+    1572                      .dwattr $C$DW$T$15, DW_AT_bit_size(0x28)
+    1573                      .dwattr $C$DW$T$15, DW_AT_bit_offset(0x18)
+    1574              $C$DW$T$16      .dwtag  DW_TAG_base_type
+    1575                      .dwattr $C$DW$T$16, DW_AT_encoding(DW_ATE_float)
+    1576                      .dwattr $C$DW$T$16, DW_AT_name("float")
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE   35
+
+    1577                      .dwattr $C$DW$T$16, DW_AT_byte_size(0x02)
+    1578              $C$DW$T$17      .dwtag  DW_TAG_base_type
+    1579                      .dwattr $C$DW$T$17, DW_AT_encoding(DW_ATE_float)
+    1580                      .dwattr $C$DW$T$17, DW_AT_name("double")
+    1581                      .dwattr $C$DW$T$17, DW_AT_byte_size(0x02)
+    1582              $C$DW$T$18      .dwtag  DW_TAG_base_type
+    1583                      .dwattr $C$DW$T$18, DW_AT_encoding(DW_ATE_float)
+    1584                      .dwattr $C$DW$T$18, DW_AT_name("long double")
+    1585                      .dwattr $C$DW$T$18, DW_AT_byte_size(0x02)
+    1586                      .dwattr $C$DW$CU, DW_AT_language(DW_LANG_C)
+    1587              
+    1588              ;***************************************************************
+    1589              ;* DWARF CIE ENTRIES                                           *
+    1590              ;***************************************************************
+    1591              
+    1592              $C$DW$CIE       .dwcie 91
+    1593                      .dwcfi  cfa_register, 36
+    1594                      .dwcfi  cfa_offset, 0
+    1595                      .dwcfi  undefined, 0
+    1596                      .dwcfi  undefined, 1
+    1597                      .dwcfi  undefined, 2
+    1598                      .dwcfi  undefined, 3
+    1599                      .dwcfi  undefined, 4
+    1600                      .dwcfi  undefined, 5
+    1601                      .dwcfi  undefined, 6
+    1602                      .dwcfi  undefined, 7
+    1603                      .dwcfi  undefined, 8
+    1604                      .dwcfi  undefined, 9
+    1605                      .dwcfi  undefined, 10
+    1606                      .dwcfi  undefined, 11
+    1607                      .dwcfi  undefined, 12
+    1608                      .dwcfi  undefined, 13
+    1609                      .dwcfi  same_value, 14
+    1610                      .dwcfi  same_value, 15
+    1611                      .dwcfi  undefined, 16
+    1612                      .dwcfi  undefined, 17
+    1613                      .dwcfi  undefined, 18
+    1614                      .dwcfi  undefined, 19
+    1615                      .dwcfi  undefined, 20
+    1616                      .dwcfi  undefined, 21
+    1617                      .dwcfi  undefined, 22
+    1618                      .dwcfi  undefined, 23
+    1619                      .dwcfi  undefined, 24
+    1620                      .dwcfi  undefined, 25
+    1621                      .dwcfi  same_value, 26
+    1622                      .dwcfi  same_value, 27
+    1623                      .dwcfi  same_value, 28
+    1624                      .dwcfi  same_value, 29
+    1625                      .dwcfi  same_value, 30
+    1626                      .dwcfi  same_value, 31
+    1627                      .dwcfi  undefined, 32
+    1628                      .dwcfi  undefined, 33
+    1629                      .dwcfi  undefined, 34
+    1630                      .dwcfi  undefined, 35
+    1631                      .dwcfi  undefined, 36
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE   36
+
+    1632                      .dwcfi  undefined, 37
+    1633                      .dwcfi  undefined, 38
+    1634                      .dwcfi  undefined, 39
+    1635                      .dwcfi  undefined, 40
+    1636                      .dwcfi  undefined, 41
+    1637                      .dwcfi  undefined, 42
+    1638                      .dwcfi  undefined, 43
+    1639                      .dwcfi  undefined, 44
+    1640                      .dwcfi  undefined, 45
+    1641                      .dwcfi  undefined, 46
+    1642                      .dwcfi  undefined, 47
+    1643                      .dwcfi  undefined, 48
+    1644                      .dwcfi  undefined, 49
+    1645                      .dwcfi  undefined, 50
+    1646                      .dwcfi  undefined, 51
+    1647                      .dwcfi  undefined, 52
+    1648                      .dwcfi  undefined, 53
+    1649                      .dwcfi  undefined, 54
+    1650                      .dwcfi  undefined, 55
+    1651                      .dwcfi  undefined, 56
+    1652                      .dwcfi  undefined, 57
+    1653                      .dwcfi  undefined, 58
+    1654                      .dwcfi  undefined, 59
+    1655                      .dwcfi  undefined, 60
+    1656                      .dwcfi  undefined, 61
+    1657                      .dwcfi  undefined, 62
+    1658                      .dwcfi  undefined, 63
+    1659                      .dwcfi  undefined, 64
+    1660                      .dwcfi  undefined, 65
+    1661                      .dwcfi  undefined, 66
+    1662                      .dwcfi  undefined, 67
+    1663                      .dwcfi  undefined, 68
+    1664                      .dwcfi  undefined, 69
+    1665                      .dwcfi  undefined, 70
+    1666                      .dwcfi  undefined, 71
+    1667                      .dwcfi  undefined, 72
+    1668                      .dwcfi  undefined, 73
+    1669                      .dwcfi  undefined, 74
+    1670                      .dwcfi  undefined, 75
+    1671                      .dwcfi  undefined, 76
+    1672                      .dwcfi  undefined, 77
+    1673                      .dwcfi  undefined, 78
+    1674                      .dwcfi  undefined, 79
+    1675                      .dwcfi  undefined, 80
+    1676                      .dwcfi  undefined, 81
+    1677                      .dwcfi  undefined, 82
+    1678                      .dwcfi  undefined, 83
+    1679                      .dwcfi  undefined, 84
+    1680                      .dwcfi  undefined, 85
+    1681                      .dwcfi  undefined, 86
+    1682                      .dwcfi  undefined, 87
+    1683                      .dwcfi  undefined, 88
+    1684                      .dwcfi  undefined, 89
+    1685                      .dwcfi  undefined, 90
+    1686                      .dwcfi  undefined, 91
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE   37
+
+    1687                      .dwendentry
+    1688              
+    1689              ;***************************************************************
+    1690              ;* DWARF REGISTER MAP                                          *
+    1691              ;***************************************************************
+    1692              
+    1693              $C$DW$147       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC0")
+    1694                      .dwattr $C$DW$147, DW_AT_location[DW_OP_reg0]
+    1695              $C$DW$148       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC0")
+    1696                      .dwattr $C$DW$148, DW_AT_location[DW_OP_reg1]
+    1697              $C$DW$149       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC0_G")
+    1698                      .dwattr $C$DW$149, DW_AT_location[DW_OP_reg2]
+    1699              $C$DW$150       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC1")
+    1700                      .dwattr $C$DW$150, DW_AT_location[DW_OP_reg3]
+    1701              $C$DW$151       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC1")
+    1702                      .dwattr $C$DW$151, DW_AT_location[DW_OP_reg4]
+    1703              $C$DW$152       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC1_G")
+    1704                      .dwattr $C$DW$152, DW_AT_location[DW_OP_reg5]
+    1705              $C$DW$153       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC2")
+    1706                      .dwattr $C$DW$153, DW_AT_location[DW_OP_reg6]
+    1707              $C$DW$154       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC2")
+    1708                      .dwattr $C$DW$154, DW_AT_location[DW_OP_reg7]
+    1709              $C$DW$155       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC2_G")
+    1710                      .dwattr $C$DW$155, DW_AT_location[DW_OP_reg8]
+    1711              $C$DW$156       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC3")
+    1712                      .dwattr $C$DW$156, DW_AT_location[DW_OP_reg9]
+    1713              $C$DW$157       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC3")
+    1714                      .dwattr $C$DW$157, DW_AT_location[DW_OP_reg10]
+    1715              $C$DW$158       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AC3_G")
+    1716                      .dwattr $C$DW$158, DW_AT_location[DW_OP_reg11]
+    1717              $C$DW$159       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T0")
+    1718                      .dwattr $C$DW$159, DW_AT_location[DW_OP_reg12]
+    1719              $C$DW$160       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T1")
+    1720                      .dwattr $C$DW$160, DW_AT_location[DW_OP_reg13]
+    1721              $C$DW$161       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T2")
+    1722                      .dwattr $C$DW$161, DW_AT_location[DW_OP_reg14]
+    1723              $C$DW$162       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("T3")
+    1724                      .dwattr $C$DW$162, DW_AT_location[DW_OP_reg15]
+    1725              $C$DW$163       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR0")
+    1726                      .dwattr $C$DW$163, DW_AT_location[DW_OP_reg16]
+    1727              $C$DW$164       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR0")
+    1728                      .dwattr $C$DW$164, DW_AT_location[DW_OP_reg17]
+    1729              $C$DW$165       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR1")
+    1730                      .dwattr $C$DW$165, DW_AT_location[DW_OP_reg18]
+    1731              $C$DW$166       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR1")
+    1732                      .dwattr $C$DW$166, DW_AT_location[DW_OP_reg19]
+    1733              $C$DW$167       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR2")
+    1734                      .dwattr $C$DW$167, DW_AT_location[DW_OP_reg20]
+    1735              $C$DW$168       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR2")
+    1736                      .dwattr $C$DW$168, DW_AT_location[DW_OP_reg21]
+    1737              $C$DW$169       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR3")
+    1738                      .dwattr $C$DW$169, DW_AT_location[DW_OP_reg22]
+    1739              $C$DW$170       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR3")
+    1740                      .dwattr $C$DW$170, DW_AT_location[DW_OP_reg23]
+    1741              $C$DW$171       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR4")
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE   38
+
+    1742                      .dwattr $C$DW$171, DW_AT_location[DW_OP_reg24]
+    1743              $C$DW$172       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR4")
+    1744                      .dwattr $C$DW$172, DW_AT_location[DW_OP_reg25]
+    1745              $C$DW$173       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR5")
+    1746                      .dwattr $C$DW$173, DW_AT_location[DW_OP_reg26]
+    1747              $C$DW$174       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR5")
+    1748                      .dwattr $C$DW$174, DW_AT_location[DW_OP_reg27]
+    1749              $C$DW$175       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR6")
+    1750                      .dwattr $C$DW$175, DW_AT_location[DW_OP_reg28]
+    1751              $C$DW$176       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR6")
+    1752                      .dwattr $C$DW$176, DW_AT_location[DW_OP_reg29]
+    1753              $C$DW$177       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR7")
+    1754                      .dwattr $C$DW$177, DW_AT_location[DW_OP_reg30]
+    1755              $C$DW$178       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XAR7")
+    1756                      .dwattr $C$DW$178, DW_AT_location[DW_OP_reg31]
+    1757              $C$DW$179       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("FP")
+    1758                      .dwattr $C$DW$179, DW_AT_location[DW_OP_regx 0x20]
+    1759              $C$DW$180       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XFP")
+    1760                      .dwattr $C$DW$180, DW_AT_location[DW_OP_regx 0x21]
+    1761              $C$DW$181       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("PC")
+    1762                      .dwattr $C$DW$181, DW_AT_location[DW_OP_regx 0x22]
+    1763              $C$DW$182       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SP")
+    1764                      .dwattr $C$DW$182, DW_AT_location[DW_OP_regx 0x23]
+    1765              $C$DW$183       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XSP")
+    1766                      .dwattr $C$DW$183, DW_AT_location[DW_OP_regx 0x24]
+    1767              $C$DW$184       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BKC")
+    1768                      .dwattr $C$DW$184, DW_AT_location[DW_OP_regx 0x25]
+    1769              $C$DW$185       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BK03")
+    1770                      .dwattr $C$DW$185, DW_AT_location[DW_OP_regx 0x26]
+    1771              $C$DW$186       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BK47")
+    1772                      .dwattr $C$DW$186, DW_AT_location[DW_OP_regx 0x27]
+    1773              $C$DW$187       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST0")
+    1774                      .dwattr $C$DW$187, DW_AT_location[DW_OP_regx 0x28]
+    1775              $C$DW$188       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST1")
+    1776                      .dwattr $C$DW$188, DW_AT_location[DW_OP_regx 0x29]
+    1777              $C$DW$189       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST2")
+    1778                      .dwattr $C$DW$189, DW_AT_location[DW_OP_regx 0x2a]
+    1779              $C$DW$190       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ST3")
+    1780                      .dwattr $C$DW$190, DW_AT_location[DW_OP_regx 0x2b]
+    1781              $C$DW$191       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("MDP")
+    1782                      .dwattr $C$DW$191, DW_AT_location[DW_OP_regx 0x2c]
+    1783              $C$DW$192       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("MDP05")
+    1784                      .dwattr $C$DW$192, DW_AT_location[DW_OP_regx 0x2d]
+    1785              $C$DW$193       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("MDP67")
+    1786                      .dwattr $C$DW$193, DW_AT_location[DW_OP_regx 0x2e]
+    1787              $C$DW$194       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BRC0")
+    1788                      .dwattr $C$DW$194, DW_AT_location[DW_OP_regx 0x2f]
+    1789              $C$DW$195       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA0")
+    1790                      .dwattr $C$DW$195, DW_AT_location[DW_OP_regx 0x30]
+    1791              $C$DW$196       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA0_H")
+    1792                      .dwattr $C$DW$196, DW_AT_location[DW_OP_regx 0x31]
+    1793              $C$DW$197       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA0")
+    1794                      .dwattr $C$DW$197, DW_AT_location[DW_OP_regx 0x32]
+    1795              $C$DW$198       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA0_H")
+    1796                      .dwattr $C$DW$198, DW_AT_location[DW_OP_regx 0x33]
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE   39
+
+    1797              $C$DW$199       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BRS1")
+    1798                      .dwattr $C$DW$199, DW_AT_location[DW_OP_regx 0x34]
+    1799              $C$DW$200       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BRC1")
+    1800                      .dwattr $C$DW$200, DW_AT_location[DW_OP_regx 0x35]
+    1801              $C$DW$201       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA1")
+    1802                      .dwattr $C$DW$201, DW_AT_location[DW_OP_regx 0x36]
+    1803              $C$DW$202       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RSA1_H")
+    1804                      .dwattr $C$DW$202, DW_AT_location[DW_OP_regx 0x37]
+    1805              $C$DW$203       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA1")
+    1806                      .dwattr $C$DW$203, DW_AT_location[DW_OP_regx 0x38]
+    1807              $C$DW$204       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("REA1_H")
+    1808                      .dwattr $C$DW$204, DW_AT_location[DW_OP_regx 0x39]
+    1809              $C$DW$205       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CSR")
+    1810                      .dwattr $C$DW$205, DW_AT_location[DW_OP_regx 0x3a]
+    1811              $C$DW$206       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RPTC")
+    1812                      .dwattr $C$DW$206, DW_AT_location[DW_OP_regx 0x3b]
+    1813              $C$DW$207       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CDP")
+    1814                      .dwattr $C$DW$207, DW_AT_location[DW_OP_regx 0x3c]
+    1815              $C$DW$208       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("XCDP")
+    1816                      .dwattr $C$DW$208, DW_AT_location[DW_OP_regx 0x3d]
+    1817              $C$DW$209       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TRN0")
+    1818                      .dwattr $C$DW$209, DW_AT_location[DW_OP_regx 0x3e]
+    1819              $C$DW$210       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TRN1")
+    1820                      .dwattr $C$DW$210, DW_AT_location[DW_OP_regx 0x3f]
+    1821              $C$DW$211       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA01")
+    1822                      .dwattr $C$DW$211, DW_AT_location[DW_OP_regx 0x40]
+    1823              $C$DW$212       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA23")
+    1824                      .dwattr $C$DW$212, DW_AT_location[DW_OP_regx 0x41]
+    1825              $C$DW$213       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA45")
+    1826                      .dwattr $C$DW$213, DW_AT_location[DW_OP_regx 0x42]
+    1827              $C$DW$214       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSA67")
+    1828                      .dwattr $C$DW$214, DW_AT_location[DW_OP_regx 0x43]
+    1829              $C$DW$215       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("BSAC")
+    1830                      .dwattr $C$DW$215, DW_AT_location[DW_OP_regx 0x44]
+    1831              $C$DW$216       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CARRY")
+    1832                      .dwattr $C$DW$216, DW_AT_location[DW_OP_regx 0x45]
+    1833              $C$DW$217       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TC1")
+    1834                      .dwattr $C$DW$217, DW_AT_location[DW_OP_regx 0x46]
+    1835              $C$DW$218       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("TC2")
+    1836                      .dwattr $C$DW$218, DW_AT_location[DW_OP_regx 0x47]
+    1837              $C$DW$219       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("M40")
+    1838                      .dwattr $C$DW$219, DW_AT_location[DW_OP_regx 0x48]
+    1839              $C$DW$220       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SXMD")
+    1840                      .dwattr $C$DW$220, DW_AT_location[DW_OP_regx 0x49]
+    1841              $C$DW$221       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("ARMS")
+    1842                      .dwattr $C$DW$221, DW_AT_location[DW_OP_regx 0x4a]
+    1843              $C$DW$222       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("C54CM")
+    1844                      .dwattr $C$DW$222, DW_AT_location[DW_OP_regx 0x4b]
+    1845              $C$DW$223       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SATA")
+    1846                      .dwattr $C$DW$223, DW_AT_location[DW_OP_regx 0x4c]
+    1847              $C$DW$224       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SATD")
+    1848                      .dwattr $C$DW$224, DW_AT_location[DW_OP_regx 0x4d]
+    1849              $C$DW$225       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("RDM")
+    1850                      .dwattr $C$DW$225, DW_AT_location[DW_OP_regx 0x4e]
+    1851              $C$DW$226       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("FRCT")
+TMS320C55x Assembler PC v4.4.1 Wed Sep 13 16:33:45 2017
+
+Tools Copyright (c) 1996-2012 Texas Instruments Incorporated
+C:\Users\a0221074\AppData\Local\Temp\1467610                         PAGE   40
+
+    1852                      .dwattr $C$DW$226, DW_AT_location[DW_OP_regx 0x4f]
+    1853              $C$DW$227       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("SMUL")
+    1854                      .dwattr $C$DW$227, DW_AT_location[DW_OP_regx 0x50]
+    1855              $C$DW$228       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("INTM")
+    1856                      .dwattr $C$DW$228, DW_AT_location[DW_OP_regx 0x51]
+    1857              $C$DW$229       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR0LC")
+    1858                      .dwattr $C$DW$229, DW_AT_location[DW_OP_regx 0x52]
+    1859              $C$DW$230       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR1LC")
+    1860                      .dwattr $C$DW$230, DW_AT_location[DW_OP_regx 0x53]
+    1861              $C$DW$231       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR2LC")
+    1862                      .dwattr $C$DW$231, DW_AT_location[DW_OP_regx 0x54]
+    1863              $C$DW$232       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR3LC")
+    1864                      .dwattr $C$DW$232, DW_AT_location[DW_OP_regx 0x55]
+    1865              $C$DW$233       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR4LC")
+    1866                      .dwattr $C$DW$233, DW_AT_location[DW_OP_regx 0x56]
+    1867              $C$DW$234       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR5LC")
+    1868                      .dwattr $C$DW$234, DW_AT_location[DW_OP_regx 0x57]
+    1869              $C$DW$235       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR6LC")
+    1870                      .dwattr $C$DW$235, DW_AT_location[DW_OP_regx 0x58]
+    1871              $C$DW$236       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("AR7LC")
+    1872                      .dwattr $C$DW$236, DW_AT_location[DW_OP_regx 0x59]
+    1873              $C$DW$237       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CDPLC")
+    1874                      .dwattr $C$DW$237, DW_AT_location[DW_OP_regx 0x5a]
+    1875              $C$DW$238       .dwtag  DW_TAG_TI_assign_register, DW_AT_name("CIE_RETA")
+    1876                      .dwattr $C$DW$238, DW_AT_location[DW_OP_regx 0x5b]
+    1877                      .dwendtag $C$DW$CU
+    1878              
+    1878              
+    1878              
+
+No Assembly Errors, No Assembly Warnings

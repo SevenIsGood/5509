@@ -1,0 +1,1 @@
+"./vectors.obj" "./timer.obj" -l"csl5509.lib" -l"rts55.lib" "../csl5509.lib" "../rts55.lib" "E:/Program/DSP/VC5509A/ADDR2GPIO/timer.cmd" 

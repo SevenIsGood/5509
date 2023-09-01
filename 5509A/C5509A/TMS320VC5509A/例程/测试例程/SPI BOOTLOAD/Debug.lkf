@@ -1,0 +1,6 @@
+-z -q -c -heap0x400 -m"./Debug/burncsi.map" -o"./Debug/burncsi.out" -stack0x400 -sysstack0x400 -x -i"C:/CCStudio_v3.3/C5500/csl/lib" -i"C:/CCStudio_v3.3/C5500/xdais/lib" -i"C:/CCStudio_v3.3/bios_5_31_02/packages/ti/bios/lib" -i"C:/CCStudio_v3.3/bios_5_31_02/packages/ti/rtdx/lib/c5500" -i"C:/CCStudio_v3.3/C5500/cgtools/lib"
+"D:\CeShi\yx\test\SPI BOOTLOAD\Debug\burncsi.obj"
+"D:\CeShi\yx\test\SPI BOOTLOAD\Debug\vectors_mcbsp.obj"
+"D:\CeShi\yx\test\SPI BOOTLOAD\csl5509ax.lib"
+"D:\CeShi\yx\test\SPI BOOTLOAD\rts55x.lib"
+"D:\CeShi\yx\test\SPI BOOTLOAD\burncsi.cmd"

@@ -1,0 +1,39 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectDir="C:\CCStudio_v3.1\MyProjects\test\USB\"
+ProjectType=Executable
+CPUFamily=TMS320C55XX
+Tool="Compiler"
+Tool="CustomBuilder"
+Tool="DspBiosBuilder"
+Tool="Linker"
+Config="Debug"
+Config="Release"
+
+[Source Files]
+Source="csl5509x.lib"
+Source="DSK5509_USB.c"
+Source="DSK5509_USBLIB.lib"
+Source="rts55x.lib"
+Source="vectors.s55"
+Source="DSK5509_USB.cmd"
+
+["Compiler" Settings: "Debug"]
+Options=-g -q -pdv -fr"C:\CCStudio_v3.1\MyProjects\test\USB\Debug" -d"_DEBUG" -d"CHIP_5509" -ml
+
+["Compiler" Settings: "Release"]
+Options=-q -o2 -fr"C:\CCStudio_v3.1\MyProjects\test\USB\Release"
+
+["DspBiosBuilder" Settings: "Debug"]
+Options=-v55
+
+["DspBiosBuilder" Settings: "Release"]
+Options=-v55
+
+["Linker" Settings: "Debug"]
+Options=-q -c -m".\Debug\DSK5509_USB.map" -o".\Debug\DSK5509_USB.out" -stack1400 -sysstack1400 -w -x
+
+["Linker" Settings: "Release"]
+Options=-q -c -m".\Release\DSK5509_USB.map" -o".\Release\DSK5509_USB.out" -w -x
+

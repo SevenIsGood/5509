@@ -1,0 +1,306 @@
+******************************************************************************
+         TMS320C55x COFF Linker PC v3.3.2                      
+******************************************************************************
+>> Linked Thu Apr 08 10:14:08 2010
+
+OUTPUT FILE NAME:   <./Debug/edma.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 00000100
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+                        (bytes)   (bytes)    (bytes)   (bytes)
+----------------------  --------  ---------  --------  --------  ----  --------
+  DARAM                 00000100   00007f00  00001580  00006980  RWIX
+  VECT                  0000d000   00000100  000000f2  0000000e  RWIX
+  DARAM2                0000d100   00001f00  000001a4  00001d5c  RWIX
+  SARAM                 00010000   00030000  00000000  00030000  RWIX
+  SDRAM                 00040000   003e0000  00000000  003e0000  RWIX
+
+
+SECTION ALLOCATION MAP
+(Addresses surrounded by []'s are displayed for convenience only!)
+
+output                                                          attributes/
+section   page  orgn(bytes) orgn(words) len(bytes) len(words)   input sections
+--------  ----  ----------- ----------- ---------- ----------   --------------
+.data        0   [ 00000000 ]  00000000          *   00000000   UNINITIALIZED
+
+.trcinit     0   [ 00000100 ]  00000080          *   00000000   UNINITIALIZED
+
+.gblinit     0   [ 00000100 ]  00000080          *   00000000   UNINITIALIZED
+
+frt          0   [ 00000100 ]  00000080          *   00000000   UNINITIALIZED
+
+.pinit       0   [ 00000100 ]  00000080          *   00000000   UNINITIALIZED
+
+.sysinit     0   [ 00000100 ]  00000080          *   00000000   UNINITIALIZED
+
+.const       0   [ 00000100 ]  00000080          *   00000000   UNINITIALIZED
+
+.switch      0   [ 00000100 ]  00000080          *   00000000   UNINITIALIZED
+
+.sysmem      0   [ 00000100 ]  00000080          *   00000000   UNINITIALIZED
+
+.cio         0   [ 00000100 ]  00000080          *   00000000   UNINITIALIZED
+
+.MEM$obj     0   [ 00000100 ]  00000080          *   00000000   UNINITIALIZED
+
+.sysheap     0   [ 00000100 ]  00000080          *   00000000   UNINITIALIZED
+
+.text        0     00000100  [ 00000080 ] 00001166          *   
+                   00000100  [ 00000080 ] 0000003b          *   rts55x.lib : boot.obj (.text)
+                   0000013b  [ 0000009d+] 000000b6          *              : exit.obj (.text)
+                   000001f1  [ 000000f8+] 00000007          *              : exit.obj (.text:CIO_breakpoint)
+                   000001f8  [ 000000fc ] 00000002          *              : vectors.obj (.text)
+                   000001fa  [ 000000fd ] 00000012          *              : _lock.obj (.text)
+                   0000020c  [ 00000106 ] 0000003c          *              : args_main.obj (.text)
+                   00000248  [ 00000124 ] 00000062          *              : autoinit.obj (.text)
+                   000002aa  [ 00000155 ] 000000a3          *   aic23.obj (.text)
+                   0000034d  [ 000001a6+] 000002d4          *   dma.obj (.text)
+                   00000621  [ 00000310+] 00000164          *   iic.obj (.text)
+                   00000785  [ 000003c2+] 00000042          *   main.obj (.text)
+                   000007c7  [ 000003e3+] 0000049f          *   mcbsp.obj (.text)
+                   00000c66  [ 00000633 ] 000000be          *   sdram_init.obj (.text)
+                   00000d24  [ 00000692 ] 00000160          *   timers.obj (.text)
+                   00000e84  [ 00000742 ] 000003a5          *   util.obj (.text)
+                   00001229  [ 00000914+] 0000003c          *   rts55x.lib : idiv.obj (.text)
+                   00001265  [ 00000932+] 00000001          *   --HOLE-- [fill = 20]
+
+.sysstack 
+*            0   [ 00001268 ]  00000934          *   000000fa   UNINITIALIZED
+
+.stack       0   [ 0000145c ]  00000a2e          *   000000fa   UNINITIALIZED
+
+.cinit       0   [ 00001650 ]  00000b28          *   00000019   
+                 [ 00001650 ]  00000b28          *   0000000e   rts55x.lib : exit.obj (.cinit)
+                 [ 0000166c ]  00000b36          *   0000000a              : _lock.obj (.cinit)
+                 [ 00001680 ]  00000b40          *   00000001   --HOLE-- [fill = 0]
+
+.vectors     0     0000d000  [ 00006800 ] 000000f2          *   
+                   0000d000  [ 00006800 ] 000000f0          *   vectors.obj (.vectors)
+                   0000d0f0  [ 00006878 ] 00000002          *   --HOLE-- [fill = 20]
+
+.far         0   [ 0000d100 ]  00006880          *   00000000   UNINITIALIZED
+
+dmaMem       0   [ 0000d100 ]  00006880          *   00000000   UNINITIALIZED
+
+.bss         0   [ 0000d100 ]  00006880          *   00000052   UNINITIALIZED
+                 [ 0000d100 ]  00006880          *   00000046   rts55x.lib : exit.obj (.bss)
+                 [ 0000d18c ]  000068c6          *   00000006   util.obj (.bss)
+                 [ 0000d198 ]  000068cc          *   00000004   rts55x.lib : _lock.obj (.bss)
+                 [ 0000d1a0 ]  000068d0          *   00000002   main.obj (.bss)
+
+vectors      0     0000d1a8  [ 000068d4 ] 00000100          *   
+                   0000d1a8  [ 000068d4 ] 00000100          *   rts55x.lib : vectors.obj (vectors)
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+00000002                $TI_capability$C5500$MemoryModel
+00000001                $TI_capability_requires_rev2
+            00006880    .bss
+            00000000    .data
+00000100                .text
+000001f2                C$$EXIT
+00001229                I$$DIV
+00001248                I$$MOD
+00000343                _AIC23_Disable
+000002cc                _AIC23_Init
+000002aa                _AIC23_Write
+000007f3                _McBSP0_InitSlave
+0000d1a8                _Reset
+00001174                _SWDelayMsec
+00001123                _SWDelayUsec
+000001f4                __STACK_SIZE
+000001f4                __SYSSTACK_SIZE
+ffffffff                ___binit__
+            00006880    ___bss__
+ffffffff                ___c_args__
+            00000b28    ___cinit__
+            00000000    ___data__
+            00000000    ___edata__
+            000068d2    ___end__
+00001266                ___etext__
+ffffffff                ___pinit__
+00000100                ___text__
+0000020c                __args_main
+            000068c2    __cleanup_ptr
+00001229                __divi
+            000068c4    __dtors_ptr
+            000068cc    __lock
+0000020a                __nop
+00000202                __register_lock
+000001fa                __register_unlock
+00001248                __remi
+            00000a2e    __stack
+            00000934    __sysstack
+            000068ce    __unlock
+000001f1                _abort
+0000019b                _atexit
+00000248                _auto_init
+00000100                _c_int00
+000004a5                _closeDma
+0000094a                _closeMcbsp
+0000036e                _configDma
+00000870                _configMbsp
+000011bd                _ddelay
+000011a0                _delay
+00000681                _disableIIc
+            000068c6    _dspclk
+00000c66                _emifInit
+000007dd                _enableRcvInt
+000007c7                _enableXimtInt
+0000013b                _exit
+000011f1                _firstbit
+000003ec                _getconfigDma
+00000621                _initIIc
+00000ff5                _intDisable
+00001073                _intDisableGlobal
+00000f95                _intEnable
+0000104b                _intEnableGlobal
+000010a0                _intInstallHandler
+00001080                _intSetVec
+00001038                _irqRestore
+000004f8                _isrDma0
+0000034d                _isrDma0Hook
+00000d5b                _isrTimer0
+00000d24                _isrTimer0Hook
+00000785                _main
+            000068d0    _mcbspHandle
+00000b36                _mcbspRcv0
+000007a8                _mcbspRcvHook
+00000a06                _mcbspXimt0
+000007c5                _mcbspXmitHook
+0000034f                _openDma
+000008df                _openMcbsp
+00000e84                _pllInit
+00000715                _readIIC
+00000991                _readMcbsp16
+000009af                _readMcbsp32
+00000474                _startDma
+000008fe                _startMcbspRcv
+00000911                _startMcbspXmit
+00000492                _stopDma
+00000924                _stopMcbspRcv
+00000937                _stopMcbspXmit
+00000d26                _timerInit
+00000d4a                _timerStart
+00000699                _writeIIc
+000009e1                _writeMcbsp16
+ffffffff                binit
+            00000b28    cinit
+            00000000    edata
+            000068d2    end
+00001266                etext
+ffffffff                pinit
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+            00000000    .data
+            00000000    ___data__
+            00000000    ___edata__
+            00000000    edata
+00000001                $TI_capability_requires_rev2
+00000002                $TI_capability$C5500$MemoryModel
+00000100                ___text__
+00000100                _c_int00
+00000100                .text
+0000013b                _exit
+0000019b                _atexit
+000001f1                _abort
+000001f2                C$$EXIT
+000001f4                __STACK_SIZE
+000001f4                __SYSSTACK_SIZE
+000001fa                __register_unlock
+00000202                __register_lock
+0000020a                __nop
+0000020c                __args_main
+00000248                _auto_init
+000002aa                _AIC23_Write
+000002cc                _AIC23_Init
+00000343                _AIC23_Disable
+0000034d                _isrDma0Hook
+0000034f                _openDma
+0000036e                _configDma
+000003ec                _getconfigDma
+00000474                _startDma
+00000492                _stopDma
+000004a5                _closeDma
+000004f8                _isrDma0
+00000621                _initIIc
+00000681                _disableIIc
+00000699                _writeIIc
+00000715                _readIIC
+00000785                _main
+000007a8                _mcbspRcvHook
+000007c5                _mcbspXmitHook
+000007c7                _enableXimtInt
+000007dd                _enableRcvInt
+000007f3                _McBSP0_InitSlave
+00000870                _configMbsp
+000008df                _openMcbsp
+000008fe                _startMcbspRcv
+00000911                _startMcbspXmit
+00000924                _stopMcbspRcv
+00000937                _stopMcbspXmit
+0000094a                _closeMcbsp
+00000991                _readMcbsp16
+000009af                _readMcbsp32
+000009e1                _writeMcbsp16
+00000a06                _mcbspXimt0
+00000b36                _mcbspRcv0
+00000c66                _emifInit
+00000d24                _isrTimer0Hook
+00000d26                _timerInit
+00000d4a                _timerStart
+00000d5b                _isrTimer0
+00000e84                _pllInit
+00000f95                _intEnable
+00000ff5                _intDisable
+00001038                _irqRestore
+0000104b                _intEnableGlobal
+00001073                _intDisableGlobal
+00001080                _intSetVec
+000010a0                _intInstallHandler
+00001123                _SWDelayUsec
+00001174                _SWDelayMsec
+000011a0                _delay
+000011bd                _ddelay
+000011f1                _firstbit
+00001229                __divi
+00001229                I$$DIV
+00001248                __remi
+00001248                I$$MOD
+00001266                etext
+00001266                ___etext__
+            00000934    __sysstack
+            00000a2e    __stack
+            00000b28    ___cinit__
+            00000b28    cinit
+            00006880    .bss
+            00006880    ___bss__
+            000068c2    __cleanup_ptr
+            000068c4    __dtors_ptr
+            000068c6    _dspclk
+            000068cc    __lock
+            000068ce    __unlock
+            000068d0    _mcbspHandle
+            000068d2    ___end__
+            000068d2    end
+0000d1a8                _Reset
+ffffffff                pinit
+ffffffff                ___pinit__
+ffffffff                ___binit__
+ffffffff                binit
+ffffffff                ___c_args__
+
+[97 symbols]

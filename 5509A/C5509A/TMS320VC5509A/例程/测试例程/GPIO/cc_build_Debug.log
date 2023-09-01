@@ -1,0 +1,8 @@
+----------------------------  5509gpio.pjt - Debug  ----------------------------
+[gpio.c] "C:\CCStudio_v3.1\C5500\cgtools\bin\cl55" -g -q -fr"C:/CCStudio_v3.1/MyProjects/GPIO/Debug" -d"_DEBUG" -d"CHIP_5509" -ml -@"Debug.lkf" "gpio.c"
+
+[Linking...] "C:\CCStudio_v3.1\C5500\cgtools\bin\cl55" -@"Debug.lkf"
+<Linking>
+
+Build Complete,
+  0 Errors, 0 Warnings, 0 Remarks.

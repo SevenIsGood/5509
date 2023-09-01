@@ -1,0 +1,292 @@
+/****************************************************************************/
+/*                                                                          */
+/*              离散余弦变换测试                                            */
+/*                                                                          */
+/*              2014年07月27日                                              */
+/*                                                                          */
+/****************************************************************************/
+// 离散余弦变换类似于离散傅里叶变换，不过离散余弦变换只适用于实数
+// 图像的离散余弦变换是 JPEG 压缩的核心部分
+
+#include <stdio.h>                  // C 语言标准输入输出函数库
+#include <math.h>                   // C 数学函数库
+#include <csl.h>
+#include <csl_pll.h>
+#include <csl_chiphal.h>
+#include <csl_emif.h>
+#include "Dct.h"                    // DSP 图像函数库
+#include "Pic.h"
+/****************************************************************************/
+/*                                                                          */
+/*              宏定义                                                      */
+/*                                                                          */
+/****************************************************************************/
+// 离散余弦变换测试
+#define N 8
+#define WIDTH 			128
+#define HEIGHT 			80
+
+// Q15 (15-bit fixed-point) representation of constants
+#define SQRT2_OVER_2 23170 // sqrt(2)/2 * 32768
+#define PI_OVER_16  6433   // (pi/16) * 32768
+/****************************************************************************/
+/*                                                                          */
+/*              全局变量                                                    */
+/*                                                                          */
+/****************************************************************************/
+EMIF_Config emiffig = {
+  0x221, 	//EGCR  : the MEMFREQ = 00,the clock for the memory is equal to cpu frequence
+  			//		  the WPE = 0 ,forbiden the writing posting when we debug the EMIF
+  			//        the MEMCEN = 1,the memory clock is reflected on the CLKMEM pin
+  			//        the NOHOLD = 1,HOLD requests are not recognized by the EMIF
+  0xFFFF,	//EMI_RST: any write to this register resets the EMIF state machine
+  0x3FFF,	//CE0_1:  CE0 space control register 1
+  			//        MTYPE = 011,Synchronous DRAM(SDRAM),16-bit data bus width
+  0xFFFF,   //CE0_2:  CE0 space control register 2
+  0x00FF,   //CE0_3:  CE0 space control register 3
+  			//        TIMEOUT = 0xFF;
+  0x1FFF,	//CE1_1:  CE0 space control register 1
+            //        Asynchronous, 16Bit
+  0xFFFF,	//CE1_2:  CE0 space control register 2
+  0x00FF,	//CE1_3:  CE0 space control register 3
+  0x1FFF,	//CE2_1:  CE0 space control register 1
+            //        Asynchronous, 16Bit
+  0xFFFF,	//CE2_2:  CE0 space control register 2
+  0x00FF,	//CE2_3:  CE0 space control register 3
+
+  0x7FFF,	//CE3_1:  CE0 space control register 1
+  0xFFFF,	//CE3_2:  CE0 space control register 2
+  0x00FF,	//CE3_3:  CE0 space control register 3
+
+  0x2911,   //SDC1:   SDRAM control register 1
+  			//		  TRC = 8
+  			//        SDSIZE = 0;SDWID = 0
+  			//        RFEN = 1
+  			//        TRCD = 2
+  			//        TRP  = 2
+  0x0410,	//SDPER : SDRAM period register
+  			//		  7ns *4096
+  0x07FF,    //SDINIT: SDRAM initialization register
+  			//        any write to this register to init the all CE spaces,
+  			//        do it after hardware reset or power up the C55x device
+  0x0131	//SDC2:	  SDRAM control register 2
+  			//        SDACC = 0;
+  			//        TMRD = 01;
+  			//        TRAS = 0101;
+  			//        TACTV2ACTV = 0001;
+  };
+
+/*锁相环的设置*/
+PLL_Config  myConfig	  = {
+	0, 	//IAI: the PLL locks using the same process that was underway
+		//before the idle mode was entered
+	1, 	//IOB: If the PLL indicates a break in the phase lock,
+		//it switches to its bypass mode and restarts the PLL phase-locking
+		//sequence
+	24, //PLL multiply value; multiply 24 times
+	1 	//Divide by 2 PLL divide value; it can be either PLL divide value
+		//(when PLL is enabled), or Bypass-mode divide value
+		//(PLL in bypass mode, if PLL multiply value is set to 1)
+};
+
+// 输入缓存
+#pragma DATA_ALIGN(IMG_In, 8);
+#pragma DATA_SECTION(IMG_In, ".image");
+unsigned short IMG_In[HEIGHT][WIDTH];
+// 输出
+#pragma DATA_ALIGN(IMG_Out, 8);
+#pragma DATA_SECTION(IMG_Out, ".image");
+unsigned short IMG_Out[HEIGHT][WIDTH];
+
+#pragma DATA_ALIGN(dctResult, 8);
+#pragma DATA_SECTION(dctResult, ".image");
+short dctResult[HEIGHT * WIDTH][N * N];
+
+#pragma DATA_ALIGN(cos_table, 8);
+#pragma DATA_SECTION(cos_table, ".image");
+// Precomputed cosine values for 1D DCT
+unsigned short cos_table[N][N];
+
+/****************************************************************************/
+/*                                                                          */
+/*              函数声明                                                    */
+/*                                                                          */
+/****************************************************************************/
+void SDRAM_init(void);
+// 读取图片数组
+void Read_IMG(const unsigned char *p);
+
+/****************************************************************************/
+/*                                                                          */
+/*              函数                                                        */
+/*                                                                          */
+/****************************************************************************/
+// 读取图片数组
+void Read_IMG(const unsigned char *p)
+{
+	unsigned short i,j;
+
+	printf("正在读取图像...\n");
+
+	// 复制图像数组
+	for( i=0; i<HEIGHT; i++ )
+		for( j=0; j<WIDTH; j++ )
+		{
+			IMG_In[i][j] = ((*(p+1))<<8)+(*p);
+			p +=2;
+		}
+
+	printf("图像读取完成!\n");
+}
+
+
+
+
+// Initialize the cosine lookup table
+void initCosTable() {
+	int i,j;
+    for (i = 0; i < N; i++) {
+        for (j = 0; j < N; j++) {
+            cos_table[i][j] = (unsigned short)(cos((2 * j + 1) * i * PI_OVER_16) * 32768);
+        }
+    }
+}
+
+// Function to perform 1D DCT on an array
+void perform1DDCT(short data[N], short result[N]) {
+    int i, j;
+
+    for (i = 0; i < N; i++) {
+        short sum = 0;
+        for (j = 0; j < N; j++) {
+            sum += data[j] * cos_table[i][j];
+        }
+        result[i] = (i == 0) ? ((sum * SQRT2_OVER_2) >> 15) : (sum >> 15);
+    }
+}
+
+// Function to perform 2D DCT on an 8x8 block
+void perform2DDCT(short data[N][N], short result[N][N]) {
+    short temp[N][N];
+    int i, j;
+    // Perform DCT on rows
+    for (i = 0; i < N; i++) {
+        perform1DDCT(data[i], temp[i]);
+    }
+
+    // Transpose the temporary matrix
+    for (i = 0; i < N; i++) {
+        for ( j = 0; j < N; j++) {
+            temp[i][j] = temp[j][i];
+        }
+    }
+
+    // Perform DCT on columns
+    for (i = 0; i < N; i++) {
+        perform1DDCT(temp[i], result[i]);
+    }
+}
+
+// Function to perform 2D IDCT on an 8x8 block
+void perform2DIDCT(short *dctData, short *result) {
+    short temp[N][N];
+    int i,j;
+    // Perform IDCT on rows
+    for (i = 0; i < N; i++) {
+        perform1DIDCT(dctData[i], temp[i]);
+    }
+
+    // Transpose the temporary matrix
+    for (i = 0; i < N; i++) {
+        for (j = 0; j < N; j++) {
+            temp[i][j] = temp[j][i];
+        }
+    }
+
+    // Perform IDCT on columns
+    for (i = 0; i < N; i++) {
+        perform1DIDCT(temp[i], result[i]);
+    }
+}
+
+// Function to process a 16-bit RGB565 image and compute DCT coefficients
+void processImage(unsigned short image[HEIGHT][WIDTH], short dctResult[HEIGHT][WIDTH], int width, int height) {
+    int x, y, i, j;
+
+    for (y = 0; y < height; y += N) {
+        for (x = 0; x < width; x += N) {
+            short block[N][N];
+
+            // Extract 8x8 block from image and convert to 8-bit
+            for (i = 0; i < N; i++) {
+                for (j = 0; j < N; j++) {
+                    unsigned short pixel = image[y + i][x + j];
+                    short r = (pixel >> 11) & 0x1F;
+                    short g = (pixel >> 5) & 0x3F;
+                    short b = pixel & 0x1F;
+                    block[i][j] = (r << 3) | (g >> 3);
+                }
+            }
+
+            // Perform 2D DCT on the block and store in dctResult
+            perform2DDCT(block, &dctResult[y][x]);
+        }
+    }
+}
+
+// Function to reconstruct the original image from DCT coefficients
+void reconstructImage(unsigned short image[HEIGHT][WIDTH], short dctResult[HEIGHT][WIDTH], int width, int height) {
+    int x, y, i, j;
+
+    for (y = 0; y < height; y += N) {
+        for (x = 0; x < width; x += N) {
+            short block[N][N];
+
+            // Perform 2D IDCT on the block and store in block
+            perform2DIDCT(&dctResult[y][x], block);
+
+            // Convert to 16-bit RGB565 format and store in image
+            for (i = 0; i < N; i++) {
+                for (j = 0; j < N; j++) {
+                    short val = block[i][j];
+                    val = (val < 0) ? 0 : val;
+                    val = (val > 255) ? 255 : val;
+                    image[y + i][x + j] = (val << 8) | val;
+                }
+            }
+        }
+    }
+}
+
+
+
+/****************************************************************************/
+/*                                                                          */
+/*              主函数                                                      */
+/*                                                                          */
+/****************************************************************************/
+int main(void)
+{
+	CSL_init();
+
+	/*EMIF为全EMIF接口*/
+	CHIP_RSET(XBSR,0x0a01);
+
+	/*设置系统的运行速度为144MHz*/
+	PLL_config(&myConfig);
+
+	EMIF_config(&emiffig);
+
+	//读取图片数组
+	Read_IMG((char *)gImage);
+
+	initCosTable() ;
+	// Process the image and compute DCT coefficients
+    processImage(IMG_In, dctResult, WIDTH, HEIGHT);;
+
+
+    // Reconstruct the original image from DCT coefficients
+    reconstructImage(IMG_Out, dctResult, WIDTH, HEIGHT);
+
+	return 0;
+}

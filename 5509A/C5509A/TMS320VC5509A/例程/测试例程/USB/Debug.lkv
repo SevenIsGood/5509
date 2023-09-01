@@ -1,0 +1,7 @@
+-z -q -c -m"./Debug/DSK5509_USB.map" -o"./Debug/DSK5509_USB.out" -stack1400 -sysstack1400 -w -x -i"d:/ti5000/c5500/bios/lib" -i"d:/ti5000/c5500/rtdx/lib" -i"d:/ti5000/c5500/xdais/lib" -i"d:/ti5000/c5500/cgtools/lib"
+"E:\DSK5509_USB\Debug\DSK5509_USB.obj"
+"E:\DSK5509_USB\Debug\vectors.obj"
+"E:\DSK5509_USB\csl5509x.lib"
+"E:\DSK5509_USB\DSK5509_USBLIB.lib"
+"E:\DSK5509_USB\rts55x.lib"
+"E:\DSK5509_USB\DSK5509_USB.cmd"

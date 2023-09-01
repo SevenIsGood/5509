@@ -1,0 +1,39 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectName="timer"
+ProjectDir="D:\CCStudio_v3.3\MyProjects\5509\Timer\"
+ProjectType=Executable
+CPUFamily=TMS320C55XX
+Tool="Compiler"
+Tool="CustomBuilder"
+Tool="DspBiosBuilder"
+Tool="Linker"
+Config="Debug"
+Config="Release"
+
+[Source Files]
+Source="..\..\..\C5500\cgtools\lib\rts55.lib"
+Source="..\..\..\C5500\csl\lib\csl5509.lib"
+Source="timer.c"
+Source="vectors.s55"
+Source="timer.cmd"
+
+["Compiler" Settings: "Debug"]
+Options=-g -q -fr".\Debug" -d"_DEBUG" -d"CHIP_5509"
+
+["Compiler" Settings: "Release"]
+Options=-q -o2 -fr"D:\CCStudio_v3.3\MyProjects\5509\Timer\Release"
+
+["DspBiosBuilder" Settings: "Debug"]
+Options=-v55
+
+["DspBiosBuilder" Settings: "Release"]
+Options=-v55
+
+["Linker" Settings: "Debug"]
+Options=-q -c -m".\Debug\timer.map" -o".\Debug\timer.out" -x -l"csl5509.lib" -l"rts55.lib"
+
+["Linker" Settings: "Release"]
+Options=-q -c -o".\Release\timer.out" -x
+

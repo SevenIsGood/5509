@@ -1,0 +1,9 @@
+!WARNING: Source file 'rts55x.lib' has been linked into the project relative to variable 'CG_TOOL_ROOT'.  It is recommended, however, that you avoid linking resources from the build-tool directory - consider using build-options to reference include-files and libraries.
+
+
+!CONFIGURATION: 'com.ti.ccstudio.buildDefinitions.C5500.Debug.209001381' [Wed Aug 30 21:16:30 CST 2023]
+
+	!TOOL: 'com.ti.ccstudio.buildDefinitions.C5500_4.4.exe.compilerDebug.7060116'
+
+		!WARNING: Unresolved option: com.ti.ccstudio.buildDefinitions.C5500_4.4.exe.compilerDebug.7060116::-ml
+

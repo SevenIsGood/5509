@@ -1,0 +1,5 @@
+-z -q -c -m"./Debug/LED.map" -o"./Debug/LED.out" -x -i"c:/ti5000/c5500/bios/lib" -i"c:/ti5000/c5500/rtdx/lib" -i"c:/ti5000/c5500/xdais/lib" -i"c:/ti5000/c5500/cgtools/lib"
+"E:\EUE\EUE5509\Programme\banled\Debug\clk_init.obj"
+"E:\EUE\EUE5509\Programme\banled\Debug\LED.obj"
+"E:\EUE\EUE5509\Programme\banled\Debug\sdram_init.obj"
+"E:\EUE\EUE5509\Programme\banled\led.cmd"

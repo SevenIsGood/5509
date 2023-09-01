@@ -1,0 +1,360 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\USBDEMO.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 207, 103
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "关于 USBDEMO"
+FONT 9, "宋体"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    CTEXT           "USBDEMO 1.0 版",IDC_STATIC,36,32,119,8,SS_NOPREFIX
+    CTEXT           "版权所有 (C) 2004",IDC_STATIC,36,54,119,8
+    DEFPUSHBUTTON   "确定",IDOK,150,7,50,14,WS_GROUP
+    CTEXT           "www.seeddsp.com",IDC_STATIC,36,76,119,8
+END
+
+IDD_USBDEMO_DIALOG DIALOGEX 0, 0, 351, 238
+STYLE DS_MODALFRAME | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "USBDEMO"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Cancel",IDCANCEL,269,209,50,14
+    CONTROL         "Tab1",IDC_TAB_MAIN,"SysTabControl32",0x0,7,7,337,193
+    PUSHBUTTON      "Output Window",IDC_BUTTON_OUTPUT_WINDOW,34,209,79,14
+    PUSHBUTTON      "Clear Output Window",IDC_BUTTON_CLEAR_OUTPUT_WINDOW,138,
+                    209,98,14
+END
+
+IDD_DIALOGPAGE_DEVICE DIALOG DISCARDABLE  0, 0, 305, 177
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Available Devices",IDC_STATIC,23,7,252,100
+    PUSHBUTTON      "Scan for USB Device",IDC_BUTTON_SCAN,47,20,201,14
+    CTEXT           "www.seeddsp.com",IDC_STATIC,190,146,76,8
+    LISTBOX         IDC_LIST_DEVICES,49,40,198,42,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "Current Version",IDC_STATIC,23,114,254,27
+    CTEXT           "1.0",IDC_STATIC,119,123,53,11
+    PUSHBUTTON      "Open",IDC_BUTTON_OPEN,69,88,50,14
+    PUSHBUTTON      "Close",IDC_BUTTON_CLOSE,159,88,50,14
+END
+
+IDD_DIALOGPAGE_DESC DIALOG DISCARDABLE  0, 0, 305, 177
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Get Device Descriptor",IDC_STATIC,7,15,291,55
+    PUSHBUTTON      "Device Descriptor",IDC_BUTTON_DEVICE_DESC,81,34,77,24
+    PUSHBUTTON      "String Descriptor",IDC_BUTTON_STRING_DESC,175,114,116,
+                    23
+    LTEXT           "Index",IDC_STATIC,23,119,25,11
+    EDITTEXT        IDC_EDIT_STRING_DESC,57,118,23,18,ES_AUTOHSCROLL
+    LTEXT           "Language ID:",IDC_STATIC,86,119,48,11
+    EDITTEXT        IDC_EDIT_STRING_DESC_LID,137,118,23,19,ES_AUTOHSCROLL
+    PUSHBUTTON      "Device Qualifier Descriptor",
+                    IDC_BUTTON_DEVICE_QUALIFIER_DESC,170,34,128,24
+    GROUPBOX        "Get String Descriptor",IDC_STATIC,7,94,291,55
+END
+
+IDD_DIALOGPAGE_DEVREQ DIALOG DISCARDABLE  0, 0, 305, 177
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Send Request",IDOK,223,141,56,14
+    COMBOBOX        IDC_COMBO_DIRECTION,70,29,64,64,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    CTEXT           "Directic:",IDC_STATIC,25,31,40,11
+    COMBOBOX        IDC_COMBO_TYPE,70,57,64,68,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    CTEXT           "Type:",IDC_STATIC,25,59,40,11
+    COMBOBOX        IDC_COMBO_RECIPIENT,70,87,64,64,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    CTEXT           "Recipient:",IDC_STATIC,25,89,40,11
+    CTEXT           "bRequest:",IDC_STATIC,139,29,40,11
+    CTEXT           "wValue:",IDC_STATIC,139,57,40,11
+    CTEXT           "wIndex:",IDC_STATIC,139,87,40,11
+    EDITTEXT        IDC_EDIT_BREQUEST,184,27,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_WVALUE,185,55,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_WINDEX,185,84,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_BUFFER,70,117,155,16,ES_AUTOHSCROLL
+    CTEXT           "Buffer",IDC_STATIC,25,118,40,11
+    EDITTEXT        IDC_EDIT_BUFFER_SIZE,71,140,40,14,ES_AUTOHSCROLL
+    CTEXT           "Buffer Size",IDC_STATIC,13,142,51,11
+END
+
+IDD_DIALOGPAGE_PIPES DIALOG DISCARDABLE  0, 0, 305, 177
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Get Pipes Info",IDC_BUTTON_GETPIPINF,104,22,97,14
+    GROUPBOX        "Pipes",IDC_STATIC,42,48,220,91
+    PUSHBUTTON      "Read from Pipe and Print to Output  Window",
+                    IDC_BUTTON_PIPTOWIN,67,63,170,14
+    PUSHBUTTON      "Read from Pipe and Write to  File",IDC_BUTTON_PIPTOFILE,
+                    67,87,170,14
+    PUSHBUTTON      "Read from File and Write to  Pipe",IDC_BUTTON_FILETOPIP,
+                    67,113,170,14
+END
+
+IDD_OUTPUT_WINDOW DIALOG DISCARDABLE  0, 0, 310, 297
+STYLE DS_SYSMODAL | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_VISIBLE | 
+    WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "SEED Usb Output Window"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT_OUTPUTWIN,7,7,296,283,ES_MULTILINE | 
+                    ES_AUTOHSCROLL | WS_VSCROLL
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "USBDEMO Microsoft 基础类应用程序\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "USBDEMO\0"
+            VALUE "LegalCopyright", "版权所有 (C) 2004\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "USBDEMO.EXE\0"
+            VALUE "ProductName", "USBDEMO 应用程序\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 200
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 96
+    END
+
+    IDD_USBDEMO_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 344
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 231
+    END
+
+    IDD_DIALOGPAGE_DEVICE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 298
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 170
+    END
+
+    IDD_DIALOGPAGE_DESC, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 298
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 170
+    END
+
+    IDD_DIALOGPAGE_DEVREQ, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 298
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 170
+    END
+
+    IDD_DIALOGPAGE_PIPES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 298
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 170
+    END
+
+    IDD_OUTPUT_WINDOW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 303
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 290
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\Th_USB.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ABOUTBOX            "关于 USBDEMO(&A)..."
+    IDS_DIALOGPAGE_DEVICE   "device"
+    IDS_DIALOGPAGE_DESC     "Descriptors"
+    IDS_DIALOGPAGE_PIPES    "Pipes"
+    IDS_DIALOGPAGE_DEVREQ   "Class or Vendor Request"
+    IDS_BUTTON_OPEN         "Open an USB device. Use the Scan button to list available devices."
+    IDS_BUTTON_SCAN         "Scan for available USB devices; dump to output window"
+    IDS_BUTTON_CLOSE        "Close the USB device"
+    IDS_DEVICE_NUMBER       "Zero-based index of the device to open. Use the Scan button to show available devices."
+    IDS_BUTTON_DEVICE_DESC  "Query USB device descriptor; dump to output window"
+    IDS_EDIT_CONFIG_DESC    "Index of configuration descriptor to be queried"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_BUTTON_CONFIG_DESC  "Query configuration descriptor; dump to output window"
+    IDS_EDIT_STRING_DESC    "Index of string descriptor to be queried; zero to get language IDs"
+    IDS_EDIT_STRING_DESC_LID "Language ID of string descriptor to be queried"
+    DS_BUTTON_STRING_DESC   "Query string descriptor; dump to output window"
+    IDS_EDIT_CONFIG_INDEX   "Index of configuration to be set"
+    IDS_BUTTON_DEVICE_QUALIFIER_DESC 
+                            "Query the USB Device Qualifier Descriptor; dump to output window"
+    IDS_BUTTON_STRING_DESC  "Query string descriptor; dump to output window"
+    IDS_EDIT_ANY_DESC_TYPE  "Type of the descriptor"
+    IDS_EDIT_ANY_DESC_INDEX "Index of the descriptor"
+    IDS_EDIT_ANY_DESC_LENGTH "Maximum length of the descriptor, in bytes"
+    IDS_BUTTON_ANY_DESC     "Get a descriptor from the device."
+    IDS_BUTTON_OUTPUT_WINDOW 
+                            "Activate the output window that shows program messages"
+    IDS_BUTTON_CLEAR_OUTPUT_WINDOW "Delete the contents of the output window"
+    IDS_IDOK                "Quit the application"
+END
+
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+#include "res\USBDEMO.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.chs\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

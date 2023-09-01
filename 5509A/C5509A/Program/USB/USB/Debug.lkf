@@ -1,0 +1,7 @@
+-z -q -c -m"./Debug/DSK5509_USB.map" -o"./Debug/DSK5509_USB.out" -stack1400 -sysstack1400 -w -x -i"C:/CCStudio_v3.1/C5500/rtdx/lib" -i"C:/CCStudio_v3.1/C5500/csl/lib" -i"C:/CCStudio_v3.1/C5500/xdais/lib" -i"C:/CCStudio_v3.1/C5500/bios/lib" -i"C:/CCStudio_v3.1/C5500/cgtools/lib"
+"D:\5509A_pro\5509USB\Debug\DSK5509_USB.obj"
+"D:\5509A_pro\5509USB\Debug\vectors.obj"
+"D:\5509A_pro\5509USB\csl5509x.lib"
+"D:\5509A_pro\5509USB\DSK5509_USBLIB.lib"
+"D:\5509A_pro\5509USB\rts55x.lib"
+"D:\5509A_pro\5509USB\DSK5509_USB.cmd"

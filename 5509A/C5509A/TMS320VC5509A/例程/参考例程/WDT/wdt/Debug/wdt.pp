@@ -1,0 +1,45 @@
+# FIXED
+wdt.obj: E:/Dsp_Program/Porgrame_For_CCS4/5509easy/WDT/wdt.c
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/csl.h
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/_csl.h
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/csl_chiphal.h
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/csl_std.h
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/tistdtypes.h
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/csl_stdhal.h
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/csl_datasz.h
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/csl_chipdat.h
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/csl_icachdat.h
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/csl_irqdat.h
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/csl_datdat.h
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/csl_dmadat.h
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/csl_dmadatA.h
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/csl_emifdat.h
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/csl_gpiodat.h
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/csl_gpio5509dat.h
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/_csl_pgpiodat.h
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/csl_plldat.h
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/csl_mcbspdat.h
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/csl_pwrdat.h
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/csl_timdat.h
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/csl_gptdat.h
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/csl_bctdat.h
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/csl_errdat.h
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/csl_mmcdat.h
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/csl_wdtimdat.h
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/csl_rtcdat.h
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/csl_time.h
+wdt.obj: C:/Program\ Files/Texas\ Instruments/ccsv4/tools/compiler/c5500/include/linkage.h
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/csl_i2cdat.h
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/csl_uartdat.h
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/csl_csldat.h
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/csl_cslhal.h
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/csl_datasz.h
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/csl_irq.h
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/_csl.h
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/csl_irqhal.h
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/csl_err.h
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/csl_wdtim.h
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/csl_wdtimA.h
+wdt.obj: C:/CCSTUD~1.3/C5500/csl/include/csl_wdtimAhal.h
+wdt.obj: C:/Program\ Files/Texas\ Instruments/ccsv4/tools/compiler/c5500/include/stdio.h
+wdt.obj: C:/Program\ Files/Texas\ Instruments/ccsv4/tools/compiler/c5500/include/stdarg.h

@@ -1,0 +1,7 @@
+------------------------------  div.pjt - Debug  ------------------------------
+[div.asm] "c:\ti\c5500\cgtools\bin\cl55" -g -q -fr"C:/ti/myprojects/ICETEK-VC5509-C/Lab4-Division/Debug" -d"_DEBUG" -@"Debug.lkf" "div.asm"
+
+[Linking...] "c:\ti\c5500\cgtools\bin\cl55" -@"Debug.lkf"
+
+Build Complete,
+  0 Errors, 0 Warnings, 0 Remarks.

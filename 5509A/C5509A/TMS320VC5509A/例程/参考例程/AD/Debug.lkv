@@ -1,0 +1,5 @@
+-z -q -c -m"./Debug/AD.map" -o"./Debug/AD.out" -x -i"c:/ti5000/c5500/bios/lib" -i"c:/ti5000/c5500/rtdx/lib" -i"c:/ti5000/c5500/xdais/lib" -i"c:/ti5000/c5500/cgtools/lib"
+"C:\ICETEK-VC5509-EDULab\Lab0305-AD\Debug\main.obj"
+"C:\ICETEK-VC5509-EDULab\Lab0305-AD\Debug\sdram_init.obj"
+"C:\ICETEK-VC5509-EDULab\Lab0305-AD\Debug\util.obj"
+"C:\ICETEK-VC5509-EDULab\Lab0305-AD\ICETEK-VC5509-A.cmd"

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>Keyboard</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.cdt.managedbuilder.core.genmakebuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.cdt.core.cnature</nature>
+		<nature>org.eclipse.cdt.core.ccnature</nature>
+		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
+		<nature>com.ti.ccstudio.managedbuild.core.ccsNature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>Keyboard.pjt</name>
+			<type>1</type>
+			<locationURI>EXT_ROOT__Keyboard/Keyboard.pjt</locationURI>
+		</link>
+		<link>
+			<name>clk_init.c</name>
+			<type>1</type>
+			<locationURI>EXT_ROOT__Keyboard/clk_init.c</locationURI>
+		</link>
+		<link>
+			<name>led.cmd</name>
+			<type>1</type>
+			<locationURI>EXT_ROOT__Keyboard/led.cmd</locationURI>
+		</link>
+		<link>
+			<name>sdram_init.c</name>
+			<type>1</type>
+			<locationURI>EXT_ROOT__Keyboard/sdram_init.c</locationURI>
+		</link>
+		<link>
+			<name>LED.c</name>
+			<type>1</type>
+			<locationURI>EXT_ROOT__Keyboard/LED.c</locationURI>
+		</link>
+	</linkedResources>
+</projectDescription>

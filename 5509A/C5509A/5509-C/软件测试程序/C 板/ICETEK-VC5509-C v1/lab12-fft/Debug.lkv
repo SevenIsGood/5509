@@ -1,0 +1,4 @@
+-z -q -c -m"./Debug/fft.map" -o"./Debug/fft.out" -w -x -i"c:/ti/c5500/bios/lib" -i"c:/ti/c5500/rtdx/lib" -i"c:/ti/c5500/xdais/lib" -i"c:/ti/c5500/cgtools/lib"
+"C:\ti\myprojects\ICETEK-VC5509-C\lab12-fft\Debug\cfft32_noscale.obj"
+"C:\ti\myprojects\ICETEK-VC5509-C\lab12-fft\Debug\FORFFTC.obj"
+"C:\ti\myprojects\ICETEK-VC5509-C\lab12-fft\fft.cmd"

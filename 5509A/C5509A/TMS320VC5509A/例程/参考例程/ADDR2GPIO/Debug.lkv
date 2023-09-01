@@ -1,0 +1,6 @@
+-z -q -c -m"./Debug/timer.map" -o"./Debug/timer.out" -x -i"D:/ti5000/c5500/bios/lib" -i"D:/ti5000/c5500/rtdx/lib" -i"D:/ti5000/c5500/xdais/lib" -i"D:/ti5000/c5500/cgtools/lib" -l"csl5509.lib" -l"rts55.lib"
+"D:\ti5000\myprojects\timer\Debug\timer.obj"
+"D:\ti5000\myprojects\timer\Debug\vectors.obj"
+"D:\ti5000\c5500\bios\lib\csl5509.lib"
+"D:\ti5000\c5500\cgtools\lib\rts55.lib"
+"D:\ti5000\myprojects\timer\timer.cmd"

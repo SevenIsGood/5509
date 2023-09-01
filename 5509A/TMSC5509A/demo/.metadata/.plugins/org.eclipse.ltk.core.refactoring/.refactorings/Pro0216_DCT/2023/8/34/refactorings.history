@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;Pro0216_DCT/Image/img.c&apos; to &apos;img.txt&apos;" description="Rename resource &apos;img.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Image/img.c" name="img.txt" stamp="1693050607518" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;Pro0216_DCT/Image/img.txt&apos; to &apos;img.c&apos;" description="Rename resource &apos;img.txt&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Image/img.txt" name="img.c" stamp="1693051058712" updateReferences="true"/>
+</session>

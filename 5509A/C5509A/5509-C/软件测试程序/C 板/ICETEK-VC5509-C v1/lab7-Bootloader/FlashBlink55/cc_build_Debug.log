@@ -1,0 +1,15 @@
+--------------------------  FlashBlink55.pjt - Debug  --------------------------
+[clk_init.c] "c:\ti\c5500\cgtools\bin\cl55" -g -q -d"_DEBUG" -ml -@"Debug.lkf" "clk_init.c"
+
+[flsh_util.c] "c:\ti\c5500\cgtools\bin\cl55" -g -q -d"_DEBUG" -ml -@"Debug.lkf" "flsh_util.c"
+
+[main.c] "c:\ti\c5500\cgtools\bin\cl55" -g -q -d"_DEBUG" -ml -@"Debug.lkf" "main.c"
+
+[sdram_init.c] "c:\ti\c5500\cgtools\bin\cl55" -g -q -d"_DEBUG" -ml -@"Debug.lkf" "sdram_init.c"
+
+[vectors.asm] "c:\ti\c5500\cgtools\bin\cl55" -g -q -d"_DEBUG" -ml -@"Debug.lkf" "vectors.asm"
+
+[Linking...] "c:\ti\c5500\cgtools\bin\cl55" -@"Debug.lkf"
+
+Build Complete,
+  0 Errors, 0 Warnings, 0 Remarks.

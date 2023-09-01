@@ -1,0 +1,106 @@
+******************************************************************************
+         TMS320C55x COFF Linker PC Version 2.56                
+******************************************************************************
+>> Linked Fri Jun 11 14:19:20 2004
+
+OUTPUT FILE NAME:   <hextst.out>
+ENTRY POINT SYMBOL: "start"  address: 00000200
+
+
+MEMORY CONFIGURATION
+
+                  name            origin    length      used    attr    fill
+                                 (bytes)   (bytes)    (bytes)
+         ----------------------  --------  ---------  --------  ----  --------
+         PROG                    00000200   00002000  00000800  RWIX
+         DATA                    00002200   00001000  00000000  RWI 
+         VECT                    0000d000   00000100  00000000  RWIX
+
+
+SECTION ALLOCATION MAP
+(Addresses surrounded by []'s are displayed for convenience only!)
+
+output                                                          attributes/
+section   page  orgn(bytes) orgn(words) len(bytes) len(words)   input sections
+--------  ----  ----------- ----------- ---------- ----------   --------------
+frt          0   [ 00000200 ]  00000100          *   00000000   UNINITIALIZED
+
+.trcinit     0   [ 00000200 ]  00000100          *   00000000   UNINITIALIZED
+
+.gblinit     0   [ 00000200 ]  00000100          *   00000000   UNINITIALIZED
+
+.text        0     00000200  [ 00000100 ] 00000000          *   UNINITIALIZED
+
+.cinit       0   [ 00000200 ]  00000100          *   00000000   UNINITIALIZED
+
+.pinit       0   [ 00000200 ]  00000100          *   00000000   UNINITIALIZED
+
+.sysinit     0   [ 00000200 ]  00000100          *   00000000   UNINITIALIZED
+
+.data        0   [ 00000200 ]  00000100          *   00000400   
+                 [ 00000200 ]  00000100          *   00000400   hextst.obj (.data:.text)
+
+.bss         0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.far         0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.const       0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.switch      0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.sysmem      0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.cio         0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.MEM$obj     0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.sysheap     0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.sysstack 
+*            0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.stack       0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.vectors     0   [ 0000d000 ]  00006800          *   00000000   UNINITIALIZED
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+            00001100    .bss
+            00000100    .data
+00000200                .text
+            00001100    ___bss__
+            00000100    ___data__
+            00000500    ___edata__
+            00001100    ___end__
+00000200                ___etext__
+00000200                ___text__
+            00000500    edata
+            00001100    end
+00000200                etext
+            00000100    start
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+            00000100    ___data__
+00000200                ___etext__
+00000200                ___text__
+00000200                etext
+            00000100    .data
+            00000100    start
+00000200                .text
+            00000500    ___edata__
+            00000500    edata
+            00001100    end
+            00001100    .bss
+            00001100    ___bss__
+            00001100    ___end__
+
+[13 symbols]

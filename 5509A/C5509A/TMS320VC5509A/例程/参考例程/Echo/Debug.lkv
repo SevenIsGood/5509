@@ -1,0 +1,7 @@
+-z -q -c -m"./Debug/audio.map" -o"./Debug/audio.out" -w -x -i"c:/ti5000/c5500/bios/lib" -i"c:/ti5000/c5500/rtdx/lib" -i"c:/ti5000/c5500/xdais/lib" -i"c:/ti5000/c5500/cgtools/lib"
+"C:\ICETEK\VC5509AS60\VC5509AS60\Lab0701-Echo\Debug\aic23.obj"
+"C:\ICETEK\VC5509AS60\VC5509AS60\Lab0701-Echo\Debug\audio.obj"
+"C:\ICETEK\VC5509AS60\VC5509AS60\Lab0701-Echo\Debug\i2c.obj"
+"C:\ICETEK\VC5509AS60\VC5509AS60\Lab0701-Echo\Debug\sdram_init.obj"
+"C:\ICETEK\VC5509AS60\VC5509AS60\Lab0701-Echo\Debug\util.obj"
+"C:\ICETEK\VC5509AS60\VC5509AS60\Lab0701-Echo\audio.cmd"

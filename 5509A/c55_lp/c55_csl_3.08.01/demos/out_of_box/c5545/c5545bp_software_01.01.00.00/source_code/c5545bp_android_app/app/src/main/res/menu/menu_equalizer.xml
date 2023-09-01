@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="android.projects.com.c5545bp.Equalizer">
+    <item
+        android:id="@+id/opt_about"
+        android:icon="@drawable/ic_action_about"
+        android:title="@string/about" />
+    <item
+        android:id="@+id/opt_exit"
+        android:title="@string/exit" />
+</menu>

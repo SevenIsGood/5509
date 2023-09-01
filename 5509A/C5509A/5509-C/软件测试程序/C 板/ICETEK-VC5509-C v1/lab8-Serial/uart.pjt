@@ -1,0 +1,37 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectName="uart"
+ProjectDir="C:\Lab0308-uart\"
+ProjectType=Executable
+CPUFamily=TMS320C55XX
+Tool="Compiler"
+Tool="CustomBuilder"
+Tool="DspBiosBuilder"
+Tool="Linker"
+Config="Debug"
+Config="Release"
+
+[Source Files]
+Source="uart.c"
+Source="util.c"
+Source="uart.cmd"
+
+["Compiler" Settings: "Debug"]
+Options=-g -q -fr"C:\Lab0308-uart\Debug" -d"_DEBUG" -ml
+
+["Compiler" Settings: "Release"]
+Options=-q -o2 -fr"C:\Lab0308-uart\Release"
+
+["DspBiosBuilder" Settings: "Debug"]
+Options=-v55
+
+["DspBiosBuilder" Settings: "Release"]
+Options=-v55
+
+["Linker" Settings: "Debug"]
+Options=-q -c -m".\Debug\uart.map" -o".\Debug\uart.out" -w -x
+
+["Linker" Settings: "Release"]
+Options=-q -c -m".\Release\uart.map" -o".\Release\uart.out" -w -x
+

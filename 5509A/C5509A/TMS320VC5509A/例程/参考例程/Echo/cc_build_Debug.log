@@ -1,0 +1,17 @@
+-----------------------------  audio.pjt - Debug  -----------------------------
+[aic23.c] "C:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -g -q -fr"E:/yx/test/Echo/Debug" -d"_DEBUG" -ml -mn -@"Debug.lkf" "aic23.c"
+
+[audio.c] "C:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -g -q -fr"E:/yx/test/Echo/Debug" -d"_DEBUG" -ml -mn -@"Debug.lkf" "audio.c"
+
+[i2c.c] "C:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -g -q -fr"E:/yx/test/Echo/Debug" -d"_DEBUG" -ml -mn -@"Debug.lkf" "i2c.c"
+
+[sdram_init.c] "C:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -g -q -fr"E:/yx/test/Echo/Debug" -d"_DEBUG" -ml -mn -@"Debug.lkf" "sdram_init.c"
+
+[util.c] "C:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -g -q -fr"E:/yx/test/Echo/Debug" -d"_DEBUG" -ml -mn -@"Debug.lkf" "util.c"
+
+[Linking...] "C:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -@"Debug.lkf"
+<Linking>
+>> warning: creating output section vectors without SECTIONS specification
+
+Build Complete,
+  0 Errors, 1 Warnings, 0 Remarks.

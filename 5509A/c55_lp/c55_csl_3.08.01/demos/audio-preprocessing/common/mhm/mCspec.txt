@@ -1,0 +1,39 @@
+# Maintenance config spec for MHM 2.5.1.x
+# (the Master version - checkouts allowed for MHM only!)
+# Based on DEV_TI_MAS_MHM_2_5_1_0
+
+# Show any checkedout files
+element * CHECKEDOUT
+
+# Specify how to select the folders that lead to the packages
+# and how to select some of the shared folders (e.g. docs, swtools)
+element /dsps_gtmas  DEV_TI_MAS_MHM_2_5_1_0 -nocheckout
+
+element /dsps_gtmas/lost+found  /main/0
+element /dsps_gtmas/ti	DEV_TI_MAS_MHM_2_5_1_0 -nocheckout
+
+# The following line assumes that MHM branch would be allowed for all mas packages!
+#element /dsps_gtmas/ti/mas/... .../ti_mas_mhm_2_5_1_0_maint/LATEST
+
+# The following line assumes that mas folder could end up in MHM branch if modified
+#element /dsps_gtmas/ti/mas	DEV_TI_MAS_MHM_2_5_1_0 -mkbranch ti_mas_mhm_2_5_1_0_maint
+
+element /dsps_gtmas/ti/mas	DEV_TI_MAS_MHM_2_5_1_0	 -nocheckout
+element /dsps_gtmas/ti/mas/docs/...    /main/LATEST 	-nocheckout
+
+# Specify dependent packages (to allow debug branching remove -nocheckout as needed)
+# mkbranch and end mkbranch lines would allow these packages to appear on MHM branch!
+#mkbranch ti_mas_mhm_2_5_1_0_maint
+element /dsps_gtmas/ti/mas/swtools/...   DEV_TI_MAS_SWTOOLS_5_0_4_0 -nocheckout
+element /dsps_gtmas/ti/mas/types/...   DEV_TI_MAS_TYPES_5_5_5_0 -nocheckout
+
+# Specify packages used for unit testing
+# NONE
+
+#end mkbranch ti_mas_mhm_2_5_1_0_maint
+
+# Specify development/maintenance branch for 2.5.1.x MHM
+element /dsps_gtmas/ti/mas/mhm/... .../ti_mas_mhm_2_5_1_0_maint/LATEST
+element /dsps_gtmas/ti/mas/mhm/... DEV_TI_MAS_MHM_2_5_1_0 -mkbranch ti_mas_mhm_2_5_1_0_maint
+element /dsps_gtmas/ti/mas/mhm/... /main/0 -mkbranch ti_mas_mhm_2_5_1_0_maint
+

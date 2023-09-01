@@ -1,0 +1,12 @@
+----------------------------  Convolve.pjt - Debug  ----------------------------
+[load.asm] "c:\ti\c5500\cgtools\bin\cl55" -g -mg -as -fr"C:/ti/myprojects/ICETEK-VC5509-C/Lab9-Convolve/Debug" -v5510:2 -@"Debug.lkf" "load.asm"
+
+[vectors.asm] "c:\ti\c5500\cgtools\bin\cl55" -g -mg -as -fr"C:/ti/myprojects/ICETEK-VC5509-C/Lab9-Convolve/Debug" -v5510:2 -@"Debug.lkf" "vectors.asm"
+
+[volume.c] "c:\ti\c5500\cgtools\bin\cl55" -g -mg -as -fr"C:/ti/myprojects/ICETEK-VC5509-C/Lab9-Convolve/Debug" -v5510:2 -@"Debug.lkf" "volume.c"
+
+[Linking...] "c:\ti\c5500\cgtools\bin\cl55" -@"Debug.lkf"
+<Linking>
+
+Build Complete,
+  0 Errors, 0 Warnings, 0 Remarks.

@@ -1,0 +1,1 @@
+"./wdt.obj" -l"csl5509.lib" -l"rts55.lib" "E:/Program/DSP/VC5509A/WDT/wdt.cmd" 

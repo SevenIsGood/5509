@@ -1,0 +1,25 @@
+Example to measure Power when PLL is running @max frequency
+
+POWER - PLL MAX
+
+TEST DESCRIPTION:
+	This test configures RTC to generate an alarm 18s after
+it's started, during which period the system is put into IDLE3 state.
+The subsequent RTC alarm interrupt should bring the CPU out of the 
+IDLE3 state and resume execution from where it was before it idled out.
+
+When coming out of IDLE3 state, when PLL was shut off, the PLL is 
+reconfigured to run at 200MHz and restarted. power can be measured 
+while a while(1) is executed at this PLL freqeuncy.
+
+TEST PROCEDURE:
+ 0. Ensure SW6 [1:2] are {ON,ON}, i.e. away from the DOT.
+ 1. Ensure JP10 CLKSEL is shorted so that usb osc is not used. 
+ 2. Run the test. The RTC alarm (expected after approx. 30s) would be set.
+ 3. Test will stop once usb clk is shut off.
+ 4. Pause and Resume the test.
+ 5. The test will execute the idle instsrn that will idle the cpu and wait for the alarm.
+ 6. Observe if the alarm interrupt got the CPU out of idle state.
+ 7. Reconfigure PLL frequency to generate 200MHz.
+ 8. Execute a while(1) with CPU @200MHz.
+ 

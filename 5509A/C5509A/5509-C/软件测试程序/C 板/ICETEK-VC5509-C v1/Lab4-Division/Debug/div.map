@@ -1,0 +1,108 @@
+******************************************************************************
+         TMS320C55x COFF Linker PC Version 2.56                
+******************************************************************************
+>> Linked Mon Jun 28 01:19:46 2004
+
+OUTPUT FILE NAME:   <./Debug/div.out>
+ENTRY POINT SYMBOL: "start"  address: 00000200
+
+
+MEMORY CONFIGURATION
+
+                  name            origin    length      used    attr    fill
+                                 (bytes)   (bytes)    (bytes)
+         ----------------------  --------  ---------  --------  ----  --------
+         PROG                    00000200   00002000  00000035  RWIX
+         DATA                    00002200   00001000  0000000a  RWI 
+         VECT                    0000d000   00000100  00000000  RWIX
+
+
+SECTION ALLOCATION MAP
+(Addresses surrounded by []'s are displayed for convenience only!)
+
+output                                                          attributes/
+section   page  orgn(bytes) orgn(words) len(bytes) len(words)   input sections
+--------  ----  ----------- ----------- ---------- ----------   --------------
+.data        0   [ 00000000 ]  00000000          *   00000000   UNINITIALIZED
+
+.trcinit     0   [ 00000200 ]  00000100          *   00000000   UNINITIALIZED
+
+.gblinit     0   [ 00000200 ]  00000100          *   00000000   UNINITIALIZED
+
+frt          0   [ 00000200 ]  00000100          *   00000000   UNINITIALIZED
+
+.cinit       0   [ 00000200 ]  00000100          *   00000000   UNINITIALIZED
+
+.pinit       0   [ 00000200 ]  00000100          *   00000000   UNINITIALIZED
+
+.sysinit     0   [ 00000200 ]  00000100          *   00000000   UNINITIALIZED
+
+.text        0     00000200  [ 00000100 ] 00000035          *   
+                   00000200  [ 00000100 ] 00000034          *   div.obj (.text)
+                   00000234  [ 0000011a ] 00000001          *   --HOLE-- [fill = 20]
+
+.far         0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.MEM$obj     0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.const       0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.switch      0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.sysmem      0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.cio         0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.sysheap     0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.sysstack 
+*            0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.stack       0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.bss         0   [ 00002200 ]  00001100          *   00000005   UNINITIALIZED
+                 [ 00002200 ]  00001100          *   00000005   div.obj (.bss)
+
+.vectors     0   [ 0000d000 ]  00006800          *   00000000   UNINITIALIZED
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+            00001100    .bss
+            00000000    .data
+00000200                .text
+            00001100    ___bss__
+            00000000    ___data__
+            00000000    ___edata__
+            00001105    ___end__
+00000235                ___etext__
+00000200                ___text__
+            00000000    edata
+            00001105    end
+00000235                etext
+00000200                start
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+            00000000    ___data__
+            00000000    ___edata__
+            00000000    edata
+            00000000    .data
+00000200                start
+00000200                ___text__
+00000200                .text
+00000235                etext
+00000235                ___etext__
+            00001100    .bss
+            00001100    ___bss__
+            00001105    ___end__
+            00001105    end
+
+[13 symbols]

@@ -1,0 +1,33 @@
+# Development config spec for MHM 2.5.1.0 and later
+# (the Master version - checkouts allowed for MHM only!)
+# Based on the tip of the main branch for MHM.
+#
+# Please note that the ti_mas_mhm_V_R_X_P_dev branch does NOT exist!
+
+# Show any checkedout files
+element * CHECKEDOUT
+
+# Specify how to select the folders that lead to the packages
+# and how to select some of the shared folders (e.g. docs)
+element /dsps_gtmas /main/LATEST -nocheckout
+
+element /dsps_gtmas/lost+found  /main/0
+element /dsps_gtmas/ti             /main/LATEST -nocheckout
+
+element /dsps_gtmas/ti/mas             /main/LATEST -nocheckout
+element /dsps_gtmas/ti/mas/docs/...    /main/LATEST -nocheckout
+
+# Specify dependent packages (to allow debug branching remove -nocheckout as needed)
+# mkbranch and end mkbranch lines would allow these packages to appear on MHM branch!
+#mkbranch ti_mas_mhm_V_R_X_P_dev
+element /dsps_gtmas/ti/mas/swtools/...   DEV_TI_MAS_SWTOOLS_5_0_4_0 -nocheckout
+element /dsps_gtmas/ti/mas/types/...   DEV_TI_MAS_TYPES_5_5_5_0 -nocheckout
+
+# Specify packages used for unit testing
+# NONE
+
+#end mkbranch ti_mas_mhm_V_R_X_P_dev
+
+# Normal development in /main branch
+element /dsps_gtmas/ti/mas/mhm/... /main/LATEST
+

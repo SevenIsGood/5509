@@ -1,0 +1,43 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectDir="D:\Data\Projects\Phoenix\AVV\Phoenix_QT\UHPI\UHPI_RegAccess\"
+ProjectType=Executable
+CPUFamily=TMS320C55XX
+Tool="Compiler"
+Tool="CustomBuilder"
+Tool="DspBiosBuilder"
+Tool="Linker"
+Config="Debug"
+Config="Release"
+
+[Source Files]
+Source="..\..\TMS320C5517CSL-LOWPWR\c55xx_csl\build\Debug\cslC5517_Lib.lib"
+Source="Readme.txt"
+Source="uhpi_regaccess.c"
+Source="VC5505_UHPI.cmd"
+
+["Compiler" Settings: "Debug"]
+Options=-g -mg -pdsw225 -fr"$(Proj_dir)\Debug" -i"..\..\TMS320C5517CSL-LOWPWR\c55xx_csl\inc" -d"_DEBUG" -ml -vcore:3.3
+
+["Compiler" Settings: "Release"]
+Options=-pdsw225 -o2 -fr"$(Proj_dir)\Release" -i"$(Proj_dir)\..\..\inc" -i"$(Proj_dir)\..\..\..\inc" -ml -vcore:3.3
+
+["Linker" Settings: "Debug"]
+Options=-c -m".\Debug\UHPI_RegAccess.map" -o".\Debug\UHPI_RegAccess.out" -w -x -l"rts55x.lib"
+
+["Linker" Settings: "Release"]
+Options=-c -m".\Release\CSL_UART_pollExample.map" -o".\Release\CSL_UART_pollExample.out" -w -x -l"rts55x.lib"
+
+["Readme.txt" Settings: "Debug"]
+ExcludeFromBuild=true
+
+["Readme.txt" Settings: "Release"]
+ExcludeFromBuild=true
+
+["VC5505_UHPI.cmd" Settings: "Debug"]
+LinkOrder=1
+
+["VC5505_UHPI.cmd" Settings: "Release"]
+LinkOrder=1
+

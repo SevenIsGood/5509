@@ -1,0 +1,1 @@
+"./dist.obj" "./engine_sireco_init.obj" "./gmhmm_type_common.obj" "./jac-estm.obj" "./jac_one.obj" "./liveproc.obj" "./load.obj" "./mfcc_f.obj" "./my_fileio.obj" "./noise_sub.obj" "./obsprob.obj" "./pack.obj" "./pmc_f.obj" "./rapidsearch.obj" "./sbc.obj" "./search.obj" "./siinit.obj" "./siproc.obj" "./uttdet.obj" "./volume.obj" 

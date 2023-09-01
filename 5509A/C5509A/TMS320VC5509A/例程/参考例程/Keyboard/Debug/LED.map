@@ -1,0 +1,195 @@
+******************************************************************************
+         TMS320C55x COFF Linker PC v3.2.2                      
+******************************************************************************
+>> Linked Tue Apr 08 20:36:03 2008
+
+OUTPUT FILE NAME:   <./Debug/LED.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 0000038d
+
+
+MEMORY CONFIGURATION
+
+                  name            origin    length      used    attr    fill
+                                 (bytes)   (bytes)    (bytes)
+         ----------------------  --------  ---------  --------  ----  --------
+         DARAM                   00000100   00007f00  0000046e  RWIX
+         VECT                    00008000   00000100  00000000  RWIX
+         DARAM2                  00008100   00007f00  00000560  RWIX
+         SARAM                   00010000   00030000  00000000  RWIX
+         SDRAM                   00040000   003e0000  00000000  RWIX
+
+
+SECTION ALLOCATION MAP
+(Addresses surrounded by []'s are displayed for convenience only!)
+
+output                                                          attributes/
+section   page  orgn(bytes) orgn(words) len(bytes) len(words)   input sections
+--------  ----  ----------- ----------- ---------- ----------   --------------
+.data        0   [ 00000000 ]  00000000          *   00000000   UNINITIALIZED
+
+.trcinit     0   [ 00000100 ]  00000080          *   00000000   UNINITIALIZED
+
+.gblinit     0   [ 00000100 ]  00000080          *   00000000   UNINITIALIZED
+
+frt          0   [ 00000100 ]  00000080          *   00000000   UNINITIALIZED
+
+.pinit       0   [ 00000100 ]  00000080          *   00000000   UNINITIALIZED
+
+.sysinit     0   [ 00000100 ]  00000080          *   00000000   UNINITIALIZED
+
+.text        0     00000100  [ 00000080 ] 00000434          *   
+                   00000100  [ 00000080 ] 0000003f          *   clk_init.obj (.text)
+                   0000013f  [ 0000009f+] 000001d1          *   LED.obj (.text)
+                   00000310  [ 00000188 ] 0000007d          *   sdram_init.obj (.text)
+                   0000038d  [ 000001c6+] 00000039          *   rts55x.lib : boot.obj (.text)
+                   000003c6  [ 000001e3 ] 000000b6          *              : exit.obj (.text)
+                   0000047c  [ 0000023e ] 00000007          *              : exit.obj (.text:CIO_breakpoint)
+                   00000483  [ 00000241+] 00000012          *              : _lock.obj (.text)
+                   00000495  [ 0000024a+] 0000003c          *              : args_main.obj (.text)
+                   000004d1  [ 00000268+] 00000062          *              : autoinit.obj (.text)
+                   00000533  [ 00000299+] 00000001          *   --HOLE-- [fill = 20]
+
+.cinit       0   [ 00000534 ]  0000029a          *   0000001d   
+                 [ 00000534 ]  0000029a          *   0000000e   rts55x.lib : exit.obj (.cinit)
+                 [ 00000550 ]  000002a8          *   0000000a              : _lock.obj (.cinit)
+                 [ 00000564 ]  000002b2          *   00000004   LED.obj (.cinit)
+                 [ 0000056c ]  000002b6          *   00000001   --HOLE-- [fill = 0]
+
+.vectors     0   [ 00008000 ]  00004000          *   00000000   UNINITIALIZED
+
+.far         0   [ 00008100 ]  00004080          *   00000000   UNINITIALIZED
+
+.switch      0   [ 00008100 ]  00004080          *   00000000   UNINITIALIZED
+
+.sysmem      0   [ 00008100 ]  00004080          *   00000000   UNINITIALIZED
+
+.cio         0   [ 00008100 ]  00004080          *   00000000   UNINITIALIZED
+
+.MEM$obj     0   [ 00008100 ]  00004080          *   00000000   UNINITIALIZED
+
+.sysheap     0   [ 00008100 ]  00004080          *   00000000   UNINITIALIZED
+
+.sysstack 
+*            0   [ 00008100 ]  00004080          *   000000fa   UNINITIALIZED
+
+.stack       0   [ 000082f4 ]  0000417a          *   000000fa   UNINITIALIZED
+
+.bss         0   [ 000084e8 ]  00004274          *   000000b2   UNINITIALIZED
+                 [ 000084e8 ]  00004274          *   00000067   LED.obj (.bss)
+                 [ 000085b8 ]  000042dc          *   00000046   rts55x.lib : exit.obj (.bss)
+                 [ 00008644 ]  00004322          *   00000004              : _lock.obj (.bss)
+
+.const       0   [ 0000864c ]  00004326          *   0000000a   
+                 [ 0000864c ]  00004326          *   0000000a   LED.obj (.const)
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+00000001                $TI_capability_requires_rev2
+            00004274    .bss
+            00000000    .data
+00000100                .text
+0000047d                C$$EXIT
+00000100                _CLK_init
+000002c7                _Delay
+00000310                _SDRAM_init
+00000111                _SetDSPPLL
+00000124                _TMCR_reset
+000001f4                __STACK_SIZE
+000001f4                __SYSSTACK_SIZE
+ffffffff                ___binit__
+            00004274    ___bss__
+ffffffff                ___c_args__
+            0000029a    ___cinit__
+            00000000    ___data__
+            00000000    ___edata__
+            00004326    ___end__
+00000534                ___etext__
+ffffffff                ___pinit__
+00000100                ___text__
+00000495                __args_main
+            0000431e    __cleanup_ptr
+            00004320    __dtors_ptr
+            00004322    __lock
+00000483                __nop
+00000485                __register_lock
+0000048d                __register_unlock
+            0000417a    __stack
+            00004080    __sysstack
+            00004324    __unlock
+0000047c                _abort
+00000426                _atexit
+000004d1                _auto_init
+0000038d                _c_int00
+000003c6                _exit
+            00004277    _keycode
+0000013f                _main
+            00004275    _temp_key
+            00004276    _temp_key1
+            00004274    _time
+ffffffff                binit
+            0000029a    cinit
+            00000000    edata
+            00004326    end
+00000534                etext
+ffffffff                pinit
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+            00000000    ___data__
+            00000000    edata
+            00000000    ___edata__
+            00000000    .data
+00000001                $TI_capability_requires_rev2
+00000100                .text
+00000100                ___text__
+00000100                _CLK_init
+00000111                _SetDSPPLL
+00000124                _TMCR_reset
+0000013f                _main
+000001f4                __SYSSTACK_SIZE
+000001f4                __STACK_SIZE
+000002c7                _Delay
+00000310                _SDRAM_init
+0000038d                _c_int00
+000003c6                _exit
+00000426                _atexit
+0000047c                _abort
+0000047d                C$$EXIT
+00000483                __nop
+00000485                __register_lock
+0000048d                __register_unlock
+00000495                __args_main
+000004d1                _auto_init
+            0000029a    cinit
+00000534                ___etext__
+00000534                etext
+            0000029a    ___cinit__
+            00004080    __sysstack
+            0000417a    __stack
+            00004274    ___bss__
+            00004274    _time
+            00004274    .bss
+            00004275    _temp_key
+            00004276    _temp_key1
+            00004277    _keycode
+            0000431e    __cleanup_ptr
+            00004320    __dtors_ptr
+            00004322    __lock
+            00004324    __unlock
+            00004326    ___end__
+            00004326    end
+ffffffff                pinit
+ffffffff                ___binit__
+ffffffff                ___pinit__
+ffffffff                binit
+ffffffff                ___c_args__
+
+[48 symbols]

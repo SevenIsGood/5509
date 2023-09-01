@@ -1,0 +1,11 @@
+------------------------------  uart.pjt - Debug  ------------------------------
+[uart.c] "C:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -g -q -fr"C:/Lab0308-uart/Debug" -d"_DEBUG" -ml -@"Debug.lkf" "uart.c"
+
+[util.c] "C:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -g -q -fr"C:/Lab0308-uart/Debug" -d"_DEBUG" -ml -@"Debug.lkf" "util.c"
+
+[Linking...] "C:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -@"Debug.lkf"
+<Linking>
+>> warning: creating output section vectors without SECTIONS specification
+
+Build Complete,
+  0 Errors, 1 Warnings, 0 Remarks.

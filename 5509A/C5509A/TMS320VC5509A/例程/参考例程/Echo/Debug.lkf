@@ -1,0 +1,7 @@
+-z -q -c -m"./Debug/audio.map" -o"./Debug/audio.out" -w -x -i"C:/CCStudio_v3.3/C5500/csl/lib" -i"C:/CCStudio_v3.3/C5500/xdais/lib" -i"C:/CCStudio_v3.3/bios_5_31_02/packages/ti/bios/lib" -i"C:/CCStudio_v3.3/bios_5_31_02/packages/ti/rtdx/lib/c5500" -i"C:/CCStudio_v3.3/C5500/cgtools/lib"
+"E:\yx\test\Echo\Debug\aic23.obj"
+"E:\yx\test\Echo\Debug\audio.obj"
+"E:\yx\test\Echo\Debug\i2c.obj"
+"E:\yx\test\Echo\Debug\sdram_init.obj"
+"E:\yx\test\Echo\Debug\util.obj"
+"E:\yx\test\Echo\audio.cmd"

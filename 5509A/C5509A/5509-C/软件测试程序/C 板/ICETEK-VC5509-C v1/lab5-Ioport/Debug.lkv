@@ -1,0 +1,5 @@
+-z -q -c -m"./Debug/led.map" -o"./Debug/led.out" -w -x -i"c:/ti/c5500/bios/lib" -i"c:/ti/c5500/rtdx/lib" -i"c:/ti/c5500/xdais/lib" -i"c:/ti/c5500/cgtools/lib"
+"C:\ti\myprojects\ICETEK-VC5509-C\lab5-Ioport\Debug\clk_init.obj"
+"C:\ti\myprojects\ICETEK-VC5509-C\lab5-Ioport\Debug\main.obj"
+"C:\ti\myprojects\ICETEK-VC5509-C\lab5-Ioport\Debug\vectors.obj"
+"C:\ti\myprojects\ICETEK-VC5509-C\lab5-Ioport\led.cmd"

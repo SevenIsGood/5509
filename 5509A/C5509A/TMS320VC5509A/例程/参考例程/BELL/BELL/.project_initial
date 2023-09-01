@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>BELL</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.cdt.managedbuilder.core.genmakebuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.cdt.core.cnature</nature>
+		<nature>org.eclipse.cdt.core.ccnature</nature>
+		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
+		<nature>com.ti.ccstudio.managedbuild.core.ccsNature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>gpio.cmd</name>
+			<type>1</type>
+			<locationURI>EXT_ROOT__BELL/gpio.cmd</locationURI>
+		</link>
+		<link>
+			<name>BELL.pjt</name>
+			<type>1</type>
+			<locationURI>EXT_ROOT__BELL/BELL.pjt</locationURI>
+		</link>
+		<link>
+			<name>csl5509x.lib</name>
+			<type>1</type>
+			<locationURI>EXT_ROOT__BELL/csl5509x.lib</locationURI>
+		</link>
+		<link>
+			<name>gpio.c</name>
+			<type>1</type>
+			<locationURI>EXT_ROOT__BELL/gpio.c</locationURI>
+		</link>
+		<link>
+			<name>rts55x.lib</name>
+			<type>1</type>
+			<locationURI>EXT_ROOT__BELL/rts55x.lib</locationURI>
+		</link>
+	</linkedResources>
+</projectDescription>

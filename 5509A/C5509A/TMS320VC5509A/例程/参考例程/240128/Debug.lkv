@@ -1,0 +1,5 @@
+-z -q -c -m"./Debug/LED.map" -o"./Debug/LED.out" -x -i"c:/ti5000/c5500/bios/lib" -i"c:/ti5000/c5500/xdais/lib" -i"c:/ti5000/c5500/rtdx/lib" -i"c:/ti5000/c5500/cgtools/lib"
+"F:\EUE\EUE5509\Programme\LED_7seg\Debug\clk_init.obj"
+"F:\EUE\EUE5509\Programme\LED_7seg\Debug\LED.obj"
+"F:\EUE\EUE5509\Programme\LED_7seg\Debug\sdram_init.obj"
+"F:\EUE\EUE5509\Programme\LED_7seg\led.cmd"

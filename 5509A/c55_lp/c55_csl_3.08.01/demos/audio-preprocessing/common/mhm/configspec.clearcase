@@ -1,0 +1,25 @@
+# This is my name and my current version number
+
+Begin_ME
+  ti.mas.mhm	2.5.1.0  dsps_gtmas
+End_ME
+
+# These are the packages I need for proper operation within the system
+
+Begin_DEP
+  ti.mas.types	5.5.5.0  dsps_gtmas
+End_DEP
+
+# These are the packages I need internally
+
+Begin_INTERNAL
+  ti.mas.swtools	5.0.4.0  dsps_gtmas
+End_INTERNAL
+
+# These are the additional packages I need for unit testing
+
+#Begin_TST
+#  <pnameT> <MT>.<mT>.<pT>.<bT>
+#End_TST
+
+# nothing past this point

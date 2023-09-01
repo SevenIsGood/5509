@@ -1,0 +1,30 @@
+------------------------------  echo.pjt - Debug  ------------------------------
+[aic23.c] "C:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -g -fr"F:/DSP/TI_DSP/5509/echo/project/Debug" -i"F:/DSP/TI_DSP/5509/echo/project/../include" -d"_DEBUG" -ml -@"../project/Debug.lkf" "aic23.c"
+
+[dma.c] "C:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -g -fr"F:/DSP/TI_DSP/5509/echo/project/Debug" -i"F:/DSP/TI_DSP/5509/echo/project/../include" -d"_DEBUG" -ml -@"../project/Debug.lkf" "dma.c"
+
+[iic.c] "C:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -g -fr"F:/DSP/TI_DSP/5509/echo/project/Debug" -i"F:/DSP/TI_DSP/5509/echo/project/../include" -d"_DEBUG" -ml -@"../project/Debug.lkf" "iic.c"
+
+[mcbsp.c] "C:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -g -fr"F:/DSP/TI_DSP/5509/echo/project/Debug" -i"F:/DSP/TI_DSP/5509/echo/project/../include" -d"_DEBUG" -ml -@"../project/Debug.lkf" "mcbsp.c"
+"mcbsp.c", line 108: warning: shift count is too large
+
+[sdram_init.c] "C:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -g -fr"F:/DSP/TI_DSP/5509/echo/project/Debug" -i"F:/DSP/TI_DSP/5509/echo/project/../include" -d"_DEBUG" -ml -@"../project/Debug.lkf" "sdram_init.c"
+
+[timers.c] "C:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -g -fr"F:/DSP/TI_DSP/5509/echo/project/Debug" -i"F:/DSP/TI_DSP/5509/echo/project/../include" -d"_DEBUG" -ml -@"../project/Debug.lkf" "timers.c"
+
+[util.c] "C:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -g -fr"F:/DSP/TI_DSP/5509/echo/project/Debug" -i"F:/DSP/TI_DSP/5509/echo/project/../include" -d"_DEBUG" -ml -@"../project/Debug.lkf" "util.c"
+"util.c", line 106: warning: missing return statement at end of non-void function "intEnableGlobal"
+"util.c", line 115: warning: missing return statement at end of non-void function "intDisableGlobal"
+
+[main.c] "C:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -g -fr"F:/DSP/TI_DSP/5509/echo/project/Debug" -i"F:/DSP/TI_DSP/5509/echo/project/../include" -d"_DEBUG" -ml -@"../project/Debug.lkf" "main.c"
+"main.c", line 7: warning: variable "aic23data" was declared but never referenced
+"main.c", line 25: warning: last line of file ends without a newline
+
+[vectors.asm] "C:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -g -fr"F:/DSP/TI_DSP/5509/echo/project/Debug" -i"F:/DSP/TI_DSP/5509/echo/project/../include" -d"_DEBUG" -ml -@"../project/Debug.lkf" "vectors.asm"
+
+[Linking...] "C:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -@"Debug.lkf"
+<Linking>
+>> warning: creating output section vectors without SECTIONS specification
+
+Build Complete,
+  0 Errors, 6 Warnings, 0 Remarks.

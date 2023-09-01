@@ -1,0 +1,277 @@
+******************************************************************************
+         TMS320C55x COFF Linker PC Version 2.56                
+******************************************************************************
+>> Linked Mon Jun 28 04:06:42 2004
+
+OUTPUT FILE NAME:   <./Debug/fft.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 0000149b
+
+
+MEMORY CONFIGURATION
+
+                  name            origin    length      used    attr    fill
+                                 (bytes)   (bytes)    (bytes)
+         ----------------------  --------  ---------  --------  ----  --------
+         PROG                    00000200   00005e00  0000140d  RWIX
+         VECT                    0000d000   00000100  00000000  RWIX
+         DATA                    0000e000   00010000  00002a52  RWIX
+
+
+SECTION ALLOCATION MAP
+(Addresses surrounded by []'s are displayed for convenience only!)
+
+output                                                          attributes/
+section   page  orgn(bytes) orgn(words) len(bytes) len(words)   input sections
+--------  ----  ----------- ----------- ---------- ----------   --------------
+.data        0   [ 00000000 ]  00000000          *   00000000   UNINITIALIZED
+
+.gblinit     0   [ 00000200 ]  00000100          *   00000000   UNINITIALIZED
+
+frt          0   [ 00000200 ]  00000100          *   00000000   UNINITIALIZED
+
+.trcinit     0   [ 00000200 ]  00000100          *   00000000   UNINITIALIZED
+
+.sysinit     0   [ 00000200 ]  00000100          *   00000000   UNINITIALIZED
+
+.pinit       0   [ 00000200 ]  00000100          *   00000000   
+
+.text        0     00000200  [ 00000100 ] 000013a7          *   
+                   00000200  [ 00000100 ] 0000019b          *   FORFFTC.obj (.text)
+                   0000039b  [ 000001cd+] 000002c5          *   rts55.lib : cmpd.obj (.text)
+                   00000660  [ 00000330 ] 0000020a          *             : cos.obj (.text)
+                   0000086a  [ 00000435 ] 000001ee          *             : sin.obj (.text)
+                   00000a58  [ 0000052c ] 00000151          *   cfft32_noscale.obj (.text)
+                   00000ba9  [ 000005d4+] 0000014b          *   rts55.lib : addd.obj (.text)
+                   00000cf4  [ 0000067a ] 00000100          *             : divd.obj (.text)
+                   00000df4  [ 000006fa ] 000000fa          *             : ldexp.obj (.text)
+                   00000eee  [ 00000777 ] 000000f7          *             : frcdivd.obj (.text)
+                   00000fe5  [ 000007f2+] 000000f1          *             : mpyd.obj (.text)
+                   000010d6  [ 0000086b ] 000000c2          *             : round.obj (.text)
+                   00001198  [ 000008cc ] 000000bb          *             : modf.obj (.text)
+                   00001253  [ 00000929+] 00000099          *             : exit.obj (.text)
+                   000012ec  [ 00000976 ] 00000079          *             : fixdli.obj (.text)
+                   00001365  [ 000009b2+] 0000006c          *             : fltlid.obj (.text)
+                   000013d1  [ 000009e8+] 0000006b          *             : autoinit.obj (.text)
+                   0000143c  [ 00000a1e ] 0000005f          *             : frcmpyd.obj (.text)
+                   0000149b  [ 00000a4d+] 00000048          *             : boot.obj (.text)
+                   000014e3  [ 00000a71+] 0000003f          *             : trunc.obj (.text)
+                   00001522  [ 00000a91 ] 0000002a          *             : fixdi.obj (.text)
+                   0000154c  [ 00000aa6 ] 00000014          *             : subd.obj (.text)
+                   00001560  [ 00000ab0 ] 00000013          *             : lmpy.obj (.text)
+                   00001573  [ 00000ab9+] 00000010          *             : _lock.obj (.text)
+                   00001583  [ 00000ac1+] 00000010          *             : negd.obj (.text)
+                   00001593  [ 00000ac9+] 0000000c          *             : fltid.obj (.text)
+                   0000159f  [ 00000acf+] 00000007          *             : exit.obj (.text:CIO_breakpoint)
+                   000015a6  [ 00000ad3 ] 00000001          *   --HOLE-- [fill = 20]
+
+.cinit       0   [ 000015a8 ]  00000ad4          *   00000033   
+                 [ 000015a8 ]  00000ad4          *   0000000e   rts55.lib : exit.obj (.cinit)
+                 [ 000015c4 ]  00000ae2          *   0000000b             : sin.obj (.cinit)
+                 [ 000015da ]  00000aed          *   0000000b             : cos.obj (.cinit)
+                 [ 000015f0 ]  00000af8          *   0000000a             : _lock.obj (.cinit)
+                 [ 00001604 ]  00000b02          *   00000004             : errno.obj (.cinit)
+                 [ 0000160c ]  00000b06          *   00000001   --HOLE-- [fill = 0]
+
+.vectors     0   [ 0000d000 ]  00006800          *   00000000   UNINITIALIZED
+
+.sysheap     0   [ 0000e000 ]  00007000          *   00000000   UNINITIALIZED
+
+.switch      0   [ 0000e000 ]  00007000          *   00000000   UNINITIALIZED
+
+.sysmem      0   [ 0000e000 ]  00007000          *   00000000   UNINITIALIZED
+
+.cio         0   [ 0000e000 ]  00007000          *   00000000   UNINITIALIZED
+
+.MEM$obj     0   [ 0000e000 ]  00007000          *   00000000   UNINITIALIZED
+
+.far         0   [ 0000e000 ]  00007000          *   00000000   UNINITIALIZED
+
+.bss         0   [ 0000e000 ]  00007000          *   000002e5   UNINITIALIZED
+                 [ 0000e000 ]  00007000          *   00000288   FORFFTC.obj (.bss)
+                 [ 0000e510 ]  00007288          *   00000046   rts55.lib : exit.obj (.bss)
+                 [ 0000e59c ]  000072ce          *   00000008             : cos.obj (.bss)
+                 [ 0000e5ac ]  000072d6          *   00000008             : sin.obj (.bss)
+                 [ 0000e5bc ]  000072de          *   00000004             : _lock.obj (.bss)
+                 [ 0000e5c4 ]  000072e2          *   00000002   cfft32_noscale.obj (.bss)
+                 [ 0000e5c8 ]  000072e4          *   00000001   rts55.lib : errno.obj (.bss)
+
+.const       0   [ 0000e5cc ]  000072e6          *   00000050   
+                 [ 0000e5cc ]  000072e6          *   00000016   rts55.lib : cos.obj (.const)
+                 [ 0000e5f8 ]  000072fc          *   00000014             : sin.obj (.const)
+                 [ 0000e620 ]  00007310          *   0000000a             : ldexp.obj (.const)
+                 [ 0000e634 ]  0000731a          *   00000008             : round.obj (.const)
+                 [ 0000e644 ]  00007322          *   00000008   FORFFTC.obj (.const)
+                 [ 0000e654 ]  0000732a          *   00000006   rts55.lib : modf.obj (.const)
+                 [ 0000e660 ]  00007330          *   00000004             : trunc.obj (.const)
+                 [ 0000e668 ]  00007334          *   00000002             : fltlid.obj (.const)
+
+.stack       0   [ 0000e66c ]  00007336          *   000000fa   UNINITIALIZED
+
+.sysstack 
+*            0   [ 0000e860 ]  00007430          *   000000fa   UNINITIALIZED
+
+.twiddle32 
+*            0   [ 0000ea54 ]  0000752a          *   00001000   
+                 [ 0000ea54 ]  0000752a          *   00001000   cfft32_noscale.obj (.twiddle32)
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+            00007000    .bss
+            00000000    .data
+00000200                .text
+000015a0                C$$EXIT
+00001560                I$$LMPY
+            00007008    _FFTBufferIn
+            00007108    _FFTBufferOut
+            00007208    _SinTable
+000001f4                __STACK_SIZE
+000001f4                __SYSSTACK_SIZE
+            00007000    ___bss__
+            00000ad4    ___cinit__
+            00000000    ___data__
+            00000000    ___edata__
+            000072e5    ___end__
+000015a7                ___etext__
+ffffffff                ___pinit__
+00000200                ___text__
+00000ba9                __addd
+            000072ca    __cleanup_ptr
+0000039b                __cmpd
+00000cf4                __divd
+            000072cc    __dtors_ptr
+000003e4                __eqld
+00001522                __fixdi
+000012ec                __fixdli
+00001593                __fltid
+00001365                __fltlid
+00000eee                __frcdivd
+0000143c                __frcmpyd
+000005ea                __geqd
+000004f8                __gtrd
+00000571                __leqd
+            000072de    __lock
+00000482                __lssd
+00000fe5                __mpyd
+00001560                __mpyli
+00001583                __negd
+00000433                __neqd
+00001573                __nop
+000010d6                __nround
+00001575                __register_lock
+0000157c                __register_unlock
+            00007336    __stack
+0000154c                __subd
+            00007430    __sysstack
+000014e3                __trunc
+            000072e0    __unlock
+0000159f                _abort
+000012a2                _atexit
+000013d1                _auto_init
+0000149b                _c_int00
+00000a58                _cfft32_NOSCALE
+   *** UNDEFINED ***    _cifft32_NOSCALE
+            00007001    _clkbitr
+            00007006    _clkcore
+            00007007    _clktotal
+00000660                _cos
+            000072e4    _errno
+00001253                _exit
+            00007000    _i
+00000df4                _ldexp
+00000200                _main
+00001198                _modf
+            00007004    _part
+0000086a                _sin
+            00007002    _theta
+            0000752a    _twiddle32
+            00000ad4    cinit
+            00000000    edata
+            000072e5    end
+000015a7                etext
+ffffffff                pinit
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+            00000000    ___edata__
+            00000000    ___data__
+            00000000    edata
+            00000000    .data
+000001f4                __STACK_SIZE
+000001f4                __SYSSTACK_SIZE
+00000200                ___text__
+00000200                _main
+00000200                .text
+0000039b                __cmpd
+000003e4                __eqld
+00000433                __neqd
+00000482                __lssd
+000004f8                __gtrd
+00000571                __leqd
+000005ea                __geqd
+00000660                _cos
+0000086a                _sin
+00000a58                _cfft32_NOSCALE
+00000ba9                __addd
+00000cf4                __divd
+00000df4                _ldexp
+00000eee                __frcdivd
+00000fe5                __mpyd
+000010d6                __nround
+00001198                _modf
+00001253                _exit
+000012a2                _atexit
+000012ec                __fixdli
+00001365                __fltlid
+000013d1                _auto_init
+0000143c                __frcmpyd
+0000149b                _c_int00
+000014e3                __trunc
+00001522                __fixdi
+0000154c                __subd
+00001560                __mpyli
+00001560                I$$LMPY
+00001573                __nop
+00001575                __register_lock
+0000157c                __register_unlock
+00001583                __negd
+00001593                __fltid
+0000159f                _abort
+000015a0                C$$EXIT
+000015a7                etext
+000015a7                ___etext__
+            00000ad4    ___cinit__
+            00000ad4    cinit
+            00007000    .bss
+            00007000    _i
+            00007000    ___bss__
+            00007001    _clkbitr
+            00007002    _theta
+            00007004    _part
+            00007006    _clkcore
+            00007007    _clktotal
+            00007008    _FFTBufferIn
+            00007108    _FFTBufferOut
+            00007208    _SinTable
+            000072ca    __cleanup_ptr
+            000072cc    __dtors_ptr
+            000072de    __lock
+            000072e0    __unlock
+            000072e4    _errno
+            000072e5    end
+            000072e5    ___end__
+            00007336    __stack
+            00007430    __sysstack
+            0000752a    _twiddle32
+ffffffff                pinit
+ffffffff                ___pinit__
+   *** UNDEFINED ***    _cifft32_NOSCALE
+
+[73 symbols]

@@ -1,0 +1,26 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectName="wdt1"
+ProjectDir=""
+ProjectType=Executable
+CPUFamily=TMS320C55XX
+Tool="Compiler"
+Tool="DspBiosBuilder"
+Tool="Linker"
+Config="Debug"
+
+[Source Files]
+Source="main_wdt1.c"
+Source="vectors_wdt1.asm"
+Source="wdt1.cmd"
+
+["Compiler" Settings: "Debug"]
+Options=-g -q -fr".\Debug" -ff".\Debug" -d"CHIP_5502"
+
+["DspBiosBuilder" Settings: "Debug"]
+Options=-v55
+
+["Linker" Settings: "Debug"]
+Options=-q -cr -m".\Debug\wdt1.map" -o".\Debug\wdt1.out" -x -l"csl5502.lib" -l"rts55.lib"
+

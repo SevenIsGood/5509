@@ -1,0 +1,5 @@
+-z -q -c -m"./Debug/LED.map" -o"./Debug/LED.out" -x -i"C:/CCStudio_v3.1/C5500/rtdx/lib" -i"C:/CCStudio_v3.1/C5500/csl/lib" -i"C:/CCStudio_v3.1/C5500/xdais/lib" -i"C:/CCStudio_v3.1/C5500/bios/lib" -i"C:/CCStudio_v3.1/C5500/cgtools/lib"
+"C:\CCStudio_v3.1\MyProjects\LED_7seg\Debug\clk_init.obj"
+"C:\CCStudio_v3.1\MyProjects\LED_7seg\Debug\LED.obj"
+"C:\CCStudio_v3.1\MyProjects\LED_7seg\Debug\sdram_init.obj"
+"C:\CCStudio_v3.1\MyProjects\LED_7seg\led.cmd"

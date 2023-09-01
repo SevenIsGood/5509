@@ -1,0 +1,82 @@
+#include <stdio.h>
+#include <math.h>
+#include <csl.h>
+
+#define N 8
+
+// Function to perform 1D DCT on a row or column
+void performDCT(int16_t data[N][N], int16_t result[N][N]) {
+    int i, j, u, v;
+    int32_t sum;
+
+    for (u = 0; u < N; u++) {
+        for (v = 0; v < N; v++) {
+            sum = 0;
+
+            for (i = 0; i < N; i++) {
+                for (j = 0; j < N; j++) {
+                    int16_t cosFactor1 = (i == 0) ? 5793 : 8192; // 5793 = (1/sqrt(2)) * (1 << 13)
+                    int16_t cosFactor2 = (j == 0) ? 5793 : 8192; // 8192 = (1 << 13)
+                    int16_t cu = (u == 0) ? 5793 : 8192;
+                    int16_t cv = (v == 0) ? 5793 : 8192;
+
+                    int32_t prod1 = (int32_t)data[i][j] * cosFactor1;
+                    int32_t prod2 = prod1 * cosFactor2;
+                    int32_t prod3 = (prod2 >> 13) * cu * cv;
+
+                    sum += prod3;
+                }
+            }
+            result[u][v] = sum >> 15;  // Scaling factor, 15 accounts for (cu * cv)
+        }
+    }
+}
+
+// Function to process a 16-bit RGB565 image
+void processImage(Uint16 image[WIDTH][HEIGHT], int16_t dctResult[WIDTH][HEIGHT][N][N], int width, int height) {
+    int x, y, i, j;
+    int16_t r, g, b;
+    int16_t rgb565[N][N];
+
+    for (x = 0; x < width; x++) {
+        for (y = 0; y < height; y++) {
+            // Extract RGB565 values
+            Uint16 pixel = image[x][y];
+            r = (pixel >> 11) & 0x1F;
+            g = (pixel >> 5) & 0x3F;
+            b = pixel & 0x1F;
+
+            // Convert to 8-bit (if needed) and store in rgb565 array
+            rgb565[x][y] = (r << 3) | (g >> 3);
+        }
+    }
+
+    // Perform DCT on each 8x8 block
+    for (x = 0; x < width; x += N) {
+        for (y = 0; y < height; y += N) {
+            for (i = 0; i < N; i++) {
+                for (j = 0; j < N; j++) {
+                    int16_t block[N][N];
+                    int16_t dctBlock[N][N];
+
+                    // Extract 8x8 block from rgb565 array
+                    for (int u = 0; u < N; u++) {
+                        for (int v = 0; v < N; v++) {
+                            block[u][v] = rgb565[x + u][y + v];
+                        }
+                    }
+
+                    // Perform DCT on the block
+                    performDCT(block, dctBlock);
+
+                    // Store DCT coefficients in dctResult
+                    for (int u = 0; u < N; u++) {
+                        for (int v = 0; v < N; v++) {
+                            dctResult[x + u][y + v][i][j] = dctBlock[u][v];
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

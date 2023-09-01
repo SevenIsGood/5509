@@ -1,0 +1,300 @@
+******************************************************************************
+              TMS320C55x Linker PC v4.4.1                      
+******************************************************************************
+>> Linked Sun Aug 27 01:23:12 2023
+
+OUTPUT FILE NAME:   <Pro0215_CONVOLVE.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 00015352
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+                        (bytes)   (bytes)    (bytes)   (bytes)
+----------------------  --------  ---------  --------  --------  ----  --------
+  MMR                   00000000   000000c0  00000000  000000c0  RWIX
+  SPRAM                 000000c0   00000040  00000000  00000040  RWIX
+  VECS                  00000100   00000100  00000100  00000000  RWIX
+  DARAM0                00000200   00003e00  00000444  000039bc  RWIX
+  DARAM1                00004000   00004000  00000c98  00003368  RWIX
+  DARAM2                00008000   00004000  00000000  00004000  RWIX
+  DARAM3                0000c000   00004000  00000000  00004000  RWIX
+  SARAM0                00010000   00004000  00000098  00003f68  RWIX
+  SARAM1                00014000   00008000  00001430  00006bd0  RWIX
+  SARAM3                0001c000   00004000  00000000  00004000  RWIX
+  SARAM4                00020000   00004000  00000000  00004000  RWIX
+  SARAM5                00024000   00004000  00000000  00004000  RWIX
+  SARAM6                00028000   00004000  00000000  00004000  RWIX
+  SARAM7                0002c000   00004000  00000000  00004000  RWIX
+  SARAM8                00030000   00004000  00000000  00004000  RWIX
+  SARAM9                00034000   00004000  00000000  00004000  RWIX
+  SARAM10               00038000   00004000  00000000  00004000  RWIX
+  SARAM11               0003c000   00004000  00000000  00004000  RWIX
+  SARAM12               00040000   00004000  00000000  00004000  RWIX
+  SARAM13               00044000   00004000  00000000  00004000  RWIX
+  SARAM14               00048000   00004000  00000000  00004000  RWIX
+  SARAM15               0004c000   00004000  00000000  00004000  RWIX
+  CE0                   00050000   003b0000  00000000  003b0000  RWIX
+  CE1                   00400000   00400000  00000000  00400000  RWIX
+  CE2                   00800000   00400000  00000000  00400000  RWIX
+  CE3                   00c00000   003f8000  00000000  003f8000  RWIX
+  PDROM                 00ff8000   00007f00  00000000  00007f00  RWIX
+
+
+SECTION ALLOCATION MAP
+(Addresses surrounded by []'s are displayed for convenience only!)
+
+output                                                          attributes/
+section   page  orgn(bytes) orgn(words) len(bytes) len(words)   input sections
+--------  ----  ----------- ----------- ---------- ----------   --------------
+vectors      0     00000100  [ 00000080 ] 00000100          *   
+                   00000100  [ 00000080 ] 00000100          *   rts55x.lib : vectors.obj (vectors)
+
+.stack       0   [ 00000200 ]  00000100          *   00000100   UNINITIALIZED
+                 [ 00000200 ]  00000100          *   00000100   --HOLE--
+
+.sysstack 
+*            0   [ 00000400 ]  00000200          *   00000100   UNINITIALIZED
+                 [ 00000400 ]  00000200          *   00000100   --HOLE--
+
+.csldata     0   [ 00000600 ]  00000300          *   00000022   UNINITIALIZED
+                 [ 00000600 ]  00000300          *   00000022   csl5509ax.lib : csl_csldat.obj (.csldata:SYS_data)
+
+.data        0   [ 00004000 ]  00002000          *   00000000   UNINITIALIZED
+
+.bss         0   [ 00004000 ]  00002000          *   00000614   UNINITIALIZED
+                 [ 00004000 ]  00002000          *   00000604   exp4.obj (.bss)
+                 [ 00004c08 ]  00002604          *   00000008   rts55x.lib : sin.obj (.bss)
+                 [ 00004c18 ]  0000260c          *   00000004              : _lock.obj (.bss)
+                 [ 00004c20 ]  00002610          *   00000004              : exit.obj (.bss)
+
+.const       0   [ 00004c28 ]  00002614          *   00000038   
+                 [ 00004c28 ]  00002614          *   00000014   rts55x.lib : sin.obj (.const)
+                 [ 00004c50 ]  00002628          *   00000008              : divd.obj (.const:_initial_approx$1)
+                 [ 00004c60 ]  00002630          *   00000008              : round.obj (.const)
+                 [ 00004c70 ]  00002638          *   00000006              : modf.obj (.const)
+                 [ 00004c7c ]  0000263e          *   00000004   exp4.obj (.const)
+                 [ 00004c84 ]  00002642          *   00000004   rts55x.lib : trunc.obj (.const)
+                 [ 00004c8c ]  00002646          *   00000002   Convolveok.obj (.const)
+                 [ 00004c90 ]  00002648          *   00000002   rts55x.lib : fltlid.obj (.const)
+                 [ 00004c94 ]  0000264a          *   00000002              : fltuld.obj (.const)
+
+.cinit       0   [ 00010000 ]  00008000          *   0000004c   
+                 [ 00010000 ]  00008000          *   00000025   csl5509ax.lib : csl_csldat.obj (.cinit)
+                 [ 0001004a ]  00008025          *   0000000b   rts55x.lib : sin.obj (.cinit)
+                 [ 00010060 ]  00008030          *   0000000a              : _lock.obj (.cinit)
+                 [ 00010074 ]  0000803a          *   0000000a              : exit.obj (.cinit)
+                 [ 00010088 ]  00008044          *   00000007   exp4.obj (.cinit)
+                 [ 00010096 ]  0000804b          *   00000001   --HOLE-- [fill = 0]
+
+.text        0     00014000  [ 0000a000 ] 00001430          *   
+                   00014000  [ 0000a000 ] 000003cc          *   rts55x.lib : divd.obj (.text)
+                   000143cc  [ 0000a1e6 ] 0000025a          *              : addd.obj (.text)
+                   00014626  [ 0000a313 ] 000001f2          *              : sin.obj (.text)
+                   00014818  [ 0000a40c ] 000001ea          *              : cmpd.obj (.text)
+                   00014a02  [ 0000a501 ] 000001a8          *   Convolveok.obj (.text)
+                   00014baa  [ 0000a5d5 ] 0000019e          *   exp4.obj (.text)
+                   00014d48  [ 0000a6a4 ] 0000014c          *   rts55x.lib : mpyd.obj (.text)
+                   00014e94  [ 0000a74a ] 000000bf          *              : modf.obj (.text)
+                   00014f53  [ 0000a7a9+] 00000076          *              : frcmpyd.obj (.text)
+                   00014fc9  [ 0000a7e4+] 00000073          *              : frcmpyd_div.obj (.text)
+                   0001503c  [ 0000a81e ] 0000006f          *              : fixdli.obj (.text)
+                   000150ab  [ 0000a855 ] 00000001          *   --HOLE-- [fill = 20]
+                   000150ac  [ 0000a856 ] 0000006e          *   csl5509ax.lib : pll_cfg.obj (.text:PLL_config)
+                   0001511a  [ 0000a88d ] 00000067          *   rts55x.lib : fltlid.obj (.text)
+                   00015181  [ 0000a8c0+] 0000005f          *              : round.obj (.text)
+                   000151e0  [ 0000a8f0 ] 0000005b          *              : fltuld.obj (.text)
+                   0001523b  [ 0000a91d+] 0000004d          *              : autoinit.obj (.text)
+                   00015288  [ 0000a944 ] 0000004b          *              : args_main.obj (.text)
+                   000152d3  [ 0000a969+] 00000041          *              : trunc.obj (.text)
+                   00015314  [ 0000a98a ] 0000003e          *              : exit.obj (.text)
+                   00015352  [ 0000a9a9 ] 00000034          *              : boot.obj (.text)
+                   00015386  [ 0000a9c3 ] 0000002a          *              : fixdi.obj (.text)
+                   000153b0  [ 0000a9d8 ] 00000014          *              : subd.obj (.text)
+                   000153c4  [ 0000a9e2 ] 00000013          *              : lmpy.obj (.text)
+                   000153d7  [ 0000a9eb+] 00000012          *              : _lock.obj (.text)
+                   000153e9  [ 0000a9f4+] 00000010          *              : negd.obj (.text)
+                   000153f9  [ 0000a9fc+] 00000002          *              : vectors.obj (.text)
+                   000153fb  [ 0000a9fd ] 00000001          *   --HOLE-- [fill = 20]
+                   000153fc  [ 0000a9fe ] 0000000d          *   csl5509ax.lib : _csl_init.obj (.text:_CSL_init)
+                   00015409  [ 0000aa04 ] 00000003          *   --HOLE-- [fill = 20]
+                   0001540c  [ 0000aa06 ] 0000000c          *                 : csl.obj (.text:CSL_init)
+                   00015418  [ 0000aa0c ] 0000000c          *   rts55x.lib : fltid.obj (.text)
+                   00015424  [ 0000aa12 ] 00000007          *              : exit.obj (.text:CIO_breakpoint)
+                   0001542b  [ 0000aa15 ] 00000001          *   --HOLE-- [fill = 20]
+                   0001542c  [ 0000aa16 ] 00000002          *   csl5509ax.lib : csl.obj (.text)
+                   0001542e  [ 0000aa17 ] 00000002          *   --HOLE-- [fill = 20]
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+00000002                $TI_capability$C5500$CallingConvention
+00000002                $TI_capability$C5500$MemoryModel
+00000001                $TI_capability_requires_rev2
+            00002000    .bss
+            00002000    .data
+00014000                .text
+00015425                C$$EXIT
+000153c4                I$$LMPY
+0001542c                _CSL5509A_LIB_
+            00000300    _CSL_SysData
+0001540c                _CSL_init
+00014a02                _Convolveok
+000150ac                _PLL_config
+00000100                _Reset
+00014c68                _SDRAM_init
+000153fc                __CSL_init
+            00000200    __STACK_END
+00000200                __STACK_SIZE
+00000200                __SYSSTACK_SIZE
+00000001                __TI_args_main
+ffffffff                ___binit__
+            00002000    ___bss__
+ffffffff                ___c_args__
+            00008000    ___cinit__
+            00002000    ___data__
+            00002000    ___edata__
+            00002614    ___end__
+00015430                ___etext__
+ffffffff                ___pinit__
+00014000                ___text__
+000143cc                __addd
+00015288                __args_main
+            00002610    __cleanup_ptr
+000149aa                __cmpd
+00014000                __divd
+            00002612    __dtors_ptr
+00014976                __eqld
+00015386                __fixdi
+0001503c                __fixdli
+00015418                __fltid
+0001511a                __fltlid
+000151e0                __fltuld
+00014f53                __frcmpyd
+00014fc9                __frcmpyd_div
+0001492c                __geqd
+000148e1                __gtrd
+00014894                __leqd
+            0000260c    __lock
+0001484c                __lssd
+00014d48                __mpyd
+000153c4                __mpyli
+000153e9                __negd
+00014818                __neqd
+000153e7                __nop
+00015181                __nround
+000153df                __register_lock
+000153d7                __register_unlock
+            00000100    __stack
+000153b0                __subd
+            00000200    __sysstack
+000152d3                __trunc
+            0000260e    __unlock
+00015424                _abort
+0001523b                _auto_init
+00015352                _c_int00
+00015314                _exit
+            00002000    _inp1_buffer
+            00002200    _inp2_buffer
+00014ce1                _main
+00014e94                _modf
+            00002600    _myConfig
+            00002400    _out_buffer
+00014626                _sin
+ffffffff                binit
+            00008000    cinit
+            00002000    edata
+            00002614    end
+00015430                etext
+ffffffff                pinit
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+00000001                $TI_capability_requires_rev2
+00000001                __TI_args_main
+00000002                $TI_capability$C5500$CallingConvention
+00000002                $TI_capability$C5500$MemoryModel
+00000100                _Reset
+00000200                __STACK_SIZE
+00000200                __SYSSTACK_SIZE
+            00000100    __stack
+            00000200    __STACK_END
+            00000200    __sysstack
+            00000300    _CSL_SysData
+            00002000    .bss
+            00002000    .data
+            00002000    ___bss__
+            00002000    ___data__
+            00002000    ___edata__
+            00002000    _inp1_buffer
+            00002000    edata
+            00002200    _inp2_buffer
+            00002400    _out_buffer
+            00002600    _myConfig
+            0000260c    __lock
+            0000260e    __unlock
+            00002610    __cleanup_ptr
+            00002612    __dtors_ptr
+            00002614    ___end__
+            00002614    end
+            00008000    ___cinit__
+            00008000    cinit
+00014000                .text
+00014000                ___text__
+00014000                __divd
+000143cc                __addd
+00014626                _sin
+00014818                __neqd
+0001484c                __lssd
+00014894                __leqd
+000148e1                __gtrd
+0001492c                __geqd
+00014976                __eqld
+000149aa                __cmpd
+00014a02                _Convolveok
+00014c68                _SDRAM_init
+00014ce1                _main
+00014d48                __mpyd
+00014e94                _modf
+00014f53                __frcmpyd
+00014fc9                __frcmpyd_div
+0001503c                __fixdli
+000150ac                _PLL_config
+0001511a                __fltlid
+00015181                __nround
+000151e0                __fltuld
+0001523b                _auto_init
+00015288                __args_main
+000152d3                __trunc
+00015314                _exit
+00015352                _c_int00
+00015386                __fixdi
+000153b0                __subd
+000153c4                I$$LMPY
+000153c4                __mpyli
+000153d7                __register_unlock
+000153df                __register_lock
+000153e7                __nop
+000153e9                __negd
+000153fc                __CSL_init
+0001540c                _CSL_init
+00015418                __fltid
+00015424                _abort
+00015425                C$$EXIT
+0001542c                _CSL5509A_LIB_
+00015430                ___etext__
+00015430                etext
+ffffffff                ___binit__
+ffffffff                ___c_args__
+ffffffff                ___pinit__
+ffffffff                binit
+ffffffff                pinit
+
+[79 symbols]

@@ -1,0 +1,41 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectDir="D:\CCStudio_v3.3\MyProjects\5509\FIR\"
+ProjectType=Executable
+CPUFamily=TMS320C55XX
+Tool="Compiler"
+Tool="CustomBuilder"
+Tool="DspBiosBuilder"
+Tool="Linker"
+Config="Debug"
+Config="Release"
+
+[Source Files]
+Source="Fir.c"
+Source="test.cmd"
+
+["Compiler" Settings: "Debug"]
+Options=-g -q -fr"D:\CCStudio_v3.3\MyProjects\5509\FIR\Debug" -d"_DEBUG" -ml
+
+["Compiler" Settings: "Release"]
+Options=-q -o2 -fr"D:\CCStudio_v3.3\MyProjects\5509\FIR\Release"
+
+["DspBiosBuilder" Settings: "Debug"]
+Options=-v55
+
+["DspBiosBuilder" Settings: "Release"]
+Options=-v55
+
+["Linker" Settings: "Debug"]
+Options=-q -c -m".\Debug\Fir.map" -o".\Debug\Fir.out" -x
+
+["Linker" Settings: "Release"]
+Options=-q -c -m".\Release\IOPin.map" -o".\Release\IOPin.out" -x
+
+["test.cmd" Settings: "Debug"]
+LinkOrder=1
+
+["test.cmd" Settings: "Release"]
+LinkOrder=1
+

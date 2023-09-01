@@ -1,0 +1,6 @@
+-z -q -c -m"./Debug/timer.map" -o"./Debug/timer.out" -x -i"C:/CCStudio_v3.1/C5500/rtdx/lib" -i"C:/CCStudio_v3.1/C5500/csl/lib" -i"C:/CCStudio_v3.1/C5500/xdais/lib" -i"C:/CCStudio_v3.1/C5500/bios/lib" -i"C:/CCStudio_v3.1/C5500/cgtools/lib" -l"csl5509.lib" -l"rts55.lib"
+"C:\CCStudio_v3.1\MyProjects\Timer_BIOS\Debug\timer.obj"
+"C:\CCStudio_v3.1\MyProjects\Timer_BIOS\Debug\vectors.obj"
+"C:\CCStudio_v3.1\MyProjects\Timer_BIOS\csl5509.lib"
+"C:\CCStudio_v3.1\MyProjects\Timer_BIOS\rts55.lib"
+"C:\CCStudio_v3.1\MyProjects\Timer_BIOS\timer.cmd"

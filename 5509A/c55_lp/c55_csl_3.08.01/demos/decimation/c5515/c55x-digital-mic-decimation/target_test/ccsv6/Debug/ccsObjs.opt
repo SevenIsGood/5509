@@ -1,0 +1,1 @@
+"./BlkFirDecim_f2.obj" "./IdleLoop.obj" "./diggain_f1.obj" "./pick_bits_cic_f2.obj" "./pll_control.obj" "../target_test.cmd" -lC55XXCSL_LP.lib -lrts55x.lib 

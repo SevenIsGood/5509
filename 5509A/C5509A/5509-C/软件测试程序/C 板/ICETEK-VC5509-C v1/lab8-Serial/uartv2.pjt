@@ -1,0 +1,34 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectDir="D:\test\5509\uartv2\"
+ProjectType=Executable
+CPUFamily=TMS320C55XX
+Tool="Compiler"
+Tool="DspBiosBuilder"
+Tool="Linker"
+Config="Debug"
+Config="Release"
+
+[Source Files]
+Source="uartv2.c"
+Source="uartv2.cmd"
+
+["Compiler" Settings: "Debug"]
+Options=-g -q -fr"D:\test\5509\uartv2\Debug" -d"_DEBUG" -ml
+
+["Compiler" Settings: "Release"]
+Options=-q -o2 -fr"D:\test\5509\uartv2\Release"
+
+["DspBiosBuilder" Settings: "Debug"]
+Options=-v55
+
+["DspBiosBuilder" Settings: "Release"]
+Options=-v55
+
+["Linker" Settings: "Debug"]
+Options=-q -c -m".\Debug\uartv2.map" -o".\Debug\uartv2.out" -w -x
+
+["Linker" Settings: "Release"]
+Options=-q -c -m".\Release\uartv2.map" -o".\Release\uartv2.out" -w -x
+

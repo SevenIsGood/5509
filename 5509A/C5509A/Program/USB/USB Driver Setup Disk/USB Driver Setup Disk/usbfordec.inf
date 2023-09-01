@@ -1,0 +1,45 @@
+[Version]
+Signature="$CHICAGO$"
+Class=USB
+provider=%Cypress%
+LayoutFile=layout.inf
+
+[Manufacturer]
+%Cypress%=Cypress
+
+[Cypress]
+%USB\VID_04B4&PID_0082.DeviceDesc%=EZUSB.Dev, USB\VID_04B4&PID_0082
+
+[PreCopySection]
+HKR,,NoSetupUI,,1
+
+[DestinationDirs]
+DefaultDestDir=10,System32\Drivers
+
+[SourceDisksFiles]
+usbfordec.sys=1
+
+[SourceDisksNames]
+1="USBFORDEC INSTALL Disk",,,
+
+[EZUSB.Dev.NT]
+CopyFiles=usbfordec.CopyFiles.Driver.NT
+
+[usbfordec.CopyFiles.Driver.NT]
+usbfordec.sys,,,2
+
+[EZUSB.Dev.NT.Services]
+Addservice = USBFORDEC,2,EZUSB.AddService
+
+[EZUSB.AddService]
+DisplayName    = "The SEED-DEC5416 Driver"
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 2                  ; SERVICE_AUTO_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\System32\Drivers\usbfordec.sys
+
+;---------------------------------------------------------------;
+
+[Strings]
+Cypress="SEED Ltd."
+USB\VID_04B4&PID_0082.DeviceDesc="SEED Embedded DSP Controller"

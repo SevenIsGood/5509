@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.6.0_13" class="java.beans.XMLDecoder"> 
+ <object class="com.ti.dvt.ui.views.core.ImageProp"> 
+  <void property="delegateProp"> 
+   <object class="com.ti.dvt.ui.views.core.RGBProp"> 
+    <void property="BStartAddress"> 
+     <string>IMG_Out</string> 
+    </void> 
+    <void property="GStartAddress"> 
+     <string>IMG_Out</string> 
+    </void> 
+    <void property="RStartAddress"> 
+     <string>IMG_Out</string> 
+    </void> 
+    <void property="blueMask"> 
+     <long>31</long> 
+    </void> 
+    <void property="dataFormat"> 
+     <string>Planar</string> 
+    </void> 
+    <void property="greenMask"> 
+     <long>2016</long> 
+    </void> 
+    <void property="lineCount"> 
+     <int>80</int> 
+    </void> 
+    <void property="lineStride"> 
+     <int>256</int> 
+    </void> 
+    <void property="page"> 
+     <string>DATA</string> 
+    </void> 
+    <void property="pixelCountPerLine"> 
+     <int>128</int> 
+    </void> 
+    <void property="pixelStride"> 
+     <int>2</int> 
+    </void> 
+    <void property="readAs"> 
+     <int>16</int> 
+    </void> 
+    <void property="redMask"> 
+     <long>63488</long> 
+    </void> 
+   </object> 
+  </void> 
+  <void property="scrollLock"> 
+   <boolean>true</boolean> 
+  </void> 
+ </object> 
+</java> 

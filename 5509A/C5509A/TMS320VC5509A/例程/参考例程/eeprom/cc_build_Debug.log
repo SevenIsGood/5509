@@ -1,0 +1,7 @@
+---------------------------  5509eeprom.pjt - Debug  ---------------------------
+"c:\ti5000\c5500\cgtools\bin\cl55" -g -q -fr"E:/EUE/EUE5509/Programme/eeprom/Debug" -d"_DEBUG" -d"CHIP_5509" -ml -@"Debug.lkf" "eeprom.c"
+
+"c:\ti5000\c5500\cgtools\bin\cl55" -@"Debug.lkf"
+
+Build Complete,
+  0 Errors, 0 Warnings, 0 Remarks.

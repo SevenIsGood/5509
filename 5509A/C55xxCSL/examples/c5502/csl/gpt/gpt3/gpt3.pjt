@@ -1,0 +1,32 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectName="gpt3"
+ProjectDir=""
+ProjectType=Executable
+CPUFamily=TMS320C55XX
+Tool="Compiler"
+Tool="DspBiosBuilder"
+Tool="Linker"
+Config="Debug"
+
+[Source Files]
+Source="addV1_gpt3.c"
+Source="addV2_gpt3.c"
+Source="main_gpt3.c"
+Source="profilerApi_gpt3.c"
+Source="vectors_gpt3.asm"
+Source="gpt3.cmd"
+
+["Compiler" Settings: "Debug"]
+Options=-g -q -fr".\Debug" -ff".\Debug" -d"CHIP_5502"
+
+["DspBiosBuilder" Settings: "Debug"]
+Options=-v55
+
+["Linker" Settings: "Debug"]
+Options=-q -cr -m".\Debug\gpt3.map" -o".\Debug\gpt3.out" -x -l"csl5502.lib" -l"rts55.lib"
+
+["addV2_gpt3.c" Settings: "Debug"]
+Options="Compiler" +{-gpp -o3} -{-g}
+

@@ -1,0 +1,11 @@
+-----------------------------  audio.pjt - Debug  -----------------------------
+[aic23.c] "c:\ti\c5500\cgtools\bin\cl55" -g -q -fr"C:/ti/myprojects/ICETEK-VC5509-C/lab6-Audio/Debug" -d"_DEBUG" -ml -mn -@"Debug.lkf" "aic23.c"
+
+[audio.c] "c:\ti\c5500\cgtools\bin\cl55" -g -q -fr"C:/ti/myprojects/ICETEK-VC5509-C/lab6-Audio/Debug" -d"_DEBUG" -ml -mn -@"Debug.lkf" "audio.c"
+
+[i2c.c] "c:\ti\c5500\cgtools\bin\cl55" -g -q -fr"C:/ti/myprojects/ICETEK-VC5509-C/lab6-Audio/Debug" -d"_DEBUG" -ml -mn -@"Debug.lkf" "i2c.c"
+
+[Linking...] "c:\ti\c5500\cgtools\bin\cl55" -@"Debug.lkf"
+
+Build Complete,
+  0 Errors, 0 Warnings, 0 Remarks.

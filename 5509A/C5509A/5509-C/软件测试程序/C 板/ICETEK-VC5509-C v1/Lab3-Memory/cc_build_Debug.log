@@ -1,0 +1,14 @@
+-----------------------------  memory.pjt - Debug  -----------------------------
+[Memory.asm] "c:\ti\c5500\cgtools\bin\cl55" -g -q -fr"C:/ti/myprojects/ICETEK-VC5509-C/Lab3-Memory/Debug" -d"_DEBUG" -@"Debug.lkf" "Memory.asm"
+"Memory.asm", REMARK   at line 7: [R5010] C54x and C55x interrupt enable/flag
+                                          registers and bit mapping are
+                                          different.  Replace with native C55x
+                                          mnemonic.
+		st		#1,1	; 绝对地址2201H开始的四个单元存1，2，3，4
+		^ 		    	  绝对地址     开始的四个单元存 ， ， ， 
+
+
+[Linking...] "c:\ti\c5500\cgtools\bin\cl55" -@"Debug.lkf"
+
+Build Complete,
+  0 Errors, 0 Warnings, 1 Remarks.

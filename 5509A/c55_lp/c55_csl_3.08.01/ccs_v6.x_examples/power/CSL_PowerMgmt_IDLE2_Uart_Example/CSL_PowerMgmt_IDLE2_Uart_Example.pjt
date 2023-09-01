@@ -1,0 +1,53 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectDir="D:\Projects\Phoenix\AVV\Phoenix_QTtests\RTC\RTC_Interrupt_Alarm\"
+ProjectType=Executable
+CPUFamily=TMS320C55XX
+Tool="Compiler"
+Tool="CustomBuilder"
+Tool="DspBiosBuilder"
+Tool="Linker"
+Config="Debug"
+Config="dfs"
+Config="Release"
+
+[Source Files]
+Source="..\..\cslVC5505_Lib.lib"
+Source="csl_rtc_interrupt_alarm.c"
+Source="Read me.txt"
+Source="VC5505_RTC.cmd"
+
+["Compiler" Settings: "Debug"]
+Options=-g -mg -fr"$(Proj_dir)\Debug" -i"..\..\TMS320C55XXCSL-LOWPWR\c55xx_csl\inc" -d"_DEBUG" -ml -vcore:3.3
+
+["Compiler" Settings: "dfs"]
+Options=-g -fr"$(Proj_dir)\dfs" -d"_DEBUG"
+
+["Compiler" Settings: "Release"]
+Options=-o2 -fr"$(Proj_dir)\Release" -i"$(Proj_dir)\..\..\..\inc" -i"$(Proj_dir)\..\..\..\src" -ml -vcore:3.3
+
+["Linker" Settings: "Debug"]
+Options=-c -m".\Debug\RTC_Interrupt_Alarm.map" -o".\Debug\RTC_Interrupt_Alarm.out" -w -x -i"$(Install_dir)\C5500\cgtools\lib" -l"rts55x.lib"
+
+["Linker" Settings: "dfs"]
+Options=-c -m".\dfs\CSL_RTC_Example_Out.map" -o".\dfs\CSL_RTC_Example_Out.out" -w -x
+
+["Linker" Settings: "Release"]
+Options=-c -m".\Release\CSL_RTC_Example.map" -o".\Release\CSL_RTC_Example.out" -w -x -l"rts55x.lib"
+
+["Read me.txt" Settings: "Debug"]
+ExcludeFromBuild=true
+
+["Read me.txt" Settings: "dfs"]
+ExcludeFromBuild=true
+
+["Read me.txt" Settings: "Release"]
+ExcludeFromBuild=true
+
+["VC5505_RTC.cmd" Settings: "Debug"]
+LinkOrder=1
+
+["VC5505_RTC.cmd" Settings: "Release"]
+LinkOrder=1
+

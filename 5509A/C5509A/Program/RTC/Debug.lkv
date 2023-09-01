@@ -1,0 +1,6 @@
+-z -q -c -m"./Debug/rtc.map" -o"./Debug/rtc.out" -stack500 -sysstack500 -x -i"D:/ti5000/c5500/bios/lib" -i"D:/ti5000/c5500/rtdx/lib" -i"D:/ti5000/c5500/xdais/lib" -i"D:/ti5000/c5500/cgtools/lib" -l"csl5509x.lib" -l"rts55x.lib"
+"D:\ti5000\myprojects\5509rtc\rtc.obj"
+"D:\ti5000\myprojects\5509rtc\vectors.obj"
+"D:\ti5000\c5500\bios\lib\csl5509x.lib"
+"D:\ti5000\c5500\cgtools\lib\rts55x.lib"
+"D:\ti5000\myprojects\5509rtc\rtc.cmd"

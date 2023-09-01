@@ -1,0 +1,6 @@
+-z -c -o"./Debug/volume.out" -x -i"c:/ti/c5500/bios/lib" -i"c:/ti/c5500/rtdx/lib" -i"c:/ti/c5500/xdais/lib" -i"c:/ti/c5500/cgtools/lib"
+"C:\ti\myprojects\ICETEK-VC5509-C\Lab9-Convolve\Debug\load.obj"
+"C:\ti\myprojects\ICETEK-VC5509-C\Lab9-Convolve\Debug\vectors.obj"
+"C:\ti\myprojects\ICETEK-VC5509-C\Lab9-Convolve\Debug\volume.obj"
+"C:\ti\c5500\cgtools\lib\rts55.lib"
+"C:\ti\myprojects\ICETEK-VC5509-C\Lab9-Convolve\volume.cmd"

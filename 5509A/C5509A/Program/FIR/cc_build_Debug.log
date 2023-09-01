@@ -1,0 +1,11 @@
+------------------------------  Fir.pjt - Debug  ------------------------------
+[Fir.c] "D:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -g -q -fr"D:/CCStudio_v3.3/MyProjects/5509/FIR/Debug" -d"_DEBUG" -ml -@"Debug.lkf" "Fir.c"
+"csedu.h", line 765: warning: variable "nWork" was declared but never referenced
+"csedu.h", line 767: warning: variable "fWork" was declared but never referenced
+
+[Linking...] "D:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -@"Debug.lkf"
+<Linking>
+>> warning: creating output section vectors without SECTIONS specification
+
+Build Complete,
+  0 Errors, 3 Warnings, 0 Remarks.

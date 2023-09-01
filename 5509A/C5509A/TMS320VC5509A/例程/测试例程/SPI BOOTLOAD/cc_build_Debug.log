@@ -1,0 +1,10 @@
+----------------------------  burncsi.pjt - Debug  ----------------------------
+[burncsi.c] "C:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -g -q -pdv -fr"D:/CeShi/yx/test/SPI BOOTLOAD/Debug" -d"_DEBUG" -d"CHIP_5509A" -ml -v5510 -@"Debug.lkf" "burncsi.c"
+
+[vectors_mcbsp.s55] "C:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -g -q -pdv -fr"D:/CeShi/yx/test/SPI BOOTLOAD/Debug" -d"_DEBUG" -d"CHIP_5509A" -ml -v5510 -@"Debug.lkf" "vectors_mcbsp.s55"
+
+[Linking...] "C:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -@"Debug.lkf"
+<Linking>
+
+Build Complete,
+  0 Errors, 0 Warnings, 0 Remarks.

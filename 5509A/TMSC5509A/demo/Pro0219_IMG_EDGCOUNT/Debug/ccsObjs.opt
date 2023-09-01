@@ -1,0 +1,1 @@
+"./src/sobel.obj" "./src/InitImage.obj" "./src/Image.obj" "../src/Image.cmd" -l"libc.a" -l"csl5509ax.lib" 

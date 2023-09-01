@@ -1,0 +1,288 @@
+******************************************************************************
+              TMS320C55x Linker PC v4.4.0                      
+******************************************************************************
+>> Linked Sun Apr 05 18:28:59 2015
+
+OUTPUT FILE NAME:   <E:/Program/DSP/VC5509A/Echo/audio/../Debug/audio.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 000013cd
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+                        (bytes)   (bytes)    (bytes)   (bytes)
+----------------------  --------  ---------  --------  --------  ----  --------
+  ROM                   00000100   00006f00  000014b6  00005a4a  RWIX
+  RAM                   00007000   00006000  00000434  00005bcc  RWIX
+  SND                   0000d000   00012000  00000000  00012000  RWIX
+
+
+SECTION ALLOCATION MAP
+(Addresses surrounded by []'s are displayed for convenience only!)
+
+output                                                          attributes/
+section   page  orgn(bytes) orgn(words) len(bytes) len(words)   input sections
+--------  ----  ----------- ----------- ---------- ----------   --------------
+.text        0     00000100  [ 00000080 ] 00001374          *   
+                   00000100  [ 00000080 ] 000003cc          *   rts55x.lib : divd.obj (.text)
+                   000004cc  [ 00000266 ] 000002a0          *   aic23.obj (.text)
+                   0000076c  [ 000003b6 ] 00000289          *   util.obj (.text)
+                   000009f5  [ 000004fa+] 00000259          *   rts55x.lib : addd.obj (.text)
+                   00000c4e  [ 00000627 ] 0000014c          *   i2c.obj (.text)
+                   00000d9a  [ 000006cd ] 0000014c          *   rts55x.lib : mpyd.obj (.text)
+                   00000ee6  [ 00000773 ] 000000b9          *              : extaddr.obj (.text)
+                   00000f9f  [ 000007cf+] 00000089          *   audio.obj (.text)
+                   00001028  [ 00000814 ] 00000079          *   sdram_init.obj (.text)
+                   000010a1  [ 00000850+] 00000076          *   rts55x.lib : frcmpyd.obj (.text)
+                   00001117  [ 0000088b+] 00000073          *              : frcmpyd_div.obj (.text)
+                   0000118a  [ 000008c5 ] 0000006f          *              : fixdli.obj (.text)
+                   000011f9  [ 000008fc+] 00000067          *              : fltlid.obj (.text)
+                   00001260  [ 00000930 ] 0000005b          *              : fltuld.obj (.text)
+                   000012bb  [ 0000095d+] 0000004d          *              : autoinit.obj (.text)
+                   00001308  [ 00000984 ] 0000004b          *              : args_main.obj (.text)
+                   00001353  [ 000009a9+] 0000003e          *              : exit.obj (.text)
+                   00001391  [ 000009c8+] 0000003c          *              : idiv.obj (.text)
+                   000013cd  [ 000009e6+] 00000034          *              : boot.obj (.text)
+                   00001401  [ 00000a00+] 0000002a          *              : fixdi.obj (.text)
+                   0000142b  [ 00000a15+] 00000013          *              : lmpy.obj (.text)
+                   0000143e  [ 00000a1f ] 00000012          *              : _lock.obj (.text)
+                   00001450  [ 00000a28 ] 0000000e          *              : fltud.obj (.text)
+                   0000145e  [ 00000a2f ] 0000000c          *              : fltid.obj (.text)
+                   0000146a  [ 00000a35 ] 00000007          *              : exit.obj (.text:CIO_breakpoint)
+                   00001471  [ 00000a38+] 00000002          *              : vectors.obj (.text)
+                   00001473  [ 00000a39 ] 00000001          *   --HOLE-- [fill = 20]
+
+.cinit       0   [ 00001474 ]  00000a3a          *   00000021   
+                 [ 00001474 ]  00000a3a          *   0000000c   aic23.obj (.cinit)
+                 [ 0000148c ]  00000a46          *   0000000a   rts55x.lib : _lock.obj (.cinit)
+                 [ 000014a0 ]  00000a50          *   0000000a              : exit.obj (.cinit)
+                 [ 000014b4 ]  00000a5a          *   00000001   --HOLE-- [fill = 0]
+
+vectors      0     000014b8  [ 00000a5c ] 00000100          *   
+                   000014b8  [ 00000a5c ] 00000100          *   rts55x.lib : vectors.obj (vectors)
+
+.data        0   [ 00007000 ]  00003800          *   00000000   UNINITIALIZED
+
+.stack       0   [ 00007000 ]  00003800          *   000000fa   UNINITIALIZED
+                 [ 00007000 ]  00003800          *   000000fa   --HOLE--
+
+.sysstack 
+*            0   [ 000071f4 ]  000038fa          *   000000fa   UNINITIALIZED
+                 [ 000071f4 ]  000038fa          *   000000fa   --HOLE--
+
+.bss         0   [ 000073e8 ]  000039f4          *   00000014   UNINITIALIZED
+                 [ 000073e8 ]  000039f4          *   00000006   util.obj (.bss)
+                 [ 000073f4 ]  000039fa          *   00000005   aic23.obj (.bss)
+                 [ 000073fe ]  000039ff          *   00000001   --HOLE--
+                 [ 00007400 ]  00003a00          *   00000004   rts55x.lib : _lock.obj (.bss)
+                 [ 00007408 ]  00003a04          *   00000004              : exit.obj (.bss)
+
+.const       0   [ 00007410 ]  00003a08          *   00000012   
+                 [ 00007410 ]  00003a08          *   00000008   rts55x.lib : divd.obj (.const:_initial_approx$1)
+                 [ 00007420 ]  00003a10          *   00000006   aic23.obj (.const)
+                 [ 0000742c ]  00003a16          *   00000002   rts55x.lib : fltlid.obj (.const)
+                 [ 00007430 ]  00003a18          *   00000002              : fltuld.obj (.const)
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+00000002                $TI_capability$C5500$CallingConvention
+00000002                $TI_capability$C5500$MemoryModel
+00000001                $TI_capability_requires_rev2
+            000039f4    .bss
+            00003800    .data
+00000100                .text
+0000146b                C$$EXIT
+00001391                I$$DIV
+0000142b                I$$LMPY
+000013b0                I$$MOD
+000005ae                _AIC23_Disable
+00000544                _AIC23_Init
+000005c8                _AIC23_Mixer
+000004cc                _AIC23_Write
+00000fde                _EnableAPLL
+00000c9d                _I2C_Disable
+00000c4e                _I2C_Init
+00000d2a                _I2C_Read
+00000cb5                _I2C_Write
+00000882                _INT_Disable
+0000089d                _INT_DisableGlobal
+0000086d                _INT_Enable
+00000899                _INT_EnableGlobal
+000008bf                _INT_InstallHandler
+000008a1                _INT_SetVec
+000004ee                _McBSP0_InitSlave
+0000076c                _PLL_Init
+000014b8                _Reset
+00001028                _SDRAM_init
+00000991                _SWDelayMsec
+00000940                _SWDelayUsec
+            000038fa    __STACK_END
+000001f4                __STACK_SIZE
+000001f4                __SYSSTACK_SIZE
+00000001                __TI_args_main
+ffffffff                ___binit__
+            000039f4    ___bss__
+ffffffff                ___c_args__
+            00000a3a    ___cinit__
+            00003800    ___data__
+            00003800    ___edata__
+            00003a08    ___end__
+00001474                ___etext__
+ffffffff                ___pinit__
+00000100                ___text__
+000009f5                __addd
+00001308                __args_main
+            00003a04    __cleanup_ptr
+00000100                __divd
+00001391                __divi
+            00003a06    __dtors_ptr
+00001401                __fixdi
+0000118a                __fixdli
+0000145e                __fltid
+000011f9                __fltlid
+00001450                __fltud
+00001260                __fltuld
+000010a1                __frcmpyd
+00001117                __frcmpyd_div
+            00003a00    __lock
+00000d9a                __mpyd
+0000142b                __mpyli
+0000144e                __nop
+00001446                __register_lock
+0000143e                __register_unlock
+000013b0                __remi
+            00003800    __stack
+            000038fa    __sysstack
+            00003a02    __unlock
+0000146a                _abort
+000012bb                _auto_init
+            000039fc    _bEcho
+000013cd                _c_int00
+            000039f4    _dspclk
+00001353                _exit
+00000f31                _far_memcpy
+00000f5f                _far_near_memcpy
+00000ee6                _far_peek
+00000ef9                _far_peek_l
+00000f0c                _far_poke
+00000f1e                _far_poke_l
+000009bd                _firstbit
+            000039fa    _lpAudio
+00000f9f                _main
+00000f7f                _near_far_memcpy
+            000039fd    _uDelay
+            000039fe    _uEffect
+00000fba                _wait
+ffffffff                binit
+            00000a3a    cinit
+            00003800    edata
+            00003a08    end
+00001474                etext
+ffffffff                pinit
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+00000001                $TI_capability_requires_rev2
+00000001                __TI_args_main
+00000002                $TI_capability$C5500$CallingConvention
+00000002                $TI_capability$C5500$MemoryModel
+00000100                .text
+00000100                ___text__
+00000100                __divd
+000001f4                __STACK_SIZE
+000001f4                __SYSSTACK_SIZE
+000004cc                _AIC23_Write
+000004ee                _McBSP0_InitSlave
+00000544                _AIC23_Init
+000005ae                _AIC23_Disable
+000005c8                _AIC23_Mixer
+0000076c                _PLL_Init
+0000086d                _INT_Enable
+00000882                _INT_Disable
+00000899                _INT_EnableGlobal
+0000089d                _INT_DisableGlobal
+000008a1                _INT_SetVec
+000008bf                _INT_InstallHandler
+00000940                _SWDelayUsec
+00000991                _SWDelayMsec
+000009bd                _firstbit
+000009f5                __addd
+00000c4e                _I2C_Init
+00000c9d                _I2C_Disable
+00000cb5                _I2C_Write
+00000d2a                _I2C_Read
+00000d9a                __mpyd
+00000ee6                _far_peek
+00000ef9                _far_peek_l
+00000f0c                _far_poke
+00000f1e                _far_poke_l
+00000f31                _far_memcpy
+00000f5f                _far_near_memcpy
+00000f7f                _near_far_memcpy
+00000f9f                _main
+00000fba                _wait
+00000fde                _EnableAPLL
+00001028                _SDRAM_init
+000010a1                __frcmpyd
+00001117                __frcmpyd_div
+0000118a                __fixdli
+000011f9                __fltlid
+00001260                __fltuld
+000012bb                _auto_init
+00001308                __args_main
+00001353                _exit
+00001391                I$$DIV
+00001391                __divi
+000013b0                I$$MOD
+000013b0                __remi
+000013cd                _c_int00
+00001401                __fixdi
+0000142b                I$$LMPY
+0000142b                __mpyli
+0000143e                __register_unlock
+00001446                __register_lock
+0000144e                __nop
+00001450                __fltud
+0000145e                __fltid
+0000146a                _abort
+0000146b                C$$EXIT
+            00000a3a    ___cinit__
+00001474                ___etext__
+            00000a3a    cinit
+00001474                etext
+000014b8                _Reset
+            00003800    .data
+            00003800    ___data__
+            00003800    ___edata__
+            00003800    __stack
+            00003800    edata
+            000038fa    __STACK_END
+            000038fa    __sysstack
+            000039f4    .bss
+            000039f4    ___bss__
+            000039f4    _dspclk
+            000039fa    _lpAudio
+            000039fc    _bEcho
+            000039fd    _uDelay
+            000039fe    _uEffect
+            00003a00    __lock
+            00003a02    __unlock
+            00003a04    __cleanup_ptr
+            00003a06    __dtors_ptr
+            00003a08    ___end__
+            00003a08    end
+ffffffff                ___binit__
+ffffffff                ___c_args__
+ffffffff                ___pinit__
+ffffffff                binit
+ffffffff                pinit
+
+[94 symbols]

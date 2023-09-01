@@ -1,0 +1,117 @@
+C55XCSL LOWPOWER Release Version 3.08.01.00
+Release Notes
+November 2019
+
+================================================================
+Table of Contents
+================================================================
+ 3.08.1-00. Overview, Dependencies, Known issues and Caveats  
+ 3.08.1-01. Added voice UI cloud demos for C5517, C5545, CC3220SF (TI Design TIDEP-0083)
+ 3.08.1-02. Patch C5517 audio preprocessing TI design source code for LMB
+ 3.08.1-03. Add Dynamic Range Compression (DRC) module to C5517 audio preprocessing demo
+ 3.08.1-04. Fix C5515 Decimation project Release profile CSL linker Library
+ 3.08.1-05. CSL PLL wait lock indication time
+ 3.08.1-06. CSL PLL Init sequence needs a delay after bypass step
+ 3.08.1-07. CSL PLL example needs comments for clarity
+ 3.08.1-08. spiHwConfig shift count too large in csl_spi.c
+ 3.08.1-09. Removed one instance of TIesrEngine from the CSL package
+
+================================================================
+ 3.08.01-01. Overview
+================================================================
+
+This release is an upgrade release of the C55XCSL LOWPOWER package including
+bug fixes and the addition of the Voice User Interface (UI) Cloud demos for C5517 and C5545.
+
+This release provides the Chip Support Library (CSL), and related sample application 
+Examples and Demos, for the TMS320C5517 (PG2.1) DSP, TMS320C5535 DSP, TMS320C5504/05/14/15 (PG 2.0) 
+DSPs and TMS320C5545 DSP with the exception of the peripherals that are exclusive to 
+each DSP. For information about what peripherals are available, see the data manual 
+of the DSP. The sample application examples have been tested and worked properly on the 
+C5515 EVM, C5535 eZDSP, C5517 EVM and C5545 BoosterPack.
+
+Release 3.08.01 Dependencies
+========================
+
+DSP/BIOS 5.42.00.07 and DSP/BIOS 5.42.02.10
+CCS 7.3 or later
+CGT for C5500 4.4.1
+XDCTools 3.24.05.48
+XDAIS 7.24.00.04
+AERLIB for C55x CPU Rev 3.3 17.00.00.00
+VOLIB for C55x CPU Rev 3.3 2.01.00.01
+
+Known Issues and Caveats
+========================
+
+a. As a whole, the set of Examples provided are currently designed to illustrate basic 
+functionality of the related CSL functions upon which they call. As such, the currently 
+provided Examples and Demos are, in general, not yet rigorously refined to demonstrate maximum 
+system performance or robustness.
+
+b. The UART and some of the USB examples require the program HyperTerminal that comes with 
+the Windows XP package. For Windows Vista and Windows 7 users, use an alternate program 
+for the serial port such as TeraTerm. 
+
+c. The USB CDC driver is having stability issues with PCs running Microsoft Windows XP 
+operating system. Users might see the error 'Unable to open COM port' when trying to 
+connect using Hyper Terminal. CDC example works conditionally at high CPU clock (> 100MHz) 
+and with USB hub connected between target board and host PC.
+
+d. Writing data to the LCD data register (LCDLIDDCS0DATA) using CSL_FINS does not work. 
+But it works fine when data is written directly to the register like CSL_LCDC_REGS->LCDLIDDCS0DATA = data; 
+or when CSL_FSET macro is used.
+
+e. Starting from the 3.05.00, we will stop supporting the CCS 5.x projects. All the examples will only 
+provide CCS 6.x projects. If you want to keep using CCS 5.x, please download the 3.04.00 or previous 
+versions.
+
+f. The Audio Preprocessing and voice UI cloud demos on the C5517 and C5545 are known to have a problem with 
+16KHz sampling that causes aliasing of the captured audio. The work around impletemented in this release is to 
+capture the audio at 48KHz and decimate/downsample to 16KHz. Thereafter, the audio was upsampled to 48KHz before 
+output from the headphones. This work around is only present in the C5517 audio processing demo. 
+
+================================================================
+ 3.08.1-01. Added voice UI cloud demos for C5517, C5545, CC3220SF (TI Design TIDEP-0083)
+================================================================
+Added voice UI cloud demos for EVM5517 + CC3220SF-LAUNCHXL and BOOT5545ULP + CC3220SF-LAUNCHXL (c55xx_csl\demos\voice_ui_cloud)
+
+================================================================
+ 3.08.1-02. Patch C5517 audio preprocessing TI design source code for LMB
+================================================================
+Coefficients for LMB needed to be updated (c55xx_csl\demos\audio-preprocessing\common\sysbfflt.c)
+
+================================================================
+ 3.08.1-03. Add Dynamic Range Compression (DRC) module to C5517 audio preprocessing demo
+================================================================
+Add Dynamic Range Compression (DRC) module to C5517 audio preprocessing demo (c55xx_csl\demos\audio-preprocessing\common\bf_asnr_mss_vau.c)
+
+================================================================
+ 3.08.1-04. Fix C5515 Decimation project Release profile CSL linker Library
+================================================================
+The release profile for the C5515 decimation project target_test needs to have the correct CSL library specified in the Release build profile. It is currently set to "cslVC5505.lib". It should point to C55XXCSL_LP.lib. (c55xx_csl\demos\decimation\c5515\c55x-digital-mic-decimation)
+
+================================================================
+ 3.08.1-05. CSL PLL wait lock indication time
+================================================================
+Increased PLL init sequence wait lock indication time. (c55xx_csl\ccs_v6.x_examples\pll\CSL_PLL_Example\csl_pll.c)
+
+================================================================
+ 3.08.1-06. CSL PLL Init sequence needs a delay after bypass step
+================================================================
+Added delay after PLL bypass (c55xx_csl\ccs_v6.x_examples\pll\CSL_PLL_Example\csl_pll.c)
+
+================================================================
+ 3.08.1-07. CSL PLL example needs comments for clarity
+================================================================
+Added comments (c55xx_csl\ccs_v6.x_examples\pll\CSL_PLL_Example\csl_pll_example.c)
+
+================================================================
+ 3.08.1-08. spiHwConfig shift count too large in csl_spi.c
+================================================================
+Fixed shift count warning generated by CCS (c55xx_csl\src\csl_spi.c)
+
+================================================================
+ 3.08.1-09. Removed one instance of TIesrEngine from the CSL package
+================================================================
+Removed a duplicate instance of TIesrEngine from the TIesr demo(c55xx_csl\demos\TIesr\c5535\TIesr_C55_demo\)

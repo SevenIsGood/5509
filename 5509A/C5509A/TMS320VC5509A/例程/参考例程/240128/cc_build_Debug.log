@@ -1,0 +1,14 @@
+------------------------------  LED.pjt - Debug  ------------------------------
+[clk_init.c] "C:\CCStudio_v3.1\C5500\cgtools\bin\cl55" -g -q -fr"C:/CCStudio_v3.1/MyProjects/test/240128/Debug" -d"_DEBUG" -ml -@"Debug.lkf" "clk_init.c"
+
+[LED.c] "C:\CCStudio_v3.1\C5500\cgtools\bin\cl55" -g -q -fr"C:/CCStudio_v3.1/MyProjects/test/240128/Debug" -d"_DEBUG" -ml -@"Debug.lkf" "LED.c"
+"LED.c", line 167: warning: pointless comparison of unsigned integer with zero
+"LED.c", line 145: warning: variable "C2" was set but never used
+
+[sdram_init.c] "C:\CCStudio_v3.1\C5500\cgtools\bin\cl55" -g -q -fr"C:/CCStudio_v3.1/MyProjects/test/240128/Debug" -d"_DEBUG" -ml -@"Debug.lkf" "sdram_init.c"
+
+[Linking...] "C:\CCStudio_v3.1\C5500\cgtools\bin\cl55" -@"Debug.lkf"
+<Linking>
+
+Build Complete,
+  0 Errors, 2 Warnings, 0 Remarks.

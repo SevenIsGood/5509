@@ -1,0 +1,10 @@
+------------------------------  uart.pjt - Debug  ------------------------------
+[uart.c] "D:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -g -q -fr"./Debug" -d"_DEBUG" -d"CHIP_5509A" -ml -@"Debug.lkf" "uart.c"
+
+[vectors_timer1.s55] "D:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -g -q -fr"./Debug" -d"_DEBUG" -d"CHIP_5509A" -ml -@"Debug.lkf" "vectors_timer1.s55"
+
+[Linking...] "D:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -@"Debug.lkf"
+<Linking>
+
+Build Complete,
+  0 Errors, 0 Warnings, 0 Remarks.

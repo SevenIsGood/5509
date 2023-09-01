@@ -1,0 +1,7 @@
+-----------------------------  usecmd.pjt - Debug  -----------------------------
+[UseCMD.asm] "c:\ti\c5500\cgtools\bin\cl55" -g -q -fr"C:/ti/myprojects/ICETEK-VC5509-C/Lab2-UseCMD/Debug" -d"_DEBUG" -@"Debug.lkf" "UseCMD.asm"
+
+[Linking...] "c:\ti\c5500\cgtools\bin\cl55" -@"Debug.lkf"
+
+Build Complete,
+  0 Errors, 0 Warnings, 0 Remarks.

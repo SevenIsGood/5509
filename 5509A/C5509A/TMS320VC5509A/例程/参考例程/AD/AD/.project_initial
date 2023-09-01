@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>AD</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.cdt.managedbuilder.core.genmakebuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.cdt.core.cnature</nature>
+		<nature>org.eclipse.cdt.core.ccnature</nature>
+		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
+		<nature>com.ti.ccstudio.managedbuild.core.ccsNature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>main.c</name>
+			<type>1</type>
+			<locationURI>EXT_ROOT__AD/main.c</locationURI>
+		</link>
+		<link>
+			<name>AD.pjt</name>
+			<type>1</type>
+			<locationURI>EXT_ROOT__AD/AD.pjt</locationURI>
+		</link>
+		<link>
+			<name>util.c</name>
+			<type>1</type>
+			<locationURI>EXT_ROOT__AD/util.c</locationURI>
+		</link>
+		<link>
+			<name>sdram_init.c</name>
+			<type>1</type>
+			<locationURI>EXT_ROOT__AD/sdram_init.c</locationURI>
+		</link>
+	</linkedResources>
+</projectDescription>

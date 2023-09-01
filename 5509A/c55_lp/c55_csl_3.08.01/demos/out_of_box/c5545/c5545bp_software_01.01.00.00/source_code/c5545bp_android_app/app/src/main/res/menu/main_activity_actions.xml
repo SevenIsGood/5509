@@ -1,0 +1,32 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:compat="http://schemas.android.com/apk/res-auto" >
+    <item
+        android:id="@+id/opt_progress"
+        android:showAsAction="always"
+        android:title="@string/progress"
+        android:visibility="invisible"
+        />
+    <item
+        android:id="@+id/opt_bt"
+        android:showAsAction="always"
+        android:orderInCategory="1"
+
+        />
+    <item
+        android:id="@+id/opt_sthome"
+        android:title="@string/c5545home"/>
+    <item
+        android:id="@+id/opt_e2e"
+        android:title="@string/tie2e"/>
+    <item
+        android:id="@+id/opt_about"
+        android:icon="@drawable/ic_action_about"
+        android:title="@string/about"/>
+    <item
+        android:id="@+id/opt_exit"
+        android:title="@string/exit"/>
+
+</menu>
+    <!--android:icon="@drawable/ic_action_bluetooth"-->
+    <!--android:title="@string/bt"-->

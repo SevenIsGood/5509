@@ -1,0 +1,3 @@
+-z -q -c -m"./Debug/FIR.map" -o"./Debug/FIR.out" -w -x -i"c:/ti/c5500/bios/lib" -i"c:/ti/c5500/rtdx/lib" -i"c:/ti/c5500/xdais/lib" -i"c:/ti/c5500/cgtools/lib"
+"C:\ti\myprojects\ICETEK-VC5509-C\lab10-FIR\Debug\fir.obj"
+"C:\ti\myprojects\ICETEK-VC5509-C\lab10-FIR\fir.cmd"

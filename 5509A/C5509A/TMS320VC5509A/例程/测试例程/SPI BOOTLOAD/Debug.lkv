@@ -1,0 +1,6 @@
+-z -q -c -heap0x400 -m"./Debug/burncsi.map" -o"./Debug/burncsi.out" -stack0x400 -sysstack0x400 -x -i"c:/ti5000/c5500/bios/lib" -i"c:/ti5000/c5500/xdais/lib" -i"c:/ti5000/c5500/rtdx/lib" -i"c:/ti5000/c5500/cgtools/lib"
+"D:\5509Aproduct\The real sell Version\DSPSRC\BurnCSI25c256\Debug\burncsi.obj"
+"D:\5509Aproduct\The real sell Version\DSPSRC\BurnCSI25c256\Debug\vectors_mcbsp.obj"
+"D:\5509Aproduct\The real sell Version\DSPSRC\BurnCSI25c256\csl5509ax.lib"
+"D:\5509Aproduct\The real sell Version\DSPSRC\BurnCSI25c256\rts55x.lib"
+"D:\5509Aproduct\The real sell Version\DSPSRC\BurnCSI25c256\burncsi.cmd"

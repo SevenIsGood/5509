@@ -1,0 +1,12 @@
+-------------------------------  IP.pjt - Debug  -------------------------------
+[IP.C] "C:\CCStudio_v3.1\C5500\cgtools\bin\cl55" -g -q -fr"./Debug" -d"_DEBUG" -d"CHIP_5509" -ml -@"Debug.lkf" "IP.C"
+
+[main.c] "C:\CCStudio_v3.1\C5500\cgtools\bin\cl55" -g -q -fr"./Debug" -d"_DEBUG" -d"CHIP_5509" -ml -@"Debug.lkf" "main.c"
+
+[vectors_IP.s55] "C:\CCStudio_v3.1\C5500\cgtools\bin\cl55" -g -q -fr"./Debug" -d"_DEBUG" -d"CHIP_5509" -ml -@"Debug.lkf" "vectors_IP.s55"
+
+[Linking...] "C:\CCStudio_v3.1\C5500\cgtools\bin\cl55" -@"Debug.lkf"
+<Linking>
+
+Build Complete,
+  0 Errors, 0 Warnings, 0 Remarks.

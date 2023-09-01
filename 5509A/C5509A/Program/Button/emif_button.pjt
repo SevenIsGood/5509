@@ -1,0 +1,38 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectName="test-irq"
+ProjectDir="E:\Dsp_Program\5509_dev_test\Program\Button\"
+ProjectType=Executable
+CPUFamily=TMS320C55XX
+Tool="Compiler"
+Tool="CustomBuilder"
+Tool="DspBiosBuilder"
+Tool="Linker"
+Config="Debug"
+Config="Release"
+
+[Source Files]
+Source="..\Z_lib\csl5509x.lib"
+Source="..\Z_lib\rts55x.lib"
+Source="emif_button.c"
+Source="emif.cmd"
+
+["Compiler" Settings: "Debug"]
+Options=-g -q -fr".\Debug" -d"_DEBUG" -d"CHIP_5509" -ml
+
+["Compiler" Settings: "Release"]
+Options=-q -o2 -fr"E:\Dsp_Program\5509_dev_test\Program\Button\Release"
+
+["DspBiosBuilder" Settings: "Debug"]
+Options=-v55
+
+["DspBiosBuilder" Settings: "Release"]
+Options=-v55
+
+["Linker" Settings: "Debug"]
+Options=-q -c -m".\Debug\emif_button.map" -o".\Debug\emif_button.out" -x -l"csl5509x.lib" -l"rts55x.lib"
+
+["Linker" Settings: "Release"]
+Options=-q -c -o".\Release\test-irq.out" -x
+

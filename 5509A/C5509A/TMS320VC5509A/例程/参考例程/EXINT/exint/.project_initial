@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>exint</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.cdt.managedbuilder.core.genmakebuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.cdt.core.cnature</nature>
+		<nature>org.eclipse.cdt.core.ccnature</nature>
+		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
+		<nature>com.ti.ccstudio.managedbuild.core.ccsNature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>vectors_exint.s55</name>
+			<type>1</type>
+			<locationURI>EXT_ROOT__exint/vectors_exint.s55</locationURI>
+		</link>
+		<link>
+			<name>exint.c</name>
+			<type>1</type>
+			<locationURI>EXT_ROOT__exint/exint.c</locationURI>
+		</link>
+		<link>
+			<name>exint.pjt</name>
+			<type>1</type>
+			<locationURI>EXT_ROOT__exint/exint.pjt</locationURI>
+		</link>
+		<link>
+			<name>emif.cmd</name>
+			<type>1</type>
+			<locationURI>EXT_ROOT__exint/emif.cmd</locationURI>
+		</link>
+	</linkedResources>
+</projectDescription>

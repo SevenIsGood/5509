@@ -1,0 +1,348 @@
+/*  ============================================================================
+ *   Copyright (c) Texas Instruments Inc 2002, 2003, 2004, 2005, 2008
+ *
+ *   Use of this software is controlled by the terms and conditions found in the
+ *   license agreement under which this software has been supplied.
+ *  ============================================================================
+ */
+
+/** @file CSL_McSPI_MasterFullDuplex_Interrupt.c
+ *
+ *  @brief McSPI functional layer sample source file
+ *
+ *
+ * \page    page10   McSPI EXAMPLE DOCUMENTATION
+ *
+ * \section McSPI3   McSPI EXAMPLE3 - MASTER FULL DUPLEX TEST
+ *
+ * \subsection McSPI3x    TEST DESCRIPTION:
+ *		This test code verifies the full duplex functionality of CSL McSPI module. McSPI module
+ * on the C5517 DSP is used to communicate with SPI MsP430.
+ * This test code verifies the McSPI functionality with MsP430 SPI .
+ *
+ * CSL McSPI module will be configured using McSPI_config() API.Write,Read function used for data transfer operation.
+ * After successful completion of the write operation read  
+ * sent to the SPI.Write and read buffers are compared for the data
+ * verification. A small amount of delay is required after each data operation
+ * to allow the device get ready for next data operation.
+ *
+ * NOTE: THIS TEST HAS BEEN DEVELOPED TO WORK WITH CHIP VERSIONS C5517.
+ * MAKE SURE THAT PROPER CHIP VERSION MACRO IS DEFINED IN THE FILE
+ * c55xx_csl\inc\csl_general.h.
+ * # define CHIP_C5517 
+ *
+ * \subsection McSPI3y    TEST PROCEDURE:
+ *  @li Open the CCS and connect the target (C5517 EVM-Master board)
+ *  @li Open the project "CSL_McSPI_MasterFullDulpex_Example.pjt" and build it
+ *  @li Load the program on to the target
+ *  @li Set the PLL frequency to 12.288MHz
+ *  @li Run the program and observe the test result
+ *  @li Repeat the test at PLL frequencies 40, 60, 75 and 100MHz
+ *  @li Repeat the test in Release mode
+ *
+ * \subsection McSPI3z    TEST RESULT:
+ *  @li All the CSL APIs should return success
+ * Run the slave program first & then the master program 
+ *  @li Data in the read and write buffers should match.(or)Data needs to be verified in Slave program buffer
+ *
+ *  If on board buffers latched reset the board & Run the program,Use the correct GEL file for CPU configuration
+ */
+
+/* ============================================================================
+ * Revision History
+ * ================
+ * 21-Nov-2011 Created
+ * ============================================================================
+ */
+
+#include <csl_mcspi.h>
+#include <stdio.h>
+#include <csl_general.h>
+#include <csl_intc.h>
+
+#include <csl_i2c.h>
+#include "csl_gpio.h"
+
+
+extern void VECSTART(void);
+//interrupt void McSpiTxIsr(void);
+//interrupt void McSpiRxIsr(void);
+interrupt void McSpiIsr(void);
+#define CSL_MCSPI_BUF_LEN 32
+Uint8 readComplete=0, writeComplete=0;
+
+CSL_McSpiHandle  hMcspi;
+CSL_McSpiObj 	 McSpiObj; 
+
+
+
+CSL_I2cSetup     i2cSetup;
+CSL_I2cConfig    i2cConfig;
+
+
+CSL_GpioObj    gpioObj;
+CSL_GpioObj    *hGpio;
+
+
+#define CSL_TEST_PASSED      (0)
+#define CSL_TEST_FAILED      (1)
+
+Uint16 mcspiWriteBuff[CSL_MCSPI_BUF_LEN]={0x1111, 0x2222, 0x3333, 0x4444,
+										0x5555, 0x6666, 0x7777, 0x8888,
+										0x9999, 0xAAAA, 0xBBBB, 0xCCCC,
+										0xDDDD, 0xEEEE, 0xFFFF, 0x0000,
+										0x1111, 0x2222, 0x3333, 0x4444,
+										0x5555, 0x6666, 0x7777, 0x8888,
+										0x9999, 0xAAAA, 0xBBBB, 0xCCCC,
+										0xDDDD, 0xEEEE, 0xFFFF, 0x0000};
+Uint16 mcspiReadBuff[CSL_MCSPI_BUF_LEN];
+Uint16 dummy=0;
+Uint32 tx_value,rd_value,rd_value1,rd_value2;
+
+CSL_Status CSL_McspiTest(void);
+
+volatile Int16 PaSs_StAtE = 0x0001; 
+volatile Int16 PaSs       = 0x0000; 
+
+McSPI_Config     McSPIHwConfig;
+
+
+CSL_GpioObj    gpioObj;
+CSL_GpioObj    *hGpio;
+
+
+
+//extern void VECSTART(void);
+// Holds the IRQ event ids for Rx and Tx interrupts
+Uint16 rxEventId = 0xFFFF, txEventId = 0xFFFF;
+ 
+
+CSL_McSpiHandle  hMcspi;
+CSL_McSpiObj 	 McSpiObj;
+
+volatile Uint16   bufIndex=0;
+
+void main(void)
+{
+
+	CSL_Status status; //This is for the CSL status return
+	
+
+    printf("\r\nMcSPI Mode test case \r\n");
+
+	status = CSL_McspiTest();
+
+	if( CSL_TEST_PASSED == status )
+	{
+	 printf("\r\nMcSPI Mode test case passed\r\n");
+	}
+	else
+	{
+	 printf("\r\nMcSPI Mode test case failed\r\n");
+	 PaSs_StAtE=0;
+
+	}
+   
+	
+    
+    PaSs = PaSs_StAtE; 
+
+    
+}
+
+
+
+CSL_Status CSL_McspiTest(void) 
+{
+
+
+  unsigned char error=0;
+  Uint16 mode = 0  ;
+  CSL_Status Status;
+  Uint16 loop_count = 0 ;
+
+/****    SEL_MMC1 High    ***/
+
+
+ioExpander_Setup();
+
+//Call this fn for enabling
+
+// port,pin, value
+ ioExpander_Write(1, 4, 0); // Select 
+// port,pin, value
+ ioExpander_Write(1, 5, 0); // Select
+
+
+	//issue reset to MCSPI
+//      CSL_SYSCTRL_REGS->CLKSTOP1 = 0 ;
+
+ CSL_FINST(CSL_SYSCTRL_REGS->EBSR, SYS_EBSR_SP1MODE, MODE1);
+
+	/* Initialize BSL */
+/*	EVM5517_init( );
+	EVM5517_I2CGPIO_configLine(  12, 0 );
+	EVM5517_I2CGPIO_writeLine(  12, 0 );
+	EVM5517_I2CGPIO_configLine(  13, 0 );
+	EVM5517_I2CGPIO_writeLine(  13, 0 );
+*/
+  /* Open mcspi Port 0, this will return a mcspi handle that will */
+  /* be used in calls to other CSl functions.                     */ 
+  
+  hMcspi =  McSPI_open(McSPI_POLLING_MODE,&McSpiObj,&Status);
+  McSPI_close(hMcspi);  // close if clock already started
+  hMcspi =  McSPI_open(McSPI_POLLING_MODE,&McSpiObj,&Status);
+
+  if ( (hMcspi == NULL) || (Status != CSL_SOK) )
+  {
+   printf("mcspi_open() Failed \n");
+  }
+  else
+  {
+	printf("mcspi_open() Success \n");
+  }
+
+/*    rev_id  =	Read_McSpi_RevID(hMcspi);
+
+    if( rev_id != REV_ID ){
+      printf("mcSPI Revision not read properly \r\n");
+    }else{
+	  printf("mcSPI Revision : 0x40300A0B \r\n");
+    }
+*/
+#if 1
+  /* Disable interrupt */
+	IRQ_globalDisable();
+
+//	 Clear any pending interrupts
+	IRQ_clearAll();
+
+//	 Disable all the interrupts
+	IRQ_disableAll();
+
+	IRQ_setVecs((Uint32)(&VECSTART));
+
+//	 Configuring Interrupt
+
+	IRQ_plug (PROG2_EVENT, &McSpiIsr);
+
+	IRQ_enable(PROG2_EVENT);
+
+//	 Enabling Interrupt
+	IRQ_globalEnable();
+#endif
+
+	hMcspi->McSPIHwConfig.mode       = McSPI_MASTER;
+//    hMcspi->McSPIHwConfig.duplex     = McSPI_HALF_DUPLEX_TX;
+    hMcspi->McSPIHwConfig.duplex     = McSPI_FULL_DUPLEX;
+//	hMcspi->McSPIHwConfig.duplex     = McSPI_HALF_DUPLEX_RX;
+    hMcspi->McSPIHwConfig.wLen       = McSPI_WORD_LENGTH_8;
+	hMcspi->McSPIHwConfig.dataDelay  = McSPI_DATA_DLY4;
+//	hMcspi->McSPIHwConfig.dataDelay  = McSPI_DATA_NODLY;
+    hMcspi->McSPIHwConfig.ClkDiv     = CSL_MCSPI_CH0CONFL_CLKD_DIV16;//CSL_MCSPI_CH0CONFL_CLKD_DIV4;
+    hMcspi->McSPIHwConfig.clkPh      = McSPI_CLK_PH_EVEN_EDGE;   //even edge ,polarity low important
+//    hMcspi->McSPIHwConfig.clkPol     = McSPI_CLKP_HIGH;
+    hMcspi->McSPIHwConfig.clkPol     = McSPI_CLKP_LOW;
+    hMcspi->ch					     = McSPI_CS_NUM_0;
+    hMcspi->McSPIHwConfig.csPol      = McSPI_CSP_ACTIVE_LOW;
+    hMcspi->McSPIHwConfig.inSel      = McSPI_RX_SPIDAT0;
+	hMcspi->McSPIHwConfig.enDat0_1   = (McSPI_TxEn_Dat0_1)McSPI_TX_ENABLE_SPIDAT0;
+	hMcspi->McSPIHwConfig.fifo   	 = McSPI_FIFO_EN;
+
+	Status = McSPI_config(hMcspi);
+	if( CSL_SOK != Status )
+	{
+	 printf("\r\n McSPI_Config() is failed\r\n");
+	}
+
+
+//	error=0;
+
+	printf("McSPI Mode %d Test start \r\n",mode);
+	
+	//mcspiWriteBuff[0]=0xAAAA;mcspiWriteBuff[1]=0x5555;mcspiWriteBuff[2]=0x1111;
+	//mcspiReadBuff[0] = mcspiReadBuff[1] = 0x0;
+	for(loop_count=0; loop_count<32;loop_count++)
+		mcspiReadBuff[loop_count++]=0x0;
+
+	CSL_SYSCTRL_REGS->MSIAER |= 0x1;
+
+
+	while(1);
+		{
+		//hMcspi->Regs->IRQENABLEL |= 0x0005;
+		//CSL_SYSCTRL_REGS->MSIAER |= 0x1;
+		//hMcspi->Regs->CH0TXL = 0x5555;
+		}
+    
+
+
+ }
+
+/*
+	This is ISR for the McSPI.
+	This function returns:
+	Void               -void
+*/
+interrupt void McSpiIsr()
+{
+
+	Uint16 	      getWLen;
+	//volatile Uint16   bufIndex=0;
+
+	CSL_SYSCTRL_REGS->MSIAER &= 0xFFFE;
+	CSL_SYSCTRL_REGS->MSIAFR |= 0x0001;
+
+	printf ("McSPI ISR: bufIndex=%d\n", bufIndex);
+
+	//while(bufIndex < bufLen)
+	//while(bufIndex < CSL_MCSPI_BUF_LEN)
+	    {
+		      	getWLen = CSL_FEXT(hMcspi->Regs->CH0CONFL,MCSPI_CH0CONFL_WL);
+		             if(getWLen >=  McSPI_MAX_WORD_LEN)
+		             {
+		            	 printf ("Invalid WordLength\n");
+		            	//break;//return (CSL_ESYS_INVPARAMS);
+		             }
+		             IRQ_globalEnable();
+				 if(McSPI_TxEmptyInt_Chk(hMcspi)){
+					 hMcspi->Regs->CH0TXL = (Uint16)(mcspiWriteBuff[bufIndex]);
+					 //hMcspi->Regs->IRQENABLEL &= 0xFFFE;
+
+			      	  	  if(McSPI_RxFullInt_Chk(hMcspi))
+			      	  		{
+			      	  		  mcspiReadBuff[bufIndex] = hMcspi->Regs->CH0RXL;
+			      	  		//hMcspi->Regs->IRQENABLEL &= 0xFFFA;
+			      	  	//CSL_SYSCTRL_REGS->MSIAER &= 0xFFFE;
+			      	  //CSL_SYSCTRL_REGS->MSIAFR |= 0x0001;
+
+
+			      	  		}
+
+					  	  bufIndex++;
+					  if(getWLen >=  McSPI_WORD_LENGTH_16){
+						  hMcspi->Regs->CH0TXU = (Uint16)(mcspiWriteBuff[bufIndex]);
+
+			              if(McSPI_RxFullInt_Chk(hMcspi))
+			            	  mcspiReadBuff[bufIndex] = hMcspi->Regs->CH0RXU;
+
+						  bufIndex++;
+					  }else{
+						  hMcspi->Regs->CH0TXU = (Uint16)0x0000;
+					  }
+					  while(!(CSL_MCSPI_REGS->CH0STATL & CSL_MCSPI_CH0STATL_EOT_MASK ));
+				  }
+
+	    }
+
+	//CSL_MCSPI_REGS->IRQSTATUSL &= CSL_MCSPI_IRQSTATUSL_TX0_EMPTY_MASK;
+	//One additional dummy (AFL+1)th read
+	//dummy = hMcspi->Regs->CH0RXL;
+	//dummy = hMcspi->Regs->CH0RXU;
+	    if(bufIndex < CSL_MCSPI_BUF_LEN)
+		CSL_SYSCTRL_REGS->MSIAER |= 0x0001;
+		//CSL_SYSCTRL_REGS->MSIAFR |= 0x0001;
+}
+
+
+

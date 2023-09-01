@@ -1,0 +1,1 @@
+"./codec.obj" -l"csl5509ax.lib" -l"rts55x.lib" "E:/Program/DSP/VC5509A/Codec/codec.cmd" "../csl5509ax.lib" "../rts55x.lib" 

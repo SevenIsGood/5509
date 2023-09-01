@@ -1,0 +1,91 @@
+------------------------------  fft.pjt - Debug  ------------------------------
+[cfft32_noscale.asm] "c:\ti\c5500\cgtools\bin\cl55" -g -q -fr"C:/ti/myprojects/ICETEK-VC5509-C/lab12-fft/Debug" -d"_DEBUG" -@"Debug.lkf" "cfft32_noscale.asm"
+"cfft32_noscale.asm", REMARK   at line 167: [R5673] If accumulator shift left
+                                                    operation overflows, M40 ==
+                                                    0, SXMD == 0, and C54CM ==
+                                                    0, then the shift operation
+                                                    may not yield the
+                                                    appropriate saturated
+                                                    result; (see the C55x
+                                                    silicon exceptions errata;
+                                                    Advisory CPU_89)
+		||	add ac0<<#1,ac2					;		dr+br					
+
+"cfft32_noscale.asm", REMARK   at line 171: [R5673] If accumulator shift left
+                                                    operation overflows, M40 ==
+                                                    0, SXMD == 0, and C54CM ==
+                                                    0, then the shift operation
+                                                    may not yield the
+                                                    appropriate saturated
+                                                    result; (see the C55x
+                                                    silicon exceptions errata;
+                                                    Advisory CPU_89)
+		|| 	sub ac2<<#1,ac1					;ar+cr-(dr+br)						
+
+"cfft32_noscale.asm", REMARK   at line 178: [R5673] If accumulator shift left
+                                                    operation overflows, M40 ==
+                                                    0, SXMD == 0, and C54CM ==
+                                                    0, then the shift operation
+                                                    may not yield the
+                                                    appropriate saturated
+                                                    result; (see the C55x
+                                                    silicon exceptions errata;
+                                                    Advisory CPU_89)
+		|| 	sub ac2<<#1,ac3					;			ar-cr-(bi-di)				
+
+"cfft32_noscale.asm", REMARK   at line 185: [R5673] If accumulator shift left
+                                                    operation overflows, M40 ==
+                                                    0, SXMD == 0, and C54CM ==
+                                                    0, then the shift operation
+                                                    may not yield the
+                                                    appropriate saturated
+                                                    result; (see the C55x
+                                                    silicon exceptions errata;
+                                                    Advisory CPU_89)
+		||	sub ac1<<#1,ac0					;ai+ci-(di+bi)							
+
+"cfft32_noscale.asm", REMARK   at line 189: [R5673] If accumulator shift left
+                                                    operation overflows, M40 ==
+                                                    0, SXMD == 0, and C54CM ==
+                                                    0, then the shift operation
+                                                    may not yield the
+                                                    appropriate saturated
+                                                    result; (see the C55x
+                                                    silicon exceptions errata;
+                                                    Advisory CPU_89)
+		||	sub ac2<<#1,ac3					;			ai-ci-(dr-br)				
+
+"cfft32_noscale.asm", REMARK   at line 205: [R5601] MMR writes to ST0 and ST2
+                                                    are not pipeline protected
+                                                    against interrupts (see the
+                                                    C55x silicon exceptions
+                                                    errata; Advisory CPU_75)
+	       	OR	#0x3, mmap(ST2_55)		; circular ar0,ar1        
+
+"cfft32_noscale.asm", REMARK   at line 312: [R5601] MMR writes to ST0 and ST2
+                                                    are not pipeline protected
+                                                    against interrupts (see the
+                                                    C55x silicon exceptions
+                                                    errata; Advisory CPU_75)
+	      	POP	mmap(ST2_55)
+
+"cfft32_noscale.asm", REMARK   at line 314: [R5601] MMR writes to ST0 and ST2
+                                                    are not pipeline protected
+                                                    against interrupts (see the
+                                                    C55x silicon exceptions
+                                                    errata; Advisory CPU_75)
+	      	POP	mmap(ST0_55)
+
+
+[FORFFTC.C] "c:\ti\c5500\cgtools\bin\cl55" -g -q -fr"C:/ti/myprojects/ICETEK-VC5509-C/lab12-fft/Debug" -d"_DEBUG" -@"Debug.lkf" "FORFFTC.C"
+
+[Linking...] "c:\ti\c5500\cgtools\bin\cl55" -@"Debug.lkf"
+
+undefined                        first referenced
+ symbol                              in file
+---------                        ----------------
+_cifft32_NOSCALE                 C:\ti\myprojects\ICETEK-VC5509-C\lab12-fft\Debug\FORFFTC.obj
+>>   error: symbol referencing errors - './Debug/fft.out' not built
+
+Build Complete,
+  1 Errors, 0 Warnings, 8 Remarks.

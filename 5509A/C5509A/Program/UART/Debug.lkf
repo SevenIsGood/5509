@@ -1,0 +1,6 @@
+-z -q -c -h -m"./Debug/uart.map" -o"./Debug/uart.out" -x -i"D:/CCStudio_v3.3/C5500/csl/lib" -i"D:/CCStudio_v3.3/C5500/xdais/lib" -i"D:/CCStudio_v3.3/bios_5_31_02/packages/ti/bios/lib" -i"D:/CCStudio_v3.3/bios_5_31_02/packages/ti/rtdx/lib/c5500" -i"D:/CCStudio_v3.3/C5500/cgtools/lib" -l"csl5509ax.lib" -l"rts55x.lib"
+"D:\CCStudio_v3.3\MyProjects\5509\UART\uart.cmd"
+"D:\CCStudio_v3.3\MyProjects\5509\UART\Debug\uart.obj"
+"D:\CCStudio_v3.3\MyProjects\5509\UART\Debug\vectors_timer1.obj"
+"D:\CCStudio_v3.3\C5500\cgtools\lib\rts55x.lib"
+"D:\CCStudio_v3.3\C5500\csl\lib\csl5509ax.lib"

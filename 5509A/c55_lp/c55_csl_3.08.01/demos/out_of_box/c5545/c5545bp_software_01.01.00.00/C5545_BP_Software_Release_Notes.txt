@@ -1,0 +1,104 @@
+C5545 BoosterPack Software Release Version 01.01.00.00
+Release Notes
+October 2016
+
+================================================================
+Table of Contents
+================================================================
+ 01.01.00-00. Overview, Dependencies, Known issues and Caveats  
+ 01.01.00-01. Package Contents
+ 01.01.00-02. Running the software on BoosterPack
+ 01.01.00-03. References
+
+================================================================
+ 01.01.00-00. Overview 
+================================================================
+
+This is an initial release for diagnostics and out of box demo source code
+for TI's C5545 BoosterPack HW platform. This release includes the support
+for BLE firmware upgrade from DSP.
+
+Diagnostic software package provides the test software for verifying the 
+hardware interfaces on C5545 BoosterPack. 
+
+C5545 BoosterPack out of box demo showcases the audio processing 
+and wireless connectivity capabilities of C5545 BoosterPack. 
+It contains audio demo running on C5545 DSP and C5545 Boost Android App.
+
+Refer to software user guide for more details on diagnostics and out box demo software
+
+Dependencies
+============
+CCS v6.1.3 or later
+C55 Code gen tool – v4.4.1
+C55x LOWPOWER CSL library
+DSP/BIOS – v5.42.1.09
+Energia v0101E0017 or later
+Android device running Lollipop and Marshmallow versions of Android OS with display size of 5 inch or more.
+Android studio with android SDK version 21-23.
+
+For BLE firmware build
+----------------------
+CC26xx Code gen tool – v5.2.4 or later
+TI RTOS for SimpleLink – v2.13.00.06 or later
+TI BLE stack – v2.1.0 or later
+XDC tools – 3.31.1.33
+
+
+Known Issues and Caveats
+========================
+
+Noise when LINE IN is connected
+---------------------------------
+Pop/crackle noise is observed at HEADPHONE port when LINE IN cable is connected to BoostePack LINE IN port.
+This issue is more evident when audio source driving LINE IN is at higher volume and no audio is being played by BoosterPack.
+This issue is observed while playing the files from SD card or audio streaming from LINE IN.
+
+Noise when equalizer bands are set for extreme high/low
+-------------------------------------------------------
+Noise is observed when equalizer bands are set for extreme high/low on the Android App while 
+demo is playing the wave files from SD card. Noise is more predominant on equalizer negative values and 
+shows slight variance with the audio being played.
+This issue is observed only while playing the wave files from SD card
+
+
+================================================================
+ 01.01.00-01. Package Contents 
+================================================================
+Refer to C5545BP software user guide for details on software package contents
+    
+
+================================================================
+ 01.01.00-02. Running the software on BoosterPack
+================================================================    
+For running out of box demo or diagnostic tests on BoosterPack,
+corresponding boot image should be copied to SD card root directory.
+
+By default SD card contains boot image for out of box demo
+
+To run the diagnostic tests
+Copy the boot image 'software\bin\diagnostics\bootimg.bin' to SD card root directory
+
+To restore the default out of box demo binary
+Copy the boot image 'software\bin\oob_demo\bootimg.bin' to SD card root directory
+
+Refer to corresponding readme documents under software\docs folder for more details
+on programming and running the software on BoosterPack
+
+
+================================================================
+ 01.01.00-03. References 
+================================================================    
+
+Latest Software/Documentation
+------------------------------
+Visit C5545 BoosterPack product page at www.ti.com to download latest software and documentation.
+
+
+Emulator setup for BLE Programming
+-----------------------------------
+10-pin connector is provided for programming CC2650 BLE chip on BoosterPack using external JTAG emulator.
+Pin converter is be needed while using standard emulators with 14/20 pin headers
+Please check the references at below link
+   http://www.spectrumdigital.com/14-pin-to-20-pin-cti-jtag-adapter
+   http://www.spectrumdigital.com/cti20-pin-to-arm10-pin-jtag-adapter

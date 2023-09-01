@@ -1,0 +1,175 @@
+******************************************************************************
+              TMS320C55x Linker PC v4.4.1                      
+******************************************************************************
+>> Linked Fri Sep 01 00:40:08 2023
+
+OUTPUT FILE NAME:   <D:/allen/workSvn/5509A/C5509A/Program/GPIO/5509gpio/../../../../C5509A/Program/GPIO/Debug/5509gpio.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 00004235
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+                        (bytes)   (bytes)    (bytes)   (bytes)
+----------------------  --------  ---------  --------  --------  ----  --------
+PAGE 0:
+  PROG0                 00004000   00008000  00000422  00007bde  RW X
+  P_VECT                0000ff80   00000080  00000000  00000080  R IX
+
+PAGE 1:
+  DATA0                 0000c000   00004000  00000444  00003bbc  RW  
+
+
+SECTION ALLOCATION MAP
+(Addresses surrounded by []'s are displayed for convenience only!)
+
+output                                                          attributes/
+section   page  orgn(bytes) orgn(words) len(bytes) len(words)   input sections
+--------  ----  ----------- ----------- ---------- ----------   --------------
+.text        0     00004000  [ 00002000 ] 000002a0          *   
+                   00004000  [ 00002000 ] 000000fb          *   gpio.obj (.text)
+                   000040fb  [ 0000207d+] 00000064          *   csl5509x.lib : pll_cfg.obj (.text:PLL_config)
+                   0000415f  [ 000020af+] 0000004d          *   rts55x.lib : autoinit.obj (.text)
+                   000041ac  [ 000020d6 ] 0000004b          *              : args_main.obj (.text)
+                   000041f7  [ 000020fb+] 0000003e          *              : exit.obj (.text)
+                   00004235  [ 0000211a+] 00000034          *              : boot.obj (.text)
+                   00004269  [ 00002134+] 00000012          *              : _lock.obj (.text)
+                   0000427b  [ 0000213d+] 0000000d          *   csl5509x.lib : _csl_init.obj (.text:_CSL_init)
+                   00004288  [ 00002144 ] 0000000c          *                : csl.obj (.text:CSL_init)
+                   00004294  [ 0000214a ] 00000007          *   rts55x.lib : exit.obj (.text:CIO_breakpoint)
+                   0000429b  [ 0000214d+] 00000002          *   csl5509x.lib : csl.obj (.text)
+                   0000429d  [ 0000214e+] 00000002          *   rts55x.lib : vectors.obj (.text)
+                   0000429f  [ 0000214f ] 00000001          *   --HOLE-- [fill = 20]
+
+.cinit       0   [ 000042a0 ]  00002150          *   00000041   
+                 [ 000042a0 ]  00002150          *   00000025   csl5509x.lib : csl_csldat.obj (.cinit)
+                 [ 000042ea ]  00002175          *   0000000a   rts55x.lib : _lock.obj (.cinit)
+                 [ 000042fe ]  0000217f          *   0000000a              : exit.obj (.cinit)
+                 [ 00004312 ]  00002189          *   00000007   gpio.obj (.cinit)
+                 [ 00004320 ]  00002190          *   00000001   --HOLE-- [fill = 0]
+
+vectors      0     00004328  [ 00002194 ] 00000100          *   
+                   00004328  [ 00002194 ] 00000100          *   rts55x.lib : vectors.obj (vectors)
+
+.stack       1   [ 0000c000 ]  00006000          *   000000fa   UNINITIALIZED
+                 [ 0000c000 ]  00006000          *   000000fa   --HOLE--
+
+.sysstack 
+*            1   [ 0000c1f4 ]  000060fa          *   000000fa   UNINITIALIZED
+                 [ 0000c1f4 ]  000060fa          *   000000fa   --HOLE--
+
+.csldata     1   [ 0000c3e8 ]  000061f4          *   00000022   UNINITIALIZED
+                 [ 0000c3e8 ]  000061f4          *   00000022   csl5509x.lib : csl_csldat.obj (.csldata:SYS_data)
+
+.bss         1   [ 0000c42c ]  00006216          *   0000000c   UNINITIALIZED
+                 [ 0000c42c ]  00006216          *   00000004   gpio.obj (.bss)
+                 [ 0000c434 ]  0000621a          *   00000004   rts55x.lib : _lock.obj (.bss)
+                 [ 0000c43c ]  0000621e          *   00000004              : exit.obj (.bss)
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+00000002                $TI_capability$C5500$CallingConvention
+00000002                $TI_capability$C5500$MemoryModel
+00000001                $TI_capability_requires_rev2
+            00006216    .bss
+00004000                .text
+00004295                C$$EXIT
+0000429b                _CSL5509_LIB_
+            000061f4    _CSL_SysData
+00004288                _CSL_init
+000040fb                _PLL_config
+00004328                _Reset
+0000427b                __CSL_init
+            000060fa    __STACK_END
+000001f4                __STACK_SIZE
+000001f4                __SYSSTACK_SIZE
+00000001                __TI_args_main
+ffffffff                ___binit__
+            00006216    ___bss__
+ffffffff                ___c_args__
+            00002150    ___cinit__
+            00006222    ___end__
+000042a0                ___etext__
+ffffffff                ___pinit__
+00004000                ___text__
+000041ac                __args_main
+            0000621e    __cleanup_ptr
+            00006220    __dtors_ptr
+            0000621a    __lock
+00004279                __nop
+00004271                __register_lock
+00004269                __register_unlock
+            00006000    __stack
+            000060fa    __sysstack
+            0000621c    __unlock
+00004294                _abort
+0000415f                _auto_init
+00004235                _c_int00
+000040a1                _delay
+000041f7                _exit
+00004010                _main
+            00006216    _myConfig
+ffffffff                binit
+            00002150    cinit
+            00006222    end
+000042a0                etext
+ffffffff                pinit
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+00000001                $TI_capability_requires_rev2
+00000001                __TI_args_main
+00000002                $TI_capability$C5500$CallingConvention
+00000002                $TI_capability$C5500$MemoryModel
+000001f4                __STACK_SIZE
+000001f4                __SYSSTACK_SIZE
+00004000                .text
+00004000                ___text__
+00004010                _main
+000040a1                _delay
+000040fb                _PLL_config
+0000415f                _auto_init
+000041ac                __args_main
+000041f7                _exit
+00004235                _c_int00
+00004269                __register_unlock
+00004271                __register_lock
+00004279                __nop
+0000427b                __CSL_init
+00004288                _CSL_init
+00004294                _abort
+00004295                C$$EXIT
+0000429b                _CSL5509_LIB_
+            00002150    ___cinit__
+000042a0                ___etext__
+            00002150    cinit
+000042a0                etext
+00004328                _Reset
+            00006000    __stack
+            000060fa    __STACK_END
+            000060fa    __sysstack
+            000061f4    _CSL_SysData
+            00006216    .bss
+            00006216    ___bss__
+            00006216    _myConfig
+            0000621a    __lock
+            0000621c    __unlock
+            0000621e    __cleanup_ptr
+            00006220    __dtors_ptr
+            00006222    ___end__
+            00006222    end
+ffffffff                ___binit__
+ffffffff                ___c_args__
+ffffffff                ___pinit__
+ffffffff                binit
+ffffffff                pinit
+
+[46 symbols]

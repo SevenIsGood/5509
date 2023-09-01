@@ -1,0 +1,37 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectDir="C:\CCStudio_v3.1\MyProjects\test\240128\"
+ProjectType=Executable
+CPUFamily=TMS320C55XX
+Tool="Compiler"
+Tool="CustomBuilder"
+Tool="DspBiosBuilder"
+Tool="Linker"
+Config="Debug"
+Config="Release"
+
+[Source Files]
+Source="clk_init.c"
+Source="LED.c"
+Source="sdram_init.c"
+Source="led.cmd"
+
+["Compiler" Settings: "Debug"]
+Options=-g -q -fr"C:\CCStudio_v3.1\MyProjects\test\240128\Debug" -d"_DEBUG" -ml
+
+["Compiler" Settings: "Release"]
+Options=-q -o2 -fr"C:\CCStudio_v3.1\MyProjects\test\240128\Release"
+
+["DspBiosBuilder" Settings: "Debug"]
+Options=-v55
+
+["DspBiosBuilder" Settings: "Release"]
+Options=-v55
+
+["Linker" Settings: "Debug"]
+Options=-q -c -m".\Debug\LED.map" -o".\Debug\LED.out" -x
+
+["Linker" Settings: "Release"]
+Options=-q -c -m".\Release\LED.map" -o".\Release\LED.out" -x
+

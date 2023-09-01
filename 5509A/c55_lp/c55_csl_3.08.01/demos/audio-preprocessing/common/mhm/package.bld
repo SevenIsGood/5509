@@ -1,0 +1,113 @@
+/******************************************************************************
+ * FILE PURPOSE: Build description for package ti.mas.mhm
+ ******************************************************************************
+ * FILE NAME: package.bld  
+ *
+ * DESCRIPTION: This file contains build attributes for package ti.mas.mhm
+ *
+ * TABS: NONE
+ *
+ * Copyright (C) 2006, Texas Instruments, Inc.
+ *****************************************************************************/
+  
+  var Package=xdc.loadCapsule('ti/mas/swtools/CommonBld.xs');
+  Package.name="mhm";
+
+  Package.files["commonCsrc"]= {
+    base_directory: "src",
+    files:  ["mhm.c"
+            ]  
+  }
+
+  Package.archiveFiles["C64Header"]= {
+    base_directory: "src/c64",
+    target: ["c64le", 
+             "c64be", 
+             "c64Ple", 
+             "c64Pbe",  
+             "ce64Ple",
+             "ce64Pbe",
+             "c66le", 
+             "c66be",
+             "ce66le",
+             "ce66be"
+            ],
+    files:  ["mhmport.h"
+            ] 
+  }
+   
+  Package.archiveFiles["C55Header"]= {
+    base_directory: "src/c55",
+    target: ["c55l", 
+             "c55s"
+            ],
+    files:  ["mhmport.h"
+            ] 
+  }
+   
+  Package.archiveFiles["C54Header"]= {
+    base_directory: "src/c54",
+    target: ["c54n", 
+             "c54f"
+            ],
+    files:  ["mhmport.h"
+            ] 
+  }
+   
+  Package.archiveFiles["CommonHeader"]= {
+    base_directory: "src",
+    files:  ["mhmport.h"
+            ] 
+  }
+  
+
+/**********************************************************************************************
+  The main package.bld routine starts here 
+***********************************************************************************************/
+
+  /* Set up the target architecture */
+  Package.targets = [C54, 
+                     C54_far, 
+                     C55, 
+                     C55_large, 
+                     C64, 
+                     C64_big_endian, 
+                     C64P, 
+                     C64P_big_endian, 
+                     C64P_elf,
+                     C64P_big_endian_elf,
+                     C66, 
+                     C66_big_endian, 
+                     C66_elf,
+                     C66_big_endian_elf,
+                     C674, 
+                     C674_big_endian, 
+                     GCArmv7A
+                    ];
+
+ /* Set up version numbers for this package */
+  Package.pkgStdVer = "2.0";
+  Package.version = [2,5,1,0, 3,0];
+
+  Package.createVersion();
+
+  /* Include custom makefile to generate doxygen documents */
+/*  Package.includeMake("Makedocs.mk"); */
+  
+  /* Parse XDC Arguments */
+  Package.parseArgs(arguments);
+
+  /* Create Library */ 
+  Package.createLib();
+
+  /* Create Archive */ 
+  Package.createArchive();
+  
+  /* Clean Package */
+  Package.packageClean();
+
+
+/* nothing past this point */
+
+
+

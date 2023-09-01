@@ -1,0 +1,306 @@
+******************************************************************************
+              TMS320C55x Linker PC v4.4.1                      
+******************************************************************************
+>> Linked Sun Aug 27 01:31:15 2023
+
+OUTPUT FILE NAME:   <Pro0204_TIMER.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 000105cb
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+                        (bytes)   (bytes)    (bytes)   (bytes)
+----------------------  --------  ---------  --------  --------  ----  --------
+  DARAM                 00000100   00007f00  0000115c  00006da4  RWIX
+  VECT                  00008000   00000100  00000100  00000000  RWIX
+  DARAM2                00008100   00007f00  0000002c  00007ed4  RWIX
+  SARAM                 00010000   00030000  00000688  0002f978  RWIX
+  SDRAM                 00040000   003e0000  000000bc  003dff44  RWIX
+
+
+SECTION ALLOCATION MAP
+(Addresses surrounded by []'s are displayed for convenience only!)
+
+output                                                          attributes/
+section   page  orgn(bytes) orgn(words) len(bytes) len(words)   input sections
+--------  ----  ----------- ----------- ---------- ----------   --------------
+.pinit       0   [ 00040000 ]  00020000          *   00000000   UNINITIALIZED
+
+.stack       0   [ 00000100 ]  00000080          *   00000400   UNINITIALIZED
+                 [ 00000100 ]  00000080          *   00000400   --HOLE--
+
+.sysstack 
+*            0   [ 00000900 ]  00000480          *   00000400   UNINITIALIZED
+                 [ 00000900 ]  00000480          *   00000400   --HOLE--
+
+vectors      0     00001100  [ 00000880 ] 00000100          *   
+                   00001100  [ 00000880 ] 00000100          *   rts55x.lib : vectors.obj (vectors)
+
+.csldata     0   [ 00001200 ]  00000900          *   0000002e   UNINITIALIZED
+                 [ 00001200 ]  00000900          *   00000022   csl5509ax.lib : csl_csldat.obj (.csldata:SYS_data)
+                 [ 00001244 ]  00000922          *   0000000c                 : csl_timdat.obj (.csldata:TIMER_data)
+
+.vectors     0     00008000  [ 00004000 ] 00000100          *   
+                   00008000  [ 00004000 ] 00000100          *   vectors.obj (.vectors)
+
+.bss         0   [ 00008100 ]  00004080          *   00000016   UNINITIALIZED
+                 [ 00008100 ]  00004080          *   0000000e   timer.obj (.bss)
+                 [ 0000811c ]  0000408e          *   00000004   rts55x.lib : _lock.obj (.bss)
+                 [ 00008124 ]  00004092          *   00000004              : exit.obj (.bss)
+
+.text        0     00010000  [ 00008000 ] 00000688          *   
+                   00010000  [ 00008000 ] 0000010e          *   csl5509ax.lib : tim_rstt.obj (.text:TIMER_reset)
+                   0001010e  [ 00008087 ] 00000002          *   rts55x.lib : vectors.obj (.text)
+                   00010110  [ 00008088 ] 000000d3          *   csl5509ax.lib : tim_open.obj (.text:TIMER_open)
+                   000101e3  [ 000080f1+] 000000a7          *   timer.obj (.text)
+                   0001028a  [ 00008145 ] 00000089          *   csl5509ax.lib : irq_pluga.obj (.text)
+                   00010313  [ 00008189 ] 00000001          *   --HOLE-- [fill = 20]
+                   00010314  [ 0000818a ] 0000006e          *                 : pll_cfg.obj (.text:PLL_config)
+                   00010382  [ 000081c1 ] 00000002          *   vectors.obj (.text)
+                   00010384  [ 000081c2 ] 00000068          *   csl5509ax.lib : irq_enab.obj (.text:IRQ_enable)
+                   000103ec  [ 000081f6 ] 00000050          *                 : tim_cfg.obj (.text:TIMER_config)
+                   0001043c  [ 0000821e ] 0000004d          *   rts55x.lib : autoinit.obj (.text)
+                   00010489  [ 00008244+] 0000004b          *              : args_main.obj (.text)
+                   000104d4  [ 0000826a ] 0000004a          *   timer.obj (.text:retain)
+                   0001051e  [ 0000828f ] 0000003e          *   rts55x.lib : exit.obj (.text)
+                   0001055c  [ 000082ae ] 00000037          *   csl5509ax.lib : irq_clear.obj (.text:IRQ_clear)
+                   00010593  [ 000082c9 ] 00000001          *   --HOLE-- [fill = 20]
+                   00010594  [ 000082ca ] 00000037          *                 : irq_setvecs.obj (.text:IRQ_setVecs)
+                   000105cb  [ 000082e5+] 00000034          *   rts55x.lib : boot.obj (.text)
+                   000105ff  [ 000082ff ] 00000001          *   --HOLE-- [fill = 20]
+                   00010600  [ 00008300 ] 00000020          *   csl5509ax.lib : tim_start.obj (.text:TIMER_start)
+                   00010620  [ 00008310 ] 00000012          *   rts55x.lib : _lock.obj (.text)
+                   00010632  [ 00008319 ] 00000002          *   --HOLE-- [fill = 20]
+                   00010634  [ 0000831a ] 0000000f          *   csl5509ax.lib : irq_gdisab.obj (.text:IRQ_globalDisable)
+                   00010643  [ 00008321 ] 00000001          *   --HOLE-- [fill = 20]
+                   00010644  [ 00008322 ] 0000000f          *                 : irq_genab.obj (.text:IRQ_globalEnable)
+                   00010653  [ 00008329 ] 00000001          *   --HOLE-- [fill = 20]
+                   00010654  [ 0000832a ] 0000000d          *                 : _csl_init.obj (.text:_CSL_init)
+                   00010661  [ 00008330 ] 00000003          *   --HOLE-- [fill = 20]
+                   00010664  [ 00008332 ] 0000000c          *                 : csl.obj (.text:CSL_init)
+                   00010670  [ 00008338 ] 0000000c          *                 : irq_grest.obj (.text:IRQ_globalRestore)
+                   0001067c  [ 0000833e ] 00000007          *   rts55x.lib : exit.obj (.text:CIO_breakpoint)
+                   00010683  [ 00008341 ] 00000001          *   --HOLE-- [fill = 20]
+                   00010684  [ 00008342 ] 00000002          *   csl5509ax.lib : csl.obj (.text)
+                   00010686  [ 00008343 ] 00000002          *   --HOLE-- [fill = 20]
+
+.cinit       0   [ 00040000 ]  00020000          *   0000005e   
+                 [ 00040000 ]  00020000          *   00000025   csl5509ax.lib : csl_csldat.obj (.cinit)
+                 [ 0004004a ]  00020025          *   00000015   timer.obj (.cinit)
+                 [ 00040074 ]  0002003a          *   0000000f   csl5509ax.lib : csl_timdat.obj (.cinit)
+                 [ 00040092 ]  00020049          *   0000000a   rts55x.lib : _lock.obj (.cinit)
+                 [ 000400a6 ]  00020053          *   0000000a              : exit.obj (.cinit)
+                 [ 000400ba ]  0002005d          *   00000001   --HOLE-- [fill = 0]
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+00000002                $TI_capability$C5500$CallingConvention
+00000002                $TI_capability$C5500$MemoryModel
+00000001                $TI_capability_requires_rev2
+            00004080    .bss
+00010000                .text
+0001067d                C$$EXIT
+00010684                _CSL5509A_LIB_
+            00000900    _CSL_SysData
+            00000922    _CSL_TimerData
+00010664                _CSL_init
+0001055c                _IRQ_clear
+00010384                _IRQ_enable
+00010634                _IRQ_globalDisable
+00010644                _IRQ_globalEnable
+00010670                _IRQ_globalRestore
+0001028a                _IRQ_plug
+00010594                _IRQ_setVecs
+00010314                _PLL_config
+00001100                _Reset
+000103ec                _TIMER_config
+00010110                _TIMER_open
+00010000                _TIMER_reset
+00010600                _TIMER_start
+00008000                _VECSTART
+00010654                __CSL_init
+            00000480    __STACK_END
+00000800                __STACK_SIZE
+00000800                __SYSSTACK_SIZE
+00000001                __TI_args_main
+ffffffff                ___binit__
+            00004080    ___bss__
+ffffffff                ___c_args__
+            00020000    ___cinit__
+            00004096    ___end__
+00010688                ___etext__
+ffffffff                ___pinit__
+00010000                ___text__
+00010489                __args_main
+            00004092    __cleanup_ptr
+            00004094    __dtors_ptr
+            0000408e    __lock
+00010630                __nop
+00010628                __register_lock
+00010620                __register_unlock
+            00000080    __stack
+            00000480    __sysstack
+            00004090    __unlock
+0001067c                _abort
+0001043c                _auto_init
+000105cb                _c_int00
+            00004083    _eventId0
+0001051e                _exit
+000101f3                _main
+            00004084    _mhTimer0
+            0000408a    _myConfig
+            00004087    _old_intm
+            00004080    _timCfg0
+            00004088    _tim_val
+000104d4                _timer0Isr
+            00004086    _timer0_cnt
+            00004089    _xfchange
+ffffffff                binit
+            00020000    cinit
+            00004096    end
+00010688                etext
+00008010                int0
+00008018                int1
+00008060                int10
+00008068                int11
+00008070                int12
+00008078                int13
+00008080                int14
+00008088                int15
+00008090                int16
+00008098                int17
+000080a0                int18
+000080a8                int19
+00008020                int2
+000080b0                int20
+000080b8                int21
+000080c0                int22
+000080c8                int23
+000080d0                int24
+000080d8                int25
+000080e0                int26
+000080e8                int27
+000080f0                int28
+000080f8                int29
+00008028                int3
+00008030                int4
+00008038                int5
+00008040                int6
+00008048                int7
+00008050                int8
+00008058                int9
+00008008                nmi
+00010382                no_isr
+ffffffff                pinit
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+00000001                $TI_capability_requires_rev2
+00000001                __TI_args_main
+00000002                $TI_capability$C5500$CallingConvention
+00000002                $TI_capability$C5500$MemoryModel
+            00000080    __stack
+00000800                __STACK_SIZE
+00000800                __SYSSTACK_SIZE
+            00000480    __STACK_END
+            00000480    __sysstack
+00001100                _Reset
+            00000900    _CSL_SysData
+            00000922    _CSL_TimerData
+00008000                _VECSTART
+00008008                nmi
+00008010                int0
+00008018                int1
+00008020                int2
+00008028                int3
+00008030                int4
+00008038                int5
+00008040                int6
+00008048                int7
+00008050                int8
+00008058                int9
+00008060                int10
+00008068                int11
+00008070                int12
+00008078                int13
+00008080                int14
+00008088                int15
+00008090                int16
+00008098                int17
+000080a0                int18
+000080a8                int19
+000080b0                int20
+000080b8                int21
+000080c0                int22
+000080c8                int23
+000080d0                int24
+000080d8                int25
+000080e0                int26
+000080e8                int27
+000080f0                int28
+000080f8                int29
+            00004080    .bss
+            00004080    ___bss__
+            00004080    _timCfg0
+            00004083    _eventId0
+            00004084    _mhTimer0
+            00004086    _timer0_cnt
+            00004087    _old_intm
+            00004088    _tim_val
+            00004089    _xfchange
+            0000408a    _myConfig
+            0000408e    __lock
+            00004090    __unlock
+            00004092    __cleanup_ptr
+            00004094    __dtors_ptr
+            00004096    ___end__
+            00004096    end
+00010000                .text
+00010000                _TIMER_reset
+00010000                ___text__
+00010110                _TIMER_open
+000101f3                _main
+0001028a                _IRQ_plug
+00010314                _PLL_config
+00010382                no_isr
+00010384                _IRQ_enable
+000103ec                _TIMER_config
+0001043c                _auto_init
+00010489                __args_main
+000104d4                _timer0Isr
+0001051e                _exit
+0001055c                _IRQ_clear
+00010594                _IRQ_setVecs
+000105cb                _c_int00
+00010600                _TIMER_start
+00010620                __register_unlock
+00010628                __register_lock
+00010630                __nop
+00010634                _IRQ_globalDisable
+00010644                _IRQ_globalEnable
+00010654                __CSL_init
+00010664                _CSL_init
+00010670                _IRQ_globalRestore
+0001067c                _abort
+0001067d                C$$EXIT
+00010684                _CSL5509A_LIB_
+00010688                ___etext__
+00010688                etext
+            00020000    ___cinit__
+            00020000    cinit
+ffffffff                ___binit__
+ffffffff                ___c_args__
+ffffffff                ___pinit__
+ffffffff                binit
+ffffffff                pinit
+
+[98 symbols]

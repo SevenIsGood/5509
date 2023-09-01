@@ -1,0 +1,162 @@
+This file describes  modifications between trunk and C55.
+
+1. confidence.h
+CM_MAX_WORD set from MAX_WORD_UTT to 10. - Should change MAX_WORD_UTT.
+
+2. confidence_user.h 
+CM_hypo and ConfType types moved to gmhmm_type.h. The 
+user does not need to know the details of these structures?
+
+3. dist.c 
+Added casts for operations.
+
+4. dist_user.h
+Added casts for operations.
+
+5. engine_sireco_init.c
+Added  tiesr->SADState to expose state.
+
+6. gmhmm.h
+
+Reduced sizes of MAX_STR, MAX_WORD, MAX_FRM_NBR. Add pointer cast.
+
+7. gmhmm_si_api.h 
+Added aDoSearch in declaration of CallSearchEngine. Needs to be fixed in trunk
+
+8. gmhmm_type.h
+
+Moved CM_hypo and ConfType types from confidence_user.h.
+CM_SIZE set to 1000
+Added buf_idx to gmhmm_type so that tiesr can run continuously even when
+signal_cnt limits.
+Implemented Boolean type so C++ not assumed
+Changed from short pointer to type pointers in gmhmm_type for type checking-
+MODEL_PRUNE_type,NssType,ConfType
+
+9. gmhmm_type_common.c 
+Cast NULL
+
+10. hlr_status.h
+fix enum comma at end
+
+11. jac-estm.c
+Copyrights for 2011
+Added my_fileio.h control
+cast NULL as needed
+changed to my_* for files as needed
+
+12. jac-estm.h
+Removed duplicate GET_NORM def.
+
+13. jac_one.c
+Removed Safety check in wsva_var_scale. Why? 
+Changed computation in sva_weightedSVA. Why?
+This was not removed for C55, but rather added in trunk. It should be merged
+into C55 branch. See comments on bug #1326. This also affects sbc.
+
+14. jac_one.h
+Changed NOISEWAIT to 5
+
+Removed MAX_DIM_WSVA_STATIC and MAX_DIM_WSVA_DELTA. Why? How is the
+polynomial wsva_polycoef handled? 
+
+Same as (13 above - added in trunk, and should be merged into C55 branch.
+
+15. liveproc.c
+Many changes so that JAC can run continuously prior to speech detection. Should
+be merged into trunk.
+
+16. load.c
+Made changes for different file name separators, and using my_*. Should not be
+merged back to trunk.
+Added some casts.
+
+17. load_user.h
+Declarations of load_word list and load_mu. I don't think these are necessary
+for non-C55 for now.
+
+18. mfcc_f.c
+Added code in several places of trunk to handle all zero inputs - rev 74 #1350
+This should be merged into C55 branch.
+
+19. noise_sub.c
+Some cast additions
+Modified calls to use my_* io functions
+Removed mem_alloc control from trunk to use plain malloc.
+
+These changes not needed in trunk at this time.
+
+20.noise_sub.h
+Remove declaration of memory to manage. Changes not needed in trunk.
+
+21. pmc_f.c
+Added casts for C55
+
+22. rapidsearch.c
+Added casts and changes for calls to my_* io.
+Removed using of mem_alloc control. Do not change trunk.
+Trunk has parameters for vad moved to rapidsearch.h where they should be.
+Perhaps this should be included in C55 branch.
+
+23. rapidsearch.h
+Trunk has constants and structures in rapidsearch.h rather than rapidsearch.c,
+so no need to change trunk.
+
+24. sbc.c
+Trunk has code to allow MFCC priors of any dimension (rev 57 #1326). Should be
+merged into C55 branch.
+Mods to use my_* file io
+Removal of mem_alloc and replace with malloc. Do not merge into trunk.
+
+25. sbc.h
+Trunk has parameters for limited sbc priors. Should be merged into C55 branch.
+
+26. sbc_struct_user.h
+C55 removes the base memory that sbc manages. Do not merge to trunk.
+
+27. search.c
+Casts added.
+Move local variables zt th_n
+Adds #ifdefs for pruning so code not added if not enabled - constant array powt
+only if pruning enabled. Reset only if real time guard. Should be included in
+trunk.
+Set symcode and frm to -1 in C55. should not merge to trunk.
+
+28. search_user.h
+In C55 change BEAM_CELL_LIMIT, introduce TOTAL_BSS. Not needed in trunk.
+
+29. siinit.c
+
+Change allocation of data going into gv, modify for my_* io, and add casts. Do
+not merge these to trunk.
+
+30. siproc.c
+Modify for my_* and add casts. Do not merge these to trunk.
+
+31. status.h
+C55 moved definition of utterance detector state to status.h. Merge to trunk,
+since now the state is exposed to user.
+
+32. tiesr_config.h
+Changes for C55 selections. Trunk does not need to change.
+
+33. tiesr_engine_api_sireco.h
+C55 puts additional argument on CallSearchEngine for specifying to run
+recognition. Also adds the SADState function to obtain the state of SAD. Should
+be merged to trunk.
+
+34. tiesrcommonmacros.h
+Minor ifdefs for C55. Do not merge with trunk.
+
+35. uttdet.c
+Added SADState function and corrected tmp_l declaration. Merge to trunk.
+
+36. uttdet.h
+Added casts. Do not merge with trunk.
+
+37. uttdet_user.h
+Added SADState function. Merge to trunk.
+
+38. winlen.h
+Added C55 specific handling parameters. Do not merge with trunk.
+

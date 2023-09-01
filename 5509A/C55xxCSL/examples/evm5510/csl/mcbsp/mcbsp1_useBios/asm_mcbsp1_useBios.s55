@@ -1,0 +1,63 @@
+* Copyright (C) 2003 Texas Instruments Incorporated
+* All Rights Reserved
+*
+*
+*---------asm_mcbsp1_useBios.s55---------
+*
+* Assembly file for ISR wrappers
+*
+
+    .include std.h55        ; work-around ".model mem=large" problem
+
+    .include hwi.h55
+    .include c55.h55
+
+C55_IER0_RINT0_MASK     .set    0x0020
+C55_IER1_XINT0_MASK     .set    0x0002
+
+    .sect ".bios"
+
+    .def _read_isr_wrap, _write_isr_wrap
+    .ref _read_isr, _write_isr
+
+_read_isr_wrap: 
+        ;
+        ; Save all registers that forms part of C context.
+        ;
+        ; Don't mask any interrupts since we want to be able
+        ; to directly control them in the ISR.  It's OK to not
+        ; disable this interrupt since it won't nest itself due
+        ; to the logic in _write_isr and loopback coupling with
+        ; the _write_isr ISR.
+        ;
+        HWI_enter C55_AR_DR_SAVE_BY_CALLER_MASK, C55_ACC_SAVE_BY_CALLER_MASK, C55_MISC1_SAVE_BY_CALLER_MASK, C55_MISC2_SAVE_BY_CALLER_MASK, C55_MISC3_SAVE_BY_CALLER_MASK, 0, 0
+
+        call  _read_isr
+
+        ;
+        ; Restore all registers that form part of C context
+        ;
+        HWI_exit C55_AR_DR_SAVE_BY_CALLER_MASK, C55_ACC_SAVE_BY_CALLER_MASK, C55_MISC1_SAVE_BY_CALLER_MASK, C55_MISC2_SAVE_BY_CALLER_MASK, C55_MISC3_SAVE_BY_CALLER_MASK, 0, 0
+
+
+_write_isr_wrap: 
+        ;
+        ; Save all registers that forms part of C context.
+        ;
+        ; Disable the receive ISR (_read_isr) since it would fire
+        ; (due to the loopback) as soon as _write_isr writes to the
+        ; McBSP.  Don't disable this interrupt (_write_isr) since we
+        ; want to be able to directly control it in _write_isr.
+        ;
+        HWI_enter C55_AR_DR_SAVE_BY_CALLER_MASK, C55_ACC_SAVE_BY_CALLER_MASK, C55_MISC1_SAVE_BY_CALLER_MASK, C55_MISC2_SAVE_BY_CALLER_MASK, C55_MISC3_SAVE_BY_CALLER_MASK, C55_IER0_RINT0_MASK, 0
+
+        call  _write_isr
+
+        ;
+        ; Restore all registers that form part of C context
+        ;
+        HWI_exit C55_AR_DR_SAVE_BY_CALLER_MASK, C55_ACC_SAVE_BY_CALLER_MASK, C55_MISC1_SAVE_BY_CALLER_MASK, C55_MISC2_SAVE_BY_CALLER_MASK, C55_MISC3_SAVE_BY_CALLER_MASK, C55_IER0_RINT0_MASK, 0
+
+    .end
+
+*------------------------------------------------------------------------------

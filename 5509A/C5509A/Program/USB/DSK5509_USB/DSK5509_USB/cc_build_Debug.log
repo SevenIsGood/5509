@@ -1,0 +1,9 @@
+--------------------------  DSK5509_USB.pjt - Debug  --------------------------
+"d:\ti5000\c5500\cgtools\bin\cl55" -g -q -pdv -fr"E:/DSK5509_USB/Debug" -d"_DEBUG" -d"CHIP_5509" -ml -@"Debug.lkf" "DSK5509_USB.c"
+
+"d:\ti5000\c5500\cgtools\bin\cl55" -g -q -pdv -fr"E:/DSK5509_USB/Debug" -d"_DEBUG" -d"CHIP_5509" -ml -@"Debug.lkf" "vectors.s55"
+
+"d:\ti5000\c5500\cgtools\bin\cl55" -@"Debug.lkf"
+
+Build Complete,
+  0 Errors, 0 Warnings, 0 Remarks.

@@ -1,0 +1,173 @@
+/* The Startup() function is executed when the GEL file is loaded. */
+
+StartUp()
+{
+	C5509_Init();
+
+	GEL_TextOut("Gel StartUp Complete.\n");
+}
+
+menuitem "C5509_Configuration";
+hotmenu CPU_Reset()
+{
+	GEL_Reset();
+
+	GEL_TextOut("CPU Reset Complete.\n");
+}
+
+
+/* Memory map based on MP/MC value=1 (BOOTM[2:0]=0).    */
+
+hotmenu C5509_Init()
+{
+	GEL_Reset();
+	TMCR_Reset(); 
+
+	GEL_MapOn();
+	GEL_MapReset();
+	
+	/* Program Space */
+	GEL_MapAdd(0x0000C0,0,0x00FF40,1,1);	/* DARAM */
+	GEL_MapAdd(0x010000,0,0x030000,1,1);	/* SARAM */
+	GEL_MapAdd(0x040000,0,0x3C0000,1,1);	/* External CE0 */
+	GEL_MapAdd(0x400000,0,0x400000,1,1);	/* External CE1 */
+	GEL_MapAdd(0x800000,0,0x400000,1,1);	/* External CE2 */
+	/* For MP/MC=1 (BOOTM[2:0] = 0)  */
+	GEL_MapAdd(0xC00000,0,0x400000,1,1);	/* External CE3 */
+	/* For MP/MC=0 (BOOTM[2:0] != 0) */
+	/*GEL_MapAdd(0xC00000,0,0x3F8000,1,1);	/* External CE3 */
+	GEL_MapAdd(0xFF0000,0,0x010000,1,0);	/* PDROM        */
+
+
+	/* Data Space */
+	GEL_MapAdd(0x000000,1,0x000050,1,1);	/* MMRs */
+	GEL_MapAdd(0x000060,1,0x007FA0,1,1);	/* DARAM */
+	GEL_MapAdd(0x008000,1,0x018000,1,1);	/* SARAM */
+	GEL_MapAdd(0x020000,1,0x1E0000,1,1);	/* External CE0 */
+	GEL_MapAdd(0x200000,1,0x200000,1,1);	/* External CE1 */
+	GEL_MapAdd(0x400000,1,0x200000,1,1);	/* External CE2 */
+	/* For MP/MC=1 (BOOTM[2:0] = 0) */
+	GEL_MapAdd(0x600000,1,0x200000,1,1);	/* External CE3 */
+	/* For MP/MC=0 (BOOTM[2:0] != 0)*/
+	/*GEL_MapAdd(0x600000,1,0x1FC000,1,1);	/* External CE3 */
+	/*GEL_MapAdd(0x7FC000,1,0x004000,1,0);	/* PDROM */
+	
+	/* IO Space */
+	GEL_MapAdd(0x0001,2,0x0002,1,1);	/* IDLE CONTROL AND STATUS */
+	GEL_MapAdd(0x0800,2,0x0014,1,1);	/* EMIF */
+	GEL_MapAdd(0x0C00,2,0x000C,1,1);	/* DMA0 */
+	GEL_MapAdd(0x0C20,2,0x000C,1,1);	/* DMA1 */
+	GEL_MapAdd(0x0C40,2,0x000C,1,1);	/* DMA2 */
+	GEL_MapAdd(0x0C60,2,0x000C,1,1);	/* DMA3 */
+	GEL_MapAdd(0x0C80,2,0x000C,1,1);	/* DMA4 */
+	GEL_MapAdd(0x0CA0,2,0x000C,1,1);	/* DMA5 */
+	GEL_MapAdd(0x0E00,2,0x0001,1,1);	/* DMA GCR Reg */
+	GEL_MapAdd(0x0E03,2,0x0001,1,1);	/* DMA TCR Reg */
+	GEL_MapAdd(0x1000,2,0x0004,1,1);	/* TIMER0 */
+	GEL_MapAdd(0x1800,2,0x000D,1,1);	/* RTC */
+	GEL_MapAdd(0x1C00,2,0x0001,1,1);	/* CLKMD Reg */
+	GEL_MapAdd(0x1E00,2,0x0001,1,1);	/* USBPLL Reg */
+	GEL_MapAdd(0x2400,2,0x0004,1,1);	/* TIMER1 */
+	GEL_MapAdd(0x2800,2,0x001F,1,1);	/* MCBSP0 */
+	GEL_MapAdd(0x2C00,2,0x001F,1,1);	/* MCBSP1 */
+	GEL_MapAdd(0x3000,2,0x001F,1,1);	/* MCBSP2 */
+	GEL_MapAdd(0x3400,2,0x0002,1,1);	/* GPIO */
+	GEL_MapAdd(0x3800,2,0x0005,1,1);	/* DIE AND REV ID */
+        GEL_MapAdd(0x3C00,2,0x000D,1,1);	/* I2C */
+        GEL_MapAdd(0x4000,2,0x0004,1,1);	/* WATCHDOG TIMER */
+        GEL_MapAdd(0x4400,2,0x0006,1,1);	/* ADDRESS/GPIO/EHPI */
+        GEL_MapAdd(0x4800,2,0x001B,1,1);	/* MMC/SD1 */
+        GEL_MapAdd(0x4C00,2,0x001B,1,1);	/* MMC/SD2 */
+	GEL_MapAdd(0x5800,2,0x1000,1,1);	/* USB Regs and Buffer */
+	GEL_MapAdd(0x6800,2,0x0004,1,1);	/* ADC */
+	GEL_MapAdd(0x6C00,2,0x0001,1,1);	/* EBSR Reg */
+	GEL_MapAdd(0x7000,2,0x0002,1,1);	/* USB IDLE Regs */
+	GEL_MapAdd(0x7400,2,0x0001,1,1);	/* SROM Reg */
+
+	GEL_TextOut("C5509 Memory Map Initialization Complete.\n");
+}
+
+/*  Initialize the EMIF control registers to access          */
+/*  SBSRAM(CE0), FLASH(CE1), CPLD control & status regs(CE3) */
+
+hotmenu C5509_USB_Enable()
+{
+	GEL_MemoryFill(0x7000,2,1,0x0004);
+	GEL_TextOut("C5509 USB Module enabled.\n");
+}
+
+menuitem "C5509 EBSR Config";
+
+hotmenu Data_EMIF_En()
+{
+	GEL_MemoryFill(0x6C00,2,1,0x0200);
+	GEL_TextOut("C5509 Ext. Bus set to Data EMIF.\n");
+}
+
+hotmenu Full_EMIF_En()
+{
+	GEL_MemoryFill(0x6C00,2,1,0x0201);
+	GEL_TextOut("C5509 Ext. Bus set to Full EMIF.\n");
+}
+
+hotmenu NonMuxed_EHPI_En()
+{
+	GEL_MemoryFill(0x6C00,2,1,0x0202);
+	GEL_TextOut("C5509 Ext. Bus set to Non Muxed EHPI.\n");
+}
+
+hotmenu MuxEHPI_En()
+{
+	GEL_MemoryFill(0x6C00,2,1,0x0203);
+	GEL_TextOut("C5509 Ext. Bus set to Muxed EHPI.\n");
+}
+
+menuitem "C5509 EMIF CE0 Config";
+
+hotmenu CE0_Async16_En()
+{
+	GEL_MemoryFill(0x0803,2,1,0x1FFF);
+	GEL_TextOut("C5509 CE0 set to 16-bit Async mode.\n");
+}
+
+menuitem "C5509 EMIF CE1 Config";
+
+hotmenu CE1_Async16_En()
+{
+	GEL_MemoryFill(0x0806,2,1,0x1FFF);
+	GEL_TextOut("C5509 CE1 set to 16-bit Async mode.\n");
+}
+
+menuitem "C5509 EMIF CE2 Config";
+
+hotmenu CE2_Async16_En()
+{
+	GEL_MemoryFill(0x0809,2,1,0x1FFF);
+	GEL_TextOut("C5509 CE2 set to 16-bit Async mode.\n");
+}
+
+menuitem "C5509 EMIF CE3 Config";
+
+hotmenu CE3_Async16_En()
+{
+	GEL_MemoryFill(0x080C,2,1,0x1FFF);
+	GEL_TextOut("C5509 CE3 set to 16-bit Async mode.\n");
+}
+
+/* Initialize Test Mode Control Registers(TMCR) */ 
+/* This register selects modes for factory test */
+/* and may be corrupted when device is powered  */
+/* up with the emulator attached.  This 	*/
+/* function restores the the registers to their */
+/* default values.  There is not impact to 	*/
+/* system functionality from these writes.	*/
+TMCR_Reset() 
+{ 
+	#define TMCR_MGS3	0x07FE 
+	#define TMCR_MM		0x07FF 
+
+	*(short *)TMCR_MGS3@IO = 0x0510; 
+	*(short *)TMCR_MM@IO    = 0x0000; 
+} 
+
+

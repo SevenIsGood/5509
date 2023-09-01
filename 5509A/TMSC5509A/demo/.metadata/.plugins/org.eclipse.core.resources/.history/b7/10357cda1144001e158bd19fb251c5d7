@@ -1,0 +1,285 @@
+/****************************************************************************/
+/*                                                                          */
+/*              离散余弦变换测试                                            */
+/*                                                                          */
+/*              2014年07月27日                                              */
+/*                                                                          */
+/****************************************************************************/
+// 离散余弦变换类似于离散傅里叶变换，不过离散余弦变换只适用于实数
+// 图像的离散余弦变换是 JPEG 压缩的核心部分
+
+#include <stdio.h>                  // C 语言标准输入输出函数库
+#include <math.h>                   // C 数学函数库
+#include <csl.h>
+#include <csl_pll.h>
+#include <csl_chiphal.h>
+#include <csl_emif.h>
+#include "Dct.h"                    // DSP 图像函数库
+#include "Pic.h"
+/****************************************************************************/
+/*                                                                          */
+/*              宏定义                                                      */
+/*                                                                          */
+/****************************************************************************/
+// 离散余弦变换测试
+#define IMAGEWIDTH 			128
+#define IMAGEHEIGHT 		80
+
+
+// 离散余弦变换
+// π 及 浮点数极小值
+#define PI                3.14159
+#define F_TOL             (1e-06)
+
+// 8*8 方块个数
+#define Block_Num         ((IMAGEWIDTH*IMAGEHEIGHT/8)/8)
+
+/****************************************************************************/
+/*                                                                          */
+/*              全局变量                                                    */
+/*                                                                          */
+/****************************************************************************/
+EMIF_Config emiffig = {
+  0x221, 	//EGCR  : the MEMFREQ = 00,the clock for the memory is equal to cpu frequence
+  			//		  the WPE = 0 ,forbiden the writing posting when we debug the EMIF
+  			//        the MEMCEN = 1,the memory clock is reflected on the CLKMEM pin
+  			//        the NOHOLD = 1,HOLD requests are not recognized by the EMIF
+  0xFFFF,	//EMI_RST: any write to this register resets the EMIF state machine
+  0x3FFF,	//CE0_1:  CE0 space control register 1
+  			//        MTYPE = 011,Synchronous DRAM(SDRAM),16-bit data bus width
+  0xFFFF,   //CE0_2:  CE0 space control register 2
+  0x00FF,   //CE0_3:  CE0 space control register 3
+  			//        TIMEOUT = 0xFF;
+  0x1FFF,	//CE1_1:  CE0 space control register 1
+            //        Asynchronous, 16Bit
+  0xFFFF,	//CE1_2:  CE0 space control register 2
+  0x00FF,	//CE1_3:  CE0 space control register 3
+  0x1FFF,	//CE2_1:  CE0 space control register 1
+            //        Asynchronous, 16Bit
+  0xFFFF,	//CE2_2:  CE0 space control register 2
+  0x00FF,	//CE2_3:  CE0 space control register 3
+
+  0x7FFF,	//CE3_1:  CE0 space control register 1
+  0xFFFF,	//CE3_2:  CE0 space control register 2
+  0x00FF,	//CE3_3:  CE0 space control register 3
+
+  0x2911,   //SDC1:   SDRAM control register 1
+  			//		  TRC = 8
+  			//        SDSIZE = 0;SDWID = 0
+  			//        RFEN = 1
+  			//        TRCD = 2
+  			//        TRP  = 2
+  0x0410,	//SDPER : SDRAM period register
+  			//		  7ns *4096
+  0x07FF,    //SDINIT: SDRAM initialization register
+  			//        any write to this register to init the all CE spaces,
+  			//        do it after hardware reset or power up the C55x device
+  0x0131	//SDC2:	  SDRAM control register 2
+  			//        SDACC = 0;
+  			//        TMRD = 01;
+  			//        TRAS = 0101;
+  			//        TACTV2ACTV = 0001;
+  };
+
+/*锁相环的设置*/
+PLL_Config  myConfig	  = {
+	0, 	//IAI: the PLL locks using the same process that was underway
+		//before the idle mode was entered
+	1, 	//IOB: If the PLL indicates a break in the phase lock,
+		//it switches to its bypass mode and restarts the PLL phase-locking
+		//sequence
+	24, //PLL multiply value; multiply 24 times
+	1 	//Divide by 2 PLL divide value; it can be either PLL divide value
+		//(when PLL is enabled), or Bypass-mode divide value
+		//(PLL in bypass mode, if PLL multiply value is set to 1)
+};
+
+// 输入缓存
+#pragma DATA_ALIGN(IMG_In, 8);
+#pragma DATA_SECTION(IMG_In, ".image");
+short IMG_In[ IMAGEWIDTH*IMAGEHEIGHT ];
+// 输出
+#pragma DATA_ALIGN(IMG_Out, 8);
+#pragma DATA_SECTION(IMG_Out, ".image");
+short IMG_Out[ IMAGEWIDTH*IMAGEHEIGHT ];
+// 红色缓存
+#pragma DATA_SECTION(RED_Buf, ".image");
+short RED_Buf[ IMAGEWIDTH*IMAGEHEIGHT ];
+// 绿色缓存
+#pragma DATA_ALIGN(GREEN_Buf, 8);
+#pragma DATA_SECTION(GREEN_Buf, ".image");
+short GREEN_Buf[ IMAGEWIDTH*IMAGEHEIGHT ];
+// 蓝色缓存
+#pragma DATA_ALIGN(BLUE_Buf, 8);
+#pragma DATA_SECTION(BLUE_Buf, ".image");
+short BLUE_Buf[ IMAGEWIDTH*IMAGEHEIGHT ];
+
+
+/****************************************************************************/
+/*                                                                          */
+/*              函数声明                                                    */
+/*                                                                          */
+/****************************************************************************/
+void SDRAM_init(void);
+// 读取图片数组
+void Read_IMG(unsigned char *pImage,int nWidth,int nHeight);
+// 颜色分离
+void Color_Div(void);
+// DCT 变换
+void DCT(void);
+// IDCT 变换
+void IDCT(void);
+// 图像还原
+void Comb_IMG(void);
+
+/****************************************************************************/
+/*                                                                          */
+/*              主函数                                                      */
+/*                                                                          */
+/****************************************************************************/
+int main(void)
+{
+	int i= 0;
+	CSL_init();
+
+	/*EMIF为全EMIF接口*/
+	CHIP_RSET(XBSR,0x0a01);
+
+	/*设置系统的运行速度为144MHz*/
+	PLL_config(&myConfig);
+
+	EMIF_config(&emiffig);
+
+	//读取图片数组
+	Read_IMG((unsigned char *)gImage, IMAGEWIDTH, IMAGEHEIGHT);
+
+	//颜色分离
+	Color_Div();
+
+	//DCT变换
+	DCT();
+
+	//IDCT变换
+	IDCT();
+
+	//图像还原
+	Comb_IMG();
+
+	return 0;
+}
+
+/****************************************************************************/
+/*                                                                          */
+/*              函数                                                                                                                                                                            */
+/*                                                                          */
+/****************************************************************************/
+// 读取图片数组
+void Read_IMG(unsigned char *pImage,int nWidth,int nHeight)
+{
+	unsigned short i,j;
+
+	printf("正在读取图像...\n");
+
+	// 复制图像数组
+	for( i=0; i<nHeight; i++ )
+		for( j=0; j<nWidth; j++ )
+		{
+			IMG_In[i*nWidth+j ] = ((unsigned short)(*(pImage+1))<<8)+(*pImage);
+			//IMG_Out[i*nWidth+j ] = IMG_In[i*nWidth+j ] ;
+			pImage +=2;
+		}
+
+	printf("图像读取完成!\n");
+}
+
+
+
+// 颜色分离
+void Color_Div(void)
+{
+	unsigned short i,j;
+
+	printf("正在分离颜色...\n");
+
+	// RGB565
+	for( i=0; i<IMAGEHEIGHT; i++ )
+		for( j=0; j<IMAGEWIDTH; j++ )
+		{
+			RED_Buf[ i*IMAGEWIDTH+j ]   = ( IMG_In[ i*IMAGEWIDTH+j ] & 0xF800 ) >> 11;
+			GREEN_Buf[ i*IMAGEWIDTH+j ] = ( IMG_In[ i*IMAGEWIDTH+j ] & 0x07E0 ) >> 5;
+			BLUE_Buf[ i*IMAGEWIDTH+j ]  = ( IMG_In[ i*IMAGEWIDTH+j ] & 0x001F );
+		}
+
+	printf("颜色已分离!\n");
+}
+
+// DCT 变换
+void DCT(void)
+{
+	printf("正在进行DCT变换...\n");
+
+	// DCT 变换
+	IMG_fdct_8x8( RED_Buf,   Block_Num );
+	IMG_fdct_8x8( GREEN_Buf, Block_Num );
+	IMG_fdct_8x8( BLUE_Buf,  Block_Num );
+
+	printf("DCT变换已完成!\n");
+}
+
+// IDCT 变换
+void IDCT(void)
+{
+	unsigned short i,j;
+
+	printf("正在进行IDCT变换...\n");
+
+	// 转换成 12Q4 格式
+	for( i=0; i<IMAGEHEIGHT; i++ )
+		for( j=0; j<IMAGEWIDTH; j++ )
+		{
+			RED_Buf[ i*IMAGEWIDTH+j ]   <<= 4;
+			GREEN_Buf[ i*IMAGEWIDTH+j ] <<= 4;
+			BLUE_Buf[ i*IMAGEWIDTH+j ]  <<= 4;
+		}
+
+	// IDCT 变换
+	IMG_idct_8x8_12q4(RED_Buf,   Block_Num );
+	IMG_idct_8x8_12q4(GREEN_Buf, Block_Num );
+	IMG_idct_8x8_12q4(BLUE_Buf,  Block_Num );
+
+	printf("IDCT变换已完成！\n");
+}
+
+// 图像还原
+void Comb_IMG(void)
+{
+	unsigned short i,j, tmp;
+
+	printf("正在还原图像...\n");
+
+	// 颜色分量截取
+	for( i=0; i<IMAGEHEIGHT; i++ )
+		for( j=0; j<IMAGEWIDTH; j++ )
+		{
+			if( RED_Buf[ i*IMAGEWIDTH+j ] < 0 )
+				RED_Buf[ i*IMAGEWIDTH+j ] = 0;
+			else if( RED_Buf[ i*IMAGEWIDTH+j ] >31 )
+				RED_Buf[ i*IMAGEWIDTH+j ] = 31;
+
+			if( GREEN_Buf[ i*IMAGEWIDTH+j ] < 0 )
+				GREEN_Buf[ i*IMAGEWIDTH+j ] = 0;
+			else if( GREEN_Buf[ i*IMAGEWIDTH+j ] >63 )
+				GREEN_Buf[ i*IMAGEWIDTH+j ] = 63;
+
+			if( BLUE_Buf[ i*IMAGEWIDTH+j ] < 0 )
+				BLUE_Buf[ i*IMAGEWIDTH+j ] = 0;
+			else if( BLUE_Buf[ i*IMAGEWIDTH+j ] >31 )
+				BLUE_Buf[ i*IMAGEWIDTH+j ] = 31;
+			// 合并颜色分量
+			tmp = RED_Buf[ i*IMAGEWIDTH+j ] << 11 ;
+			IMG_Out[ i*IMAGEWIDTH+j ] = ( RED_Buf[ i*IMAGEWIDTH+j ] << 11 ) | ( GREEN_Buf[ i*IMAGEWIDTH+j ] << 5 ) | BLUE_Buf[ i*IMAGEWIDTH+j ];
+		}
+
+	printf("图像已还原!\n");
+}
+

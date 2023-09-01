@@ -1,0 +1,254 @@
+/****************************************************************************/
+/*                                                                          */
+/*              离散余弦变换测试                                            */
+/*                                                                          */
+/*              2014年07月27日                                              */
+/*                                                                          */
+/****************************************************************************/
+// 离散余弦变换类似于离散傅里叶变换，不过离散余弦变换只适用于实数
+// 图像的离散余弦变换是 JPEG 压缩的核心部分
+
+#include <stdio.h>                  // C 语言标准输入输出函数库
+#include <math.h>                   // C 数学函数库
+#include <csl.h>
+#include <csl_pll.h>
+#include <csl_chiphal.h>
+#include <csl_emif.h>
+#include "Dct.h"                    // DSP 图像函数库
+#include "Pic.h"
+/****************************************************************************/
+/*                                                                          */
+/*              宏定义                                                      */
+/*                                                                          */
+/****************************************************************************/
+// 离散余弦变换测试
+#define N 8
+#define WIDTH 			128
+#define HEIGHT 			80
+// 8*8 方块个数
+#define Block_Num         ((WIDTH*HIGH/8)/8)
+
+/****************************************************************************/
+/*                                                                          */
+/*              全局变量                                                    */
+/*                                                                          */
+/****************************************************************************/
+EMIF_Config emiffig = {
+  0x221, 	//EGCR  : the MEMFREQ = 00,the clock for the memory is equal to cpu frequence
+  			//		  the WPE = 0 ,forbiden the writing posting when we debug the EMIF
+  			//        the MEMCEN = 1,the memory clock is reflected on the CLKMEM pin
+  			//        the NOHOLD = 1,HOLD requests are not recognized by the EMIF
+  0xFFFF,	//EMI_RST: any write to this register resets the EMIF state machine
+  0x3FFF,	//CE0_1:  CE0 space control register 1
+  			//        MTYPE = 011,Synchronous DRAM(SDRAM),16-bit data bus width
+  0xFFFF,   //CE0_2:  CE0 space control register 2
+  0x00FF,   //CE0_3:  CE0 space control register 3
+  			//        TIMEOUT = 0xFF;
+  0x1FFF,	//CE1_1:  CE0 space control register 1
+            //        Asynchronous, 16Bit
+  0xFFFF,	//CE1_2:  CE0 space control register 2
+  0x00FF,	//CE1_3:  CE0 space control register 3
+  0x1FFF,	//CE2_1:  CE0 space control register 1
+            //        Asynchronous, 16Bit
+  0xFFFF,	//CE2_2:  CE0 space control register 2
+  0x00FF,	//CE2_3:  CE0 space control register 3
+
+  0x7FFF,	//CE3_1:  CE0 space control register 1
+  0xFFFF,	//CE3_2:  CE0 space control register 2
+  0x00FF,	//CE3_3:  CE0 space control register 3
+
+  0x2911,   //SDC1:   SDRAM control register 1
+  			//		  TRC = 8
+  			//        SDSIZE = 0;SDWID = 0
+  			//        RFEN = 1
+  			//        TRCD = 2
+  			//        TRP  = 2
+  0x0410,	//SDPER : SDRAM period register
+  			//		  7ns *4096
+  0x07FF,    //SDINIT: SDRAM initialization register
+  			//        any write to this register to init the all CE spaces,
+  			//        do it after hardware reset or power up the C55x device
+  0x0131	//SDC2:	  SDRAM control register 2
+  			//        SDACC = 0;
+  			//        TMRD = 01;
+  			//        TRAS = 0101;
+  			//        TACTV2ACTV = 0001;
+  };
+
+/*锁相环的设置*/
+PLL_Config  myConfig	  = {
+	0, 	//IAI: the PLL locks using the same process that was underway
+		//before the idle mode was entered
+	1, 	//IOB: If the PLL indicates a break in the phase lock,
+		//it switches to its bypass mode and restarts the PLL phase-locking
+		//sequence
+	24, //PLL multiply value; multiply 24 times
+	1 	//Divide by 2 PLL divide value; it can be either PLL divide value
+		//(when PLL is enabled), or Bypass-mode divide value
+		//(PLL in bypass mode, if PLL multiply value is set to 1)
+};
+
+// 输入缓存
+#pragma DATA_ALIGN(IMG_In, 8);
+#pragma DATA_SECTION(IMG_In, ".image");
+unsigned short IMG_In[HEIGHT][WIDTH];
+// 输出
+#pragma DATA_ALIGN(IMG_Out, 8);
+#pragma DATA_SECTION(IMG_Out, ".image");
+unsigned short IMG_Out[HEIGHT][WIDTH];
+
+
+
+
+/****************************************************************************/
+/*                                                                          */
+/*              函数声明                                                    */
+/*                                                                          */
+/****************************************************************************/
+void SDRAM_init(void);
+// 读取图片数组
+void Read_IMG(const unsigned char *p);
+
+/****************************************************************************/
+/*                                                                          */
+/*              函数                                                        */
+/*                                                                          */
+/****************************************************************************/
+// 读取图片数组
+void Read_IMG(const unsigned char *p)
+{
+	unsigned short i,j;
+
+	printf("正在读取图像...\n");
+
+	// 复制图像数组
+	for( i=0; i<HEIGHT; i++ )
+		for( j=0; j<WIDTH; j++ )
+		{
+			IMG_In[i][j] = ((*(p+1))<<8)+(*p);
+			p +=2;
+		}
+
+	printf("图像读取完成!\n");
+}
+
+// Function to perform 1D DCT on an array
+void performDCT(short data[N], short result[N]) {
+    int i, j;
+    const short W_N = 29282;  // Fixed-point value of cos(PI / (2 * N))
+    const short sqrt2_N = 23170;  // Fixed-point value of sqrt(2.0 / N)
+
+    for (i = 0; i < N; i++) {
+        result[i] = 0;
+        for (j = 0; j < N; j++) {
+            short cos_val = (j == 0) ? 23170 : 32768; // Handle special case for j == 0
+            int prod = (int)data[j] * cos_val;
+            result[i] += (short)(prod >> 15);
+        }
+        result[i] = (short)(((int)result[i] * sqrt2_N) >> 15);
+    }
+}
+
+// Function to perform 1D IDCT on an array
+void performIDCT(short dctData[N], short result[N]) {
+    int i, j;
+    const short W_N = 29282;  // Fixed-point value of cos(PI / (2 * N))
+    const short sqrt2_N = 23170;  // Fixed-point value of sqrt(2.0 / N)
+
+    for (i = 0; i < N; i++) {
+        result[i] = 0;
+        for (j = 0; j < N; j++) {
+            short cos_val = (j == 0) ? 23170 : 32768; // Handle special case for j == 0
+            int prod = (int)dctData[j] * cos_val;
+            result[i] += (short)(prod >> 15);
+        }
+        result[i] = (short)(((int)result[i] * sqrt2_N) >> 15);
+    }
+}
+
+
+// Function to process a 16-bit RGB565 image and compute DCT coefficients
+void processImage(unsigned short image[WIDTH][HEIGHT], short dctResult[N * N], int width, int height) {
+    int x, y, i, j;
+    short rgb565[N * N];
+
+    for (x = 0; x < width; x += N) {
+        for (y = 0; y < height; y += N) {
+            // Extract 8x8 block from image and convert to 8-bit
+            for (i = 0; i < N; i++) {
+                for (j = 0; j < N; j++) {
+                    unsigned short pixel = image[x + i][y + j];
+                    short r = (pixel >> 11) & 0x1F;
+                    short g = (pixel >> 5) & 0x3F;
+                    short b = pixel & 0x1F;
+                    rgb565[i * N + j] = (r << 3) | (g >> 3);
+                }
+            }
+
+            // Perform DCT on the block and store in dctResult
+            performDCT(rgb565, &dctResult[0]);
+            dctResult += N * N; // Move to the next block
+        }
+    }
+}
+
+// Function to reconstruct the original image from DCT coefficients
+void reconstructImage(unsigned short image[WIDTH][HEIGHT], short dctResult[N * N], int width, int height) {
+    int x, y, i, j;
+    short idctBlock[N * N];
+    short rgb565[N * N];
+
+    for (x = 0; x < width; x += N) {
+        for (y = 0; y < height; y += N) {
+            // Extract DCT coefficients from dctResult
+            dctResult -= N * N; // Move to the previous block
+            performIDCT(dctResult, &idctBlock[0]);
+
+            // Convert to 16-bit RGB565 format and store in image
+            for (i = 0; i < N; i++) {
+                for (j = 0; j < N; j++) {
+                    short val = idctBlock[i * N + j];
+                    val = (val < 0) ? 0 : val;
+                    val = (val > 255) ? 255 : val;
+                    image[x + i][y + j] = (val << 8) | val;
+                }
+            }
+        }
+    }
+}
+
+
+/****************************************************************************/
+/*                                                                          */
+/*              主函数                                                      */
+/*                                                                          */
+/****************************************************************************/
+int main(void)
+{
+	int i= 0;
+
+	short dctResult[WIDTH * HEIGHT];
+
+	CSL_init();
+
+	/*EMIF为全EMIF接口*/
+	CHIP_RSET(XBSR,0x0a01);
+
+	/*设置系统的运行速度为144MHz*/
+	PLL_config(&myConfig);
+
+	EMIF_config(&emiffig);
+
+	//读取图片数组
+	Read_IMG((char *)gImage);
+
+
+    // Process the image and compute DCT coefficients
+    processImage(IMG_In, dctResult, WIDTH, HEIGHT);;
+
+
+    // Reconstruct the original image from DCT coefficients
+    reconstructImage(IMG_Out, dctResult, WIDTH, HEIGHT);
+
+	return 0;
+}

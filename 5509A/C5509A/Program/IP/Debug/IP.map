@@ -1,0 +1,427 @@
+******************************************************************************
+         TMS320C55x COFF Linker PC v3.2.2                      
+******************************************************************************
+>> Linked Wed Oct 03 23:09:04 2007
+
+OUTPUT FILE NAME:   <./Debug/IP.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 00004000
+
+
+MEMORY CONFIGURATION
+
+                  name            origin    length      used    attr    fill
+                                 (bytes)   (bytes)    (bytes)
+         ----------------------  --------  ---------  --------  ----  --------
+PAGE  0: P_VECT                  00000200   00000100  00000100  R IX
+         PROG0                   00004000   00008000  000017d0  RW X
+
+PAGE  1: DATA0                   0000c000   00004000  0000154e  RW  
+
+
+SECTION ALLOCATION MAP
+(Addresses surrounded by []'s are displayed for convenience only!)
+
+output                                                          attributes/
+section   page  orgn(bytes) orgn(words) len(bytes) len(words)   input sections
+--------  ----  ----------- ----------- ---------- ----------   --------------
+.data        0   [ 00000000 ]  00000000          *   00000000   UNINITIALIZED
+
+.vectors     0     00000200  [ 00000100 ] 00000100          *   
+                   00000200  [ 00000100 ] 00000100          *   vectors_IP.obj (.vectors)
+
+.text        0     00004000  [ 00002000 ] 0000171c          *   
+                   00004000  [ 00002000 ] 00000039          *   rts55x.lib : boot.obj (.text)
+                   00004039  [ 0000201c+] 000000b6          *              : exit.obj (.text)
+                   000040ef  [ 00002077+] 00000007          *              : exit.obj (.text:CIO_breakpoint)
+                   000040f6  [ 0000207b ] 00000012          *              : _lock.obj (.text)
+                   00004108  [ 00002084 ] 0000003c          *              : args_main.obj (.text)
+                   00004144  [ 000020a2 ] 00000062          *              : autoinit.obj (.text)
+                   000041a6  [ 000020d3 ] 00001087          *   IP.obj (.text)
+                   0000522d  [ 00002916+] 000001fa          *   main.obj (.text)
+                   00005427  [ 00002a13+] 00000002          *   vectors_IP.obj (.text)
+                   00005429  [ 00002a14+] 00000012          *   rts55x.lib : memcpy.obj (.text)
+                   0000543b  [ 00002a1d+] 0000000d          *   csl5509x.lib : _csl_init.obj (.text:_CSL_init)
+                   00005448  [ 00002a24 ] 00000002          *                : csl.obj (.text)
+                   0000544a  [ 00002a25 ] 0000000c          *                : csl.obj (.text:CSL_init)
+                   00005456  [ 00002a2b ] 000000de          *                : emifA_cfg.obj (.text:EMIF_config)
+                   00005534  [ 00002a9a ] 00000037          *                : irq_clear.obj (.text:IRQ_clear)
+                   0000556b  [ 00002ab5+] 00000062          *                : irq_enab.obj (.text:IRQ_enable)
+                   000055cd  [ 00002ae6+] 0000000f          *                : irq_gdisab.obj (.text:IRQ_globalDisable)
+                   000055dc  [ 00002aee ] 0000000f          *                : irq_genab.obj (.text:IRQ_globalEnable)
+                   000055eb  [ 00002af5+] 0000000c          *                : irq_grest.obj (.text:IRQ_globalRestore)
+                   000055f7  [ 00002afb+] 00000089          *                : irq_pluga.obj (.text)
+                   00005680  [ 00002b40 ] 00000037          *                : irq_setvecs.obj (.text:IRQ_setVecs)
+                   000056b7  [ 00002b5b+] 00000064          *                : pll_cfg.obj (.text:PLL_config)
+                   0000571b  [ 00002b8d+] 00000001          *   --HOLE-- [fill = 20]
+
+.cinit       0   [ 0000571c ]  00002b8e          *   0000005a   
+                 [ 0000571c ]  00002b8e          *   00000025   csl5509x.lib : csl_csldat.obj (.cinit)
+                 [ 00005766 ]  00002bb3          *   0000001c   main.obj (.cinit)
+                 [ 0000579e ]  00002bcf          *   0000000e   rts55x.lib : exit.obj (.cinit)
+                 [ 000057ba ]  00002bdd          *   0000000a              : _lock.obj (.cinit)
+                 [ 000057ce ]  00002be7          *   00000001   --HOLE-- [fill = 0]
+
+.cio         1   [ 0000c000 ]  00006000          *   00000000   UNINITIALIZED
+
+.sysmem      1   [ 0000c000 ]  00006000          *   00000000   UNINITIALIZED
+
+.bss         1   [ 0000c000 ]  00006000          *   00000692   UNINITIALIZED
+                 [ 0000c000 ]  00006000          *   00000612   main.obj (.bss)
+                 [ 0000cc24 ]  00006612          *   00000046   rts55x.lib : exit.obj (.bss)
+                 [ 0000ccb0 ]  00006658          *   00000036   IP.obj (.bss)
+                 [ 0000cd1c ]  0000668e          *   00000004   rts55x.lib : _lock.obj (.bss)
+
+.stack       1   [ 0000cd24 ]  00006692          *   000001f4   UNINITIALIZED
+
+.sysstack 
+*            1   [ 0000d10c ]  00006886          *   000001f4   UNINITIALIZED
+
+.csldata     1   [ 0000d4f4 ]  00006a7a          *   00000022   UNINITIALIZED
+                 [ 0000d4f4 ]  00006a7a          *   00000022   csl5509x.lib : csl_csldat.obj (.csldata:SYS_data)
+
+.const       1   [ 0000d538 ]  00006a9c          *   0000000b   
+                 [ 0000d538 ]  00006a9c          *   0000000b   IP.obj (.const)
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+00000001                $TI_capability_requires_rev2
+            00006000    .bss
+            00000000    .data
+00004000                .text
+000040f0                C$$EXIT
+            0000668d    _ARPAnswerSuccessFlag
+00004d30                _ArpAnswer
+00004c38                _ArpRequest
+0000439e                _CS8019
+00005448                _CSL5509_LIB_
+            00006a7a    _CSL_SysData
+0000544a                _CSL_init
+000045e3                _CalcCheckSum
+00004bde                _CopyFrameFromBE
+00005208                _DoNetworkStuff
+00005456                _EMIF_config
+            00006004    _FrameLenth
+            00006aa5    _GatewayIP
+0000523d                _INTconfig
+00005534                _IRQ_clear
+0000556b                _IRQ_enable
+000055cd                _IRQ_globalDisable
+000055dc                _IRQ_globalEnable
+000055eb                _IRQ_globalRestore
+000055f7                _IRQ_plug
+00005680                _IRQ_setVecs
+00004428                _Init8019
+            0000667f    _IpEdition
+            00006681    _IpIdent
+            00006680    _IpServiceType
+            00006a9f    _MyIP
+            00006a9c    _MyMAC
+            00006682    _MyUdpPort
+000056b7                _PLL_config
+00004e11                _Prepare_ICMP_Answer
+00004f58                _Prepare_UDP_Frame
+00005076                _ProcessEthBroadcastFrame
+00005105                _ProcessEthIAFrame
+00004de8                _Process_ICMP_Frame
+00004f2f                _Process_UDP_Frame
+0000420e                _REGconfig
+0000433a                _RST8019
+0000488a                _RecFrame
+            00006689    _RecdFrameIP
+            00006686    _RecdFrameMAC
+            0000668b    _RecdIpFrameLenth
+            00006658    _Reg00
+            0000665a    _Reg01
+            0000665c    _Reg02
+            0000665e    _Reg03
+            00006660    _Reg04
+            00006662    _Reg05
+            00006664    _Reg06
+            00006666    _Reg07
+            00006668    _Reg08
+            0000666a    _Reg09
+            0000666c    _Reg0a
+            0000666e    _Reg0b
+            00006670    _Reg0c
+            00006672    _Reg0d
+            00006674    _Reg0e
+            00006676    _Reg0f
+            00006678    _Reg10
+            00006aa1    _RemoteIP
+            00006683    _RemoteMAC
+            000062fe    _RxEthnetFrameBuffer
+            00006005    _RxSuccessFlag
+000046be                _SendFrame
+            00006aa3    _SubnetMask
+000041f7                _SwapByte
+00004b9b                _SwapWord
+            0000667b    _TxBufFlag
+            00006007    _TxEthnetFrameBuffer
+            0000668c    _TxFrameSize
+            0000667e    _UDPUserDataLenth
+00000200                _VECSTART
+00004bb0                _WriteDWord
+0000543b                __CSL_init
+000003e8                __STACK_SIZE
+000003e8                __SYSSTACK_SIZE
+ffffffff                ___binit__
+            00006000    ___bss__
+ffffffff                ___c_args__
+            00002b8e    ___cinit__
+            00000000    ___data__
+            00000000    ___edata__
+            00006692    ___end__
+0000571c                ___etext__
+ffffffff                ___pinit__
+00004000                ___text__
+00004108                __args_main
+            00006654    __cleanup_ptr
+            00006656    __dtors_ptr
+            0000668e    __lock
+000040f6                __nop
+000040f8                __register_lock
+00004100                __register_unlock
+            00006692    __stack
+            00006886    __sysstack
+            00006690    __unlock
+000040ef                _abort
+00004099                _atexit
+00004144                _auto_init
+            00006001    _b
+            0000667c    _bnry
+00004000                _c_int00
+            0000667d    _curr
+000041c3                _ddelay
+000041a6                _delay
+            000065f8    _deminaddr
+000043e3                _disCS8019
+            00006600    _emiffig
+            000065fa    _eventId0
+00004039                _exit
+000052c8                _int1
+00005285                _main
+00005429                _memcpy
+            00006006    _ms
+            000065fc    _myConfig
+            000065fb    _old_intm
+0000430c                _page
+            000065f6    _souraddr
+            000065f5    _temp
+            0000667a    _test
+            00006000    _x
+            00006002    _y
+ffffffff                binit
+            00002b8e    cinit
+            00000000    edata
+            00006692    end
+0000571c                etext
+00000210                int0
+00000218                int1
+00000260                int10
+00000268                int11
+00000270                int12
+00000278                int13
+00000280                int14
+00000288                int15
+00000290                int16
+00000298                int17
+000002a0                int18
+000002a8                int19
+00000220                int2
+000002b0                int20
+000002b8                int21
+000002c0                int22
+000002c8                int23
+000002d0                int24
+000002d8                int25
+000002e0                int26
+000002e8                int27
+000002f0                int28
+000002f8                int29
+00000228                int3
+00000230                int4
+00000238                int5
+00000240                int6
+00000248                int7
+00000250                int8
+00000258                int9
+00000208                nmi
+00005427                no_isr
+ffffffff                pinit
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+            00000000    ___data__
+            00000000    edata
+            00000000    .data
+            00000000    ___edata__
+00000001                $TI_capability_requires_rev2
+00000200                _VECSTART
+00000208                nmi
+00000210                int0
+00000218                int1
+00000220                int2
+00000228                int3
+00000230                int4
+00000238                int5
+00000240                int6
+00000248                int7
+00000250                int8
+00000258                int9
+00000260                int10
+00000268                int11
+00000270                int12
+00000278                int13
+00000280                int14
+00000288                int15
+00000290                int16
+00000298                int17
+000002a0                int18
+000002a8                int19
+000002b0                int20
+000002b8                int21
+000002c0                int22
+000002c8                int23
+000002d0                int24
+000002d8                int25
+000002e0                int26
+000002e8                int27
+000002f0                int28
+000002f8                int29
+000003e8                __STACK_SIZE
+000003e8                __SYSSTACK_SIZE
+00004000                .text
+00004000                _c_int00
+00004000                ___text__
+00004039                _exit
+00004099                _atexit
+000040ef                _abort
+000040f0                C$$EXIT
+000040f6                __nop
+000040f8                __register_lock
+00004100                __register_unlock
+00004108                __args_main
+00004144                _auto_init
+000041a6                _delay
+000041c3                _ddelay
+000041f7                _SwapByte
+0000420e                _REGconfig
+0000430c                _page
+0000433a                _RST8019
+0000439e                _CS8019
+000043e3                _disCS8019
+00004428                _Init8019
+000045e3                _CalcCheckSum
+000046be                _SendFrame
+0000488a                _RecFrame
+00004b9b                _SwapWord
+00004bb0                _WriteDWord
+00004bde                _CopyFrameFromBE
+00004c38                _ArpRequest
+00004d30                _ArpAnswer
+00004de8                _Process_ICMP_Frame
+00004e11                _Prepare_ICMP_Answer
+00004f2f                _Process_UDP_Frame
+00004f58                _Prepare_UDP_Frame
+00005076                _ProcessEthBroadcastFrame
+00005105                _ProcessEthIAFrame
+00005208                _DoNetworkStuff
+0000523d                _INTconfig
+00005285                _main
+000052c8                _int1
+00005427                no_isr
+00005429                _memcpy
+0000543b                __CSL_init
+00005448                _CSL5509_LIB_
+0000544a                _CSL_init
+00005456                _EMIF_config
+00005534                _IRQ_clear
+0000556b                _IRQ_enable
+000055cd                _IRQ_globalDisable
+000055dc                _IRQ_globalEnable
+000055eb                _IRQ_globalRestore
+000055f7                _IRQ_plug
+00005680                _IRQ_setVecs
+000056b7                _PLL_config
+            00002b8e    cinit
+0000571c                etext
+0000571c                ___etext__
+            00002b8e    ___cinit__
+            00006000    _x
+            00006000    ___bss__
+            00006000    .bss
+            00006001    _b
+            00006002    _y
+            00006004    _FrameLenth
+            00006005    _RxSuccessFlag
+            00006006    _ms
+            00006007    _TxEthnetFrameBuffer
+            000062fe    _RxEthnetFrameBuffer
+            000065f5    _temp
+            000065f6    _souraddr
+            000065f8    _deminaddr
+            000065fa    _eventId0
+            000065fb    _old_intm
+            000065fc    _myConfig
+            00006600    _emiffig
+            00006654    __cleanup_ptr
+            00006656    __dtors_ptr
+            00006658    _Reg00
+            0000665a    _Reg01
+            0000665c    _Reg02
+            0000665e    _Reg03
+            00006660    _Reg04
+            00006662    _Reg05
+            00006664    _Reg06
+            00006666    _Reg07
+            00006668    _Reg08
+            0000666a    _Reg09
+            0000666c    _Reg0a
+            0000666e    _Reg0b
+            00006670    _Reg0c
+            00006672    _Reg0d
+            00006674    _Reg0e
+            00006676    _Reg0f
+            00006678    _Reg10
+            0000667a    _test
+            0000667b    _TxBufFlag
+            0000667c    _bnry
+            0000667d    _curr
+            0000667e    _UDPUserDataLenth
+            0000667f    _IpEdition
+            00006680    _IpServiceType
+            00006681    _IpIdent
+            00006682    _MyUdpPort
+            00006683    _RemoteMAC
+            00006686    _RecdFrameMAC
+            00006689    _RecdFrameIP
+            0000668b    _RecdIpFrameLenth
+            0000668c    _TxFrameSize
+            0000668d    _ARPAnswerSuccessFlag
+            0000668e    __lock
+            00006690    __unlock
+            00006692    __stack
+            00006692    ___end__
+            00006692    end
+            00006886    __sysstack
+            00006a7a    _CSL_SysData
+            00006a9c    _MyMAC
+            00006a9f    _MyIP
+            00006aa1    _RemoteIP
+            00006aa3    _SubnetMask
+            00006aa5    _GatewayIP
+ffffffff                pinit
+ffffffff                ___binit__
+ffffffff                ___c_args__
+ffffffff                binit
+ffffffff                ___pinit__
+
+[164 symbols]

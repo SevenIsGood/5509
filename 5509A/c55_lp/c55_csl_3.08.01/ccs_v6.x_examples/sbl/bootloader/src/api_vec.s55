@@ -1,0 +1,120 @@
+********************************************************************** 
+*    Property of Texas Instruments Incorporated, Copyright 2007
+*    All rights reserved
+**********************************************************************
+*    api_vec.s55
+**********************************************************************
+* This file includes the API Call Vector table and the API Look Up 
+* Table which are combined to implement a relocate-able call table 
+* for the secure bootloader security subroutines and Media drivers.
+* This relocateable table allows user applications to call these   
+* routines out of ROM or out of RAM by relocating the API Vector   
+* Table to RAM and replacing any desired functions with new ones   
+* while still being able to use ROM functions.  The initial API    
+* Vector Table contained in this file is the ROM version which will
+* be used as the default table until or if a user application moves
+* the table to another location in ROM or more likely RAM.          
+* 
+* A 32-bit Memory location (API_PTR) is reserved to point to
+* the API Vector Table.
+**********************************************************************
+
+**********************************************************************
+* _:base:   ->   r:base:    ->   _:target:
+*
+* Example:
+*
+* _GetDieID ->   rGetDieID  ->   _vGetDieID
+* ^              ^               ^
+* |              |               |
+* |              |               +--- Defined in utils.s55
+* |              |
+* |              +-- Defined in api_vec.s55
+* |
+* +------- Defined in api_lut.s55
+**********************************************************************
+
+**********************************************************************
+* API Vector Table - This is a table of call vectors for security
+*                    routines or media drivers.  This table can be
+*                    copied to RAM and used if the API-PTR
+*                    is changed to the new location.  The symbols
+*                    defined in this table are used for calculating
+*                    the index of each function within the table.
+*                    This index is used in the API LUT to call the
+*                    proper function for use while in ROM.  If this
+*                    table is copied to RAM the symbols can be
+*                    replaced with the actual function call symbols
+*                    from the API LUT such that the API LUT code
+*                    can be skipped for this new table. Functions
+*                    in ROM will still have to go through the API
+*                    LUT process so that they will use the new API
+*                    Vector Table.
+**********************************************************************
+        .sect   "api_vect"
+        .align 4
+        
+VecMacro .macro base, target
+        .ref    _:target:
+        .def    r:base:
+r:base: goto    _:target:
+        .endm
+
+aVecMacro .macro base, target
+        .ref    :target:
+        .def    r:base:
+r:base: goto    :target:
+        .endm
+
+        .def    _ROM_API_TABLE
+_ROM_API_TABLE
+        .include "apitable.inc"
+
+
+**********************************************************************
+* Constants
+**********************************************************************
+                .def    _API_PTR
+_API_PTR        .usect "api_ptr", 2
+
+
+**********************************************************************
+* API Look Up Table - This is a table of individual look up table
+*                     routines which are used to call a function
+*                     in the API Vector Table while using a global
+*                     memory pointer to indicate which API Vector
+*                     table needs to be used at run-time.  This
+*                     table implements the relocation capability of
+*                     the call table system.
+**********************************************************************
+        .sect   "api_lut"
+_GetApiLutStart
+        AC3 = dbl(*(#_API_PTR))          ; get API-ptr
+        return
+
+**********************************************************************
+* API Function indexes - These are indexes used in the API LUT code.
+*                        These indexes indicate the offset for each
+*                        vector in the API Call Vector table.
+**********************************************************************
+VecMacro .macro base, target
+i:base: .set (r:base: - _ROM_API_TABLE)
+        .def    _:base:
+_:base:
+        call _GetApiLutStart
+        AC3 = AC3 + #i:base:             ; add API offset to base addr
+        goto AC3                         ; call API vector
+        .endm
+
+aVecMacro .macro base, target
+i:base: .set (r:base: - _ROM_API_TABLE)
+        .def    :base:
+:base:
+        call _GetApiLutStart
+        AC3 = AC3 + #i:base:             ; add API offset to base addr
+        goto AC3                         ; call API vector
+        .endm
+
+        .include "apitable.inc"
+
+        .end

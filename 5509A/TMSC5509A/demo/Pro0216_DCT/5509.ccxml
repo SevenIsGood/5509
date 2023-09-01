@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configurations XML_version="1.2" id="configurations_0">
+
+<configuration XML_version="1.2" id="Texas Instruments XDS2xx USB Emulator_0">
+        <instance XML_version="1.2" desc="Texas Instruments XDS2xx USB Emulator_0" href="connections/TIXDS2XXUSB_Connection.xml" id="Texas Instruments XDS2xx USB Emulator_0" xml="TIXDS2XXUSB_Connection.xml" xmlpath="connections"/>
+        <connection XML_version="1.2" id="Texas Instruments XDS2xx USB Emulator_0">
+            <instance XML_version="1.2" href="drivers/tixds560c55x.xml" id="drivers" xml="tixds560c55x.xml" xmlpath="drivers"/>
+            <platform XML_version="1.2" id="platform_0">
+                <instance XML_version="1.2" desc="TMS320C5509A_0" href="devices/c5509A.xml" id="TMS320C5509A_0" xml="c5509A.xml" xmlpath="devices"/>
+            <device HW_revision="1" XML_version="1.2" description="TMS320VC5509A 16-bit Fixed point ultra low power DSP" id="TMS320C5509A_0" partnum="TMS320C5509A" simulation="no">
+                    <cpu HW_revision="1.0" XML_version="1.2" description="The C55xx CPU" deviceSim="false" id="C55xx" isa="TMS320C55XX">
+                        <property Type="filepathfield" Value="..\..\..\ICETEK-VC5509-A.GEL" id="GEL File"/>
+                    </cpu>
+                </device>
+            </platform>
+        </connection>
+    </configuration>
+</configurations>

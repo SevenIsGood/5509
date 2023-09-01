@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MemoryDumperFillAction">
+		<item value="TIXDS200" key="com.ti.ccstudio.system.setup.ui.editors.connectionType"/>
+		<item value="Texas Instruments XDS2xx USB Emulator" key="com.ti.ccstudio.system.setup.ui.editors.connectionName"/>
+	</section>
+	<section name="WorkbenchPreferenceDialogSettings">
+		<item value="330" key="DIALOG_Y_ORIGIN"/>
+		<item value="946" key="DIALOG_X_ORIGIN"/>
+	</section>
+</section>

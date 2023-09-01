@@ -1,0 +1,5 @@
+-z -q -c -m"./Debug/5509gpio.map" -o"./Debug/5509gpio.out" -stack500 -sysstack500 -w -x -i"C:/CCStudio_v3.1/C5500/rtdx/lib" -i"C:/CCStudio_v3.1/C5500/csl/lib" -i"C:/CCStudio_v3.1/C5500/xdais/lib" -i"C:/CCStudio_v3.1/C5500/bios/lib" -i"C:/CCStudio_v3.1/C5500/cgtools/lib"
+"L:\EUE\EUE5509\user\programme\BELL\Debug\gpio.obj"
+"L:\EUE\EUE5509\user\programme\BELL\csl5509x.lib"
+"L:\EUE\EUE5509\user\programme\BELL\rts55x.lib"
+"L:\EUE\EUE5509\user\programme\BELL\gpio.cmd"

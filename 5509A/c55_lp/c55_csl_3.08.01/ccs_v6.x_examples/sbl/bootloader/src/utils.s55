@@ -1,0 +1,67 @@
+********************************************************************** 
+*    Property of Texas Instruments Incorporated, Copyright 2007
+*    All rights reserved
+**********************************************************************
+*    utils.s55
+**********************************************************************
+
+**********************************************************************
+* This file includes subroutines which can be used by C application
+* code to do things that the C language can't easily do.
+**********************************************************************
+* The following subroutines are implemented:
+* _branch_to  - Transfers program ctrl to boot image
+**********************************************************************
+                .def    _branch_to
+                .def    _sec_boot_fail
+                .def    _exit
+        .ref    _Reset     ; This forces the reset vector to be included
+
+**********************************************************************
+* Constants
+**********************************************************************
+           .mmregs
+
+**********************************************************************
+*     C55x Peripheral registers
+**********************************************************************
+SROM_REG   .set 1C25h     ; Secure ROM Disable Register
+
+
+        .sect ".text"
+
+
+**********************************************************************
+* branch_to - This subroutine is used to transfer program control
+* to the address passed in.
+* The following registers are used:
+*
+*    void branch_to( address );
+*
+*    AC0 - The program address to branch to.
+**********************************************************************
+_branch_to
+        goto AC0                   ; start executing the boot image
+
+
+**********************************************************************
+* sec_boot_fail - This subroutine is used as a terminal failure
+* loop for the secure boot loader.
+* The following registers are used:
+*
+*    void sec_boot_fail( void );
+**********************************************************************
+_exit
+        nop_16                     ; nice instruction to set a bkpt
+        
+_sec_boot_fail
+        AR4 = #SROM_REG            ; get pointer to Secure ROM reg
+        *AR4= #1||writeport()      ; disable SROM access from here on
+
+fatal_loop
+        nop_16                     ; nice instruction to set a bkpt
+        goto fatal_loop            ; stay here forever
+
+        return
+
+    .end

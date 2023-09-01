@@ -1,0 +1,1 @@
+"./src/vectors.obj" "./src/exint.obj" "../src/exint.cmd" -l"libc.a" -l"csl5509ax.lib" 

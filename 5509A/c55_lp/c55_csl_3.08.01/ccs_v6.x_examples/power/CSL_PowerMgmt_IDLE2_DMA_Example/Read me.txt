@@ -1,0 +1,24 @@
+Example to exhibit I2S DMA TXN IN IDLE 2 state and recovery using RTC alarm interrupt
+
+POWER - I2S DMA TXN IN IDLE2 AND RECOVERY USING RTC ALARM
+
+TEST DESCRIPTION:
+	This test configures RTC for generating an alarm 8s after it's 
+started, during which period the system is put into IDLE2 state. 
+During the same time, an I2S0(Tx)-I2S2(Rx) DMA transaction is also
+initiated. The expected RTC alarm interrupt should bring the CPU out
+of the IDLE2 state and resume execution from where it was before it
+idled out. Also, the I2S DMA transaction should have gone through 
+and the rx'ed and tx'ed data shouldn't mismatch.
+
+TEST PROCEDURE AND EXPECTED RESULT:
+Manual test with I2S0 connect to I2S2, measuring power on JP1
+ 1. Ensure JP10 CLKSEL is shorted so that usb osc is not used. 
+ 2. Run the test. The RTC alarm (expected after approx. 30s) would be set.
+ 3. Test will stop once usb clk is shut off.
+ 4. Pause and Resume the test.
+ 5. The test will also configure I2S0 as Tx and I2S2 as Rx and initiate a txfer using DMA.
+ 6. While CPU waits for DMA done, the test will execute the idle instsrn that will idle the cpu and wait for the alarm.
+ 7. Observe if the alarm interrupt got the CPU out of idle state and the I2S transaction goes through.
+ 8. A comparison of the I2S Read and Write buffers should not throw a mismatch.
+ 

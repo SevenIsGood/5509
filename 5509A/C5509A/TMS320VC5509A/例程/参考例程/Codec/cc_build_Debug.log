@@ -1,0 +1,10 @@
+-----------------------------  codec.pjt - Debug  -----------------------------
+[codec.c] "C:\CCStudio_v3.1\C5500\cgtools\bin\cl55" -g -q -fr"./Debug" -d"_DEBUG" -d"CHIP_5509A" -ml -@"Debug.lkf" "codec.c"
+"codec.c", line 193: warning: variable "keyboard_val" was set but never used
+"codec.c", line 440: warning: missing return statement at end of non-void function "scan_keyboard"
+
+[Linking...] "C:\CCStudio_v3.1\C5500\cgtools\bin\cl55" -@"Debug.lkf"
+<Linking>
+
+Build Complete,
+  0 Errors, 2 Warnings, 0 Remarks.

@@ -1,0 +1,10 @@
+--------------------------  DSK5509_USB.pjt - Debug  --------------------------
+[DSK5509_USB.c] "C:\CCStudio_v3.1\C5500\cgtools\bin\cl55" -g -q -pdv -fr"D:/5509A_pro/5509USB/Debug" -d"_DEBUG" -d"CHIP_5509" -ml -@"Debug.lkf" "DSK5509_USB.c"
+
+[vectors.s55] "C:\CCStudio_v3.1\C5500\cgtools\bin\cl55" -g -q -pdv -fr"D:/5509A_pro/5509USB/Debug" -d"_DEBUG" -d"CHIP_5509" -ml -@"Debug.lkf" "vectors.s55"
+
+[Linking...] "C:\CCStudio_v3.1\C5500\cgtools\bin\cl55" -@"Debug.lkf"
+<Linking>
+
+Build Complete,
+  0 Errors, 0 Warnings, 0 Remarks.

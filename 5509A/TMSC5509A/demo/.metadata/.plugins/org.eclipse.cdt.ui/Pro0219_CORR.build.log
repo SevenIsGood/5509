@@ -1,0 +1,21 @@
+
+**** Build of configuration Debug for project Pro0219_CORR ****
+
+"D:\\ti\\ccs5.5\\ccsv5\\utils\\bin\\gmake" -k all 
+'Building file: ../src/main.c'
+'Invoking: C5500 Compiler'
+"D:/ti/ccs5.5/ccsv5/tools/compiler/c5500_4.4.1/bin/cl55" -v5509A --memory_model=large -g --include_path="D:/ti/ccs5.5/ccsv5/tools/compiler/c5500_4.4.1/include" --include_path="../Include" --include_path="../../Include" --define=c5509a --define=CHIP_5509A --display_error_number --diag_warning=225 --ptrdiff_size=32 --preproc_with_compile --preproc_dependency="src/main.pp" --obj_directory="src"  "../src/main.c"
+"../src/main.c", line 26: warning #179-D: variable "i" was declared but never referenced
+"../src/main.c", line 26: warning #179-D: variable "j" was declared but never referenced
+'Finished building: ../src/main.c'
+' '
+'Building target: Pro0219_CORR.out'
+'Invoking: C5500 Linker'
+"D:/ti/ccs5.5/ccsv5/tools/compiler/c5500_4.4.1/bin/cl55" -v5509A --memory_model=large -g --define=c5509a --define=CHIP_5509A --display_error_number --diag_warning=225 --ptrdiff_size=32 -z -m"Pro0219_CORR.map" --stack_size=0x200 --heap_size=0x400 -i"D:/ti/ccs5.5/ccsv5/tools/compiler/c5500_4.4.1/lib" -i"D:/ti/ccs5.5/ccsv5/tools/compiler/c5500_4.4.1/include" -i"../../lib" --reread_libs --display_error_number --warn_sections --xml_link_info="Pro0219_CORR_linkInfo.xml" --rom_model --sys_stacksize=0x200 -o "Pro0219_CORR.out"  "./src/main.obj" "./src/DSPF_sp_autocor_cn.obj" "../src/corr.cmd" -l"libc.a" -l"csl5509ax.lib" 
+<Linking>
+warning #10247-D: creating output section "vectors" without a SECTIONS
+   specification
+'Finished building target: Pro0219_CORR.out'
+' '
+
+**** Build Finished ****

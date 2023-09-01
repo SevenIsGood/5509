@@ -1,0 +1,4 @@
+-z -q -c -m"./Debug/Histogram.map" -o"./Debug/Histogram.out" -x -i"D:/CCStudio_v3.3/C5500/csl/lib" -i"D:/CCStudio_v3.3/C5500/xdais/lib" -i"D:/CCStudio_v3.3/bios_5_31_02/packages/ti/bios/lib" -i"D:/CCStudio_v3.3/bios_5_31_02/packages/ti/rtdx/lib/c5500" -i"D:/CCStudio_v3.3/C5500/cgtools/lib"
+"D:\CCStudio_v3.3\MyProjects\5509 digital image processing\Histogram\Debug\Histo.obj"
+"D:\CCStudio_v3.3\MyProjects\5509 digital image processing\Histogram\Debug\InitImage.obj"
+"D:\CCStudio_v3.3\MyProjects\5509 digital image processing\Histogram\VC5509.CMD"

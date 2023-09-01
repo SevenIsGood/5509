@@ -1,0 +1,18 @@
+Example to exhibit IDLE 2 state and recovery using RTC alarm interrupt
+
+POWER - IDLE2 RECOVERY USING RTC ALARM
+
+TEST DESCRIPTION:
+	This test configures RTC for generating an alarm 8s after it's 
+started, during which period the system is put into IDLE2 state. The 
+subsequent RTC alarm interrupt should bring the CPU out of the IDLE2 
+state and resume execution from where it was before it idled out.
+
+TEST PROCEDURE AND EXPECTED RESULT: 
+ 1. Ensure JP10 CLKSEL is shorted so that usb osc is not used. 
+ 2. Run the test. The RTC alarm (expected after approx. 30s) would be set.
+ 3. Test will stop once usb clk is shut off.
+ 4. Pause and Resume the test.
+ 5. The test will execute the idle instsrn that will idle the cpu and wait for the alarm.
+ 6. Observe if the alarm interrupt got the CPU out of idle state.
+ 

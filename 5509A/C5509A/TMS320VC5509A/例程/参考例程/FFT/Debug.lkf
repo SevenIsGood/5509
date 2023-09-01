@@ -1,0 +1,3 @@
+-z -q -c -m"./Debug/Fir.map" -o"./Debug/Fir.out" -x -i"C:/CCStudio_v3.3/C5500/csl/lib" -i"C:/CCStudio_v3.3/C5500/xdais/lib" -i"C:/CCStudio_v3.3/bios_5_31_02/packages/ti/bios/lib" -i"C:/CCStudio_v3.3/bios_5_31_02/packages/ti/rtdx/lib/c5500" -i"C:/CCStudio_v3.3/C5500/cgtools/lib"
+"D:\CeShi\yx\test\FFT\Debug\FFT.obj"
+"D:\CeShi\yx\test\FFT\ICETEK-VC5509-A.cmd"

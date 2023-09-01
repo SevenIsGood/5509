@@ -1,0 +1,43 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectDir="D:\Projects\Phoenix\AVV\Phoenix_QTtests\GPT\GPT_Interrupt\"
+ProjectType=Executable
+CPUFamily=TMS320C55XX
+Tool="Compiler"
+Tool="CustomBuilder"
+Tool="DspBiosBuilder"
+Tool="Linker"
+Config="Debug"
+Config="Release"
+
+[Source Files]
+Source="..\..\cslVC5505_Lib.lib"
+Source="csl_gpt_interrupt.c"
+Source="Readme.txt"
+Source="VC5505_GPT.cmd"
+
+["Compiler" Settings: "Debug"]
+Options=-g -mg -fr"$(Proj_dir)\Debug" -i"..\..\TMS320C55XXCSL-LOWPWR\c55xx_csl\inc" -d"_DEBUG" -ml -vcore:3.3
+
+["Compiler" Settings: "Release"]
+Options=-mg -fr"$(Proj_dir)\Release" -i"$(Proj_dir)\..\inc" -i"$(Proj_dir)\..\..\inc" -ml -vcore:3.3
+
+["Linker" Settings: "Debug"]
+Options=-c -m".\Debug\GPT_Interrupt.map" -o".\Debug\GPT_Interrupt.out" -w -x -l"rts55x.lib"
+
+["Linker" Settings: "Release"]
+Options=-c -m".\Release\CSL_GPTExampale_Out.map" -o".\Release\CSL_GPTExampale_Out.out" -w -x -l"rts55x.lib"
+
+["Readme.txt" Settings: "Debug"]
+ExcludeFromBuild=true
+
+["Readme.txt" Settings: "Release"]
+ExcludeFromBuild=true
+
+["VC5505_GPT.cmd" Settings: "Debug"]
+LinkOrder=1
+
+["VC5505_GPT.cmd" Settings: "Release"]
+LinkOrder=1
+

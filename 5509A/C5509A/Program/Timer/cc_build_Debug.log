@@ -1,0 +1,10 @@
+-----------------------------  timer.pjt - Debug  -----------------------------
+"D:\ti5000\c5500\cgtools\bin\cl55" -g -q -fr"./Debug" -d"_DEBUG" -d"CHIP_5509" -@"Debug.lkf" "timer.c"
+"timer.c", line 144: warning: statement is unreachable
+
+"D:\ti5000\c5500\cgtools\bin\cl55" -g -q -fr"./Debug" -d"_DEBUG" -d"CHIP_5509" -@"Debug.lkf" "vectors.s55"
+
+"D:\ti5000\c5500\cgtools\bin\cl55" -@"Debug.lkf"
+
+Build Complete,
+  0 Errors, 1 Warnings, 0 Remarks.

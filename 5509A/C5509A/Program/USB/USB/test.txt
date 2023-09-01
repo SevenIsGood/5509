@@ -1,0 +1,10 @@
+*********************************************************************
+The data read from the endpiont 0X1 is:  
+The data received is from 0 to 0X2F.
+-----------------------------------------------------------  
+    0    0X1    0X2    0X3    0X4    0X5    0X6    0X7
+    0X8    0X9    0XA    0XB    0XC    0XD    0XE    0XF
+    0X10    0X11    0X12    0X13    0X14    0X15    0X16    0X17
+    0X18    0X19    0X1A    0X1B    0X1C    0X1D    0X1E    0X1F
+    0X20    0X21    0X22    0X23    0X24    0X25    0X26    0X27
+    0X28    0X29    0X2A    0X2B    0X2C    0X2D    0X2E    0X2F

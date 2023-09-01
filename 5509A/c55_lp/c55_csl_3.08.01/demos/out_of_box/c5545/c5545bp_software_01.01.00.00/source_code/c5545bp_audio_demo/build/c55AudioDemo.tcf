@@ -1,0 +1,206 @@
+/*
+ *  Copyright 2010 by Texas Instruments Incorporated.
+ *  All rights reserved. Property of Texas Instruments Incorporated.
+ *  Restricted rights to use, duplicate or disclose this code are
+ *  granted through contract.
+ *
+ */
+/*
+ *  ======== swi.tcf ========
+ *  Configuration script used to generate the example's configuration files
+ */
+
+utils.loadPlatform("ti.platforms.evm5515");
+
+bios.enableRealTimeAnalysis(prog);
+bios.enableMemoryHeaps(prog);
+bios.enableRtdx(prog);
+bios.enableTskManager(prog);
+
+/*
+ * Enable heaps in DARAM and define label SEG0 for heap usage.
+ */
+
+bios.DARAM.createHeap      = true;
+bios.DARAM.enableHeapLabel = true;
+bios.DARAM["heapLabel"]    = prog.extern("SEG0");
+bios.DARAM.heapSize        = 0x500;
+bios.MEM.BIOSOBJSEG = prog.get("DARAM");
+bios.MEM.MALLOCSEG = prog.get("DARAM");
+
+
+/*
+ *  Define the GBL memory model 
+ */
+
+bios.GBL.MEMORYMODEL = "LARGE";
+/* Increase the buffer size of the LOG_system LOG object */
+
+bios.LOG_system.bufLen = 512;
+
+/* Create a trace LOG object for printing basic program output.  */
+
+var trace = bios.LOG.create("trace");
+trace.bufLen = 128;
+trace.logType =  "circular";
+
+/* Create and initialize two SWI objects */
+
+var SWI_SysInit = bios.SWI.create("SWI_SysInit");
+SWI_SysInit.priority = 4;
+SWI_SysInit["fxn"] = prog.extern("swi_SysInitFxn");
+
+var SWI_AudioDataCollection = bios.SWI.create("SWI_AudioDataCollection");
+SWI_AudioDataCollection.priority = 3;
+SWI_AudioDataCollection["fxn"] = prog.extern("swi_AudioDataCollectionFxn");
+
+var SWI_AudioMicDataCollection = bios.SWI.create("SWI_AudioMicDataCollection");
+SWI_AudioMicDataCollection.priority = 3;
+SWI_AudioMicDataCollection["fxn"] = prog.extern("swi_AudioMicDataCollectionFxn");
+
+var SWI_Recognizer = bios.SWI.create("SWI_Recognizer");
+SWI_Recognizer.priority = 3;
+SWI_Recognizer["fxn"] = prog.extern("swi_RecognizerFxn");
+
+var SWI_LcdDisplay = bios.SWI.create("SWI_LcdDisplay");
+SWI_LcdDisplay.priority = 4;
+SWI_LcdDisplay["fxn"] = prog.extern("swi_LcdDisplayFxn");
+
+var SWI_updateBleFW = bios.SWI.create("SWI_updateBleFW");
+SWI_updateBleFW.priority = 2;
+SWI_updateBleFW["fxn"] = prog.extern("swi_updateBleFWFxn");
+
+var SWI_SysState = bios.SWI.create("SWI_SysState");
+SWI_SysState.priority = 4;
+SWI_SysState["fxn"] = prog.extern("swi_sysStateFxn");
+
+var SWI_AudioDataProcess = bios.SWI.create("SWI_AudioDataProcess");
+SWI_AudioDataProcess.priority = 5;
+SWI_AudioDataProcess["fxn"] = prog.extern("swi_AudioDataProcessFxn");
+
+var SWI_readSPIData = bios.SWI.create("SWI_readSPIData");
+SWI_readSPIData.priority = 3;
+SWI_readSPIData["fxn"] = prog.extern("swi_ReadSPIDataFxn");
+
+var SWI_updateDisplay = bios.SWI.create("SWI_updateDisplay");
+SWI_updateDisplay.priority = 2;
+SWI_updateDisplay["fxn"] = prog.extern("swi_UpdateDisplayFxn");
+
+var SWI_sendSPIData = bios.SWI.create("SWI_sendSPIData");
+SWI_sendSPIData.priority = 3;
+SWI_sendSPIData["fxn"] = prog.extern("swi_SendSPIDataFxn");
+
+var SWI_readAudioData = bios.SWI.create("SWI_readAudioData");
+SWI_readAudioData.priority = 4;
+SWI_readAudioData["fxn"] = prog.extern("swi_ReadAudioDataFxn");
+
+bios.MEM.BIOSSEG = prog.get("SARAM");
+bios.MEM.SYSINITSEG = prog.get("SARAM");
+bios.MEM.HWISEG = prog.get("SARAM");
+bios.MEM.RTDXTEXTSEG = prog.get("SARAM");
+
+bios.HWI.instance("HWI_INT8").fxn = prog.extern("_DMA_Isr", "asm");
+bios.HWI.instance("HWI_INT8").useDispatcher = 1;
+bios.HWI.instance("HWI_INT8").interruptMask0 = "all";
+bios.HWI.instance("HWI_INT8").interruptMask1 = "all";
+
+bios.HWI.instance("HWI_INT21").fxn = prog.extern("_GPIO_Isr", "asm");
+bios.HWI.instance("HWI_INT21").useDispatcher = 1;
+bios.HWI.instance("HWI_INT21").interruptMask0 = "all";
+bios.HWI.instance("HWI_INT21").interruptMask1 = "all";
+
+bios.HWI.instance("HWI_INT5").fxn = prog.extern("_MMCSD_Isr", "asm");
+bios.HWI.instance("HWI_INT5").useDispatcher = 1;
+bios.HWI.instance("HWI_INT5").interruptMask0 = "all";
+bios.HWI.instance("HWI_INT5").interruptMask1 = "all";
+
+var SWI_UserInput = bios.SWI.create("SWI_UserInput");
+SWI_UserInput.priority = 2;
+SWI_UserInput["fxn"] = prog.extern("swi_UserInputFxn");
+
+bios.SEM.create("SEM_mmcDone");
+
+bios.MEM.USERCOMMANDFILE = 1;
+
+bios.MEM.instance("SARAM").createHeap = 1;
+bios.MEM.MALLOCSEG = prog.get("SARAM");
+bios.MEM.BIOSOBJSEG = prog.get("SARAM");
+bios.MEM.instance("DARAM").createHeap = 0;
+bios.MEM.instance("SARAM").enableHeapLabel = 1;
+bios.MEM.instance("SARAM").heapLabel = prog.extern("SEG0");
+/* bios.MEM.instance("SARAM").heapSize = 0x8000; */ /* Gram5WordBE */
+/* bios.MEM.instance("SARAM").heapSize = 0xFA00; */ /* GramRc1BE */
+/* bios.MEM.instance("SARAM").heapSize = 0x11000; */ /* GramRc2BE */
+/* bios.MEM.instance("SARAM").heapSize = 0xFFFF; */ /* GramRc1BE_newDict */
+bios.MEM.instance("SARAM").heapSize = 0xA000; /* GramKWS and GramKWS2Be -- huge model */
+/* bios.MEM.instance("SARAM").heapSize = 32128; */ /* GramRc1WdBe -- large model */
+/* bios.MEM.instance("SARAM").heapSize = 36502; */ /* GramRc2WdBe -- huge model */
+/* bios.MEM.instance("SARAM").heapSize = 47772; */ /* GramRc3WdBe -- huge model */
+/* bios.MEM.instance("SARAM").heapSize = 50388; */ /* GramRc4WdBe -- huge model */
+/* bios.MEM.instance("SARAM").heapSize = 55548; */ /* GramRc5WdBe -- huge model */
+/* bios.MEM.instance("SARAM").heapSize = 63714; */ /* GramRc6WdBe -- huge model */
+
+bios.MEM.SYSSTACKSIZE = 0x0400;
+bios.MEM.STACKSIZE = 0x1000;
+
+bios.LOG.instance("trace").bufLen = 4096;
+
+bios.MEM.instance("SARAM").len = 0x1f000;
+bios.MEM.create("SARAM31");
+bios.MEM.instance("SARAM31").comment = "SARAM Block 31 - Used by bootloader";
+bios.MEM.instance("SARAM31").base = 0x027000;
+bios.MEM.instance("SARAM31").len = 0x1000;
+bios.MEM.instance("SARAM31").createHeap = 0;
+bios.LOG.instance("trace").bufSeg = prog.get("SARAM31");
+
+bios.MEM.create("Char_ROM");
+bios.MEM.instance("Char_ROM").comment = "Character ROM";
+bios.MEM.instance("Char_ROM").base = 0x7f0000;
+bios.MEM.instance("Char_ROM").len = 0x0300;
+bios.MEM.instance("Char_ROM").createHeap = 0;
+
+bios.CLK.TIMER1FUNC = prog.extern("gpt1Isr");
+
+bios.GBL.MEMORYMODEL = "HUGE";
+
+bios.HST.HOSTLINKTYPE = "NONE";
+bios.RTDX.ENABLERTDX = 0;
+bios.GBL.ENABLEINST = 0;
+bios.GBL.INSTRUMENTED = 0;
+bios.GBL.ENABLEALLTRC = 0; 
+bios.LOG.instance("trace").destroy();
+
+/* For C55x idle instruction */
+bios.IDL.create("IDL_userIdle");
+bios.IDL.instance("IDL_userIdle").order = 1;
+bios.IDL.instance("IDL_userIdle").fxn = prog.extern("userIdle");
+bios.IDL.instance("IDL_userIdle").calibration = 0;
+
+/* Remove timer0 (system timer) */
+/* NOTE: required for CPU load */
+bios.PRD.USECLK = 0;
+bios.CLK.ENABLECLK = 0;
+bios.HWI.instance("HWI_INT4").fxn = prog.extern("gpt1Isr");
+bios.HWI.instance("HWI_INT4").useDispatcher = 1;
+
+bios.HWI.instance("HWI_INT18").fxn = prog.extern("RTC_isr");
+bios.HWI.instance("HWI_INT18").useDispatcher = 1;
+
+/* For measuring CPU load */
+/*
+bios.GBL.CALLUSERINITFXN = 1;
+bios.GBL.USERINITFXN = prog.extern("LOAD_init");
+bios.IDL.create("loadIdl");
+bios.IDL.instance("loadIdl").order = 1;
+bios.IDL.instance("loadIdl").fxn = prog.extern("LOAD_idlefxn");
+bios.PRD.create("PRD_getLoad");
+bios.PRD.instance("PRD_getLoad").order = 2; */
+/* bios.PRD.instance("PRD_getLoad").period = 1000; */
+/* bios.PRD.instance("PRD_getLoad").period = 500;
+bios.PRD.instance("PRD_getLoad").fxn = prog.extern("prd_getLoadFxn"); */
+
+// !GRAPHICAL_CONFIG_TOOL_SCRIPT_INSERT_POINT!
+
+if (config.hasReportedError == false) {
+    prog.gen();
+}

@@ -1,0 +1,44 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectDir="D:\Data\Projects\Phoenix\AVV\Phoenix_QT\McBSP\McBSP_Interrupt\"
+ProjectType=Executable
+CPUFamily=TMS320C55XX
+Tool="Compiler"
+Tool="CustomBuilder"
+Tool="DspBiosBuilder"
+Tool="Linker"
+Config="Debug"
+Config="Release"
+
+[Source Files]
+Source="..\..\TMS320C5517CSL-LOWPWR\c55xx_csl\build\Debug\cslC5517_Lib.lib"
+Source="csl_mcbsp_interrupt.c"
+Source="csl_mcbsp_tgt.c"
+Source="Readme.txt"
+Source="VC5505_McBSP.cmd"
+
+["Compiler" Settings: "Debug"]
+Options=-g -mg -fr"$(Proj_dir)\Debug" -i"..\..\TMS320C5517CSL-LOWPWR\c55xx_csl\inc" -d"_DEBUG" -ml
+
+["Compiler" Settings: "Release"]
+Options=-mg -o2 -fr"$(Proj_dir)\Release" -ml
+
+["Linker" Settings: "Debug"]
+Options=-c -m".\Debug\McBSP_Interrupt.map" -o".\Debug\McBSP_Interrupt.out" -w -x -l"rts55x.lib"
+
+["Linker" Settings: "Release"]
+Options=-c -m".\Release\soc_mcbsp_cpu_size8_delay0.map" -o".\Release\soc_mcbsp_cpu_size8_delay0.out" -w -x -l"rts55x.lib"
+
+["Readme.txt" Settings: "Debug"]
+ExcludeFromBuild=true
+
+["Readme.txt" Settings: "Release"]
+ExcludeFromBuild=true
+
+["VC5505_McBSP.cmd" Settings: "Debug"]
+LinkOrder=1
+
+["VC5505_McBSP.cmd" Settings: "Release"]
+LinkOrder=1
+

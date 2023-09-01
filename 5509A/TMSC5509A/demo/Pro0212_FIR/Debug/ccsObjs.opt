@@ -1,0 +1,1 @@
+"./src/Fir.obj" "../src/Fir.cmd" -l"libc.a" 

@@ -1,0 +1,36 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectDir="C:\ti\myprojects\ICETEK-VC5509-C\lab5-Ioport\"
+ProjectType=Executable
+CPUFamily=TMS320C55XX
+Tool="Compiler"
+Tool="DspBiosBuilder"
+Tool="Linker"
+Config="Debug"
+Config="Release"
+
+[Source Files]
+Source="clk_init.c"
+Source="main.c"
+Source="vectors.asm"
+Source="led.cmd"
+
+["Compiler" Settings: "Debug"]
+Options=-g -q -fr"C:\ti\myprojects\ICETEK-VC5509-C\lab5-Ioport\Debug" -d"_DEBUG" -ml
+
+["Compiler" Settings: "Release"]
+Options=-q -o2 -fr"C:\ti\myprojects\ICETEK-VC5509-C\lab5-Ioport\Release"
+
+["DspBiosBuilder" Settings: "Debug"]
+Options=-v55
+
+["DspBiosBuilder" Settings: "Release"]
+Options=-v55
+
+["Linker" Settings: "Debug"]
+Options=-q -c -m".\Debug\led.map" -o".\Debug\led.out" -w -x
+
+["Linker" Settings: "Release"]
+Options=-q -c -m".\Release\led.map" -o".\Release\led.out" -w -x
+

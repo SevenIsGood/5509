@@ -1,0 +1,15 @@
+------------------------------  FFT.pjt - Debug  ------------------------------
+[FFT.c] "C:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -g -q -fr"D:/CeShi/yx/test/FFT/Debug" -d"_DEBUG" -ml -@"Debug.lkf" "FFT.c"
+"csedu.h", line 765: warning: variable "nWork" was declared but never referenced
+"csedu.h", line 767: warning: variable "fWork" was declared but never referenced
+
+[Linking...] "C:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -@"Debug.lkf"
+<Linking>
+>> 001643:   error: system error, can't open file
+                    'D:\\CeShi\\yx\\test\\FFT\\ICETEK-VC5509-A.cmd' for input:
+                    No such file or directory
+
+>> Compilation failure
+
+Build Complete,
+  2 Errors, 2 Warnings, 0 Remarks.

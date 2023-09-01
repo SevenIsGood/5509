@@ -1,0 +1,484 @@
+******************************************************************************
+         TMS320C55x COFF Linker PC v3.3.2                      
+******************************************************************************
+>> Linked Tue Sep 29 14:35:21 2009
+
+OUTPUT FILE NAME:   <./Debug/Fir.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 00000100
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+                        (bytes)   (bytes)    (bytes)   (bytes)
+----------------------  --------  ---------  --------  --------  ----  --------
+  DARAM                 00000100   00007f00  00002d07  000051f9  RWIX
+  VECT                  00008000   00000100  00000100  00000000  RWIX
+  DARAM2                00008100   00007f00  0000195e  000065a2  RWIX
+  SARAM                 00010000   00030000  00000000  00030000  RWIX
+  SDRAM                 00040000   003e0000  00000000  003e0000  RWIX
+
+
+SECTION ALLOCATION MAP
+(Addresses surrounded by []'s are displayed for convenience only!)
+
+output                                                          attributes/
+section   page  orgn(bytes) orgn(words) len(bytes) len(words)   input sections
+--------  ----  ----------- ----------- ---------- ----------   --------------
+.data        0   [ 00000000 ]  00000000          *   00000000   UNINITIALIZED
+
+.trcinit     0   [ 00000100 ]  00000080          *   00000000   UNINITIALIZED
+
+.gblinit     0   [ 00000100 ]  00000080          *   00000000   UNINITIALIZED
+
+frt          0   [ 00000100 ]  00000080          *   00000000   UNINITIALIZED
+
+.pinit       0   [ 00000100 ]  00000080          *   00000000   UNINITIALIZED
+
+.sysinit     0   [ 00000100 ]  00000080          *   00000000   UNINITIALIZED
+
+.text        0     00000100  [ 00000080 ] 0000250b          *   
+                   00000100  [ 00000080 ] 0000003b          *   rts55x.lib : boot.obj (.text)
+                   0000013b  [ 0000009d+] 000000b6          *              : exit.obj (.text)
+                   000001f1  [ 000000f8+] 00000007          *              : exit.obj (.text:CIO_breakpoint)
+                   000001f8  [ 000000fc ] 00000002          *              : vectors.obj (.text)
+                   000001fa  [ 000000fd ] 00000012          *              : _lock.obj (.text)
+                   0000020c  [ 00000106 ] 0000003c          *              : args_main.obj (.text)
+                   00000248  [ 00000124 ] 00000062          *              : autoinit.obj (.text)
+                   000002aa  [ 00000155 ] 000012d5          *   Fir.obj (.text)
+                   0000157f  [ 00000abf+] 0000021b          *   rts55x.lib : addd.obj (.text)
+                   0000179a  [ 00000bcd ] 00000212          *              : cmpd.obj (.text)
+                   000019ac  [ 00000cd6 ] 00000226          *              : cos.obj (.text)
+                   00001bd2  [ 00000de9 ] 000000e3          *              : divd.obj (.text)
+                   00001cb5  [ 00000e5a+] 0000002a          *              : fixdi.obj (.text)
+                   00001cdf  [ 00000e6f+] 00000079          *              : fixdli.obj (.text)
+                   00001d58  [ 00000eac ] 0000001b          *              : fixdu.obj (.text)
+                   00001d73  [ 00000eb9+] 00000076          *              : fixdul.obj (.text)
+                   00001de9  [ 00000ef4+] 0000000c          *              : fltid.obj (.text)
+                   00001df5  [ 00000efa+] 00000071          *              : fltlid.obj (.text)
+                   00001e66  [ 00000f33 ] 0000000e          *              : fltud.obj (.text)
+                   00001e74  [ 00000f3a ] 00000067          *              : fltuld.obj (.text)
+                   00001edb  [ 00000f6d+] 000000d1          *              : frcdivd.obj (.text)
+                   00001fac  [ 00000fd6 ] 00000013          *              : lmpy.obj (.text)
+                   00001fbf  [ 00000fdf+] 000000bf          *              : modf.obj (.text)
+                   0000207e  [ 0000103f ] 000000fa          *              : mpyd.obj (.text)
+                   00002178  [ 000010bc ] 00000010          *              : negd.obj (.text)
+                   00002188  [ 000010c4 ] 000000c1          *              : round.obj (.text)
+                   00002249  [ 00001124+] 00000200          *              : sin.obj (.text)
+                   00002449  [ 00001224+] 00000014          *              : subd.obj (.text)
+                   0000245d  [ 0000122e+] 00000041          *              : trunc.obj (.text)
+                   0000249e  [ 0000124f ] 00000076          *              : frcmpyd.obj (.text)
+                   00002514  [ 0000128a ] 000000f6          *              : ldexp.obj (.text)
+                   0000260a  [ 00001305 ] 00000001          *   --HOLE-- [fill = 20]
+
+.cinit       0   [ 0000260c ]  00001306          *   000003fe   
+                 [ 0000260c ]  00001306          *   000003cb   Fir.obj (.cinit)
+                 [ 00002da2 ]  000016d1          *   0000000e   rts55x.lib : exit.obj (.cinit)
+                 [ 00002dbe ]  000016df          *   0000000b              : sin.obj (.cinit)
+                 [ 00002dd4 ]  000016ea          *   0000000b              : cos.obj (.cinit)
+                 [ 00002dea ]  000016f5          *   0000000a              : _lock.obj (.cinit)
+                 [ 00002dfe ]  000016ff          *   00000004              : errno.obj (.cinit)
+                 [ 00002e06 ]  00001703          *   00000001   --HOLE-- [fill = 0]
+
+.vectors     0   [ 00008000 ]  00004000          *   00000000   UNINITIALIZED
+
+vectors      0     00008000  [ 00004000 ] 00000100          *   
+                   00008000  [ 00004000 ] 00000100          *   rts55x.lib : vectors.obj (vectors)
+
+.far         0   [ 00008100 ]  00004080          *   00000000   UNINITIALIZED
+
+.switch      0   [ 00008100 ]  00004080          *   00000000   UNINITIALIZED
+
+.sysmem      0   [ 00008100 ]  00004080          *   00000000   UNINITIALIZED
+
+.cio         0   [ 00008100 ]  00004080          *   00000000   UNINITIALIZED
+
+.MEM$obj     0   [ 00008100 ]  00004080          *   00000000   UNINITIALIZED
+
+.sysheap     0   [ 00008100 ]  00004080          *   00000000   UNINITIALIZED
+
+.bss         0   [ 00008100 ]  00004080          *   00000a65   UNINITIALIZED
+                 [ 00008100 ]  00004080          *   00000a0a   Fir.obj (.bss)
+                 [ 00009514 ]  00004a8a          *   00000046   rts55x.lib : exit.obj (.bss)
+                 [ 000095a0 ]  00004ad0          *   00000008              : cos.obj (.bss)
+                 [ 000095b0 ]  00004ad8          *   00000008              : sin.obj (.bss)
+                 [ 000095c0 ]  00004ae0          *   00000004              : _lock.obj (.bss)
+                 [ 000095c8 ]  00004ae4          *   00000001              : errno.obj (.bss)
+
+.sysstack 
+*            0   [ 000095cc ]  00004ae6          *   000000fa   UNINITIALIZED
+
+.stack       0   [ 000097c0 ]  00004be0          *   000000fa   UNINITIALIZED
+
+.const       0   [ 000099b4 ]  00004cda          *   00000056   
+                 [ 000099b4 ]  00004cda          *   00000016   rts55x.lib : cos.obj (.const)
+                 [ 000099e0 ]  00004cf0          *   00000014              : sin.obj (.const)
+                 [ 00009a08 ]  00004d04          *   0000000c   Fir.obj (.const)
+                 [ 00009a20 ]  00004d10          *   0000000a   rts55x.lib : ldexp.obj (.const)
+                 [ 00009a34 ]  00004d1a          *   00000008              : round.obj (.const)
+                 [ 00009a44 ]  00004d22          *   00000006              : modf.obj (.const)
+                 [ 00009a50 ]  00004d28          *   00000004              : trunc.obj (.const)
+                 [ 00009a58 ]  00004d2c          *   00000002              : fltlid.obj (.const)
+                 [ 00009a5c ]  00004d2e          *   00000002              : fltuld.obj (.const)
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+00000002                $TI_capability$C5500$MemoryModel
+00000001                $TI_capability_requires_rev2
+            00004080    .bss
+            00000000    .data
+00000100                .text
+000001f2                C$$EXIT
+00001fac                I$$LMPY
+            00004091    _ADCCLKCTL1
+            00004090    _ADCCLKDIV1
+            0000408e    _ADCCTL1
+            0000408f    _ADCDATA1
+000002e3                _CloseCTR
+00000359                _ConvertScanToChar
+000004fd                _Delay
+00000546                _Delay1
+00001506                _FIR
+0000033a                _GetKey
+0000045b                _InitCTR
+0000140f                _InputWave
+00000665                _LCDCLS
+0000031f                _LCDCMD
+00000f4a                _LCDDrawGraph
+00000cfa                _LCDDrawLine
+00000f23                _LCDGraph
+00000f32                _LCDGraph2
+00001276                _LCDPutCString
+00000c00                _LCDPutPixel
+0000087c                _LCDPutString
+00000a20                _LCDRefreshScreen
+000002aa                _LCDSetDelay
+000002b9                _LCDSetOrigin
+000002d1                _LCDSetScreenBuffer
+000011ec                _LCDWriteBytes
+00000622                _LCDWriteLeft
+0000063d                _LCDWriteRight
+            00004094    _PCR_0
+            00004096    _PCR_1
+            00004098    _PCR_2
+00000596                _RefreshLEDArray
+00008000                _Reset
+            00004093    _SPCR10
+            00004097    _SPCR12
+            00004092    _SPCR20
+            00004095    _SPCR21
+000005db                _SetLEDArray
+0000093b                _ShowTitle
+00000658                _TurnOnLCD
+000004d3                __Delay
+000007f4                __LCDCLS
+000001f4                __STACK_SIZE
+000001f4                __SYSSTACK_SIZE
+ffffffff                ___binit__
+            00004080    ___bss__
+ffffffff                ___c_args__
+            00001306    ___cinit__
+            00000000    ___data__
+            00000000    ___edata__
+            00004ae5    ___end__
+0000260b                ___etext__
+ffffffff                ___pinit__
+00000100                ___text__
+0000157f                __addd
+0000020c                __args_main
+            00004088    __bRefreshMode
+            00004acc    __cleanup_ptr
+0000196c                __cmpd
+00001bd2                __divd
+            00004ace    __dtors_ptr
+0000192e                __eqld
+00001cb5                __fixdi
+00001cdf                __fixdli
+00001d58                __fixdu
+00001d73                __fixdul
+00001de9                __fltid
+00001df5                __fltlid
+00001e66                __fltud
+00001e74                __fltuld
+00001edb                __frcdivd
+0000249e                __frcmpyd
+000018d9                __geqd
+00001883                __gtrd
+0000182b                __leqd
+            00004ae0    __lock
+000017d8                __lssd
+0000207e                __mpyd
+00001fac                __mpyli
+            00004089    __nLCDDelay
+            00004080    __nOriginX
+            00004081    __nOriginY
+            0000408a    __nScreenX0
+            0000408b    __nScreenX1
+            0000408c    __nScreenY0
+            0000408d    __nScreenY1
+            00004084    __nXLength
+            00004086    __nXWord
+            00004085    __nYLength
+            00004087    __nYWord
+00002178                __negd
+0000179a                __neqd
+0000020a                __nop
+00002188                __nround
+            00004082    __pScreen
+00000202                __register_lock
+000001fa                __register_unlock
+            00004be0    __stack
+00002449                __subd
+            00004ae6    __sysstack
+0000245d                __trunc
+            00004ae2    __unlock
+000001f1                _abort
+0000019b                _atexit
+00000248                _auto_init
+00000100                _c_int00
+000019ac                _cos
+            00004614    _dbClearKey
+            00004ae4    _errno
+0000013b                _exit
+            00004686    _f2PI
+            00004616    _fHn
+            00004688    _fIn
+            0000467a    _fInput
+            00004888    _fOut
+            0000467c    _fOutput
+            0000467e    _fSignal1
+            00004680    _fSignal2
+            00004682    _fStepSignal1
+            00004684    _fStepSignal2
+            00004648    _fXn
+            00004615    _i
+            0000409b    _k0
+            0000409c    _k1
+00002514                _ldexp
+            00004544    _ledbuf
+            00004554    _ledkey
+            00004314    _ledkey1
+            0000454c    _ledx
+00001331                _main
+00001fbf                _modf
+            000045a4    _music
+            0000409d    _nAD
+            0000409e    _nADBuf1
+            00004134    _nADBuf2
+            000041ca    _nAddStep
+            000041cd    _nCount
+            000041ce    _nCount1
+            000041cf    _nDir
+            000041d0    _nGraphBuf1
+            00004266    _nGraphBuf2
+            00004a88    _nIn
+            00004a89    _nOut
+            000041cb    _nStep
+            0000460c    _pwm
+00002249                _sin
+            0000436c    _str1
+            00004504    _str10
+            00004524    _str12
+            000043ac    _str2
+            000043fc    _str3
+            00004414    _str4
+            00004444    _str5
+            00004464    _str6
+            00004484    _str8
+            000044e4    _str9
+            000042fc    _uLed
+            000041cc    _uN
+            00004099    _uWork0
+            0000409a    _uWork1
+ffffffff                binit
+            00001306    cinit
+            00000000    edata
+            00004ae5    end
+0000260b                etext
+ffffffff                pinit
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+            00000000    edata
+            00000000    ___edata__
+            00000000    ___data__
+            00000000    .data
+00000001                $TI_capability_requires_rev2
+00000002                $TI_capability$C5500$MemoryModel
+00000100                .text
+00000100                ___text__
+00000100                _c_int00
+0000013b                _exit
+0000019b                _atexit
+000001f1                _abort
+000001f2                C$$EXIT
+000001f4                __STACK_SIZE
+000001f4                __SYSSTACK_SIZE
+000001fa                __register_unlock
+00000202                __register_lock
+0000020a                __nop
+0000020c                __args_main
+00000248                _auto_init
+000002aa                _LCDSetDelay
+000002b9                _LCDSetOrigin
+000002d1                _LCDSetScreenBuffer
+000002e3                _CloseCTR
+0000031f                _LCDCMD
+0000033a                _GetKey
+00000359                _ConvertScanToChar
+0000045b                _InitCTR
+000004d3                __Delay
+000004fd                _Delay
+00000546                _Delay1
+00000596                _RefreshLEDArray
+000005db                _SetLEDArray
+00000622                _LCDWriteLeft
+0000063d                _LCDWriteRight
+00000658                _TurnOnLCD
+00000665                _LCDCLS
+000007f4                __LCDCLS
+0000087c                _LCDPutString
+0000093b                _ShowTitle
+00000a20                _LCDRefreshScreen
+00000c00                _LCDPutPixel
+00000cfa                _LCDDrawLine
+00000f23                _LCDGraph
+00000f32                _LCDGraph2
+00000f4a                _LCDDrawGraph
+000011ec                _LCDWriteBytes
+00001276                _LCDPutCString
+00001331                _main
+0000140f                _InputWave
+00001506                _FIR
+0000157f                __addd
+0000179a                __neqd
+000017d8                __lssd
+0000182b                __leqd
+00001883                __gtrd
+000018d9                __geqd
+0000192e                __eqld
+0000196c                __cmpd
+000019ac                _cos
+00001bd2                __divd
+00001cb5                __fixdi
+00001cdf                __fixdli
+00001d58                __fixdu
+00001d73                __fixdul
+00001de9                __fltid
+00001df5                __fltlid
+00001e66                __fltud
+00001e74                __fltuld
+00001edb                __frcdivd
+00001fac                __mpyli
+00001fac                I$$LMPY
+00001fbf                _modf
+0000207e                __mpyd
+00002178                __negd
+00002188                __nround
+00002249                _sin
+00002449                __subd
+0000245d                __trunc
+0000249e                __frcmpyd
+00002514                _ldexp
+0000260b                etext
+0000260b                ___etext__
+            00001306    cinit
+            00001306    ___cinit__
+00008000                _Reset
+            00004080    .bss
+            00004080    ___bss__
+            00004080    __nOriginX
+            00004081    __nOriginY
+            00004082    __pScreen
+            00004084    __nXLength
+            00004085    __nYLength
+            00004086    __nXWord
+            00004087    __nYWord
+            00004088    __bRefreshMode
+            00004089    __nLCDDelay
+            0000408a    __nScreenX0
+            0000408b    __nScreenX1
+            0000408c    __nScreenY0
+            0000408d    __nScreenY1
+            0000408e    _ADCCTL1
+            0000408f    _ADCDATA1
+            00004090    _ADCCLKDIV1
+            00004091    _ADCCLKCTL1
+            00004092    _SPCR20
+            00004093    _SPCR10
+            00004094    _PCR_0
+            00004095    _SPCR21
+            00004096    _PCR_1
+            00004097    _SPCR12
+            00004098    _PCR_2
+            00004099    _uWork0
+            0000409a    _uWork1
+            0000409b    _k0
+            0000409c    _k1
+            0000409d    _nAD
+            0000409e    _nADBuf1
+            00004134    _nADBuf2
+            000041ca    _nAddStep
+            000041cb    _nStep
+            000041cc    _uN
+            000041cd    _nCount
+            000041ce    _nCount1
+            000041cf    _nDir
+            000041d0    _nGraphBuf1
+            00004266    _nGraphBuf2
+            000042fc    _uLed
+            00004314    _ledkey1
+            0000436c    _str1
+            000043ac    _str2
+            000043fc    _str3
+            00004414    _str4
+            00004444    _str5
+            00004464    _str6
+            00004484    _str8
+            000044e4    _str9
+            00004504    _str10
+            00004524    _str12
+            00004544    _ledbuf
+            0000454c    _ledx
+            00004554    _ledkey
+            000045a4    _music
+            0000460c    _pwm
+            00004614    _dbClearKey
+            00004615    _i
+            00004616    _fHn
+            00004648    _fXn
+            0000467a    _fInput
+            0000467c    _fOutput
+            0000467e    _fSignal1
+            00004680    _fSignal2
+            00004682    _fStepSignal1
+            00004684    _fStepSignal2
+            00004686    _f2PI
+            00004688    _fIn
+            00004888    _fOut
+            00004a88    _nIn
+            00004a89    _nOut
+            00004acc    __cleanup_ptr
+            00004ace    __dtors_ptr
+            00004ae0    __lock
+            00004ae2    __unlock
+            00004ae4    _errno
+            00004ae5    end
+            00004ae5    ___end__
+            00004ae6    __sysstack
+            00004be0    __stack
+ffffffff                pinit
+ffffffff                ___c_args__
+ffffffff                ___binit__
+ffffffff                binit
+ffffffff                ___pinit__
+
+[173 symbols]

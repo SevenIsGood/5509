@@ -1,0 +1,162 @@
+******************************************************************************
+         TMS320C55x COFF Linker PC Version 2.56                
+******************************************************************************
+>> Linked Mon Jun 28 01:26:25 2004
+
+OUTPUT FILE NAME:   <./Debug/audio.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 000004d2
+
+
+MEMORY CONFIGURATION
+
+                  name            origin    length      used    attr    fill
+                                 (bytes)   (bytes)    (bytes)
+         ----------------------  --------  ---------  --------  ----  --------
+         ROM                     00000100   00006f00  00000466  RWIX
+         RAM                     00007000   00006000  00000488  RWIX
+         SND                     0000d000   00012000  00000000  RWIX
+
+
+SECTION ALLOCATION MAP
+(Addresses surrounded by []'s are displayed for convenience only!)
+
+output                                                          attributes/
+section   page  orgn(bytes) orgn(words) len(bytes) len(words)   input sections
+--------  ----  ----------- ----------- ---------- ----------   --------------
+.text        0     00000100  [ 00000080 ] 00000434          *   
+                   00000100  [ 00000080 ] 0000014b          *   i2c.obj (.text)
+                   0000024b  [ 00000125+] 00000001          *   --HOLE-- [fill = 20]
+                   0000024c  [ 00000126 ] 0000014a          *   aic23.obj (.text)
+                   00000396  [ 000001cb ] 00000002          *   --HOLE-- [fill = 20]
+                   00000398  [ 000001cc ] 00000021          *   audio.obj (.text)
+                   000003b9  [ 000001dc+] 000000ae          *   rts55x.lib : exit.obj (.text)
+                   00000467  [ 00000233+] 0000006b          *              : autoinit.obj (.text)
+                   000004d2  [ 00000269 ] 00000048          *              : boot.obj (.text)
+                   0000051a  [ 0000028d ] 00000012          *              : _lock.obj (.text)
+                   0000052c  [ 00000296 ] 00000007          *              : exit.obj (.text:CIO_breakpoint)
+                   00000533  [ 00000299+] 00000001          *   --HOLE-- [fill = 20]
+
+.cinit       0   [ 00000534 ]  0000029a          *   00000019   
+                 [ 00000534 ]  0000029a          *   0000000e   rts55x.lib : exit.obj (.cinit)
+                 [ 00000550 ]  000002a8          *   0000000a              : _lock.obj (.cinit)
+                 [ 00000564 ]  000002b2          *   00000001   --HOLE-- [fill = 0]
+
+.data        0   [ 00007000 ]  00003800          *   00000000   UNINITIALIZED
+
+.bss         0   [ 00007000 ]  00003800          *   00000050   UNINITIALIZED
+                 [ 00007000 ]  00003800          *   00000046   rts55x.lib : exit.obj (.bss)
+                 [ 0000708c ]  00003846          *   00000006   i2c.obj (.bss)
+                 [ 00007098 ]  0000384c          *   00000004   rts55x.lib : _lock.obj (.bss)
+
+.stack       0   [ 000070a0 ]  00003850          *   000000fa   UNINITIALIZED
+
+.sysstack 
+*            0   [ 00007294 ]  0000394a          *   000000fa   UNINITIALIZED
+
+sounds       0   [ 0000d000 ]  00006800          *   00000000   UNINITIALIZED
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+            00003800    .bss
+            00003800    .data
+00000100                .text
+0000052d                C$$EXIT
+0000037c                _AIC23_Disable
+00000310                _AIC23_Init
+000002c4                _AIC23_Mixer
+0000024c                _AIC23_Write
+000003a8                _CLK_init
+00000150                _I2C_Disable
+00000100                _I2C_Init
+000001dc                _I2C_Read
+00000168                _I2C_Write
+00000270                _McBSP0_InitSlave
+000001f4                __STACK_SIZE
+000001f4                __SYSSTACK_SIZE
+            00003800    ___bss__
+            0000029a    ___cinit__
+            00003800    ___data__
+            00003800    ___edata__
+            00003850    ___end__
+00000534                ___etext__
+ffffffff                ___pinit__
+00000100                ___text__
+            00003842    __cleanup_ptr
+            00003844    __dtors_ptr
+            0000384c    __lock
+0000051a                __nop
+0000051c                __register_lock
+00000524                __register_unlock
+            00003850    __stack
+            0000394a    __sysstack
+            0000384e    __unlock
+0000052c                _abort
+00000415                _atexit
+00000467                _auto_init
+000004d2                _c_int00
+            00003846    _dspclk
+000003b9                _exit
+00000398                _main
+            0000029a    cinit
+            00003800    edata
+            00003850    end
+00000534                etext
+ffffffff                pinit
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+00000100                .text
+00000100                _I2C_Init
+00000100                ___text__
+00000150                _I2C_Disable
+00000168                _I2C_Write
+000001dc                _I2C_Read
+000001f4                __STACK_SIZE
+000001f4                __SYSSTACK_SIZE
+0000024c                _AIC23_Write
+00000270                _McBSP0_InitSlave
+000002c4                _AIC23_Mixer
+00000310                _AIC23_Init
+0000037c                _AIC23_Disable
+00000398                _main
+000003a8                _CLK_init
+000003b9                _exit
+00000415                _atexit
+00000467                _auto_init
+000004d2                _c_int00
+0000051a                __nop
+0000051c                __register_lock
+00000524                __register_unlock
+0000052c                _abort
+0000052d                C$$EXIT
+            0000029a    cinit
+00000534                etext
+00000534                ___etext__
+            0000029a    ___cinit__
+            00003800    .data
+            00003800    ___data__
+            00003800    ___edata__
+            00003800    edata
+            00003800    .bss
+            00003800    ___bss__
+            00003842    __cleanup_ptr
+            00003844    __dtors_ptr
+            00003846    _dspclk
+            0000384c    __lock
+            0000384e    __unlock
+            00003850    end
+            00003850    __stack
+            00003850    ___end__
+            0000394a    __sysstack
+ffffffff                pinit
+ffffffff                ___pinit__
+
+[45 symbols]

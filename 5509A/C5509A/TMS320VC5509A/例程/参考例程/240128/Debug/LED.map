@@ -1,0 +1,244 @@
+******************************************************************************
+         TMS320C55x COFF Linker PC v3.2.2                      
+******************************************************************************
+>> Linked Sun May 04 20:00:45 2008
+
+OUTPUT FILE NAME:   <./Debug/LED.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 0000095a
+
+
+MEMORY CONFIGURATION
+
+                  name            origin    length      used    attr    fill
+                                 (bytes)   (bytes)    (bytes)
+         ----------------------  --------  ---------  --------  ----  --------
+         DARAM                   00000100   00007f00  000019b7  RWIX
+         VECT                    00008000   00000100  00000000  RWIX
+         DARAM2                  00008100   00007f00  00001088  RWIX
+         SARAM                   00010000   00030000  00000000  RWIX
+         SDRAM                   00040000   003e0000  00000000  RWIX
+
+
+SECTION ALLOCATION MAP
+(Addresses surrounded by []'s are displayed for convenience only!)
+
+output                                                          attributes/
+section   page  orgn(bytes) orgn(words) len(bytes) len(words)   input sections
+--------  ----  ----------- ----------- ---------- ----------   --------------
+.data        0   [ 00000000 ]  00000000          *   00000000   UNINITIALIZED
+
+.trcinit     0   [ 00000100 ]  00000080          *   00000000   UNINITIALIZED
+
+.gblinit     0   [ 00000100 ]  00000080          *   00000000   UNINITIALIZED
+
+frt          0   [ 00000100 ]  00000080          *   00000000   UNINITIALIZED
+
+.pinit       0   [ 00000100 ]  00000080          *   00000000   UNINITIALIZED
+
+.sysinit     0   [ 00000100 ]  00000080          *   00000000   UNINITIALIZED
+
+.text        0     00000100  [ 00000080 ] 00000d7f          *   
+                   00000100  [ 00000080 ] 0000003f          *   clk_init.obj (.text)
+                   0000013f  [ 0000009f+] 00000571          *   LED.obj (.text)
+                   000006b0  [ 00000358 ] 0000007d          *   sdram_init.obj (.text)
+                   0000072d  [ 00000396+] 0000022d          *   rts55x.lib : addd.obj (.text)
+                   0000095a  [ 000004ad ] 00000039          *              : boot.obj (.text)
+                   00000993  [ 000004c9+] 000000f1          *              : divd.obj (.text)
+                   00000a84  [ 00000542 ] 000000b6          *              : exit.obj (.text)
+                   00000b3a  [ 0000059d ] 00000007          *              : exit.obj (.text:CIO_breakpoint)
+                   00000b41  [ 000005a0+] 0000002a          *              : fixdi.obj (.text)
+                   00000b6b  [ 000005b5+] 00000079          *              : fixdli.obj (.text)
+                   00000be4  [ 000005f2 ] 0000001b          *              : fixdu.obj (.text)
+                   00000bff  [ 000005ff+] 00000076          *              : fixdul.obj (.text)
+                   00000c75  [ 0000063a+] 0000000e          *              : fltud.obj (.text)
+                   00000c83  [ 00000641+] 00000067          *              : fltuld.obj (.text)
+                   00000cea  [ 00000675 ] 000000d1          *              : frcdivd.obj (.text)
+                   00000dbb  [ 000006dd+] 00000013          *              : lmpy.obj (.text)
+                   00000dce  [ 000006e7 ] 00000012          *              : _lock.obj (.text)
+                   00000de0  [ 000006f0 ] 0000003c          *              : args_main.obj (.text)
+                   00000e1c  [ 0000070e ] 00000062          *              : autoinit.obj (.text)
+                   00000e7e  [ 0000073f ] 00000001          *   --HOLE-- [fill = 20]
+
+.cinit       0   [ 00000e80 ]  00000740          *   0000061c   
+                 [ 00000e80 ]  00000740          *   00000603   LED.obj (.cinit)
+                 [ 00001a86 ]  00000d43          *   0000000e   rts55x.lib : exit.obj (.cinit)
+                 [ 00001aa2 ]  00000d51          *   0000000a              : _lock.obj (.cinit)
+                 [ 00001ab6 ]  00000d5b          *   00000001   --HOLE-- [fill = 0]
+
+.vectors     0   [ 00008000 ]  00004000          *   00000000   UNINITIALIZED
+
+.far         0   [ 00008100 ]  00004080          *   00000000   UNINITIALIZED
+
+.switch      0   [ 00008100 ]  00004080          *   00000000   UNINITIALIZED
+
+.sysmem      0   [ 00008100 ]  00004080          *   00000000   UNINITIALIZED
+
+.cio         0   [ 00008100 ]  00004080          *   00000000   UNINITIALIZED
+
+.MEM$obj     0   [ 00008100 ]  00004080          *   00000000   UNINITIALIZED
+
+.sysheap     0   [ 00008100 ]  00004080          *   00000000   UNINITIALIZED
+
+.bss         0   [ 00008100 ]  00004080          *   0000064a   UNINITIALIZED
+                 [ 00008100 ]  00004080          *   00000600   LED.obj (.bss)
+                 [ 00008d00 ]  00004680          *   00000046   rts55x.lib : exit.obj (.bss)
+                 [ 00008d8c ]  000046c6          *   00000004              : _lock.obj (.bss)
+
+.sysstack 
+*            0   [ 00008d94 ]  000046ca          *   000000fa   UNINITIALIZED
+
+.stack       0   [ 00008f88 ]  000047c4          *   000000fa   UNINITIALIZED
+
+.const       0   [ 0000917c ]  000048be          *   00000006   
+                 [ 0000917c ]  000048be          *   00000004   LED.obj (.const)
+                 [ 00009184 ]  000048c2          *   00000002   rts55x.lib : fltuld.obj (.const)
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+00000001                $TI_capability_requires_rev2
+            00004080    .bss
+            00000000    .data
+00000100                .text
+00000b3b                C$$EXIT
+00000dbb                I$$LMPY
+            00004080    _ASC_MSK
+000001dd                _Auto_Write
+00000100                _CLK_init
+00000253                _Clear_Screen
+00000667                _Delay
+000002f7                _Display_English_16
+000005d1                _Draw_Bar
+00000523                _Draw_Button
+00000294                _LCD_Init
+00000420                _Line
+000006b0                _SDRAM_init
+00000111                _SetDSPPLL
+0000022c                _Set_Text_Addr
+00000124                _TMCR_reset
+0000013f                _Write_Command
+0000018e                _Write_Data
+000001f4                __STACK_SIZE
+000001f4                __SYSSTACK_SIZE
+ffffffff                ___binit__
+            00004080    ___bss__
+ffffffff                ___c_args__
+            00000740    ___cinit__
+            00000000    ___data__
+            00000000    ___edata__
+            000046ca    ___end__
+00000e7f                ___etext__
+ffffffff                ___pinit__
+00000100                ___text__
+0000072d                __addd
+00000de0                __args_main
+            000046c2    __cleanup_ptr
+00000993                __divd
+            000046c4    __dtors_ptr
+00000b41                __fixdi
+00000b6b                __fixdli
+00000be4                __fixdu
+00000bff                __fixdul
+00000c75                __fltud
+00000c83                __fltuld
+00000cea                __frcdivd
+            000046c6    __lock
+00000dbb                __mpyli
+00000dce                __nop
+00000dd0                __register_lock
+00000dd8                __register_unlock
+            000047c4    __stack
+            000046ca    __sysstack
+            000046c8    __unlock
+00000b3a                _abort
+00000ae4                _atexit
+00000e1c                _auto_init
+0000095a                _c_int00
+00000a84                _exit
+0000063c                _main
+00000410                _setb
+ffffffff                binit
+            00000740    cinit
+            00000000    edata
+            000046ca    end
+00000e7f                etext
+ffffffff                pinit
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+            00000000    ___edata__
+            00000000    ___data__
+            00000000    .data
+            00000000    edata
+00000001                $TI_capability_requires_rev2
+00000100                _CLK_init
+00000100                ___text__
+00000100                .text
+00000111                _SetDSPPLL
+00000124                _TMCR_reset
+0000013f                _Write_Command
+0000018e                _Write_Data
+000001dd                _Auto_Write
+000001f4                __SYSSTACK_SIZE
+000001f4                __STACK_SIZE
+0000022c                _Set_Text_Addr
+00000253                _Clear_Screen
+00000294                _LCD_Init
+000002f7                _Display_English_16
+00000410                _setb
+00000420                _Line
+00000523                _Draw_Button
+000005d1                _Draw_Bar
+0000063c                _main
+00000667                _Delay
+000006b0                _SDRAM_init
+0000072d                __addd
+0000095a                _c_int00
+00000993                __divd
+00000a84                _exit
+00000ae4                _atexit
+00000b3a                _abort
+00000b3b                C$$EXIT
+00000b41                __fixdi
+00000b6b                __fixdli
+00000be4                __fixdu
+00000bff                __fixdul
+00000c75                __fltud
+00000c83                __fltuld
+00000cea                __frcdivd
+00000dbb                I$$LMPY
+00000dbb                __mpyli
+00000dce                __nop
+00000dd0                __register_lock
+00000dd8                __register_unlock
+00000de0                __args_main
+00000e1c                _auto_init
+00000e7f                etext
+00000e7f                ___etext__
+            00000740    ___cinit__
+            00000740    cinit
+            00004080    _ASC_MSK
+            00004080    ___bss__
+            00004080    .bss
+            000046c2    __cleanup_ptr
+            000046c4    __dtors_ptr
+            000046c6    __lock
+            000046c8    __unlock
+            000046ca    end
+            000046ca    ___end__
+            000046ca    __sysstack
+            000047c4    __stack
+ffffffff                pinit
+ffffffff                ___binit__
+ffffffff                ___pinit__
+ffffffff                binit
+ffffffff                ___c_args__
+
+[67 symbols]

@@ -1,0 +1,26 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectName="gpt2"
+ProjectDir=""
+ProjectType=Executable
+CPUFamily=TMS320C55XX
+Tool="Compiler"
+Tool="DspBiosBuilder"
+Tool="Linker"
+Config="Debug"
+
+[Source Files]
+Source="main_gpt2.c"
+Source="vectors_gpt2.asm"
+Source="gpt2.cmd"
+
+["Compiler" Settings: "Debug"]
+Options=-gp -q -fr".\Debug" -ff".\Debug" -d"CHIP_5502"
+
+["DspBiosBuilder" Settings: "Debug"]
+Options=-v55
+
+["Linker" Settings: "Debug"]
+Options=-q -cr -m".\Debug\gpt2.map" -o".\Debug\gpt2.out" -x -l"csl5502.lib" -l"rts55.lib"
+

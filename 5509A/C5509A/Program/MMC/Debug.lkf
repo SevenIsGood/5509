@@ -1,0 +1,5 @@
+-z -q -c -m"./Debug/mmc.map" -o"./Debug/mmc.out" -x -i"C:/CCStudio_v3.1/C5500/rtdx/lib" -i"C:/CCStudio_v3.1/C5500/csl/lib" -i"C:/CCStudio_v3.1/C5500/xdais/lib" -i"C:/CCStudio_v3.1/C5500/bios/lib" -i"C:/CCStudio_v3.1/C5500/cgtools/lib" -l"csl5509ax.lib" -l"rts55x.lib"
+"D:\5509A_pro2\MMC\Debug\mmc_test.obj"
+"C:\CCStudio_v3.1\C5500\cgtools\lib\rts55x.lib"
+"C:\CCStudio_v3.1\C5500\csl\lib\csl5509ax.lib"
+"D:\5509A_pro2\MMC\emif.cmd"

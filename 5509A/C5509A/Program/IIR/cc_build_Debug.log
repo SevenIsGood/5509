@@ -1,0 +1,9 @@
+------------------------------  IIR.pjt - Debug  ------------------------------
+[iir.c] "D:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -g -q -fr"D:/CCStudio_v3.3/MyProjects/5509/IIR/Debug" -d"_DEBUG" -ml -@"Debug.lkf" "iir.c"
+
+[Linking...] "D:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -@"Debug.lkf"
+<Linking>
+>> warning: creating output section vectors without SECTIONS specification
+
+Build Complete,
+  0 Errors, 1 Warnings, 0 Remarks.

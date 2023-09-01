@@ -1,0 +1,42 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectName="test-irq"
+ProjectDir="D:\CCStudio_v3.3\MyProjects\5509\RTC\"
+ProjectType=Executable
+CPUFamily=TMS320C55XX
+Tool="Compiler"
+Tool="CustomBuilder"
+Tool="DspBiosBuilder"
+Tool="Linker"
+Config="Debug"
+Config="Release"
+
+[Source Files]
+Source="..\..\..\C5500\cgtools\lib\rts55x.lib"
+Source="..\..\..\C5500\csl\lib\csl5509x.lib"
+Source="rtc.c"
+Source="vectors.s55"
+Source="rtc.cmd"
+
+["Compiler" Settings: "Debug"]
+Options=-g -q -oi300 -d"_DEBUG" -d"CHIP_5509" -ml
+
+["Compiler" Settings: "Release"]
+Options=-q -o2 -fr"D:\CCStudio_v3.3\MyProjects\5509\RTC\Release"
+
+["DspBiosBuilder" Settings: "Debug"]
+Options=-v55
+
+["DspBiosBuilder" Settings: "Release"]
+Options=-v55
+
+["Linker" Settings: "Debug"]
+Options=-q -c -m".\Debug\rtc.map" -o".\Debug\rtc.out" -stack4000 -sysstack4000 -x -l"csl5509x.lib" -l"rts55x.lib"
+
+["Linker" Settings: "Release"]
+Options=-q -c -o".\Release\test-irq.out" -x
+
+["rtc.cmd" Settings: "Debug"]
+LinkOrder=1
+

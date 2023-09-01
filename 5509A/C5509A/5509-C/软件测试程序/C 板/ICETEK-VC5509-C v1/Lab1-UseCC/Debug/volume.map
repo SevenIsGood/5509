@@ -1,0 +1,177 @@
+******************************************************************************
+         TMS320C55x COFF Linker PC Version 2.56                
+******************************************************************************
+>> Linked Sun Jun 27 23:37:12 2004
+
+OUTPUT FILE NAME:   <./Debug/volume.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 00000373
+
+
+MEMORY CONFIGURATION
+
+                  name            origin    length      used    attr    fill
+                                 (bytes)   (bytes)    (bytes)
+         ----------------------  --------  ---------  --------  ----  --------
+         PROG                    00000200   00002000  0000021d  RWIX
+         DATA                    00002200   00001000  0000061c  RWI 
+         VECT                    0000d000   00000100  00000000  RWIX
+
+
+SECTION ALLOCATION MAP
+(Addresses surrounded by []'s are displayed for convenience only!)
+
+output                                                          attributes/
+section   page  orgn(bytes) orgn(words) len(bytes) len(words)   input sections
+--------  ----  ----------- ----------- ---------- ----------   --------------
+.data        0   [ 00000000 ]  00000000          *   00000000   UNINITIALIZED
+
+.trcinit     0   [ 00000200 ]  00000100          *   00000000   UNINITIALIZED
+
+.gblinit     0   [ 00000200 ]  00000100          *   00000000   UNINITIALIZED
+
+frt          0   [ 00000200 ]  00000100          *   00000000   UNINITIALIZED
+
+.sysinit     0   [ 00000200 ]  00000100          *   00000000   UNINITIALIZED
+
+.pinit       0   [ 00000200 ]  00000100          *   00000000   
+
+.text        0     00000200  [ 00000100 ] 000001d3          *   
+                   00000200  [ 00000100 ] 0000006f          *   VOLUME.obj (.text)
+                   0000026f  [ 00000137+] 00000099          *   rts55.lib : exit.obj (.text)
+                   00000308  [ 00000184 ] 0000006b          *             : autoinit.obj (.text)
+                   00000373  [ 000001b9+] 00000048          *             : boot.obj (.text)
+                   000003bb  [ 000001dd+] 00000010          *             : _lock.obj (.text)
+                   000003cb  [ 000001e5+] 00000007          *             : exit.obj (.text:CIO_breakpoint)
+                   000003d2  [ 000001e9 ] 00000001          *   --HOLE-- [fill = 20]
+
+.cinit       0   [ 000003d4 ]  000001ea          *   00000025   
+                 [ 000003d4 ]  000001ea          *   0000000e   rts55.lib : exit.obj (.cinit)
+                 [ 000003f0 ]  000001f8          *   0000000c   VOLUME.obj (.cinit)
+                 [ 00000408 ]  00000204          *   0000000a   rts55.lib : _lock.obj (.cinit)
+                 [ 0000041c ]  0000020e          *   00000001   --HOLE-- [fill = 0]
+
+.far         0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.MEM$obj     0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.const       0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.switch      0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.sysmem      0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.cio         0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.sysheap     0   [ 00002200 ]  00001100          *   00000000   UNINITIALIZED
+
+.bss         0   [ 00002200 ]  00001100          *   0000011a   UNINITIALIZED
+                 [ 00002200 ]  00001100          *   000000d0   VOLUME.obj (.bss)
+                 [ 000023a0 ]  000011d0          *   00000046   rts55.lib : exit.obj (.bss)
+                 [ 0000242c ]  00001216          *   00000004             : _lock.obj (.bss)
+
+.sysstack 
+*            0   [ 00002434 ]  0000121a          *   000000fa   UNINITIALIZED
+
+.stack       0   [ 00002628 ]  00001314          *   000000fa   UNINITIALIZED
+
+.vectors     0   [ 0000d000 ]  00006800          *   00000000   UNINITIALIZED
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+            00001100    .bss
+            00000000    .data
+00000200                .text
+000003cc                C$$EXIT
+000001f4                __STACK_SIZE
+000001f4                __SYSSTACK_SIZE
+            00001100    ___bss__
+            000001ea    ___cinit__
+            00000000    ___data__
+            00000000    ___edata__
+            0000121a    ___end__
+000003d3                ___etext__
+ffffffff                ___pinit__
+00000200                ___text__
+            00001212    __cleanup_ptr
+            00001214    __dtors_ptr
+            00001216    __lock
+000003bb                __nop
+000003bd                __register_lock
+000003c4                __register_unlock
+            00001314    __stack
+            0000121a    __sysstack
+            00001218    __unlock
+000003cb                _abort
+000002be                _atexit
+00000308                _auto_init
+00000373                _c_int00
+0000026f                _exit
+            00001100    _inp_buffer
+            000011c8    _input
+00000248                _main
+            00001164    _out_buffer
+            000011c9    _output
+00000200                _read_signals
+            000011cb    _str
+            000011ca    _volume
+0000020c                _write_buffer
+            000001ea    cinit
+            00000000    edata
+            0000121a    end
+000003d3                etext
+ffffffff                pinit
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+abs. value/
+byte addr   word addr   name
+---------   ---------   ----
+            00000000    ___data__
+            00000000    ___edata__
+            00000000    .data
+            00000000    edata
+000001f4                __SYSSTACK_SIZE
+000001f4                __STACK_SIZE
+00000200                .text
+00000200                ___text__
+00000200                _read_signals
+0000020c                _write_buffer
+00000248                _main
+0000026f                _exit
+000002be                _atexit
+00000308                _auto_init
+00000373                _c_int00
+000003bb                __nop
+000003bd                __register_lock
+000003c4                __register_unlock
+000003cb                _abort
+000003cc                C$$EXIT
+000003d3                ___etext__
+000003d3                etext
+            000001ea    ___cinit__
+            000001ea    cinit
+            00001100    .bss
+            00001100    ___bss__
+            00001100    _inp_buffer
+            00001164    _out_buffer
+            000011c8    _input
+            000011c9    _output
+            000011ca    _volume
+            000011cb    _str
+            00001212    __cleanup_ptr
+            00001214    __dtors_ptr
+            00001216    __lock
+            00001218    __unlock
+            0000121a    ___end__
+            0000121a    __sysstack
+            0000121a    end
+            00001314    __stack
+ffffffff                pinit
+ffffffff                ___pinit__
+
+[42 symbols]

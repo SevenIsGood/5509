@@ -1,0 +1,6 @@
+-z -q -c -m"./Debug/exint.map" -o"./Debug/exint.out" -x -i"C:/CCStudio_v3.1/C5500/rtdx/lib" -i"C:/CCStudio_v3.1/C5500/csl/lib" -i"C:/CCStudio_v3.1/C5500/xdais/lib" -i"C:/CCStudio_v3.1/C5500/bios/lib" -i"C:/CCStudio_v3.1/C5500/cgtools/lib" -l"csl5509x.lib" -l"rts55x.lib"
+"C:\CCStudio_v3.1\MyProjects\5509EXINT\Debug\exint.obj"
+"C:\CCStudio_v3.1\MyProjects\5509EXINT\Debug\vectors_exint.obj"
+"C:\CCStudio_v3.1\C5500\cgtools\lib\rts55x.lib"
+"C:\CCStudio_v3.1\C5500\csl\lib\csl5509x.lib"
+"C:\CCStudio_v3.1\MyProjects\5509EXINT\emif.cmd"

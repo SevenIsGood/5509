@@ -1,0 +1,7 @@
+-z -q -c -m"./Debug/IP.map" -o"./Debug/IP.out" -x -i"C:/CCStudio_v3.1/C5500/rtdx/lib" -i"C:/CCStudio_v3.1/C5500/csl/lib" -i"C:/CCStudio_v3.1/C5500/xdais/lib" -i"C:/CCStudio_v3.1/C5500/bios/lib" -i"C:/CCStudio_v3.1/C5500/cgtools/lib" -l"csl5509x.lib" -l"rts55x.lib"
+"D:\5509A_pro\5509IP\Debug\IP.obj"
+"D:\5509A_pro\5509IP\Debug\main.obj"
+"D:\5509A_pro\5509IP\Debug\vectors_IP.obj"
+"C:\CCStudio_v3.1\C5500\cgtools\lib\rts55x.lib"
+"C:\CCStudio_v3.1\C5500\csl\lib\csl5509x.lib"
+"D:\5509A_pro\5509IP\emif.cmd"

@@ -1,0 +1,10 @@
+------------------------------  rtc.pjt - Debug  ------------------------------
+[rtc.c] "D:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -g -q -oi300 -d"_DEBUG" -d"CHIP_5509" -ml -@"Debug.lkf" "rtc.c"
+
+[vectors.s55] "D:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -g -q -oi300 -d"_DEBUG" -d"CHIP_5509" -ml -@"Debug.lkf" "vectors.s55"
+
+[Linking...] "D:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -@"Debug.lkf"
+<Linking>
+
+Build Complete,
+  0 Errors, 0 Warnings, 0 Remarks.

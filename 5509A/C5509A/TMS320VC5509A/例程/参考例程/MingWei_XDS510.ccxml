@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configurations XML_version="1.2" id="configurations_0">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<configuration XML_version="1.2" id="MingWei XDS510 USB2.0 V2 Emulator_0">
+        <instance XML_version="1.2" desc="MingWei XDS510 USB2.0 V2 Emulator_0" href="connections\BH-USB20_Connection.xml" id="MingWei XDS510 USB2.0 V2 Emulator_0" xml="BH-USB20_Connection.xml" xmlpath="connections"/>
+        <connection XML_version="1.2" id="MingWei XDS510 USB2.0 V2 Emulator_0">
+            <instance XML_version="1.2" href="drivers\tixds55x.xml" id="drivers" xml="tixds55x.xml" xmlpath="drivers"/>
+            <platform XML_version="1.2" id="platform_0">
+                <instance XML_version="1.2" desc="TMS320C5509A_0" href="Devices\c5509A.xml" id="TMS320C5509A_0" xml="c5509A.xml" xmlpath="Devices"/>
+            </platform>
+        </connection>
+    </configuration>
+</configurations>

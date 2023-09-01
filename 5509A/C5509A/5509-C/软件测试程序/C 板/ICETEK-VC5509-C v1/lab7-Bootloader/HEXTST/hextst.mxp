@@ -1,0 +1,25 @@
+********************************************************************************
+TMS320C55x COFF/Hex Converter                                       Version 2.56
+********************************************************************************
+
+INPUT FILE NAME: <hextst.out>
+OUTPUT FORMAT:   Motorola-S2
+
+PHYSICAL MEMORY PARAMETERS
+   Default data width   :   8
+   Default memory width :  16
+   Default output width :  32
+
+BOOT LOADER PARAMETERS
+   Table Type:		  PARALLEL PORT (EMIF 32 bit Mode)
+   Entry Point:		  0x00000200
+
+
+OUTPUT TRANSLATION MAP
+--------------------------------------------------------------------------------
+00400000..004fffff  Page=0  Memory Width=16  ROM Width=32  "ROM"
+--------------------------------------------------------------------------------
+   OUTPUT FILES: hextst.hex [b0..b31]
+
+   CONTENTS: 00400000..00400809   BOOT TABLE
+                            .data : dest=00000200  size=00000800  width=00000001x

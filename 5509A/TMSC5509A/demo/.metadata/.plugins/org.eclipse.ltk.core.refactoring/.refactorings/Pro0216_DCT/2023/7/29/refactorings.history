@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Pro0216_DCT/include/img.h&apos; to &apos;Pic.h&apos;" description="Rename resource &apos;img.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="include/img.h" name="Pic.h" stamp="1689689957226" updateReferences="true"/>
+</session>

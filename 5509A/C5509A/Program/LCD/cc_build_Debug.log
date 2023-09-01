@@ -1,0 +1,8 @@
+------------------------------  lcd.pjt - Debug  ------------------------------
+[lcd.c] "D:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -g -q -fr"./Debug" -d"_DEBUG" -d"CHIP_5509" -ml -@"Debug.lkf" "lcd.c"
+
+[Linking...] "D:\CCStudio_v3.3\C5500\cgtools\bin\cl55" -@"Debug.lkf"
+<Linking>
+
+Build Complete,
+  0 Errors, 0 Warnings, 0 Remarks.

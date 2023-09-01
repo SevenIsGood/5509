@@ -1,0 +1,4 @@
+-z -q -c -m"./Debug/uart.map" -o"./Debug/uart.out" -w -x -i"C:/CCStudio_v3.3/C5500/csl/lib" -i"C:/CCStudio_v3.3/C5500/xdais/lib" -i"C:/CCStudio_v3.3/bios_5_31_02/packages/ti/bios/lib" -i"C:/CCStudio_v3.3/bios_5_31_02/packages/ti/rtdx/lib/c5500" -i"C:/CCStudio_v3.3/C5500/cgtools/lib"
+"C:\Lab0308-uart\Debug\uart.obj"
+"C:\Lab0308-uart\Debug\util.obj"
+"C:\Lab0308-uart\uart.cmd"

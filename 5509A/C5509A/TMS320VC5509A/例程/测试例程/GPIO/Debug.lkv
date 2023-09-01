@@ -1,0 +1,5 @@
+-z -q -c -m"./Debug/5509gpio.map" -o"./Debug/5509gpio.out" -stack500 -sysstack500 -w -x -i"c:/ti5000/c5500/bios/lib" -i"c:/ti5000/c5500/rtdx/lib" -i"c:/ti5000/c5500/xdais/lib" -i"c:/ti5000/c5500/cgtools/lib"
+"E:\EUE\EUE5509\Programme\GPIO_BIOS\Debug\gpio.obj"
+"E:\EUE\EUE5509\Programme\GPIO_BIOS\csl5509x.lib"
+"E:\EUE\EUE5509\Programme\GPIO_BIOS\rts55x.lib"
+"E:\EUE\EUE5509\Programme\GPIO_BIOS\gpio.cmd"

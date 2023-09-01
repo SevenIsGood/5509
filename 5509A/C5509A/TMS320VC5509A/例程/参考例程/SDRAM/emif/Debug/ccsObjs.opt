@@ -1,0 +1,1 @@
+"./emif.obj" -l"csl5509x.lib" -l"rts55x.lib" "../csl5509x.lib" "E:/Program/DSP/VC5509A/SDRAM/emif.cmd" "../rts55x.lib" 

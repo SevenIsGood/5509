@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Pro0207_ADC/src/timer.cmd&apos; to &apos;adc.cmd&apos;" description="Rename resource &apos;timer.cmd&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/timer.cmd" name="adc.cmd" stamp="1686499811807" updateReferences="true"/>
+</session>

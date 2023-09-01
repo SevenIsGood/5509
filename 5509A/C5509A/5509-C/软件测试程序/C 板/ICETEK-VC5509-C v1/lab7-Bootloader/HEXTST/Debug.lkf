@@ -1,0 +1,3 @@
+-z -q -estart -m"hextst.map" -o"hextst.out" -w -x -i"d:/tic5000/c5500/bios/lib" -i"d:/tic5000/c5500/rtdx/lib" -i"d:/tic5000/c5500/xdais/lib" -i"d:/tic5000/c5500/cgtools/lib"
+"E:\work\flashburn\icetek-vc5509-C\work\HEXTST\hextst.obj"
+"E:\work\flashburn\icetek-vc5509-C\work\HEXTST\hextst.cmd"

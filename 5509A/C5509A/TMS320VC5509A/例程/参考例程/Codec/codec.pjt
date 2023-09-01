@@ -1,0 +1,38 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectName="i2c2"
+ProjectDir="C:\CCStudio_v3.1\MyProjects\Codec\"
+ProjectType=Executable
+CPUFamily=TMS320C55XX
+Tool="Compiler"
+Tool="CustomBuilder"
+Tool="DspBiosBuilder"
+Tool="Linker"
+Config="Debug"
+Config="Release"
+
+[Source Files]
+Source="C:\CCStudio_v3.1\C5500\cgtools\lib\rts55x.lib"
+Source="C:\CCStudio_v3.1\C5500\csl\lib\csl5509x.lib"
+Source="codec.c"
+Source="codec.cmd"
+
+["Compiler" Settings: "Debug"]
+Options=-g -q -fr".\Debug" -d"_DEBUG" -d"CHIP_5509A" -ml
+
+["Compiler" Settings: "Release"]
+Options=-q -o2 -fr"C:\CCStudio_v3.1\MyProjects\Codec\Release"
+
+["DspBiosBuilder" Settings: "Debug"]
+Options=-v55
+
+["DspBiosBuilder" Settings: "Release"]
+Options=-v55
+
+["Linker" Settings: "Debug"]
+Options=-q -c -h -m".\Debug\codec.map" -o".\Debug\codec.out" -x -l"csl5509ax.lib" -l"rts55x.lib"
+
+["Linker" Settings: "Release"]
+Options=-q -c -o".\Release\i2c2.out" -x
+
